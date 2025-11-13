@@ -1,5 +1,4 @@
 import './style.css'
-import Typed from 'typed.js';
 
 interface Skill {
   name: string;
@@ -141,7 +140,6 @@ const CONTACT_DATA: ContactMethod[] = [
 ];
 
 class PortfolioApp {
-  private typedInstance: Typed | null = null;
   private intersectionObserver: IntersectionObserver | null = null;
 
   constructor() {
@@ -150,7 +148,6 @@ class PortfolioApp {
 
   private initializeApp(): void {
     this.handleLoadingScreen();
-    this.initializeTyped();
     this.initializeCustomCursor();
     this.initializeMobileMenu();
     this.initializeSmoothScrolling();
@@ -173,19 +170,7 @@ class PortfolioApp {
     });
   }
 
-  private initializeTyped(): void {
-    const typedElement = document.querySelector('.typed-text');
-    if (typedElement) {
-      this.typedInstance = new Typed(typedElement, {
-        strings: ['Student', 'Software Engineer', 'Robotics Enthusiast', 'Problem Solver'],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        startDelay: 500,
-        loop: true,
-      });
-    }
-  }
+  
 
   private initializeCustomCursor(): void {
     const cursor = document.getElementById('cursor');
