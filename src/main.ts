@@ -26,32 +26,32 @@ interface ContactMethod {
 
 const SKILLS_DATA = {
   programmingLanguages: [
-    { name: 'HTML', icon: '../images/html.png' },
-    { name: 'CSS', icon: '../images/css.png' },
-    { name: 'JavaScript', icon: '../images/javascript.png' },
-    { name: 'TypeScript', icon: '../images/typescript.png' },
-    { name: 'Python', icon: '../images/python.png' },
-    { name: 'Java', icon: '../images/java.png' },
-    { name: 'C++', icon: '../images/cpp.png' },
-    { name: 'C#', icon: '../images/csharp.png' },
-    { name: 'Swift', icon: '../images/swift.png' },
-    { name: 'Go', icon: '../images/go.png' },
+    { name: 'HTML', icon: '/images/html.png' },
+    { name: 'CSS', icon: '/images/css.png' },
+    { name: 'JavaScript', icon: '/images/javascript.png' },
+    { name: 'TypeScript', icon: '/images/typescript.svg' },
+    { name: 'Python', icon: '/images/python.png' },
+    { name: 'Java', icon: '/images/java.png' },
+    { name: 'C++', icon: '/images/cpp.png' },
+    { name: 'C#', icon: '/images/csharp.png' },
+    { name: 'Swift', icon: '/images/swift.png' },
+    { name: 'Go', icon: '/images/go.png' },
   ],
   frameworks: [
-    { name: 'React', icon: '../images/react.png' },
-    { name: 'Node.js', icon: '../images/node.png' },
-    { name: 'Tailwind', icon: '../images/tailwind.png' },
-    { name: 'Flask', icon: '../images/flask.png' },
-    { name: 'Flutter', icon: '../images/flutter.png' },
-    { name: 'Unity', icon: '../images/unity.png' },
+    { name: 'React', icon: '/images/react.png' },
+    { name: 'Node.js', icon: '/images/node.png' },
+    { name: 'Tailwind', icon: '/images/tailwind.png' },
+    { name: 'Flask', icon: '/images/flask.png' },
+    { name: 'Flutter', icon: '/images/flutter.png' },
+    { name: 'Unity', icon: '/images/unity.png' },
   ],
   technologies: [
-    { name: 'Firebase', icon: '../images/firebase.png'},
-    { name: 'Arduino', icon: '../images/arduino.png'},
-    { name: 'Fusion 360', icon: '../images/fusion.png'},
-    { name: 'Inventor', icon: '../images/inventor.png'},
-    { name: 'OnShape', icon: '../images/onshape.png'},
-    { name: '3D Printing', icon: '../images/3dprint.png'},
+    { name: 'Firebase', icon: '/images/firebase.png'},
+    { name: 'Arduino', icon: '/images/arduino.png'},
+    { name: 'Fusion 360', icon: '/images/fusion.png'},
+    { name: 'Inventor', icon: '/images/inventor.png'},
+    { name: 'OnShape', icon: '/images/onshape.png'},
+    { name: '3D Printing', icon: '/images/3dprint.png'},
   ]
 };
 
@@ -59,7 +59,7 @@ const PROJECTS_DATA: Project[] = [
   {
     title: 'RoboRoute',
     description: 'An advanced path planning and autonomous routine simulator for the VEX Robotics Competition game, High Stakes.',
-    image: '../images/roboroute.png',
+    image: '/images/roboroute.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
       demo: 'https://samuel-asefa.github.io/RoboRoute/src',
@@ -69,7 +69,7 @@ const PROJECTS_DATA: Project[] = [
   {
     title: 'Sciolytics',
     description: 'A comprehensive platform for Science Olympiad teams to track progress, manage resources, and analyze performance data.',
-    image: '../images/sciolytics.png',
+    image: '/images/sciolytics.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
       demo: 'https://samuel-asefa.github.io/Sciolytics/src',
@@ -79,7 +79,7 @@ const PROJECTS_DATA: Project[] = [
   {
     title: 'Mathify',
     description: 'A dedicated practice tool for students preparing for the New Jersey Math League, featuring a vast question bank and timer.',
-    image: '../images/mathify.png',
+    image: '/images/mathify.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
       demo: 'https://samuel-asefa.github.io/Mathify',
@@ -89,7 +89,7 @@ const PROJECTS_DATA: Project[] = [
   {
     title: 'Heavy?',
     description: 'A lightweight utility for VEX Robotics teams to quickly calculate the weight of various robot components and materials.',
-    image: '../images/heavy.png',
+    image: '/images/heavy.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
       demo: 'https://samuel-asefa.github.io/Heavy',
@@ -99,7 +99,7 @@ const PROJECTS_DATA: Project[] = [
   {
     title: 'Studently',
     description: 'An intuitive and minimalist task management application designed to help students organize their academic workload.',
-    image: '../images/studently.png',
+    image: '/images/studently.png',
     technologies: ['Svelte', 'JavaScript', 'HTML'],
     links: {
       demo: 'https://samuel-asefa.github.io/Studently',
@@ -109,7 +109,7 @@ const PROJECTS_DATA: Project[] = [
   {
     title: 'Graphify',
     description: 'A Java-based application for visualizing common graph theory algorithms, aiding in the understanding of complex data structures.',
-    image: '../images/graphify.png',
+    image: '/images/graphify.png',
     technologies: ['Java', 'JPanel'],
     links: {
       github: 'https://github.com/samuel-asefa/Graphify'
