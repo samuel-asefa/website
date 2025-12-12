@@ -29,7 +29,6 @@ const SKILLS_DATA = {
     { name: 'HTML', icon: '/images/html.png' },
     { name: 'CSS', icon: '/images/css.png' },
     { name: 'JavaScript', icon: '/images/javascript.png' },
-    { name: 'TypeScript', icon: '/images/typescript.svg' },
     { name: 'Python', icon: '/images/python.png' },
     { name: 'Java', icon: '/images/java.png' },
     { name: 'C++', icon: '/images/cpp.png' },
