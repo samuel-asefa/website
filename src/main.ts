@@ -51,6 +51,7 @@ const SKILLS_DATA = {
     { name: 'Inventor', icon: '/images/inventor.png'},
     { name: 'OnShape', icon: '/images/onshape.png'},
     { name: '3D Printing', icon: '/images/3dprint.png'},
+
   ]
 };
 
@@ -101,7 +102,7 @@ const PROJECTS_DATA: Project[] = [
     image: '/images/studently.png',
     technologies: ['Svelte', 'JavaScript', 'HTML'],
     links: {
-      demo: 'https://samuel-asefa.github.io/Studently',
+      demo: 'https://studentlyy.vercel.app/',
       github: 'https://github.com/samuel-asefa/Studently'
     }
   },
