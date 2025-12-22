@@ -82,7 +82,7 @@ const PROJECTS_DATA: Project[] = [
     image: '/images/mathify.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
-      demo: 'https://samuel-asefa.github.io/Mathify',
+      demo: 'https://math-ify.vercel.app/',
       github: 'https://github.com/samuel-asefa/Mathify'
     }
   },
