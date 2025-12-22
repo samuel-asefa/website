@@ -78,7 +78,7 @@ const PROJECTS_DATA: Project[] = [
   },
   {
     title: 'Mathify',
-    description: 'A dedicated practice tool for students preparing for the New Jersey Math League, featuring a vast question bank and timer.',
+    description: 'A dedicated practice tool for students preparing for the NJ Math League, featuring a vast question bank and timer.',
     image: '/images/mathify.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
@@ -87,18 +87,18 @@ const PROJECTS_DATA: Project[] = [
     }
   },
   {
-    title: 'Heavy?',
-    description: 'A lightweight utility for VEX Robotics teams to quickly calculate the weight of various robot components and materials.',
-    image: '/images/heavy.png',
+    title: 'CircuitSpace',
+    description: 'An intuitive circuit planner for rocketry with circuit validation, mass calculation, and more.',
+    image: '/images/circuitspace.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
-      demo: 'https://samuel-asefa.github.io/Heavy',
-      github: 'https://github.com/samuel-asefa/Heavy'
+      demo: 'https://samuel-asefa.github.io/CircuitSpace/',
+      github: 'https://github.com/samuel-asefa/CircuitSpace'
     }
   },
   {
     title: 'Studently',
-    description: 'An intuitive and minimalist task management application designed to help students organize their academic workload.',
+    description: 'An intuitive and minimalist task list application with clean UI.',
     image: '/images/studently.png',
     technologies: ['Svelte', 'JavaScript', 'HTML'],
     links: {
