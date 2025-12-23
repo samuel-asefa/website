@@ -12,6 +12,7 @@ interface Project {
   technologies: string[];
   links: {
     demo?: string;
+    paper?: string;
     github?: string;
   };
 }
@@ -51,7 +52,6 @@ const SKILLS_DATA = {
     { name: 'Inventor', icon: '/images/inventor.png'},
     { name: 'OnShape', icon: '/images/onshape.png'},
     { name: '3D Printing', icon: '/images/3dprint.png'},
-
   ]
 };
 
@@ -125,7 +125,6 @@ const HARDWARE_PROJECTS: Project[] = [
     technologies: ['C++', 'Arduino'],
     links: {
       github: 'https://github.com/samuel-asefa/Dexarm'
-
     }
   },
   {
@@ -138,7 +137,6 @@ const HARDWARE_PROJECTS: Project[] = [
       github: 'https://github.com/samuel-asefa/SurroundScanner'
     }
   },
-
   {
     title: 'VEX Robot',
     description: 'A competition robot built for the Push Back VEX Robotics Competition programmed with a custom PID library.',
@@ -146,6 +144,36 @@ const HARDWARE_PROJECTS: Project[] = [
     technologies: ['VEX', 'C++'],
     links: {
       github: 'https://github.com/750W/push-back'
+    }
+  }
+];
+
+const RESEARCH_PROJECTS: Project[] = [
+  {
+    title: 'Project Name',
+    description: 'Project Description.',
+    image: '/images/UPDATE.png',
+    technologies: ['Skill', 'Skill', 'Skill'],
+    links: {
+      paper: 'https://github.com/samuel-asefa/UPDATE'
+    }
+  },
+  {
+    title: 'Project Name',
+    description: 'Project Description.',
+    image: '/images/UPDATE.png',
+    technologies: ['Skill', 'Skill', 'Skill'],
+    links: {
+      github: 'https://github.com/samuel-asefa/UPDATE'
+    }
+  },
+  {
+    title: 'Project Name',
+    description: 'Project Description.',
+    image: '/images/UPDATE.png',
+    technologies: ['Skill', 'Skill', 'Skill'],
+    links: {
+      github: 'https://github.com/samuel-asefa/UPDATE'
     }
   }
 ];
@@ -174,6 +202,7 @@ const CONTACT_DATA: ContactMethod[] = [
 
 class PortfolioApp {
   private intersectionObserver: IntersectionObserver | null = null;
+  private currentFilter: string = 'all';
 
   constructor() {
     this.initializeApp();
@@ -190,6 +219,7 @@ class PortfolioApp {
     this.injectProjectsHTML();
     this.renderAllComponents();
     this.initializeCircuitBackground();
+    this.initializeProjectFilters();
   }
 
   private handleLoadingScreen(): void {
@@ -203,8 +233,6 @@ class PortfolioApp {
       }, 1000);
     });
   }
-
-  
 
   private initializeCustomCursor(): void {
     const cursor = document.getElementById('cursor');
@@ -344,18 +372,56 @@ class PortfolioApp {
         <div class="section-line"></div>
       </div>
       
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="software">Software</button>
+        <button class="filter-btn" data-filter="hardware">Hardware</button>
+        <button class="filter-btn" data-filter="research">Research</button>
+      </div>
+      
       <div class="projects-content">
-        <div class="project-category">
+        <div class="project-category" data-category="software">
           <h3 class="category-title">Software Projects</h3>
           <div id="software-projects-grid" class="projects-grid"></div>
         </div>
         
-        <div class="project-category">
+        <div class="project-category" data-category="hardware">
           <h3 class="category-title">Hardware Projects</h3>
           <div id="hardware-projects-grid" class="projects-grid"></div>
         </div>
+        
+        <div class="project-category" data-category="research">
+          <h3 class="category-title">Research Projects</h3>
+          <div id="research-projects-grid" class="projects-grid"></div>
+        </div>
       </div>
     `;
+  }
+
+  private initializeProjectFilters(): void {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const categories = document.querySelectorAll('.project-category');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        if (!filter) return;
+
+        this.currentFilter = filter;
+
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        categories.forEach(category => {
+          const categoryType = category.getAttribute('data-category');
+          if (filter === 'all' || filter === categoryType) {
+            category.classList.remove('hidden');
+          } else {
+            category.classList.add('hidden');
+          }
+        });
+      });
+    });
   }
 
   private renderAllComponents(): void {
@@ -380,6 +446,7 @@ class PortfolioApp {
   private renderProjects(): void {
     this.renderProjectCategory('software-projects-grid', SOFTWARE_PROJECTS);
     this.renderProjectCategory('hardware-projects-grid', HARDWARE_PROJECTS);
+    this.renderProjectCategory('research-projects-grid', RESEARCH_PROJECTS);
   }
 
   private renderProjectCategory(containerId: string, projects: Project[]): void {
@@ -398,6 +465,7 @@ class PortfolioApp {
           </div>
           <div class="project-links">
             ${project.links.demo ? `<a href="${project.links.demo}" target="_blank" rel="noopener" class="btn primary-btn">Project Demo</a>` : ''}
+            ${project.links.paper ? `<a href="${project.links.paper}" target="_blank" rel="noopener" class="btn primary-btn">Research Paper</a>` : ''}
             ${project.links.github ? `<a href="${project.links.github}" target="_blank" rel="noopener" class="btn secondary-btn">GitHub</a>` : ''}
           </div>
         </div>
