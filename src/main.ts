@@ -55,7 +55,7 @@ const SKILLS_DATA = {
   ]
 };
 
-const PROJECTS_DATA: Project[] = [
+const SOFTWARE_PROJECTS: Project[] = [
   {
     title: 'RoboRoute',
     description: 'An advanced path planning and autonomous routine simulator for the VEX Robotics Competition game, High Stakes.',
@@ -117,6 +117,32 @@ const PROJECTS_DATA: Project[] = [
   }
 ];
 
+const HARDWARE_PROJECTS: Project[] = [
+  {
+    title: 'SurroundScanner',
+    description: 'Device to help the visually impaired using ultrasonic sensors to detect obstacles in all directions.',
+    image: '/images/surroundscanner.png',
+    technologies: ['C++', 'Arduino'],
+    links: {
+      github: 'https://github.com/samuel-asefa/SurroundScanner'
+    }
+  },
+  {
+    title: 'Coming Soon',
+    description: 'Exciting hardware project in development. Stay tuned for updates!',
+    image: '/images/placeholder.png',
+    technologies: ['TBD'],
+    links: {}
+  },
+  {
+    title: 'Coming Soon',
+    description: 'Exciting hardware project in development. Stay tuned for updates!',
+    image: '/images/placeholder.png',
+    technologies: ['TBD'],
+    links: {}
+  }
+];
+
 const CONTACT_DATA: ContactMethod[] = [
   {
     iconClass: 'fas fa-envelope',
@@ -154,6 +180,7 @@ class PortfolioApp {
     this.initializeHeaderScroll();
     this.initializeBackToTop();
     this.initializeIntersectionObserver();
+    this.injectProjectsHTML();
     this.renderAllComponents();
     this.initializeCircuitBackground();
   }
@@ -300,6 +327,30 @@ class PortfolioApp {
     });
   }
 
+  private injectProjectsHTML(): void {
+    const projectsSection = document.getElementById('projects');
+    if (!projectsSection) return;
+
+    projectsSection.innerHTML = `
+      <div class="section-header fade-in">
+        <h2>Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="projects-content">
+        <div class="project-category">
+          <h3 class="category-title">Software Projects</h3>
+          <div id="software-projects-grid" class="projects-grid"></div>
+        </div>
+        
+        <div class="project-category">
+          <h3 class="category-title">Hardware Projects</h3>
+          <div id="hardware-projects-grid" class="projects-grid"></div>
+        </div>
+      </div>
+    `;
+  }
+
   private renderAllComponents(): void {
     this.renderSkillCategory('programming-languages-grid', SKILLS_DATA.programmingLanguages);
     this.renderSkillCategory('frameworks-grid', SKILLS_DATA.frameworks);
@@ -320,9 +371,14 @@ class PortfolioApp {
   }
 
   private renderProjects(): void {
-    const container = document.getElementById('projects-grid');
+    this.renderProjectCategory('software-projects-grid', SOFTWARE_PROJECTS);
+    this.renderProjectCategory('hardware-projects-grid', HARDWARE_PROJECTS);
+  }
+
+  private renderProjectCategory(containerId: string, projects: Project[]): void {
+    const container = document.getElementById(containerId);
     if (!container) return;
-    container.innerHTML = PROJECTS_DATA.map(project => `
+    container.innerHTML = projects.map(project => `
       <article class="project-card fade-in">
         <div class="project-img">
           <img src="${project.image}" alt="${project.title} screenshot" loading="lazy">
@@ -340,7 +396,7 @@ class PortfolioApp {
         </div>
       </article>
     `).join('');
-    document.querySelectorAll('.project-card').forEach(el => this.intersectionObserver?.observe(el));
+    container.querySelectorAll('.project-card').forEach(el => this.intersectionObserver?.observe(el));
   }
   
   private renderContactInfo(): void {
