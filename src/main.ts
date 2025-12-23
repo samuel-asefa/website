@@ -150,12 +150,12 @@ const HARDWARE_PROJECTS: Project[] = [
 
 const RESEARCH_PROJECTS: Project[] = [
   {
-    title: 'Project Name',
-    description: 'Project Description.',
-    image: '/images/UPDATE.png',
-    technologies: ['Skill', 'Skill', 'Skill'],
+    title: 'TEG Powered Cooking Pollution Capturing Device',
+    description: 'Conducted research on Thermoelectric Powered Regeneration of Incomplete Combustion Cooking Pollutant Capturing Amines.',
+    image: '/images/teg-research.png',
+    technologies: ['CAD', 'COMSOL'],
     links: {
-      paper: 'https://github.com/samuel-asefa/UPDATE'
+      paper: 'https://www.cambridge.org/engage/coe/article-details/691404bcef936fb4a2b1b9fa'
     }
   },
   {
