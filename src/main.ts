@@ -70,7 +70,7 @@ const SOFTWARE_PROJECTS: Project[] = [
     title: 'Sciolytics',
     description: 'A comprehensive platform for Science Olympiad teams to track progress, manage resources, and analyze performance data.',
     image: '/images/sciolytics.png',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    technologies: ['TypeScript', 'Firebase'],
     links: {
       demo: 'https://samuel-asefa.github.io/Sciolytics/src',
       github: 'https://github.com/samuel-asefa/Sciolytics'
@@ -80,7 +80,7 @@ const SOFTWARE_PROJECTS: Project[] = [
     title: 'Mathify',
     description: 'A dedicated practice tool for students preparing for the NJ Math League, featuring a vast question bank and timer.',
     image: '/images/mathify.png',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    technologies: ['JavaScript', 'Firebase'],
     links: {
       demo: 'https://math-ify.vercel.app/',
       github: 'https://github.com/samuel-asefa/Mathify'
