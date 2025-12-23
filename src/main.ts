@@ -124,6 +124,7 @@ const HARDWARE_PROJECTS: Project[] = [
     image: '/images/surroundscanner.png',
     technologies: ['C++', 'Arduino'],
     links: {
+      demo: 'youtube.com/watch?v=4vD-6Ere7GE',
       github: 'https://github.com/samuel-asefa/SurroundScanner'
     }
   },
@@ -390,7 +391,7 @@ class PortfolioApp {
             ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
           </div>
           <div class="project-links">
-            ${project.links.demo ? `<a href="${project.links.demo}" target="_blank" rel="noopener" class="btn primary-btn">Live Demo</a>` : ''}
+            ${project.links.demo ? `<a href="${project.links.demo}" target="_blank" rel="noopener" class="btn primary-btn">Project Demo</a>` : ''}
             ${project.links.github ? `<a href="${project.links.github}" target="_blank" rel="noopener" class="btn secondary-btn">GitHub</a>` : ''}
           </div>
         </div>
