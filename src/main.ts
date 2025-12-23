@@ -119,22 +119,26 @@ const SOFTWARE_PROJECTS: Project[] = [
 
 const HARDWARE_PROJECTS: Project[] = [
   {
+    title: 'Dexarm',
+    description: 'An affordable prosthetic arm designed to restore essential arm and hand functionality for everyday tasks.',
+    image: '/images/dexarm.jpg',
+    technologies: ['C++', 'Arduino'],
+    links: {
+      github: 'https://github.com/samuel-asefa/Dexarm'
+
+    }
+  },
+  {
     title: 'SurroundScanner',
     description: 'Device to help the visually impaired using ultrasonic sensors to detect obstacles in all directions.',
     image: '/images/surroundscanner.png',
-    technologies: ['C++', 'Arduino'],
+    technologies: ['C++', 'Arduino', '3D Printing'],
     links: {
       demo: 'youtube.com/watch?v=4vD-6Ere7GE',
       github: 'https://github.com/samuel-asefa/SurroundScanner'
     }
   },
-  {
-    title: 'Coming Soon',
-    description: 'Exciting hardware project in development. Stay tuned for updates!',
-    image: '/images/placeholder.png',
-    technologies: ['TBD'],
-    links: {}
-  },
+
   {
     title: 'Coming Soon',
     description: 'Exciting hardware project in development. Stay tuned for updates!',
