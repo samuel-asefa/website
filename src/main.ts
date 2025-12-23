@@ -140,11 +140,13 @@ const HARDWARE_PROJECTS: Project[] = [
   },
 
   {
-    title: 'Coming Soon',
-    description: 'Exciting hardware project in development. Stay tuned for updates!',
-    image: '/images/placeholder.png',
-    technologies: ['TBD'],
-    links: {}
+    title: 'VEX Robot',
+    description: 'A competition robot built for the Push Back VEX Robotics Competition coded with a programmed PID library.',
+    image: '/images/push-back-robot.jpeg',
+    technologies: ['VEX', 'C++'],
+    links: {
+      github: 'https://github.com/750W/push-back'
+    }
   }
 ];
 
