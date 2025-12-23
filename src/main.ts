@@ -168,12 +168,12 @@ const RESEARCH_PROJECTS: Project[] = [
     }
   },
   {
-    title: 'Project Name',
-    description: 'Project Description.',
-    image: '/images/UPDATE.png',
-    technologies: ['Skill', 'Skill', 'Skill'],
+    title: 'Global Trade Prediction Model',
+    description: 'A machine learning project predicting bilateral trade flows between countries using economic indicators, geographic factors, and policy variables.',
+    image: '/images/global-trade-prediction-model.png',
+    technologies: ['Python', 'Pandas', 'Scikit-learn'],
     links: {
-      github: 'https://github.com/samuel-asefa/UPDATE'
+      github: 'https://github.com/samuel-asefa/GlobalTradeModel'
     }
   }
 ];
