@@ -159,12 +159,12 @@ const RESEARCH_PROJECTS: Project[] = [
     }
   },
   {
-    title: 'Project Name',
-    description: 'Project Description.',
-    image: '/images/UPDATE.png',
-    technologies: ['Skill', 'Skill', 'Skill'],
+    title: 'Life Expectancy Prediction Model',
+    description: 'A machine learning project predicting country-level life expectancy using economic, educational, and environmental factors.',
+    image: '/images/life-expectancy-prediction-model.jpg',
+    technologies: ['Python', 'Pandas', 'Scikit-learn'],
     links: {
-      github: 'https://github.com/samuel-asefa/UPDATE'
+      github: 'https://github.com/samuel-asefa/LifeExpectancyModel'
     }
   },
   {
