@@ -12,6 +12,7 @@ interface Project {
   technologies: string[];
   links: {
     demo?: string;
+    paper?: string;
     github?: string;
   };
 }
@@ -71,7 +72,7 @@ const SOFTWARE_PROJECTS: Project[] = [
     image: '/images/sciolytics.png',
     technologies: ['TypeScript', 'Firebase'],
     links: {
-      demo: 'https://samuel-asefa.github.io/Sciolytics/src',
+      demo: 'https://sciolytics.vercel.app',
       github: 'https://github.com/samuel-asefa/Sciolytics'
     }
   },
@@ -149,31 +150,30 @@ const HARDWARE_PROJECTS: Project[] = [
 
 const RESEARCH_PROJECTS: Project[] = [
   {
-    title: 'Title',
-    description: 'Description.',
-    image: '/images/UPDATE.png',
-    technologies: ['Skill', 'Skill', 'Skill'],
+    title: 'TEG Powered Cooking Pollution Capturing Device',
+    description: 'Conducted research on Thermoelectric Powered Regeneration of Incomplete Combustion Cooking Pollutant Capturing Amines.',
+    image: '/images/teg-research.png',
+    technologies: ['CAD', 'COMSOL'],
     links: {
-      github: 'https://github.com/samuel-asefa/UPDATE'
+      paper: 'https://www.cambridge.org/engage/coe/article-details/691404bcef936fb4a2b1b9fa'
     }
   },
   {
-    title: 'Title',
-    description: 'Description.',
-    image: '/images/UPDATE.png',
-    technologies: ['Skill', 'Skill', 'Skill'],
+    title: 'Life Expectancy Prediction Model',
+    description: 'A machine learning project predicting country-level life expectancy using economic, educational, and environmental factors.',
+    image: '/images/life-expectancy-prediction-model.jpg',
+    technologies: ['Python', 'Pandas', 'Scikit-learn'],
     links: {
-      demo: 'https://research-autonomous-nav.com',
-      github: 'https://github.com/samuel-asefa/UPDATE'
+      github: 'https://github.com/samuel-asefa/LifeExpectancyModel'
     }
   },
   {
-    title: 'Title',
-    description: 'Description.',
-    image: '/images/UPDATE.png',
-    technologies: ['Skill', 'Skill', 'Skill'],
+    title: 'Global Trade Prediction Model',
+    description: 'A machine learning project predicting bilateral trade flows between countries using economic indicators, geographic factors, and policy variables.',
+    image: '/images/global-trade-prediction-model.png',
+    technologies: ['Python', 'Pandas', 'Scikit-learn'],
     links: {
-      github: 'https://github.com/samuel-asefa/UPDATE'
+      github: 'https://github.com/samuel-asefa/GlobalTradeModel'
     }
   }
 ];
@@ -462,6 +462,7 @@ class PortfolioApp {
           </div>
           <div class="project-links">
             ${project.links.demo ? `<a href="${project.links.demo}" target="_blank" rel="noopener" class="btn primary-btn">Project Demo</a>` : ''}
+            ${project.links.paper ? `<a href="${project.links.paper}" target="_blank" rel="noopener" class="btn primary-btn">Research Paper</a>` : ''}
             ${project.links.github ? `<a href="${project.links.github}" target="_blank" rel="noopener" class="btn secondary-btn">GitHub</a>` : ''}
           </div>
         </div>
