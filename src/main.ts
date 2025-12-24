@@ -12,7 +12,6 @@ interface Project {
   technologies: string[];
   links: {
     demo?: string;
-    paper?: string;
     github?: string;
   };
 }
@@ -150,30 +149,31 @@ const HARDWARE_PROJECTS: Project[] = [
 
 const RESEARCH_PROJECTS: Project[] = [
   {
-    title: 'TEG Powered Cooking Pollution Capturing Device',
-    description: 'Conducted research on Thermoelectric Powered Regeneration of Incomplete Combustion Cooking Pollutant Capturing Amines.',
-    image: '/images/teg-research.png',
-    technologies: ['CAD', 'COMSOL'],
+    title: 'Title',
+    description: 'Description.',
+    image: '/images/UPDATE.png',
+    technologies: ['Skill', 'Skill', 'Skill'],
     links: {
-      paper: 'https://www.cambridge.org/engage/coe/article-details/691404bcef936fb4a2b1b9fa'
+      github: 'https://github.com/samuel-asefa/UPDATE'
     }
   },
   {
-    title: 'Life Expectancy Prediction Model',
-    description: 'A machine learning project predicting country-level life expectancy using economic, educational, and environmental factors.',
-    image: '/images/life-expectancy-prediction-model.jpg',
-    technologies: ['Python', 'Pandas', 'Scikit-learn'],
+    title: 'Title',
+    description: 'Description.',
+    image: '/images/UPDATE.png',
+    technologies: ['Skill', 'Skill', 'Skill'],
     links: {
-      github: 'https://github.com/samuel-asefa/LifeExpectancyModel'
+      demo: 'https://research-autonomous-nav.com',
+      github: 'https://github.com/samuel-asefa/UPDATE'
     }
   },
   {
-    title: 'Global Trade Prediction Model',
-    description: 'A machine learning project predicting bilateral trade flows between countries using economic indicators, geographic factors, and policy variables.',
-    image: '/images/global-trade-prediction-model.png',
-    technologies: ['Python', 'Pandas', 'Scikit-learn'],
+    title: 'Title',
+    description: 'Description.',
+    image: '/images/UPDATE.png',
+    technologies: ['Skill', 'Skill', 'Skill'],
     links: {
-      github: 'https://github.com/samuel-asefa/GlobalTradeModel'
+      github: 'https://github.com/samuel-asefa/UPDATE'
     }
   }
 ];
@@ -202,7 +202,6 @@ const CONTACT_DATA: ContactMethod[] = [
 
 class PortfolioApp {
   private intersectionObserver: IntersectionObserver | null = null;
-  private currentFilter: string = 'all';
 
   constructor() {
     this.initializeApp();
@@ -407,8 +406,6 @@ class PortfolioApp {
         const filter = btn.getAttribute('data-filter');
         if (!filter) return;
 
-        this.currentFilter = filter;
-
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
@@ -465,7 +462,6 @@ class PortfolioApp {
           </div>
           <div class="project-links">
             ${project.links.demo ? `<a href="${project.links.demo}" target="_blank" rel="noopener" class="btn primary-btn">Project Demo</a>` : ''}
-            ${project.links.paper ? `<a href="${project.links.paper}" target="_blank" rel="noopener" class="btn primary-btn">Research Paper</a>` : ''}
             ${project.links.github ? `<a href="${project.links.github}" target="_blank" rel="noopener" class="btn secondary-btn">GitHub</a>` : ''}
           </div>
         </div>
