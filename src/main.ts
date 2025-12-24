@@ -143,7 +143,7 @@ const HARDWARE_PROJECTS: Project[] = [
     image: '/images/push-back-robot.jpeg',
     technologies: ['VEX', 'C++'],
     links: {
-      github: 'https://github.com/750W/push-back'
+      github: 'https://github.com/750W'
     }
   }
 ];
@@ -219,6 +219,7 @@ class PortfolioApp {
     this.renderAllComponents();
     this.initializeCircuitBackground();
     this.initializeProjectFilters();
+    this.initializeImageModal();
   }
 
   private handleLoadingScreen(): void {
@@ -452,7 +453,7 @@ class PortfolioApp {
     container.innerHTML = projects.map(project => `
       <article class="project-card fade-in">
         <div class="project-img">
-          <img src="${project.image}" alt="${project.title} screenshot" loading="lazy">
+          <img src="${project.image}" alt="${project.title} screenshot" loading="lazy" style="cursor: pointer;">
         </div>
         <div class="project-content">
           <h3>${project.title}</h3>
@@ -544,6 +545,55 @@ class PortfolioApp {
             }, 300);
         }
     }, 100);
+  }
+
+  private initializeImageModal(): void {
+    // Create modal HTML
+    const modalHTML = `
+      <div id="image-modal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-image" alt="Enlarged project image">
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    const modal = document.getElementById('image-modal') as HTMLElement;
+    const modalImg = document.getElementById('modal-image') as HTMLImageElement;
+    const closeBtn = document.querySelector('.modal-close') as HTMLElement;
+
+    // Add click event to all project images
+    document.addEventListener('click', (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'IMG' && target.closest('.project-img')) {
+        const img = target as HTMLImageElement;
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close modal on close button click
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Close modal on background click
+    modal.addEventListener('click', (e: MouseEvent) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
   }
 }
 
