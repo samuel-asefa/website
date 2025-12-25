@@ -53,6 +53,7 @@ const SKILLS_DATA = {
     { name: 'Inventor', icon: '/images/inventor.png'},
     { name: 'OnShape', icon: '/images/onshape.png'},
     { name: '3D Printing', icon: '/images/3dprint.png'},
+    { name: 'Android Studio', icon: '/images/androidstudio.png'},
   ]
 };
 
