@@ -44,6 +44,7 @@ const SKILLS_DATA = {
     { name: 'Flask', icon: '/images/flask.png' },
     { name: 'Flutter', icon: '/images/flutter.png' },
     { name: 'Unity', icon: '/images/unity.png' },
+    { name: 'Pandas', icon: '/images/pandas.png' },
   ],
   technologies: [
     { name: 'Firebase', icon: '/images/firebase.png'},
