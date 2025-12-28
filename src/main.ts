@@ -42,18 +42,18 @@ const SKILLS_DATA = {
     { name: 'Node.js', icon: '/images/node.png' },
     { name: 'Tailwind', icon: '/images/tailwind.png' },
     { name: 'Flask', icon: '/images/flask.png' },
+    { name: 'Pandas', icon: '/images/pandas.png' },
     { name: 'Flutter', icon: '/images/flutter.png' },
     { name: 'Unity', icon: '/images/unity.png' },
-    { name: 'Pandas', icon: '/images/pandas.png' },
   ],
   technologies: [
     { name: 'Firebase', icon: '/images/firebase.png'},
     { name: 'Arduino', icon: '/images/arduino.png'},
+    { name: 'Android Studio', icon: '/images/androidstudio.png'},
     { name: 'Fusion 360', icon: '/images/fusion.png'},
     { name: 'Inventor', icon: '/images/inventor.png'},
     { name: 'OnShape', icon: '/images/onshape.png'},
     { name: '3D Printing', icon: '/images/3dprint.png'},
-    { name: 'Android Studio', icon: '/images/androidstudio.png'},
   ]
 };
 
