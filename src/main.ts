@@ -211,6 +211,7 @@ class PortfolioApp {
 
   private initializeApp(): void {
     this.handleLoadingScreen();
+    this.initializeDynamicYear();
     this.initializeCustomCursor();
     this.initializeMobileMenu();
     this.initializeSmoothScrolling();
@@ -234,6 +235,13 @@ class PortfolioApp {
         }
       }, 1000);
     });
+  }
+
+  private initializeDynamicYear(): void {
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear().toString();
+    }
   }
 
   private initializeCustomCursor(): void {
@@ -601,4 +609,4 @@ class PortfolioApp {
 
 document.addEventListener('DOMContentLoaded', () => {
   new PortfolioApp();
-});a
+});
