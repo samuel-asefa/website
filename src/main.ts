@@ -47,13 +47,13 @@ const SKILLS_DATA = {
     { name: 'Unity', icon: '/images/unity.png' },
   ],
   technologies: [
-    { name: 'Firebase', icon: '/images/firebase.png'},
-    { name: 'Arduino', icon: '/images/arduino.png'},
-    { name: 'Android Studio', icon: '/images/androidstudio.png'},
-    { name: 'Fusion 360', icon: '/images/fusion.png'},
-    { name: 'Inventor', icon: '/images/inventor.png'},
-    { name: 'OnShape', icon: '/images/onshape.png'},
-    { name: '3D Printing', icon: '/images/3dprint.png'},
+    { name: 'Firebase', icon: '/images/firebase.png' },
+    { name: 'Arduino', icon: '/images/arduino.png' },
+    { name: 'Android Studio', icon: '/images/androidstudio.png' },
+    { name: 'Fusion 360', icon: '/images/fusion.png' },
+    { name: 'Inventor', icon: '/images/inventor.png' },
+    { name: 'OnShape', icon: '/images/onshape.png' },
+    { name: '3D Printing', icon: '/images/3dprint.png' },
   ]
 };
 
@@ -256,14 +256,20 @@ class PortfolioApp {
     const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-item');
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        cursor.style.width = '30px';
-        cursor.style.height = '30px';
-        cursor.style.backgroundColor = 'rgba(0, 170, 255, 0.2)';
+        cursor.style.width = '50px';
+        cursor.style.height = '50px';
+        cursor.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        cursor.style.backdropFilter = 'blur(4px)';
+        cursor.style.setProperty('-webkit-backdrop-filter', 'blur(4px)');
+        cursor.style.borderColor = 'transparent';
       });
       el.addEventListener('mouseleave', () => {
         cursor.style.width = '20px';
         cursor.style.height = '20px';
         cursor.style.backgroundColor = 'transparent';
+        cursor.style.backdropFilter = 'none';
+        cursor.style.setProperty('-webkit-backdrop-filter', 'none');
+        cursor.style.borderColor = 'var(--accent-color)';
       });
     });
   }
@@ -288,10 +294,10 @@ class PortfolioApp {
       });
     });
   }
-  
+
   private initializeSmoothScrolling(): void {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
+      anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
         e.preventDefault();
         const href = this.getAttribute('href');
         if (!href || href === '#') return;
@@ -346,11 +352,11 @@ class PortfolioApp {
   private initializeBackToTop(): void {
     const backToTopBtn = document.querySelector('.back-to-top') as HTMLButtonElement;
     if (!backToTopBtn) return;
-    
+
     window.addEventListener('scroll', () => {
       backToTopBtn.classList.toggle('show', window.pageYOffset > 300);
     });
-    
+
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -481,7 +487,7 @@ class PortfolioApp {
     `).join('');
     container.querySelectorAll('.project-card').forEach(el => this.intersectionObserver?.observe(el));
   }
-  
+
   private renderContactInfo(): void {
     const container = document.getElementById('contact-info-grid');
     if (!container) return;
@@ -542,18 +548,18 @@ class PortfolioApp {
         }
       }
     }
-    
+
     setInterval(() => {
-        const lines = svg.querySelectorAll('line');
-        const randomIndex = Math.floor(Math.random() * lines.length);
-        const randomLine = lines[randomIndex];
-        if (randomLine) {
-            randomLine.style.transition = 'stroke 0.2s';
-            randomLine.setAttribute('stroke', 'var(--accent-color)');
-            setTimeout(() => {
-                randomLine.setAttribute('stroke', 'var(--border-color)');
-            }, 300);
-        }
+      const lines = svg.querySelectorAll('line');
+      const randomIndex = Math.floor(Math.random() * lines.length);
+      const randomLine = lines[randomIndex];
+      if (randomLine) {
+        randomLine.style.transition = 'stroke 0.2s';
+        randomLine.setAttribute('stroke', 'var(--accent-color)');
+        setTimeout(() => {
+          randomLine.setAttribute('stroke', 'var(--border-color)');
+        }, 300);
+      }
     }, 100);
   }
 
