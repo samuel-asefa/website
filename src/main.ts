@@ -124,7 +124,7 @@ const HARDWARE_PROJECTS: Project[] = [
   {
     title: 'Dexarm',
     description: 'An affordable prosthetic arm designed to restore essential arm and hand functionality for everyday tasks.',
-    image: '/images/dexarm.jpg',
+    image: '/images/dexarm.png',
     technologies: ['C++', 'Arduino'],
     links: {
       website: 'https://vividsense.vercel.app/product/dexarm',
