@@ -127,6 +127,7 @@ const HARDWARE_PROJECTS: Project[] = [
     image: '/images/dexarm.jpg',
     technologies: ['C++', 'Arduino'],
     links: {
+      website: 'https://vividsense.vercel.app/product/dexarm',
       github: 'https://github.com/samuel-asefa/Dexarm'
     }
   },
