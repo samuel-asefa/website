@@ -12,6 +12,7 @@ interface Project {
   technologies: string[];
   links: {
     demo?: string;
+    website?: string;
     paper?: string;
     github?: string;
   };
@@ -135,7 +136,7 @@ const HARDWARE_PROJECTS: Project[] = [
     image: '/images/surroundscanner.png',
     technologies: ['C++', 'Arduino', '3D Printing'],
     links: {
-      demo: 'youtube.com/watch?v=4vD-6Ere7GE',
+      website: 'https://vividsense.vercel.app/product/surrounding-scanner',
       github: 'https://github.com/samuel-asefa/SurroundScanner'
     }
   },
@@ -479,6 +480,7 @@ class PortfolioApp {
           </div>
           <div class="project-links">
             ${project.links.demo ? `<a href="${project.links.demo}" target="_blank" rel="noopener" class="btn primary-btn">Project Demo</a>` : ''}
+            ${project.links.website ? `<a href="${project.links.website}" target="_blank" rel="noopener" class="btn primary-btn">Website</a>` : ''}
             ${project.links.paper ? `<a href="${project.links.paper}" target="_blank" rel="noopener" class="btn primary-btn">Research Paper</a>` : ''}
             ${project.links.github ? `<a href="${project.links.github}" target="_blank" rel="noopener" class="btn secondary-btn">GitHub</a>` : ''}
           </div>
