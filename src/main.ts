@@ -45,6 +45,13 @@ interface Club {
   link?: string;
 }
 
+interface Award {
+  title: string;
+  issuer: string;
+  date?: string;
+  description: string[];
+}
+
 const SKILLS_DATA = {
   programmingLanguages: [
     { name: 'HTML', icon: '/images/html.png' },
@@ -309,6 +316,130 @@ const CLUBS_DATA: Club[] = [
       'Competed in the NJ Math League and other regional mathematics competitions',
     ]
   },
+];
+
+const AWARDS_DATA: Award[] = [
+  {
+    title: 'NJ Science League - AP Physics C Team Plaque',
+    issuer: 'NJ Science League',
+    date: 'May 2026',
+    description: [
+      'Placed 3rd out of 33 teams (Top 9%) in the New Jersey Science League AP Physics C competition; tied for 13th individually among 92 statewide competitors.'
+    ]
+  },
+  {
+    title: 'LaunchSB - 1st Place',
+    issuer: 'SBHS XSTEM',
+    date: 'Apr 2026',
+    description: [
+      "Earned 1st Place (out of 40+ teams) for VividSense's Dexarm, an affordable prosthetic arm."
+    ]
+  },
+  {
+    title: 'Garden State Cyber CTF - Top 7%',
+    issuer: 'NJCCIC',
+    date: 'Mar 2026',
+    description: [
+      'Placed 29th out of 420 teams (Top 7%) in the Garden State Capture the Flag cybersecurity competition.'
+    ]
+  },
+  {
+    title: 'USA Computing Olympiad Gold',
+    issuer: 'USA Computing Olympiad',
+    date: 'Feb 2026',
+    description: [
+      'Advanced to the Gold Division of USACO with a perfect score in the Silver division.'
+    ]
+  },
+  {
+    title: 'NASA TechRise Challenge Winner',
+    issuer: 'NASA',
+    date: 'Jan 2026',
+    description: [
+      'Selected as a winner in the High-Altitude Balloon category for proposing an NDVI mapping payload using machine-learning receiving $1,500 in funding.'
+    ]
+  },
+  {
+    title: 'AP Scholar with Distinction Award',
+    issuer: 'College Board',
+    date: 'Jul 2025',
+    description: [
+      'Awarded for achieving an average score of at least 3.5 on all AP Exams taken, and scores of 3 or higher on five or more exams.'
+    ]
+  },
+  {
+    title: '2x Presidential Volunteer Service Award Gold',
+    issuer: 'Corporation for National and Community Service',
+    date: 'Apr 2025',
+    description: [
+      'Volunteered 200+ hours with RoboZone and TurboTutors over a 2 year period.'
+    ]
+  },
+  {
+    title: 'American Rocketry Challenge 2025 National Finalist',
+    issuer: 'National Association of Rocketry',
+    date: 'Apr 2025',
+    description: [
+      'Qualified for the national competition in the American Rocketry Challenge (Top 100 of 1,001 contestants); placed 50th at national competition in Virginia.'
+    ]
+  },
+  {
+    title: 'LaunchSB - 2nd Place',
+    issuer: 'SBHS XSTEM',
+    date: 'Apr 2025',
+    description: [
+      "Earned 2nd Place (out of 40+ teams) for VividSense's Surround Scanner, an affordable and intuitive device to aid the visually impaired with navigation."
+    ]
+  },
+  {
+    title: 'VEX Workforce Readiness Finalist',
+    issuer: 'VEX Robotics',
+    date: 'Mar 2025',
+    description: [
+      'Top 6 finalist (out of ~50 teams) for a proposal on Aerospace Automation focusing on robotics-driven manufacturing; awarded $100.'
+    ]
+  },
+  {
+    title: 'LaunchSB - 3rd Place',
+    issuer: 'SBHS XSTEM',
+    date: 'Apr 2024',
+    description: [
+      'Earned 3rd Place (out of 30+ teams) for BeniFlow, a device that redirects incomplete combustion cooking pollutants away from households.'
+    ]
+  },
+  {
+    title: 'International Geography Bee',
+    issuer: 'International Academic Competitions',
+    date: 'Jul 2022',
+    description: [
+      '1st Place - Geographeud',
+      '2nd Place - Climate Change Task Force',
+      '3rd Place - Geography Bowl'
+    ]
+  },
+  {
+    title: 'Robotics Awards',
+    issuer: 'VEX Robotics',
+    description: [
+      'Excellence Award @ CCHS High Stakes Tournament',
+      'Amaze Award @ SBHS Over Under Tournament',
+      'Amaze Award @ SBHS Push Back Tournament',
+      'Amaze Award @ Pirate Popoff Push Back Tournament',
+      '3x States Qualification'
+    ]
+  },
+  {
+    title: 'Science Olympiad Invitational Awards',
+    issuer: 'Science Olympiad',
+    description: [
+      '1st Place in Air Trajectory @ UCC NJ Regional Science Olympiad Competition, 2023-2024',
+      '5th Place in Air Trajectory @ Yale University Science Olympiad Invitational, 2023-2024',
+      '10th Place in Air Trajectory (Top 7% of 160 teams) @ Mason Science Olympiad Satellite Invitational, 2024-2025',
+      '7th Place (Top 4% of 200 teams) in Hovercraft @ Mason Science Olympiad Satellite Invitational, 2025-2026',
+      '7th Place in Hovercraft @ Yale University Science Olympiad Invitational, 2025-2026',
+      '3rd Place in Engineering CAD @ Yale University Science Olympiad Invitational, 2025-2026'
+    ]
+  }
 ];
 
 const CONTACT_DATA: ContactMethod[] = [
@@ -576,6 +707,7 @@ class PortfolioApp {
     this.renderSkillCategory('technologies-grid', SKILLS_DATA.technologies);
     this.renderProjects();
     this.renderEducation();
+    this.renderAwards();
     this.renderContactInfo();
   }
 
@@ -688,6 +820,31 @@ class PortfolioApp {
     `;
 
     container.querySelectorAll('.course-year-group, .club-card').forEach(el => this.intersectionObserver?.observe(el));
+  }
+
+  private renderAwards(): void {
+    const container = document.getElementById('awards-content');
+    if (!container) return;
+
+    container.innerHTML = `
+      <div class="awards-grid">
+        ${AWARDS_DATA.map(award => `
+          <div class="award-card fade-in">
+            <div class="award-header">
+              <div class="award-title-group">
+                <h3>${award.title}</h3>
+                <p class="award-issuer">Issued by ${award.issuer}${award.date ? ` &middot; ${award.date}` : ''}</p>
+              </div>
+            </div>
+            <ul class="award-desc-list">
+              ${award.description.map(desc => `<li>${desc}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    container.querySelectorAll('.award-card').forEach(el => this.intersectionObserver?.observe(el));
   }
 
   private initializeEducationTabs(): void {

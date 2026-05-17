@@ -1191,6 +1191,76 @@ footer {
   line-height: 1.55;
 }
 
+/* ─── Awards Section ────────────────────────────────────────────── */
+.awards {
+  background-color: transparent;
+}
+
+.awards-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.75rem;
+}
+
+.award-card {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  border: var(--glass-border);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: var(--transition);
+}
+
+.award-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-color);
+}
+
+.award-header {
+  display: flex;
+  align-items: flex-start;
+}
+
+.award-title-group h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text-color);
+}
+
+.award-issuer {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.award-desc-list {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.award-desc-list li {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.55;
+}
+
 @media screen and (max-width: 1024px) {
   .hero-content {
     flex-direction: column-reverse;
