@@ -64,8 +64,7 @@
             <nav aria-label="Main navigation">
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="index.html#about" class="nav-link">About</a></li>
-                    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="index.html#explore" class="nav-link">Explore</a></li>
                     <li><a href="education.html" class="nav-link">Education</a></li>
                     <li><a href="education.html#awards" class="nav-link">Awards</a></li>
                     <li><a href="projects.html" class="nav-link">Projects</a></li>
@@ -101,58 +100,60 @@
                     <div class="image-outline"></div>
                 </div>
             </div>
-            <a href="#about" class="scroll-indicator" aria-label="Scroll to about section">
+            <a href="#explore" class="scroll-indicator" aria-label="Scroll to explore section">
                 <div class="mouse-scroll"></div>
             </a>
         </section>
 
-        <section id="about" class="about">
+        <section id="explore" class="explore">
             <div class="section-header">
-                <h2>About Me</h2>
+                <h2>Explore</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Hey, I'm Sammy! I am a junior at South Brunswick High School interested in electrical enginering,
-                        computer science, and artificial intelligence.</p>
-                    <p>I am currently involved in my school's <a href="https://sbrobotics.vercel.app" target="_blank"
-                            rel="noopener">VEX Robotics Club</a> on team <a href="https://750w.github.io"
-                            target="_blank" rel="noopener">750W</a> (Workshop Lead, Lead Builder, Programmer), <a
-                            href="https://sbscioly.github.io" target="_blank" rel="noopener">Science Olympiad</a>
-                        (Executive Board), <a href="https://x-stem.github.io" target="_blank" rel="noopener">XSTEM</a>
-                        club (Executive Board), <a href="https://sbaerospace.github.io" target="_blank"
-                            rel="noopener">Aerospace Team</a> (Electronics Lead), <a href="https://sbcsclub.vercel.app"
-                            target="_blank" rel="noopener">Computer Science Club</a> (Executive Board), and Math Team.
-                    </p>
-                    <p>I am also Founder and President of <a href="https://robozonenj.org" target="_blank"
-                            rel="noopener">RoboZone</a>, an organization dedicated to teaching students computer
-                        science, electronics, and robotics topics.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="skills">
-            <div class="section-header">
-                <h2>My Skills</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="skills-content">
-                <p class="skills-description">I am proficient with the following languages, frameworks, and
-                    technologies:</p>
-                <div class="skills-categories">
-                    <div class="skills-category">
-                        <h3>Programming Languages</h3>
-                        <div class="skills-grid" id="programming-languages-grid"></div>
+            <div class="bento-grid">
+                <a href="index.html#about-detail" class="bento-card bento-about" id="bento-about">
+                    <div class="bento-image" style="--img-scale: 1; --img-x: center; --img-y: 25%;"><img
+                            src="/images/arc.jpg" alt="About Me" loading="lazy"></div>
+                    <h3>About Me</h3>
+                    <p>Get to know me — who I am, what drives me, and what I'm working on.</p>
+                    <div class="bento-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="education.html" class="bento-card bento-education" id="bento-education">
+                    <div class="bento-image" style="--img-scale: 1; --img-x: center; --img-y: center;"><img
+                            src="/images/techrise.webp" alt="Education" loading="lazy"></div>
+                    <h3>Education</h3>
+                    <p>My academic journey, courses, and the foundation I'm building.</p>
+                    <div class="bento-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="index.html#skills-detail" class="bento-card bento-skills" id="bento-skills">
+                    <div class="bento-image" style="--img-scale: 1; --img-x: center; --img-y: 55%;"><img
+                            src="/images/push-back-robot.jpeg" alt="Skills" loading="lazy"></div>
+                    <h3>Skills & Technologies</h3>
+                    <p>The languages, frameworks, and tools I use to bring ideas to life.</p>
+                    <div class="bento-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="projects.html" class="bento-card bento-projects" id="bento-projects">
+                    <div class="bento-image" style="--img-scale: 1; --img-x: center; --img-y: 25%;"><img
+                            src="/images/surroundscanner.png" alt="Projects" loading="lazy">
                     </div>
-                    <div class="skills-category">
-                        <h3>Libraries & Frameworks</h3>
-                        <div class="skills-grid" id="frameworks-grid"></div>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Technologies & Tools</h3>
-                        <div class="skills-grid" id="technologies-grid"></div>
-                    </div>
-                </div>
+                    <h3>Projects</h3>
+                    <p>Check out some of my software, hardware, and research projects.</p>
+                    <div class="bento-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="education.html#awards" class="bento-card bento-awards" id="bento-awards">
+                    <div class="bento-image" style="--img-scale: 1; --img-x: center; --img-y: center;"><img
+                            src="/images/pvsamedals.jpeg" alt="Awards" loading="lazy"></div>
+                    <h3>Awards & Honors</h3>
+                    <p>Some recognitions and honors I've picked up along the way.</p>
+                    <div class="bento-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="contact.html" class="bento-card bento-contact" id="bento-contact">
+                    <div class="bento-image" style="--img-scale: 1; --img-x: center; --img-y: center;"><img
+                            src="/images/nasapayload.jpeg" alt="Contact" loading="lazy"></div>
+                    <h3>Get in Touch</h3>
+                    <p>Want to collaborate or just say hi? Let's connect.</p>
+                    <div class="bento-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
             </div>
         </section>
 
@@ -163,18 +164,25 @@
             </div>
             <div class="github-content">
                 <div class="github-stats-grid">
-                    <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener noreferrer" class="github-card-link">
-                        <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=samuel-asefa&show_icons=true&count_private=true&bg_color=0f172a80&text_color=f8fafc&icon_color=0ea5e9&title_color=0ea5e9&hide_border=true&border_radius=16" alt="GitHub Stats" loading="lazy" class="github-card">
+                    <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener noreferrer"
+                        class="github-card-link">
+                        <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=samuel-asefa&show_icons=true&count_private=true&bg_color=0f172a80&text_color=f8fafc&icon_color=0ea5e9&title_color=0ea5e9&hide_border=true&border_radius=16"
+                            alt="GitHub Stats" loading="lazy" class="github-card">
                     </a>
-                    <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener noreferrer" class="github-card-link">
-                        <img src="https://streak-stats.demolab.com/?user=samuel-asefa&background=0f172a80&ring=0ea5e9&fire=38bdf8&currStreakLabel=f8fafc&sideLabels=f8fafc&currStreakNum=f8fafc&sideNums=f8fafc&dates=94a3b8&hide_border=true&border_radius=16" alt="GitHub Streak" loading="lazy" class="github-card">
+                    <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener noreferrer"
+                        class="github-card-link">
+                        <img src="https://streak-stats.demolab.com/?user=samuel-asefa&background=0f172a80&ring=0ea5e9&fire=38bdf8&currStreakLabel=f8fafc&sideLabels=f8fafc&currStreakNum=f8fafc&sideNums=f8fafc&dates=94a3b8&hide_border=true&border_radius=16"
+                            alt="GitHub Streak" loading="lazy" class="github-card">
                     </a>
-                    <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener noreferrer" class="github-card-link">
-                        <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=samuel-asefa&layout=compact&bg_color=0f172a80&text_color=f8fafc&title_color=0ea5e9&hide_border=true&border_radius=16&langs_count=8" alt="Top Languages" loading="lazy" class="github-card">
+                    <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener noreferrer"
+                        class="github-card-link">
+                        <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=samuel-asefa&layout=compact&bg_color=0f172a80&text_color=f8fafc&title_color=0ea5e9&hide_border=true&border_radius=16&langs_count=8"
+                            alt="Top Languages" loading="lazy" class="github-card">
                     </a>
                 </div>
                 <div class="github-graph">
-                    <img src="https://github-readme-activity-graph.vercel.app/graph?username=samuel-asefa&bg_color=0f172a00&color=f8fafc&line=0ea5e9&point=38bdf8&area=true&area_color=0ea5e9&hide_border=true&custom_title=Contribution%20Activity" alt="GitHub Contribution Graph" loading="lazy" class="github-activity-graph">
+                    <img src="https://github-readme-activity-graph.vercel.app/graph?username=samuel-asefa&bg_color=0f172a00&color=f8fafc&line=0ea5e9&point=38bdf8&area=true&area_color=0ea5e9&hide_border=true&custom_title=Contribution%20Activity"
+                        alt="GitHub Contribution Graph" loading="lazy" class="github-activity-graph">
                 </div>
             </div>
         </section>
