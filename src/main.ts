@@ -693,7 +693,7 @@ class PortfolioApp {
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.about, .skills-category, .project-card, .contact-card, .section-header').forEach(el => {
+    document.querySelectorAll('.about, .skills-category, .project-card, .contact-card, .section-header, .github-card-link, .github-graph').forEach(el => {
       el.classList.add('fade-in');
       this.intersectionObserver?.observe(el);
     });
