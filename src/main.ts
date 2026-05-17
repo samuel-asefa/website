@@ -340,6 +340,9 @@ const AWARDS_DATA: Award[] = [
     date: 'Apr 2026',
     description: [
       "Earned 1st Place (out of 40+ teams) for VividSense's Dexarm, an affordable prosthetic arm."
+    ],
+    media: [
+      { title: 'Website', image: '/images/dexarm.png', link: 'https://vividsense.vercel.app/product/dexarm' }
     ]
   },
   {
@@ -421,6 +424,9 @@ const AWARDS_DATA: Award[] = [
     date: 'Mar 2025',
     description: [
       'Top 6 finalist (out of ~50 teams) for a proposal on Aerospace Automation focusing on robotics-driven manufacturing; awarded $100.'
+    ],
+    media: [
+      { title: 'Online Challenge Winners', image: '/images/onlinechallenges.jpg', link: 'https://recfoundation.net/2025-online-challenges-winners-announced/' }
     ]
   },
   {
