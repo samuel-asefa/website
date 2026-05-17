@@ -29,12 +29,15 @@ interface ContactMethod {
 interface Course {
   name: string;
   level: 'AP' | 'Honors' | 'Regular';
+  summer?: boolean;
 }
 
 interface YearCourses {
   year: string;
   grade: string;
   courses: Course[];
+  uwGPA?: number;
+  wGPA?: number;
 }
 
 interface Club {
@@ -220,6 +223,8 @@ const COURSES_DATA: YearCourses[] = [
   {
     year: '2025-26',
     grade: 'Grade 11',
+    uwGPA: 3.96,
+    wGPA: 4.83,
     courses: [
       { name: 'AP English III-Lang/Comp.', level: 'AP' },
       { name: 'AP World History: Modern', level: 'AP' },
@@ -227,31 +232,35 @@ const COURSES_DATA: YearCourses[] = [
       { name: 'AP Physics C', level: 'AP' },
       { name: 'CS Academy: Virtual Reality & Game Design', level: 'AP' },
       { name: 'CS Academy: Mobile App Development', level: 'AP' },
-      { name: 'Advanced Biology', level: 'Regular' },
-      { name: 'On Line Personal Financial Mgmt', level: 'Regular' },
+      { name: 'Advanced Biology', level: 'Regular', summer: true },
+      { name: 'On Line Personal Financial Mgmt', level: 'Regular', summer: true },
     ]
   },
   {
     year: '2024-25',
     grade: 'Grade 10',
+    uwGPA: 3.96,
+    wGPA: 4.65,
     courses: [
       { name: 'AP US History', level: 'AP' },
       { name: 'AP Calculus-AB', level: 'AP' },
       { name: 'AP Computer Science A', level: 'AP' },
       { name: 'AP Chemistry', level: 'AP' },
       { name: 'Honors Spanish III', level: 'Honors' },
-      { name: 'Option II-Honors Precalc w/ Calc. Enrich', level: 'Honors' },
+      { name: 'Option II-Honors Precalc w/ Calc. Enrich', level: 'Honors', summer: true },
       { name: 'Academic English II', level: 'Regular' },
     ]
   },
   {
     year: '2023-24',
     grade: 'Grade 09',
+    uwGPA: 3.88,
+    wGPA: 4.13,
     courses: [
       { name: 'AP Physics I', level: 'AP' },
       { name: 'Honors American Government', level: 'Honors' },
       { name: 'Honors Algebra II', level: 'Honors' },
-      { name: 'Option II-Honors Chemistry', level: 'Honors' },
+      { name: 'Option II-Honors Chemistry', level: 'Honors', summer: true },
       { name: 'Academic English I', level: 'Regular' },
       { name: 'Computer Science In The 21st Century', level: 'Regular' },
       { name: 'Spanish II', level: 'Regular' },
@@ -819,6 +828,15 @@ class PortfolioApp {
     const container = document.getElementById('education-content');
     if (!container) return;
 
+    // Calculate cumulative GPA from years that have values filled in
+    const yearsWithGPA = COURSES_DATA.filter(y => y.uwGPA !== undefined && y.wGPA !== undefined && (y.uwGPA > 0 || y.wGPA > 0));
+    const cumulativeUW = yearsWithGPA.length > 0
+      ? yearsWithGPA.reduce((sum, y) => sum + (y.uwGPA || 0), 0) / yearsWithGPA.length
+      : 0;
+    const cumulativeW = yearsWithGPA.length > 0
+      ? yearsWithGPA.reduce((sum, y) => sum + (y.wGPA || 0), 0) / yearsWithGPA.length
+      : 0;
+
     container.innerHTML = `
       <div class="edu-tabs">
         <button class="edu-tab-btn active" data-tab="courses" id="tab-courses">Courses</button>
@@ -826,16 +844,38 @@ class PortfolioApp {
       </div>
 
       <div class="edu-panel" id="edu-panel-courses">
+        ${cumulativeUW > 0 || cumulativeW > 0 ? `
+        <div class="cumulative-gpa">
+          <div class="gpa-card">
+            <span class="gpa-value">${cumulativeUW.toFixed(2)}</span>
+            <span class="gpa-label">Cumulative Unweighted GPA</span>
+          </div>
+          <div class="gpa-card">
+            <span class="gpa-value">${cumulativeW.toFixed(2)}</span>
+            <span class="gpa-label">Cumulative Weighted GPA</span>
+          </div>
+        </div>` : ''}
         <div class="courses-container">
           ${COURSES_DATA.map(yearData => `
             <div class="course-year-group fade-in">
               <h3 class="course-year-title">${yearData.grade} <span class="course-year-subtitle">(${yearData.year})</span></h3>
+              ${yearData.uwGPA !== undefined && yearData.wGPA !== undefined && (yearData.uwGPA > 0 || yearData.wGPA > 0) ? `
+              <div class="year-gpa">
+                <div class="gpa-item">
+                  <span class="gpa-label">UW GPA</span>
+                  <span class="gpa-value">${yearData.uwGPA.toFixed(2)}</span>
+                </div>
+                <div class="gpa-item">
+                  <span class="gpa-label">W GPA</span>
+                  <span class="gpa-value">${yearData.wGPA.toFixed(2)}</span>
+                </div>
+              </div>` : ''}
               <div class="courses-grid">
                 ${yearData.courses.map(c => `
                   <div class="course-card">
                     <div class="course-info">
                       <div class="course-header-row">
-                        <h4>${c.name}</h4>
+                        <h4>${c.name}${c.summer ? ' <span class="course-summer"><i class="fas fa-sun"></i> Summer</span>' : ''}</h4>
                         <span class="course-level level-${c.level.toLowerCase()}">${c.level}</span>
                       </div>
                     </div>
