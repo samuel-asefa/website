@@ -30,6 +30,7 @@ interface Course {
   name: string;
   level: 'AP' | 'Honors' | 'Regular';
   summer?: boolean;
+  csAcademy?: boolean;
 }
 
 interface YearCourses {
@@ -230,10 +231,10 @@ const COURSES_DATA: YearCourses[] = [
       { name: 'AP World History: Modern', level: 'AP' },
       { name: 'AP Calculus-BC', level: 'AP' },
       { name: 'AP Physics C', level: 'AP' },
-      { name: 'CS Academy: Virtual Reality & Game Design', level: 'AP' },
-      { name: 'CS Academy: Mobile App Development', level: 'AP' },
+      { name: 'Virtual Reality & Game Design', level: 'AP', csAcademy: true },
+      { name: 'Mobile App Development', level: 'AP', csAcademy: true },
       { name: 'Advanced Biology', level: 'Regular', summer: true },
-      { name: 'On Line Personal Financial Mgmt', level: 'Regular', summer: true },
+      { name: 'Personal Financial Management', level: 'Regular', summer: true },
     ]
   },
   {
@@ -247,7 +248,7 @@ const COURSES_DATA: YearCourses[] = [
       { name: 'AP Computer Science A', level: 'AP' },
       { name: 'AP Chemistry', level: 'AP' },
       { name: 'Honors Spanish III', level: 'Honors' },
-      { name: 'Option II-Honors Precalc w/ Calc. Enrich', level: 'Honors', summer: true },
+      { name: 'Honors Precalc w/ Calc. Enrich', level: 'Honors', summer: true },
       { name: 'Academic English II', level: 'Regular' },
     ]
   },
@@ -260,7 +261,7 @@ const COURSES_DATA: YearCourses[] = [
       { name: 'AP Physics I', level: 'AP' },
       { name: 'Honors American Government', level: 'Honors' },
       { name: 'Honors Algebra II', level: 'Honors' },
-      { name: 'Option II-Honors Chemistry', level: 'Honors', summer: true },
+      { name: 'Honors Chemistry', level: 'Honors', summer: true },
       { name: 'Academic English I', level: 'Regular' },
       { name: 'Computer Science In The 21st Century', level: 'Regular' },
       { name: 'Spanish II', level: 'Regular' },
@@ -858,24 +859,26 @@ class PortfolioApp {
         <div class="courses-container">
           ${COURSES_DATA.map(yearData => `
             <div class="course-year-group fade-in">
-              <h3 class="course-year-title">${yearData.grade} <span class="course-year-subtitle">(${yearData.year})</span></h3>
-              ${yearData.uwGPA !== undefined && yearData.wGPA !== undefined && (yearData.uwGPA > 0 || yearData.wGPA > 0) ? `
-              <div class="year-gpa">
-                <div class="gpa-item">
-                  <span class="gpa-label">UW GPA</span>
-                  <span class="gpa-value">${yearData.uwGPA.toFixed(2)}</span>
-                </div>
-                <div class="gpa-item">
-                  <span class="gpa-label">W GPA</span>
-                  <span class="gpa-value">${yearData.wGPA.toFixed(2)}</span>
-                </div>
-              </div>` : ''}
+              <div class="course-year-header">
+                <h3 class="course-year-title">${yearData.grade} <span class="course-year-subtitle">(${yearData.year})</span></h3>
+                ${yearData.uwGPA !== undefined && yearData.wGPA !== undefined && (yearData.uwGPA > 0 || yearData.wGPA > 0) ? `
+                <div class="year-gpa">
+                  <div class="gpa-item">
+                    <span class="gpa-label">UW</span>
+                    <span class="gpa-value">${yearData.uwGPA.toFixed(2)}</span>
+                  </div>
+                  <div class="gpa-item">
+                    <span class="gpa-label">W</span>
+                    <span class="gpa-value">${yearData.wGPA.toFixed(2)}</span>
+                  </div>
+                </div>` : ''}
+              </div>
               <div class="courses-grid">
                 ${yearData.courses.map(c => `
                   <div class="course-card">
                     <div class="course-info">
                       <div class="course-header-row">
-                        <h4>${c.name}${c.summer ? ' <span class="course-summer"><i class="fas fa-sun"></i> Summer</span>' : ''}</h4>
+                        <h4>${c.name}${c.summer ? ' <span class="course-summer"><i class="fas fa-sun"></i> Summer</span>' : ''}${c.csAcademy ? ' <span class="course-cs-academy"><i class="fas fa-laptop-code"></i> CS Academy</span>' : ''}</h4>
                         <span class="course-level level-${c.level.toLowerCase()}">${c.level}</span>
                       </div>
                     </div>
@@ -931,7 +934,7 @@ class PortfolioApp {
             <div class="award-media-grid">
               ${award.media.map(item => `
                 <div class="award-media-card" ${item.link ? `data-link="${item.link}"` : ''}>
-                  ${item.image ? `<img src="${item.image}" alt="${item.title}" loading="lazy" class="award-media-img"${item.imagePosition ? ` style="object-position: ${item.imagePosition}"` : ''}>` 
+                  ${item.image ? `<img src="${item.image}" alt="${item.title}" loading="lazy" class="award-media-img"${item.imagePosition ? ` style="object-position: ${item.imagePosition}"` : ''}>`
         : `<div class="award-media-icon"><i class="${item.link?.endsWith('.pdf') ? 'fas fa-file-pdf' : 'fas fa-link'}"></i></div>`}
                   <span class="award-media-title">${item.title}</span>
                 </div>
