@@ -559,13 +559,24 @@ class PortfolioApp {
   }
 
   private initializeSmoothScrolling(): void {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        if (!href || href === '#') return;
-        const targetElement = document.querySelector(href) as HTMLElement;
+        const url = new URL(this.href);
+        // If it's on a different page, let the browser navigate normally
+        if (url.pathname !== window.location.pathname && url.pathname !== window.location.pathname + 'index.html') {
+          // Note: local dev handles '/' and '/index.html' similarly, but let's be safe.
+          const isRootPath = window.location.pathname === '/' || window.location.pathname === '';
+          if (!(isRootPath && url.pathname.endsWith('/index.html'))) {
+            return;
+          }
+        }
+        
+        const hash = url.hash;
+        if (!hash || hash === '#') return;
+
+        const targetElement = document.querySelector(hash) as HTMLElement;
         if (targetElement) {
+          e.preventDefault();
           const headerOffset = (document.getElementById('header') as HTMLElement)?.offsetHeight || 80;
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -574,6 +585,9 @@ class PortfolioApp {
             top: offsetPosition,
             behavior: 'smooth'
           });
+          
+          // update URL hash without jump
+          window.history.pushState(null, '', hash);
         }
       });
     });
@@ -606,7 +620,8 @@ class PortfolioApp {
     navLinks.forEach(link => {
       const linkElement = link as HTMLAnchorElement;
       linkElement.classList.remove('active');
-      if (linkElement.getAttribute('href') === `#${currentSectionId}`) {
+      const href = linkElement.getAttribute('href');
+      if (href && href.endsWith(`#${currentSectionId}`)) {
         linkElement.classList.add('active');
       }
     });
