@@ -47,7 +47,7 @@ interface Club {
 
 interface AwardMedia {
   title: string;
-  image: string;
+  image?: string;
   link?: string;
 }
 
@@ -364,6 +364,9 @@ const AWARDS_DATA: Award[] = [
     date: 'Jan 2026',
     description: [
       'Selected as a winner in the High-Altitude Balloon category for proposing an NDVI mapping payload using machine-learning receiving $1,500 in funding.'
+    ],
+    media: [
+      { title: 'TechRise Winner', image: '/images/techrise.webp' }
     ]
   },
   {
@@ -372,6 +375,9 @@ const AWARDS_DATA: Award[] = [
     date: 'Jul 2025',
     description: [
       'Awarded for achieving an average score of at least 3.5 on all AP Exams taken, and scores of 3 or higher on five or more exams.'
+    ],
+    media: [
+      { title: 'Award Certificate', link: '/images/apscholar.pdf' }
     ]
   },
   {
@@ -872,8 +878,9 @@ class PortfolioApp {
             ${award.media ? `
             <div class="award-media-grid">
               ${award.media.map(item => `
-                <div class="award-media-card" ${item.link ? `onclick="window.open('${item.link}', '_blank')"` : ''}>
-                  <img src="${item.image}" alt="${item.title}" loading="lazy" class="award-media-img">
+                <div class="award-media-card" ${item.link ? `data-link="${item.link}"` : ''}>
+                  ${item.image ? `<img src="${item.image}" alt="${item.title}" loading="lazy" class="award-media-img">` 
+                               : `<div class="award-media-icon"><i class="${item.link?.endsWith('.pdf') ? 'fas fa-file-pdf' : 'fas fa-link'}"></i></div>`}
                   <span class="award-media-title">${item.title}</span>
                 </div>
               `).join('')}
@@ -974,30 +981,61 @@ class PortfolioApp {
     const modalHTML = `
       <div id="image-modal" class="image-modal">
         <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modal-image" alt="Enlarged project image">
+        <img class="modal-content" id="modal-image" alt="Enlarged project image" style="display: none;">
+        <iframe class="modal-content" id="modal-iframe" style="display: none; width: 80vw; height: 80vh; background: white; border: none; border-radius: 8px;" title="Document viewer"></iframe>
       </div>
     `;
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 
     const modal = document.getElementById('image-modal') as HTMLElement;
     const modalImg = document.getElementById('modal-image') as HTMLImageElement;
+    const modalIframe = document.getElementById('modal-iframe') as HTMLIFrameElement;
     const closeBtn = document.querySelector('.modal-close') as HTMLElement;
 
-    // Add click event to all project images and award media images
+    // Add click event to all project images and award media cards
     document.addEventListener('click', (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.tagName === 'IMG' && (target.closest('.project-img') || target.closest('.award-media-card'))) {
+      
+      // Project Images
+      if (target.tagName === 'IMG' && target.closest('.project-img')) {
         const img = target as HTMLImageElement;
         modal.style.display = 'flex';
+        modalImg.style.display = 'block';
+        modalIframe.style.display = 'none';
         modalImg.src = img.src;
         modalImg.alt = img.alt;
         document.body.style.overflow = 'hidden';
+      }
+      
+      // Award Media Cards
+      const awardCard = target.closest('.award-media-card');
+      if (awardCard) {
+        const link = awardCard.getAttribute('data-link');
+        const img = awardCard.querySelector('.award-media-img') as HTMLImageElement;
+        
+        if (link && link.endsWith('.pdf')) {
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+          modalImg.style.display = 'none';
+          modalIframe.style.display = 'block';
+          modalIframe.src = link;
+        } else if (img) {
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+          modalImg.style.display = 'block';
+          modalIframe.style.display = 'none';
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+        } else if (link) {
+          window.open(link, '_blank');
+        }
       }
     });
 
     // Close modal on close button click
     closeBtn.addEventListener('click', () => {
       modal.style.display = 'none';
+      modalIframe.src = '';
       document.body.style.overflow = 'auto';
     });
 
@@ -1005,6 +1043,7 @@ class PortfolioApp {
     modal.addEventListener('click', (e: MouseEvent) => {
       if (e.target === modal) {
         modal.style.display = 'none';
+        modalIframe.src = '';
         document.body.style.overflow = 'auto';
       }
     });
@@ -1013,6 +1052,7 @@ class PortfolioApp {
     document.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.key === 'Escape' && modal.style.display === 'flex') {
         modal.style.display = 'none';
+        modalIframe.src = '';
         document.body.style.overflow = 'auto';
       }
     });
