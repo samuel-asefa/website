@@ -26,6 +26,25 @@ interface ContactMethod {
   isMail?: boolean;
 }
 
+interface Course {
+  name: string;
+  level: 'AP' | 'Honors' | 'Regular';
+}
+
+interface YearCourses {
+  year: string;
+  grade: string;
+  courses: Course[];
+}
+
+interface Club {
+  name: string;
+  role: string;
+  years: string;
+  description: string[];
+  link?: string;
+}
+
 const SKILLS_DATA = {
   programmingLanguages: [
     { name: 'HTML', icon: '/images/html.png' },
@@ -182,6 +201,116 @@ const RESEARCH_PROJECTS: Project[] = [
   }
 ];
 
+const COURSES_DATA: YearCourses[] = [
+  {
+    year: '2025-26',
+    grade: 'Grade 11',
+    courses: [
+      { name: 'AP English III-Lang/Comp.', level: 'AP' },
+      { name: 'AP World History: Modern', level: 'AP' },
+      { name: 'AP Calculus-BC', level: 'AP' },
+      { name: 'AP Physics C', level: 'AP' },
+      { name: 'CS Academy: Virtual Reality & Game Design', level: 'AP' },
+      { name: 'CS Academy: Mobile App Development', level: 'AP' },
+      { name: 'Advanced Biology', level: 'Regular' },
+      { name: 'On Line Personal Financial Mgmt', level: 'Regular' },
+    ]
+  },
+  {
+    year: '2024-25',
+    grade: 'Grade 10',
+    courses: [
+      { name: 'AP US History', level: 'AP' },
+      { name: 'AP Calculus-AB', level: 'AP' },
+      { name: 'AP Computer Science A', level: 'AP' },
+      { name: 'AP Chemistry', level: 'AP' },
+      { name: 'Honors Spanish III', level: 'Honors' },
+      { name: 'Option II-Honors Precalc w/ Calc. Enrich', level: 'Honors' },
+      { name: 'Academic English II', level: 'Regular' },
+    ]
+  },
+  {
+    year: '2023-24',
+    grade: 'Grade 09',
+    courses: [
+      { name: 'AP Physics I', level: 'AP' },
+      { name: 'Honors American Government', level: 'Honors' },
+      { name: 'Honors Algebra II', level: 'Honors' },
+      { name: 'Option II-Honors Chemistry', level: 'Honors' },
+      { name: 'Academic English I', level: 'Regular' },
+      { name: 'Computer Science In The 21st Century', level: 'Regular' },
+      { name: 'Spanish II', level: 'Regular' },
+      { name: 'Freshmen Band', level: 'Regular' },
+    ]
+  }
+];
+
+const CLUBS_DATA: Club[] = [
+  {
+    name: 'VEX Robotics',
+    role: 'Workshop Lead · Lead Builder',
+    years: '2023 – Present',
+    description: [
+      'Taught 10+ recruits CAD and build fundamentals through structured workshops',
+      'Created interactive lessons with CAD to help students learn robot design and assembly',
+      'Utilized CAD software to prototype multiple iterations of our robots design',
+      'Built and improved designs through competition and practice'
+    ],
+    link: 'https://750w.github.io'
+  },
+  {
+    name: 'Aerospace Team',
+    role: 'Electronics Lead',
+    years: '2024 – Present',
+    description: [
+      'Built and programmed airbrakes system including wiring and a custom PCB',
+      'Designed circuitry for NDVI mapping payload and onboard data collection',
+      'Designed and 3D printed all rocket components (fin can, transition piece, airbrakes)',
+      'Ran Finite Element Analysis and other simulations to optimize rocket design'
+    ],
+    link: 'https://sbaerospace.github.io'
+  },
+  {
+    name: 'XSTEM Club',
+    role: 'Executive Board',
+    years: '2023 – Present',
+    description: [
+      'Organized school-wide STEM workshops and competitions, managing logistics for large-scale events',
+      'Led weekly sessions on cutting-edge engineering and technology topics for club members',
+      'Mentored students in hands-on projects and technical skill development'
+    ],
+    link: 'https://x-stem.github.io'
+  },
+  {
+    name: 'Science Olympiad',
+    role: 'Executive Board',
+    years: '2023 – Present',
+    description: [
+      'Led build events and managed $1,000+ in materials and devices',
+      'Oversaw design and iteration of team-built devices across multiple competition cycles'
+    ],
+    link: 'https://sbscioly.github.io'
+  },
+  {
+    name: 'Computer Science Club',
+    role: 'Executive Board',
+    years: '2023 – Present',
+    description: [
+      'Co-led a Circuits & Electronics workshop to 50+ students based in C++',
+      'Helped organize school-wide hackathon with 70+ participants',
+    ],
+    link: 'https://sbcsclub.vercel.app'
+  },
+  {
+    name: 'Mathletes',
+    role: 'Member',
+    years: '2023 – Present',
+    description: [
+      'Competed in the NJ Math League and other regional mathematics competitions',
+    ]
+  },
+];
+
 const CONTACT_DATA: ContactMethod[] = [
   {
     iconClass: 'fas fa-envelope',
@@ -224,6 +353,7 @@ class PortfolioApp {
     this.renderAllComponents();
     this.initializeCircuitBackground();
     this.initializeProjectFilters();
+    this.initializeEducationTabs();
     this.initializeImageModal();
   }
 
@@ -445,6 +575,7 @@ class PortfolioApp {
     this.renderSkillCategory('frameworks-grid', SKILLS_DATA.frameworks);
     this.renderSkillCategory('technologies-grid', SKILLS_DATA.technologies);
     this.renderProjects();
+    this.renderEducation();
     this.renderContactInfo();
   }
 
@@ -502,6 +633,81 @@ class PortfolioApp {
       </div>
     `).join('');
     document.querySelectorAll('.contact-card').forEach(el => this.intersectionObserver?.observe(el));
+  }
+
+  private renderEducation(): void {
+    const container = document.getElementById('education-content');
+    if (!container) return;
+
+    container.innerHTML = `
+      <div class="edu-tabs">
+        <button class="edu-tab-btn active" data-tab="courses" id="tab-courses">Courses</button>
+        <button class="edu-tab-btn" data-tab="clubs" id="tab-clubs">Clubs &amp; Activities</button>
+      </div>
+
+      <div class="edu-panel" id="edu-panel-courses">
+        <div class="courses-container">
+          ${COURSES_DATA.map(yearData => `
+            <div class="course-year-group fade-in">
+              <h3 class="course-year-title">${yearData.grade} <span class="course-year-subtitle">(${yearData.year})</span></h3>
+              <div class="courses-grid">
+                ${yearData.courses.map(c => `
+                  <div class="course-card">
+                    <div class="course-info">
+                      <div class="course-header-row">
+                        <h4>${c.name}</h4>
+                        <span class="course-level level-${c.level.toLowerCase()}">${c.level}</span>
+                      </div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="edu-panel hidden" id="edu-panel-clubs">
+        <div class="clubs-grid">
+          ${CLUBS_DATA.map(club => `
+            <div class="club-card fade-in">
+              <div class="club-header">
+                <div>
+                  <h3>${club.name}${club.link ? ` <a href="${club.link}" target="_blank" rel="noopener" class="club-ext-link"><i class="fas fa-external-link-alt"></i></a>` : ''}</h3>
+                  <p class="club-role">${club.role}</p>
+                  <p class="club-years"><i class="fas fa-calendar-alt"></i> ${club.years}</p>
+                </div>
+              </div>
+              <ul class="club-desc-list">
+                ${club.description.map(point => `<li>${point}</li>`).join('')}
+              </ul>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    container.querySelectorAll('.course-year-group, .club-card').forEach(el => this.intersectionObserver?.observe(el));
+  }
+
+  private initializeEducationTabs(): void {
+    document.addEventListener('click', (e: MouseEvent) => {
+      const btn = (e.target as HTMLElement).closest('.edu-tab-btn') as HTMLElement | null;
+      if (!btn) return;
+
+      document.querySelectorAll('.edu-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const tab = btn.getAttribute('data-tab');
+      document.querySelectorAll('.edu-panel').forEach(panel => {
+        const panelEl = panel as HTMLElement;
+        if (panelEl.id === `edu-panel-${tab}`) {
+          panelEl.classList.remove('hidden');
+        } else {
+          panelEl.classList.add('hidden');
+        }
+      });
+    });
   }
 
   private initializeCircuitBackground(): void {
