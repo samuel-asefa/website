@@ -380,7 +380,7 @@ const AWARDS_DATA: Award[] = [
       'Awarded for achieving an average score of at least 3.5 on all AP Exams taken, and scores of 3 or higher on five or more exams.'
     ],
     media: [
-      { title: 'Award Certificate', link: '/images/apscholar.pdf' }
+      { title: 'Award Certificate', image: '/images/apscholar.png' }
     ]
   },
   {
