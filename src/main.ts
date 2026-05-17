@@ -45,11 +45,18 @@ interface Club {
   link?: string;
 }
 
+interface AwardMedia {
+  title: string;
+  image: string;
+  link?: string;
+}
+
 interface Award {
   title: string;
   issuer: string;
   date?: string;
   description: string[];
+  media?: AwardMedia[];
 }
 
 const SKILLS_DATA = {
@@ -373,6 +380,11 @@ const AWARDS_DATA: Award[] = [
     date: 'Apr 2025',
     description: [
       'Volunteered 200+ hours with RoboZone and TurboTutors over a 2 year period.'
+    ],
+    media: [
+      { title: '2024-25 Certificate', image: '/images/pvsa2024.jpeg' },
+      { title: '2023-24 Certificate', image: '/images/pvsa2023.jpeg' },
+      { title: '2023-25 Medals', image: '/images/pvsamedals.jpeg' }
     ]
   },
   {
@@ -381,6 +393,9 @@ const AWARDS_DATA: Award[] = [
     date: 'Apr 2025',
     description: [
       'Qualified for the national competition in the American Rocketry Challenge (Top 100 of 1,001 contestants); placed 50th at national competition in Virginia.'
+    ],
+    media: [
+      { title: 'ARC Competition', image: '/images/arc.jpg' }
     ]
   },
   {
@@ -854,6 +869,16 @@ class PortfolioApp {
             <ul class="award-desc-list">
               ${award.description.map(desc => `<li>${desc}</li>`).join('')}
             </ul>
+            ${award.media ? `
+            <div class="award-media-grid">
+              ${award.media.map(item => `
+                <div class="award-media-card" ${item.link ? `onclick="window.open('${item.link}', '_blank')"` : ''}>
+                  <img src="${item.image}" alt="${item.title}" loading="lazy" class="award-media-img">
+                  <span class="award-media-title">${item.title}</span>
+                </div>
+              `).join('')}
+            </div>
+            ` : ''}
           </div>
         `).join('')}
       </div>
@@ -958,10 +983,10 @@ class PortfolioApp {
     const modalImg = document.getElementById('modal-image') as HTMLImageElement;
     const closeBtn = document.querySelector('.modal-close') as HTMLElement;
 
-    // Add click event to all project images
+    // Add click event to all project images and award media images
     document.addEventListener('click', (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.tagName === 'IMG' && target.closest('.project-img')) {
+      if (target.tagName === 'IMG' && (target.closest('.project-img') || target.closest('.award-media-card'))) {
         const img = target as HTMLImageElement;
         modal.style.display = 'flex';
         modalImg.src = img.src;
