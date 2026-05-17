@@ -410,6 +410,9 @@ const AWARDS_DATA: Award[] = [
     date: 'Apr 2025',
     description: [
       "Earned 2nd Place (out of 40+ teams) for VividSense's Surround Scanner, an affordable and intuitive device to aid the visually impaired with navigation."
+    ],
+    media: [
+      { title: 'Website', image: '/images/surroundscanner.png', link: 'https://vividsense.vercel.app/product/surrounding-scanner' }
     ]
   },
   {
@@ -591,7 +594,7 @@ class PortfolioApp {
             return;
           }
         }
-        
+
         const hash = url.hash;
         if (!hash || hash === '#') return;
 
@@ -606,7 +609,7 @@ class PortfolioApp {
             top: offsetPosition,
             behavior: 'smooth'
           });
-          
+
           // update URL hash without jump
           window.history.pushState(null, '', hash);
         }
@@ -879,8 +882,8 @@ class PortfolioApp {
             <div class="award-media-grid">
               ${award.media.map(item => `
                 <div class="award-media-card" ${item.link ? `data-link="${item.link}"` : ''}>
-                  ${item.image ? `<img src="${item.image}" alt="${item.title}" loading="lazy" class="award-media-img">` 
-                               : `<div class="award-media-icon"><i class="${item.link?.endsWith('.pdf') ? 'fas fa-file-pdf' : 'fas fa-link'}"></i></div>`}
+                  ${item.image ? `<img src="${item.image}" alt="${item.title}" loading="lazy" class="award-media-img">`
+        : `<div class="award-media-icon"><i class="${item.link?.endsWith('.pdf') ? 'fas fa-file-pdf' : 'fas fa-link'}"></i></div>`}
                   <span class="award-media-title">${item.title}</span>
                 </div>
               `).join('')}
@@ -995,7 +998,7 @@ class PortfolioApp {
     // Add click event to all project images and award media cards
     document.addEventListener('click', (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
+
       // Project Images
       if (target.tagName === 'IMG' && target.closest('.project-img')) {
         const img = target as HTMLImageElement;
@@ -1006,19 +1009,21 @@ class PortfolioApp {
         modalImg.alt = img.alt;
         document.body.style.overflow = 'hidden';
       }
-      
+
       // Award Media Cards
       const awardCard = target.closest('.award-media-card');
       if (awardCard) {
         const link = awardCard.getAttribute('data-link');
         const img = awardCard.querySelector('.award-media-img') as HTMLImageElement;
-        
+
         if (link && link.endsWith('.pdf')) {
           modal.style.display = 'flex';
           document.body.style.overflow = 'hidden';
           modalImg.style.display = 'none';
           modalIframe.style.display = 'block';
           modalIframe.src = link;
+        } else if (link) {
+          window.open(link, '_blank');
         } else if (img) {
           modal.style.display = 'flex';
           document.body.style.overflow = 'hidden';
@@ -1026,8 +1031,6 @@ class PortfolioApp {
           modalIframe.style.display = 'none';
           modalImg.src = img.src;
           modalImg.alt = img.alt;
-        } else if (link) {
-          window.open(link, '_blank');
         }
       }
     });
