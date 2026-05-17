@@ -426,7 +426,8 @@ const AWARDS_DATA: Award[] = [
       'Top 6 finalist (out of ~50 teams) for a proposal on Aerospace Automation focusing on robotics-driven manufacturing; awarded $100.'
     ],
     media: [
-      { title: 'Online Challenge Winners', image: '/images/onlinechallenges.jpg', link: 'https://recfoundation.net/2025-online-challenges-winners-announced/' }
+      { title: '2025 Winners', image: '/images/onlinechallenges.jpg', link: 'https://recfoundation.net/2025-online-challenges-winners-announced/' },
+      { title: 'Proposal', image: '/images/proposalpicture.png', link: '/images/Proposal.pdf' }
     ]
   },
   {
