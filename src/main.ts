@@ -49,6 +49,7 @@ interface AwardMedia {
   title: string;
   image?: string;
   link?: string;
+  imagePosition?: string;
 }
 
 interface Award {
@@ -369,7 +370,8 @@ const AWARDS_DATA: Award[] = [
       'Selected as a winner in the High-Altitude Balloon category for proposing an NDVI mapping payload using machine-learning receiving $1,500 in funding.'
     ],
     media: [
-      { title: 'TechRise Winner', image: '/images/techrise.webp' }
+      { title: 'TechRise Winner', image: '/images/techrise.webp' },
+      { title: 'NASA Payload', image: '/images/nasapayload.jpeg' }
     ]
   },
   {
@@ -427,7 +429,7 @@ const AWARDS_DATA: Award[] = [
     ],
     media: [
       { title: '2025 Winners', image: '/images/onlinechallenges.jpg', link: 'https://recfoundation.net/2025-online-challenges-winners-announced/' },
-      { title: 'Proposal', image: '/images/proposalpicture.png', link: '/images/Proposal.pdf' }
+      { title: 'Proposal', image: '/images/proposalpicture.png', link: '/images/Proposal.pdf', imagePosition: 'top' }
     ]
   },
   {
@@ -889,7 +891,7 @@ class PortfolioApp {
             <div class="award-media-grid">
               ${award.media.map(item => `
                 <div class="award-media-card" ${item.link ? `data-link="${item.link}"` : ''}>
-                  ${item.image ? `<img src="${item.image}" alt="${item.title}" loading="lazy" class="award-media-img">`
+                  ${item.image ? `<img src="${item.image}" alt="${item.title}" loading="lazy" class="award-media-img"${item.imagePosition ? ` style="object-position: ${item.imagePosition}"` : ''}>` 
         : `<div class="award-media-icon"><i class="${item.link?.endsWith('.pdf') ? 'fas fa-file-pdf' : 'fas fa-link'}"></i></div>`}
                   <span class="award-media-title">${item.title}</span>
                 </div>
