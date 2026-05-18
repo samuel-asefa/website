@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Samuel Asefa - About</title>
+    <meta name="google-site-verification" content="Hcv02jSnLKouc1RmcKUG4F0kw7jlpHJmeDtcN9NOB0E" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="About Samuel Asefa - A high school student passionate about computer science, electrical engineering, robotics, and programming.">
+    <meta name="keywords"
+        content="Samuel Asefa, Samuel, Asefa, Sam, Sammy, Assefa, Sammy Asefa, Sam Asefa, Sam A, Sammy A, Samuel A, South Brunswick High School, SBHS, 750W, Developer, Engineer, Robotics">
+    <meta name="author" content="Samuel Asefa">
+
+    <meta property="og:title" content="Samuel Asefa - About">
+    <meta property="og:description"
+        content="About Samuel Asefa - A high school student passionate about computer science, electrical engineering, robotics, and programming.">
+    <meta property="og:image" content="/images/samuel-asefa.jpg">
+    <meta property="og:url" content="https://samuelasefa.vercel.app">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://samuelasefa.com">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="src/style.css">
+
+    <!-- Swiper CSS & JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        .about-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 5%;
+        }
+
+        .about-text-container {
+            background-color: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            margin-bottom: 4rem;
+        }
+
+        .about-text-container p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text-container p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-text-container a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .about-text-container a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .socials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .social-category {
+            background-color: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(14, 165, 233, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.15);
+        }
+
+        .social-category h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .social-links-list li a {
+            display: inline-flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .social-links-list li a:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .social-links-list li a::before {
+            content: "→";
+            margin-right: 8px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.2s ease;
+        }
+
+        .social-links-list li a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .socials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Side-by-Side Layout */
+        .about-hero-layout {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .about-text-wrapper {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .about-text-container {
+            margin-bottom: 0;
+            /* Override default */
+        }
+
+        .about-carousel-wrapper {
+            flex: 1;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* Swiper Cards Styles */
+        .swiper {
+            width: 100%;
+            height: 450px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        @media (max-width: 900px) {
+            .about-hero-layout {
+                flex-direction: column;
+            }
+
+            .swiper {
+                height: 400px;
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cursor" class="cursor"></div>
+
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">Samuel Asefa</a>
+            <nav aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#explore" class="nav-link">Explore</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="education.html" class="nav-link">Education</a></li>
+                    <li><a href="education.html#awards" class="nav-link">Awards</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="hamburger" aria-label="Menu toggle" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 120px;">
+        <section class="about-section">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-hero-layout">
+                <div class="about-text-wrapper">
+                    <div class="about-text-container">
+                        <p>Hey, I'm Sammy! I'm a high school student at South Brunswick High School passionate about
+                            computer science and electrical engineering.</p>
+                        <p>I am currently involved in my school's VEX Robotics Club on team <a
+                                href="https://750w.github.io" target="_blank" rel="noopener noreferrer">750W</a>,
+                            Science Olympiad Team, X-STEM club, Math Team, and Computer Science club.</p>
+                        <p>I am also the Co-Founder of <a href="https://robozonenj.org/" target="_blank"
+                                rel="noopener noreferrer">RoboZone</a>, an organization dedicated to teaching students
+                            about computer science, electronics, and robotics topics.</p>
+                    </div>
+                </div>
+
+                <div class="about-carousel-wrapper">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="/images/arc.jpg" alt="Arc Project"></div>
+                            <div class="swiper-slide"><img src="/images/techrise.webp" alt="TechRise Team"></div>
+                            <div class="swiper-slide"><img src="/images/push-back-robot.jpeg" alt="Robotics"></div>
+                            <div class="swiper-slide"><img src="/images/nasapayload.jpeg" alt="NASA Payload"></div>
+                            <div class="swiper-slide"><img src="/images/pvsamedals.jpeg" alt="PVSA Medals"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Connect & Learn More</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="socials-grid">
+                <!-- General -->
+                <div class="social-category">
+                    <h3>📁 General</h3>
+                    <ul class="social-links-list">
+                        <li><a href="https://samuelasefa.vercel.app" target="_blank"
+                                rel="noopener noreferrer">Website</a></li>
+                        <li><a href="https://www.linkedin.com/in/samuelasefa" target="_blank"
+                                rel="noopener noreferrer">LinkedIn</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Programming -->
+                <div class="social-category">
+                    <h3>💻 Programming</h3>
+                    <ul class="social-links-list">
+                        <li><a href="https://github.com/samuel-asefa" target="_blank"
+                                rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://devpost.com/samuel-asefa" target="_blank"
+                                rel="noopener noreferrer">DevPost</a></li>
+                        <li><a href="https://leetcode.com/SamuelAsefa" target="_blank"
+                                rel="noopener noreferrer">LeetCode</a></li>
+                    </ul>
+                </div>
+
+                <!-- Engineering -->
+                <div class="social-category">
+                    <h3>⚙️ Engineering</h3>
+                    <ul class="social-links-list">
+                        <li><a href="https://forums.autodesk.com/t5/user/viewprofilepage/user-id/17644159"
+                                target="_blank" rel="noopener noreferrer">Autodesk Community</a></li>
+                        <li><a href="https://grabcad.com/sammy.asefa-1" target="_blank"
+                                rel="noopener noreferrer">GrabCAD</a></li>
+                    </ul>
+                </div>
+
+                <!-- Professional -->
+                <div class="social-category">
+                    <h3>🔍 Research</h3>
+                    <ul class="social-links-list">
+                        <li><a href="https://scholar.google.com/citations?user=IPMvevIAAAAJ&hl=en" target="_blank"
+                                rel="noopener noreferrer">Google Scholar</a></li>
+                        <li><a href="https://www.researchgate.net/profile/Samuel-Asefa" target="_blank"
+                                rel="noopener noreferrer">ResearchGate</a></li>
+                        <li><a href="https://www.cambridge.org/engage/coe/search-dashboard?authors=Samuel%20Asefa"
+                                target="_blank" rel="noopener noreferrer">Cambridge Open Engage</a></li>
+                    </ul>
+                </div>
+
+                <!-- Education -->
+                <div class="social-category">
+                    <h3>📚 Education</h3>
+                    <ul class="social-links-list">
+                        <li><a href="https://schoolhouse.world/u/785891" target="_blank"
+                                rel="noopener noreferrer">Schoolhouse</a></li>
+                        <li><a href="https://www.khanacademy.org/profile/samuelasefa" target="_blank"
+                                rel="noopener noreferrer">Khan Academy</a></li>
+                        <li><a href="https://artofproblemsolving.com/community/user/samuelasefa" target="_blank"
+                                rel="noopener noreferrer">Art of Problem Solving</a></li>
+                    </ul>
+                </div>
+
+                <!-- Creative/Social Media -->
+                <div class="social-category">
+                    <h3>🎥 Socials</h3>
+                    <ul class="social-links-list">
+                        <li><a href="https://www.youtube.com/@samuel-asefa" target="_blank"
+                                rel="noopener noreferrer">YouTube</a></li>
+                        <li><a href="https://www.instagram.com/sammy.asefa" target="_blank"
+                                rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://medium.com/@samuelasefa20" target="_blank"
+                                rel="noopener noreferrer">Medium</a></li>
+                    </ul>
+                </div>
+
+                <!-- Fun -->
+                <div class="social-category">
+                    <h3>🎮 Fun</h3>
+                    <ul class="social-links-list">
+                        <li><a href="https://www.jetpunk.com/users/sammystudios" target="_blank"
+                                rel="noopener noreferrer">JetPunk</a></li>
+                        <li><a href="https://www.sporcle.com/user/samuelasefa/" target="_blank"
+                                rel="noopener noreferrer">Sporcle</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Samuel Asefa</div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/samuelasefa/" target="_blank" rel="noopener"
+                    aria-label="LinkedIn Profile" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener" aria-label="GitHub Profile"
+                    class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.youtube.com/@samuel-asefa" target="_blank" rel="noopener"
+                    aria-label="YouTube Channel" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/sammy.asefa/" target="_blank" rel="noopener"
+                    aria-label="Instagram Profile" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Samuel Asefa. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+        const swiper = new Swiper(".mySwiper", {
+            effect: "cards",
+            grabCursor: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+</body>
+
+</html>

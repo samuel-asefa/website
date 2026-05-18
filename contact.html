@@ -43,6 +43,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="index.html#explore" class="nav-link">Explore</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="education.html" class="nav-link">Education</a></li>
                     <li><a href="education.html#awards" class="nav-link">Awards</a></li>
                     <li><a href="projects.html" class="nav-link">Projects</a></li>
@@ -63,8 +64,58 @@
                 <h2>Get In Touch</h2>
                 <div class="section-line"></div>
             </div>
+            
             <div class="contact-content">
-                <div class="contact-info" id="contact-info-grid"></div>
+                <!-- Top Row: Reasons -->
+                <div class="contact-reasons-full">
+                    <h3>Why Contact Me?</h3>
+                    <div class="reasons-horizontal">
+                        <div class="reason-card">
+                            <i class="fas fa-code"></i>
+                            <h4>Collaboration</h4>
+                            <p>Interested in working together on a software or hardware project.</p>
+                        </div>
+                        <div class="reason-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Questions</h4>
+                            <p>Want to know more about my projects or learn from my experiences.</p>
+                        </div>
+                        <div class="reason-card">
+                            <i class="fas fa-coffee"></i>
+                            <h4>Networking</h4>
+                            <p>Just want to say hi and connect!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Row: Form and Cards -->
+                <div class="contact-split-layout">
+                    <div class="contact-form-container">
+                        <h3>Send a Message</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="What's on your mind?"></textarea>
+                            </div>
+                            <button type="submit" class="btn primary-btn submit-btn">
+                                Send Message <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Contact Cards -->
+                    <div class="contact-cards-container">
+                        <div class="contact-info" id="contact-info-grid"></div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -93,6 +144,19 @@
     </button>
 
     <script type="module" src="/src/main.ts"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            
+            window.location.href = `mailto:samuelasefa20@gmail.com?subject=${subject}&body=${body}`;
+        });
+    </script>
 </body>
 
 </html>
