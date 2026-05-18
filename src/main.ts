@@ -187,6 +187,13 @@ const HARDWARE_PROJECTS: Project[] = [
     links: {
       github: 'https://github.com/750W'
     }
+  },
+  {
+    title: 'NDVI Mapping',
+    description: 'A high-altitude balloon payload designed to capture and analyze Normalized Difference Vegetation Index (NDVI) mapping data.',
+    image: '/images/nasapayload.jpeg',
+    technologies: ['Hardware', 'Sensors', 'Python'],
+    links: {}
   }
 ];
 

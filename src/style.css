@@ -746,7 +746,15 @@ section {
 
 .github-card-link {
   text-decoration: none;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: var(--glass-border);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
   border-radius: var(--border-radius);
   transition: var(--transition);
   overflow: hidden;
