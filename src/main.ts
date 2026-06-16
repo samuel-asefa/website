@@ -280,7 +280,7 @@ const COURSES_DATA: YearCourses[] = [
 const CLUBS_DATA: Club[] = [
   {
     name: 'VEX Robotics',
-    role: 'Workshop Lead · Lead Builder',
+    role: 'Workshop Lead | Lead Builder',
     years: '2023 – Present',
     description: [
       'Taught 10+ recruits CAD and build fundamentals through structured workshops',
@@ -292,7 +292,7 @@ const CLUBS_DATA: Club[] = [
   },
   {
     name: 'Aerospace Team',
-    role: 'Electronics Lead',
+    role: 'Design Lead | Electronics Lead',
     years: '2024 – Present',
     description: [
       'Built and programmed airbrakes system including wiring and a custom PCB',
@@ -303,8 +303,19 @@ const CLUBS_DATA: Club[] = [
     link: 'https://sbaerospace.github.io'
   },
   {
+    name: 'Science Olympiad',
+    role: 'Executive Board | Build Captain',
+    years: '2023 – Present',
+    description: [
+      'Led build events and managed $1,000+ in materials and devices',
+      'Oversaw design and iteration of team-built devices across multiple competition cycles',
+      'Competed in build events including Air Trajectory, Engineering CAD, Hovercraft, and Robot Tour'
+    ],
+    link: 'https://sbscioly.github.io'
+  },
+  {
     name: 'XSTEM Club',
-    role: 'Executive Board',
+    role: 'President',
     years: '2023 – Present',
     description: [
       'Organized school-wide STEM workshops and competitions, managing logistics for large-scale events',
@@ -314,22 +325,12 @@ const CLUBS_DATA: Club[] = [
     link: 'https://x-stem.github.io'
   },
   {
-    name: 'Science Olympiad',
-    role: 'Executive Board',
-    years: '2023 – Present',
-    description: [
-      'Led build events and managed $1,000+ in materials and devices',
-      'Oversaw design and iteration of team-built devices across multiple competition cycles'
-    ],
-    link: 'https://sbscioly.github.io'
-  },
-  {
     name: 'Computer Science Club',
-    role: 'Executive Board',
+    role: 'President',
     years: '2023 – Present',
     description: [
-      'Co-led a Circuits & Electronics workshop to 50+ students based in C++',
-      'Helped organize school-wide hackathon with 70+ participants',
+      'Led a Circuits & Electronics workshop with 65 students based in C++',
+      'Helped organize a school-wide hackathon with 74 participants',
     ],
     link: 'https://sbcsclub.vercel.app'
   },
@@ -339,6 +340,7 @@ const CLUBS_DATA: Club[] = [
     years: '2023 – Present',
     description: [
       'Competed in the NJ Math League and other regional mathematics competitions',
+      'Actively participated in meetings to prepare for competitions and improve competition skills'
     ]
   },
 ];
