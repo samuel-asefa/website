@@ -229,6 +229,22 @@ const RESEARCH_PROJECTS: Project[] = [
 
 const COURSES_DATA: YearCourses[] = [
   {
+    year: '2026-27',
+    grade: 'Grade 12',
+    //uwGPA: 3.96,
+    //wGPA: 4.83,
+    courses: [
+      { name: 'AP English IV-Lit/Comp.', level: 'AP' },
+      { name: 'AP European History', level: 'AP' },
+      { name: 'AP Statistics', level: 'AP' },
+      { name: 'Computer Science Capstone', level: 'AP', csAcademy: true },
+      { name: 'Data Structures', level: 'AP', csAcademy: true },
+      { name: 'Modern Physics', level: 'AP' },
+      { name: 'Multivariable Calculus', level: 'AP' },
+      { name: 'Linear Algebra', level: 'AP' },
+    ]
+  },
+  {
     year: '2025-26',
     grade: 'Grade 11',
     uwGPA: 3.96,
