@@ -237,7 +237,7 @@ const COURSES_DATA: YearCourses[] = [
       { name: 'AP English IV-Lit/Comp.', level: 'AP' },
       { name: 'AP European History', level: 'AP' },
       { name: 'AP Statistics', level: 'AP' },
-      { name: 'Computer Science Capstone', level: 'AP', csAcademy: true },
+      { name: 'CS Capstone', level: 'AP', csAcademy: true },
       { name: 'Data Structures', level: 'AP', csAcademy: true },
       { name: 'Modern Physics', level: 'AP' },
       { name: 'Multivariable Calculus', level: 'AP' },
