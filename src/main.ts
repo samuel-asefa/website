@@ -486,6 +486,15 @@ const AWARDS_DATA: Award[] = [
     ]
   },
   {
+    title: 'Honors Societies',
+    issuer: 'South Brunswick High School',
+    description: [
+      'National Honor Society',
+      'Computer Science Honor Society',
+      'Science Honor Society'
+    ]
+  },
+  {
     title: 'Robotics Awards',
     issuer: 'VEX Robotics',
     description: [
