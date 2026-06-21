@@ -1007,62 +1007,164 @@ class PortfolioApp {
     const container = document.getElementById('circuit-background');
     if (!container) return;
 
-    const svgNS = "http://www.w3.org/2000/svg";
-    const svg = document.createElementNS(svgNS, 'svg');
-    svg.setAttribute('width', '100%');
-    svg.setAttribute('height', '100%');
-    container.appendChild(svg);
+    // Use a canvas — single batched draw call per frame, zero DOM thrashing
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
+    container.appendChild(canvas);
 
-    const nodes: { x: number, y: number }[] = [];
-    const gridSize = 80;
-    const numCols = Math.ceil(window.innerWidth / gridSize);
-    const numRows = Math.ceil(window.innerHeight / gridSize);
+    const W = canvas.width  = window.innerWidth;
+    const H = canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d')!;
 
-    for (let i = 0; i <= numCols; i++) {
-      for (let j = 0; j <= numRows; j++) {
-        if (Math.random() > 0.5) {
-          nodes.push({ x: i * gridSize, y: j * gridSize });
+    const ACCENT   = 'rgba(14,165,233,';
+    const GRID     = 95;
+    const MAX_DIST = GRID * 1.7;
+
+    // --- Build nodes ---
+    interface CNode {
+      bx: number; by: number;
+      x:  number; y:  number;
+      r:  number;
+      amp: number; phase: number; speed: number; opacity: number;
+    }
+
+    const nodes: CNode[] = [];
+    const cols = Math.ceil(W / GRID) + 1;
+    const rows = Math.ceil(H / GRID) + 1;
+
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        if (Math.random() > 0.48) {          // fewer nodes
+          const bx = i * GRID + (Math.random() - 0.5) * GRID * 0.55;
+          const by = j * GRID + (Math.random() - 0.5) * GRID * 0.55;
+          nodes.push({
+            bx, by, x: bx, y: by,
+            r:       0.8 + Math.random() * 1.1,
+            amp:     4   + Math.random() * 8,
+            phase:   Math.random() * Math.PI * 2,
+            speed:   0.0025 + Math.random() * 0.005,
+            opacity: 0.15 + Math.random() * 0.25,  // subtler nodes
+          });
         }
       }
     }
 
-    nodes.forEach(node => {
-      const circle = document.createElementNS(svgNS, 'circle');
-      circle.setAttribute('cx', String(node.x));
-      circle.setAttribute('cy', String(node.y));
-      circle.setAttribute('r', '2');
-      circle.setAttribute('fill', 'var(--accent-color)');
-      svg.appendChild(circle);
-    });
-
+    // --- Build edge list (static topology, positions update each frame) ---
+    interface Edge { a: CNode; b: CNode; }
+    const edges: Edge[] = [];
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
-        const dist = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
-        if (dist < gridSize * 1.5 && Math.random() > 0.8) {
-          const line = document.createElementNS(svgNS, 'line');
-          line.setAttribute('x1', String(nodes[i].x));
-          line.setAttribute('y1', String(nodes[i].y));
-          line.setAttribute('x2', String(nodes[j].x));
-          line.setAttribute('y2', String(nodes[j].y));
-          line.setAttribute('stroke', 'var(--border-color)');
-          line.setAttribute('stroke-width', '1');
-          svg.insertBefore(line, svg.firstChild);
+        const d = Math.hypot(nodes[i].bx - nodes[j].bx, nodes[i].by - nodes[j].by);
+        if (d < MAX_DIST && Math.random() > 0.72) {
+          edges.push({ a: nodes[i], b: nodes[j] });
         }
       }
     }
 
-    setInterval(() => {
-      const lines = svg.querySelectorAll('line');
-      const randomIndex = Math.floor(Math.random() * lines.length);
-      const randomLine = lines[randomIndex];
-      if (randomLine) {
-        randomLine.style.transition = 'stroke 0.2s';
-        randomLine.setAttribute('stroke', 'var(--accent-color)');
-        setTimeout(() => {
-          randomLine.setAttribute('stroke', 'var(--border-color)');
-        }, 300);
+    // --- Pulses travelling along edges ---
+    interface Pulse { edge: Edge; t: number; speed: number; }
+    const pulses: Pulse[] = [];
+
+    // Seed a few pulses immediately so it doesn't look empty at start
+    for (let k = 0; k < 12; k++) {
+      pulses.push({
+        edge:  edges[Math.floor(Math.random() * edges.length)],
+        t:     Math.random(),
+        speed: 0.004 + Math.random() * 0.006,
+      });
+    }
+
+    let lastSpawn = 0;
+    const SPAWN_INTERVAL = 280; // ms between new pulses — less frequent = more subtle
+
+    // --- Main render loop ---
+    let time = 0;
+    let lastTs = 0;
+
+    const draw = (ts: number) => {
+      const dt = Math.min(ts - lastTs, 32); // cap at ~30fps delta to avoid jumps
+      lastTs = ts;
+      time += dt;
+
+      // Clear
+      ctx.clearRect(0, 0, W, H);
+
+      // 1. Update node positions (smooth sine float)
+      const t = time * 0.001;
+      nodes.forEach(n => {
+        n.x = n.bx + Math.sin(t * n.speed * 6.28 + n.phase) * n.amp;
+        n.y = n.by + Math.cos(t * n.speed * 6.28 * 0.71 + n.phase) * n.amp * 0.6;
+      });
+
+      // 2. Draw edges
+      ctx.lineWidth = 0.7;
+      edges.forEach(e => {
+        const dist = Math.hypot(e.a.x - e.b.x, e.a.y - e.b.y);
+        // Fade edges that have stretched far (dynamic opacity)
+        const alpha = Math.max(0, 0.08 * (1 - dist / (MAX_DIST * 1.1)));
+        if (alpha <= 0) return;
+        ctx.strokeStyle = ACCENT + alpha + ')';
+        ctx.beginPath();
+        ctx.moveTo(e.a.x, e.a.y);
+        ctx.lineTo(e.b.x, e.b.y);
+        ctx.stroke();
+      });
+
+      // 3. Draw nodes
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = ACCENT + n.opacity + ')';
+        ctx.fill();
+      });
+
+      // 4. Spawn & draw pulses
+      if (ts - lastSpawn > SPAWN_INTERVAL && edges.length > 0) {
+        pulses.push({
+          edge:  edges[Math.floor(Math.random() * edges.length)],
+          t:     0,
+          speed: 0.004 + Math.random() * 0.007,
+        });
+        lastSpawn = ts;
       }
-    }, 100);
+
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const p = pulses[i];
+        p.t += p.speed * (dt / 16.67); // frame-rate independent advance
+
+        if (p.t >= 1) { pulses.splice(i, 1); continue; }
+
+        const px = p.edge.a.x + (p.edge.b.x - p.edge.a.x) * p.t;
+        const py = p.edge.a.y + (p.edge.b.y - p.edge.a.y) * p.t;
+
+        // Smooth fade in (0→0.2) and out (0.8→1)
+        const fade = p.t < 0.2
+          ? p.t / 0.2
+          : p.t > 0.8
+            ? (1 - p.t) / 0.2
+            : 1;
+
+        // Glow halo
+        const grd = ctx.createRadialGradient(px, py, 0, px, py, 8);
+        grd.addColorStop(0,   ACCENT + (0.45 * fade) + ')');
+        grd.addColorStop(0.4, ACCENT + (0.15 * fade) + ')');
+        grd.addColorStop(1,   ACCENT + '0)');
+        ctx.beginPath();
+        ctx.arc(px, py, 8, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+
+        // Core dot
+        ctx.beginPath();
+        ctx.arc(px, py, 1.6, 0, Math.PI * 2);
+        ctx.fillStyle = ACCENT + (0.6 * fade) + ')';
+        ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
+    };
+
+    requestAnimationFrame(draw);
   }
 
   private initializeImageModal(): void {

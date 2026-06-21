@@ -45,20 +45,21 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--primary-color);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary-color);
+  background: linear-gradient(180deg, var(--accent-color), var(--accent-secondary));
   border-radius: 10px;
+  border: 1px solid rgba(14, 165, 233, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-color);
+  background: linear-gradient(180deg, var(--accent-hover), var(--accent-color));
 }
 
 .loading-screen {
@@ -210,17 +211,72 @@ header.scrolled {
   justify-content: center;
   position: relative;
   padding: 0 2rem;
-  overflow: hidden;
 }
 
+/* Page-wide background: fixed so it covers every page and doesn't clip at hero boundary */
 #circuit-background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ambient orbs — fixed position, float slowly behind ALL page content */
+.hero-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  will-change: transform;
+  z-index: -1;
+}
+
+.hero-orb-1 {
+  width: 650px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.10) 0%, transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation: orbFloat1 18s ease-in-out infinite alternate;
+}
+
+.hero-orb-2 {
+  width: 550px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.09) 0%, transparent 70%);
+  bottom: -15%;
+  right: -5%;
+  animation: orbFloat2 22s ease-in-out infinite alternate;
+}
+
+.hero-orb-3 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+  top: 30%;
+  left: 40%;
+  animation: orbFloat3 15s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1 {
+  0%   { transform: translate(0px,    0px)   scale(1);    }
+  50%  { transform: translate(80px,   60px)  scale(1.1);  }
+  100% { transform: translate(40px,  120px)  scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+  0%   { transform: translate(0px,    0px)   scale(1);    }
+  50%  { transform: translate(-60px, -80px)  scale(1.05); }
+  100% { transform: translate(-30px,  40px)  scale(1.1);  }
+}
+
+@keyframes orbFloat3 {
+  0%   { transform: translate(0px,    0px)   scale(1);   }
+  50%  { transform: translate(50px,  -60px)  scale(1.2); }
+  100% { transform: translate(-40px,  30px)  scale(0.9); }
 }
 
 .hero-content {
@@ -288,8 +344,27 @@ header.scrolled {
   font-weight: 600;
   text-decoration: none;
   transition: var(--transition);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Micro-interaction: shimmer sweep on hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  transform: translateX(100%);
 }
 
 .primary-btn {
@@ -300,7 +375,13 @@ header.scrolled {
 .primary-btn:hover {
   background: var(--accent-hover);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 170, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35);
+}
+
+/* Micro-interaction: icon/arrow nudge inside primary buttons */
+.primary-btn:hover i,
+.primary-btn:hover .btn-icon {
+  transform: translateX(3px);
 }
 
 .secondary-btn {
@@ -313,6 +394,7 @@ header.scrolled {
   background-color: var(--accent-color);
   color: var(--primary-color);
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.25);
 }
 
 .hero-btns {
@@ -467,11 +549,19 @@ section {
   flex-direction: column;
   padding: 2rem 2.25rem;
   border-radius: var(--border-radius);
-  background-color: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow);
+  /* #2: Enhanced glassmorphism — deeper blur, brighter base glass */
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  /* Edge lighting: brighter top/left border, subtler bottom/right */
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  /* Inset glow for depth */
+  box-shadow: var(--shadow),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   text-decoration: none;
   color: var(--text-color);
   overflow: hidden;
@@ -479,6 +569,18 @@ section {
               box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
               border-color 0.35s ease;
   cursor: pointer;
+}
+
+/* Subtle noise/grain texture overlay for premium glass feel */
+.bento-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
 }
 
 .bento-card::before {
@@ -494,7 +596,9 @@ section {
 
 .bento-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-hover),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
 .bento-card > * {
@@ -561,11 +665,14 @@ section {
   object-position: var(--img-x, center) var(--img-y, center);
   transform: scale(var(--img-scale, 1));
   display: block;
-  transition: transform 0.4s ease;
+  /* #7: Micro-interaction — grayscale to full color on hover */
+  filter: grayscale(30%) brightness(0.9);
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .bento-card:hover .bento-image img {
   transform: scale(calc(var(--img-scale, 1) * 1.05));
+  filter: grayscale(0%) brightness(1);
 }
 
 /* Title */
@@ -597,15 +704,19 @@ section {
   justify-content: center;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.4);
   font-size: 0.85rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* #7: Arrow nudge micro-interaction */
 .bento-card:hover .bento-arrow {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  transform: translateX(3px);
+  background-color: rgba(14, 165, 233, 0.2);
+  border-color: rgba(14, 165, 233, 0.4);
+  color: var(--accent-color);
+  transform: translateX(4px);
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.2);
 }
 
 /* Responsive */
@@ -749,11 +860,15 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: var(--glass-border);
-  box-shadow: var(--shadow);
+  /* #2: Enhanced glass */
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   padding: 1.5rem;
   border-radius: var(--border-radius);
   transition: var(--transition);
@@ -762,7 +877,7 @@ section {
 
 .github-card-link:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-hover), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .github-card {
@@ -897,22 +1012,27 @@ section {
 }
 
 .project-card {
-  background-color: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* #2: Enhanced glass on project cards */
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius);
   overflow: hidden;
   transition: var(--transition);
-  border: var(--glass-border);
-  box-shadow: var(--shadow);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
 }
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--accent-color);
+  box-shadow: var(--shadow-hover), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(14, 165, 233, 0.35);
+  border-left-color: rgba(14, 165, 233, 0.25);
 }
 
 .project-img {
@@ -926,16 +1046,15 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: var(--transition);
+  /* #7: grayscale-to-color micro-interaction */
+  filter: grayscale(25%) brightness(0.88);
+  transition: transform 0.4s ease, filter 0.4s ease;
   cursor: pointer;
 }
 
-.project-img img:hover {
-  opacity: 0.9;
-}
-
 .project-card:hover .project-img img {
-  transform: scale(1.05);
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(1);
 }
 
 .project-content {
