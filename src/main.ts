@@ -363,6 +363,17 @@ const CLUBS_DATA: Club[] = [
 
 const AWARDS_DATA: Award[] = [
   {
+    title: 'National Recognition Program - School Recognition Award',
+    issuer: 'College Board',
+    date: 'Jun 2026',
+    description: [
+      'Recognized by the College Board National Recognition Program for outstanding academic achievement.'
+    ],
+    media: [
+      { title: 'National Recognition Program Award' }
+    ]
+  },
+  {
     title: 'NJ Science League - AP Physics C Team Plaque',
     issuer: 'NJ Science League',
     date: 'May 2026',
