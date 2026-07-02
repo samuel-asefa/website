@@ -363,6 +363,18 @@ const CLUBS_DATA: Club[] = [
 
 const AWARDS_DATA: Award[] = [
   {
+    title: 'GQMC Semi-Final Round Qualifier',
+    issuer: 'Global Quantum Mechanics Challenge',
+    date: 'Jun 2026',
+    description: [
+      'Qualified for the 2nd round of the Global Quantum Mechanics Challenge.'
+    ],
+    media: [
+      { title: 'Qualification Results' },
+      { title: 'Certificate of Participation' }
+    ]
+  },
+  {
     title: 'National Recognition Program - School Recognition Award',
     issuer: 'College Board',
     date: 'Jun 2026',
