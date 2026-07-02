@@ -665,14 +665,12 @@ section {
   object-position: var(--img-x, center) var(--img-y, center);
   transform: scale(var(--img-scale, 1));
   display: block;
-  /* #7: Micro-interaction — grayscale to full color on hover */
-  filter: grayscale(30%) brightness(0.9);
-  transition: transform 0.4s ease, filter 0.4s ease;
+  /* #7: Micro-interaction — scale on hover */
+  transition: transform 0.4s ease;
 }
 
 .bento-card:hover .bento-image img {
   transform: scale(calc(var(--img-scale, 1) * 1.05));
-  filter: grayscale(0%) brightness(1);
 }
 
 /* Title */
@@ -1046,15 +1044,13 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* #7: grayscale-to-color micro-interaction */
-  filter: grayscale(25%) brightness(0.88);
-  transition: transform 0.4s ease, filter 0.4s ease;
+  /* #7: scale micro-interaction */
+  transition: transform 0.4s ease;
   cursor: pointer;
 }
 
 .project-card:hover .project-img img {
   transform: scale(1.06);
-  filter: grayscale(0%) brightness(1);
 }
 
 .project-content {
