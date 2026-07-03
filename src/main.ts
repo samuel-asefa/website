@@ -370,7 +370,7 @@ const AWARDS_DATA: Award[] = [
       'Qualified for the 2nd round of the Global Quantum Mechanics Challenge.'
     ],
     media: [
-      { title: 'Qualification Results' },
+      { title: 'Qualification Results', image: '/images/gqmc-performance-report.png' },
       { title: 'Certificate of Participation', image: 'images/gqmc-certificate-of-participation.png' }
     ]
   },
