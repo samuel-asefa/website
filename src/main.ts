@@ -371,7 +371,7 @@ const AWARDS_DATA: Award[] = [
     ],
     media: [
       { title: 'Qualification Results' },
-      { title: 'Certificate of Participation' }
+      { title: 'Certificate of Participation', image: 'images/gqmc-certificate-of-participation.png' }
     ]
   },
   {
