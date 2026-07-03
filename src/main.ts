@@ -382,7 +382,7 @@ const AWARDS_DATA: Award[] = [
       'Recognized by the College Board National Recognition Program for outstanding academic achievement.'
     ],
     media: [
-      { title: 'National Recognition Program Award' }
+      { title: 'National Recognition Program Award', image: '/images/national-recognition-program-award.png' }
     ]
   },
   {
@@ -1035,19 +1035,19 @@ class PortfolioApp {
     canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
     container.appendChild(canvas);
 
-    const W = canvas.width  = window.innerWidth;
+    const W = canvas.width = window.innerWidth;
     const H = canvas.height = window.innerHeight;
     const ctx = canvas.getContext('2d')!;
 
-    const ACCENT   = 'rgba(14,165,233,';
-    const GRID     = 95;
+    const ACCENT = 'rgba(14,165,233,';
+    const GRID = 95;
     const MAX_DIST = GRID * 1.7;
 
     // --- Build nodes ---
     interface CNode {
       bx: number; by: number;
-      x:  number; y:  number;
-      r:  number;
+      x: number; y: number;
+      r: number;
       amp: number; phase: number; speed: number; opacity: number;
     }
 
@@ -1062,10 +1062,10 @@ class PortfolioApp {
           const by = j * GRID + (Math.random() - 0.5) * GRID * 0.55;
           nodes.push({
             bx, by, x: bx, y: by,
-            r:       0.8 + Math.random() * 1.1,
-            amp:     4   + Math.random() * 8,
-            phase:   Math.random() * Math.PI * 2,
-            speed:   0.0025 + Math.random() * 0.005,
+            r: 0.8 + Math.random() * 1.1,
+            amp: 4 + Math.random() * 8,
+            phase: Math.random() * Math.PI * 2,
+            speed: 0.0025 + Math.random() * 0.005,
             opacity: 0.15 + Math.random() * 0.25,  // subtler nodes
           });
         }
@@ -1091,8 +1091,8 @@ class PortfolioApp {
     // Seed a few pulses immediately so it doesn't look empty at start
     for (let k = 0; k < 12; k++) {
       pulses.push({
-        edge:  edges[Math.floor(Math.random() * edges.length)],
-        t:     Math.random(),
+        edge: edges[Math.floor(Math.random() * edges.length)],
+        t: Math.random(),
         speed: 0.004 + Math.random() * 0.006,
       });
     }
@@ -1144,8 +1144,8 @@ class PortfolioApp {
       // 4. Spawn & draw pulses
       if (ts - lastSpawn > SPAWN_INTERVAL && edges.length > 0) {
         pulses.push({
-          edge:  edges[Math.floor(Math.random() * edges.length)],
-          t:     0,
+          edge: edges[Math.floor(Math.random() * edges.length)],
+          t: 0,
           speed: 0.004 + Math.random() * 0.007,
         });
         lastSpawn = ts;
@@ -1169,9 +1169,9 @@ class PortfolioApp {
 
         // Glow halo
         const grd = ctx.createRadialGradient(px, py, 0, px, py, 8);
-        grd.addColorStop(0,   ACCENT + (0.45 * fade) + ')');
+        grd.addColorStop(0, ACCENT + (0.45 * fade) + ')');
         grd.addColorStop(0.4, ACCENT + (0.15 * fade) + ')');
-        grd.addColorStop(1,   ACCENT + '0)');
+        grd.addColorStop(1, ACCENT + '0)');
         ctx.beginPath();
         ctx.arc(px, py, 8, 0, Math.PI * 2);
         ctx.fillStyle = grd;
