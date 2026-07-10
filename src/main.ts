@@ -148,12 +148,13 @@ const SOFTWARE_PROJECTS: Project[] = [
     }
   },
   {
-    title: 'Graphify',
-    description: 'A Java-based application for visualizing common graph theory algorithms, aiding in the understanding of complex data structures.',
-    image: '/images/graphify.png',
-    technologies: ['Java', 'JPanel'],
+    title: 'AmharicQuest',
+    description: 'An Amharic learning app with a full Fidel (alphabet) reference, vocabulary quizzes, and XP tracking.',
+    image: '/images/amharicquest.png',
+    technologies: ['TypeScript', 'Firebase'],
     links: {
-      github: 'https://github.com/samuel-asefa/Graphify'
+      demo: 'https://amharicquest.vercel.app/',
+      github: 'https://github.com/samuel-asefa/AmharicQuest'
     }
   }
 ];
