@@ -371,7 +371,8 @@ const AWARDS_DATA: Award[] = [
       'Qualified for the 2nd round of the International Computer Science Competition.'
     ],
     media: [
-      { title: 'Certificate of Participation', image: '/images/icsc-certificate-of-participation.png' }
+      { title: 'Qualification Results', image: '/images/icsc-performance-report.png' },
+      { title: 'Certificate of Participation', image: '/images/icsc-participation-certificate.png' }
     ]
   },
   {
