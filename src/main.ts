@@ -364,6 +364,17 @@ const CLUBS_DATA: Club[] = [
 
 const AWARDS_DATA: Award[] = [
   {
+    title: 'ICSC Pre-Final Round Qualifier',
+    issuer: 'International Computer Science Competition',
+    date: 'Jul 2026',
+    description: [
+      'Qualified for the 2nd round of the International Computer Science Competition.'
+    ],
+    media: [
+      
+    ]
+  },
+  {
     title: 'GQMC Semi-Final Round Qualifier',
     issuer: 'Global Quantum Mechanics Challenge',
     date: 'Jun 2026',
