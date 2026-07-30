@@ -31,6 +31,7 @@ interface Course {
   level: 'AP' | 'Honors' | 'Regular';
   summer?: boolean;
   csAcademy?: boolean;
+  apScore?: number | 'In Progress';
 }
 
 interface YearCourses {
@@ -235,9 +236,9 @@ const COURSES_DATA: YearCourses[] = [
     //uwGPA: 3.96,
     //wGPA: 4.83,
     courses: [
-      { name: 'AP English IV-Lit/Comp.', level: 'AP' },
-      { name: 'AP European History', level: 'AP' },
-      { name: 'AP Statistics', level: 'AP' },
+      { name: 'AP English IV-Lit/Comp.', level: 'AP', apScore: 'In Progress' },
+      { name: 'AP European History', level: 'AP', apScore: 'In Progress' },
+      { name: 'AP Statistics', level: 'AP', apScore: 'In Progress' },
       { name: 'CS Capstone', level: 'AP', csAcademy: true },
       { name: 'Data Structures', level: 'AP', csAcademy: true },
       { name: 'Modern Physics', level: 'AP' },
@@ -251,10 +252,10 @@ const COURSES_DATA: YearCourses[] = [
     uwGPA: 3.96,
     wGPA: 4.83,
     courses: [
-      { name: 'AP English III-Lang/Comp.', level: 'AP' },
-      { name: 'AP World History: Modern', level: 'AP' },
-      { name: 'AP Calculus-BC', level: 'AP' },
-      { name: 'AP Physics C', level: 'AP' },
+      { name: 'AP English III-Lang/Comp.', level: 'AP', apScore: 5 },
+      { name: 'AP World History: Modern', level: 'AP', apScore: 5 },
+      { name: 'AP Calculus-BC', level: 'AP', apScore: 5 },
+      { name: 'AP Physics C', level: 'AP', apScore: 5 },
       { name: 'Virtual Reality & Game Design', level: 'AP', csAcademy: true },
       { name: 'Mobile App Development', level: 'AP', csAcademy: true },
       { name: 'Advanced Biology', level: 'Regular', summer: true },
@@ -267,10 +268,10 @@ const COURSES_DATA: YearCourses[] = [
     uwGPA: 3.96,
     wGPA: 4.65,
     courses: [
-      { name: 'AP US History', level: 'AP' },
-      { name: 'AP Calculus-AB', level: 'AP' },
-      { name: 'AP Computer Science A', level: 'AP' },
-      { name: 'AP Chemistry', level: 'AP' },
+      { name: 'AP US History', level: 'AP', apScore: 5 },
+      { name: 'AP Calculus-AB', level: 'AP', apScore: 5 },
+      { name: 'AP Computer Science A', level: 'AP', apScore: 4 },
+      { name: 'AP Chemistry', level: 'AP', apScore: 5 },
       { name: 'Honors Spanish III', level: 'Honors' },
       { name: 'Honors Precalc w/ Calc. Enrich', level: 'Honors', summer: true },
       { name: 'Academic English II', level: 'Regular' },
@@ -282,7 +283,7 @@ const COURSES_DATA: YearCourses[] = [
     uwGPA: 3.88,
     wGPA: 4.13,
     courses: [
-      { name: 'AP Physics I', level: 'AP' },
+      { name: 'AP Physics I', level: 'AP', apScore: 5 },
       { name: 'Honors American Government', level: 'Honors' },
       { name: 'Honors Algebra II', level: 'Honors' },
       { name: 'Honors Chemistry', level: 'Honors', summer: true },
@@ -539,18 +540,6 @@ const AWARDS_DATA: Award[] = [
       'Amaze Award @ SBHS Push Back Tournament',
       'Amaze Award @ Pirate Popoff Push Back Tournament',
       '3x States Qualification'
-    ]
-  },
-  {
-    title: 'Science Olympiad Invitational Awards',
-    issuer: 'Science Olympiad',
-    description: [
-      '1st Place in Air Trajectory @ UCC NJ Regional Science Olympiad Competition, 2023-2024',
-      '5th Place in Air Trajectory @ Yale University Science Olympiad Invitational, 2023-2024',
-      '10th Place in Air Trajectory (Top 7% of 160 teams) @ Mason Science Olympiad Satellite Invitational, 2024-2025',
-      '7th Place (Top 4% of 200 teams) in Hovercraft @ Mason Science Olympiad Satellite Invitational, 2025-2026',
-      '7th Place in Hovercraft @ Yale University Science Olympiad Invitational, 2025-2026',
-      '3rd Place in Engineering CAD @ Yale University Science Olympiad Invitational, 2025-2026'
     ]
   }
 ];
@@ -908,9 +897,22 @@ class PortfolioApp {
       ? yearsWithGPA.reduce((sum, y) => sum + (y.wGPA || 0), 0) / yearsWithGPA.length
       : 0;
 
+    // Collect all AP courses with scores for the AP Scores panel
+    const allAPCourses = COURSES_DATA.flatMap(yearData =>
+      yearData.courses
+        .filter(c => c.level === 'AP' && c.apScore !== undefined)
+        .map(c => ({ ...c, grade: yearData.grade, year: yearData.year }))
+    );
+    const completedAP = allAPCourses.filter(c => typeof c.apScore === 'number');
+    const inProgressAP = allAPCourses.filter(c => c.apScore === 'In Progress');
+    const avgScore = completedAP.length > 0
+      ? completedAP.reduce((sum, c) => sum + (c.apScore as number), 0) / completedAP.length
+      : 0;
+
     container.innerHTML = `
       <div class="edu-tabs">
         <button class="edu-tab-btn active" data-tab="courses" id="tab-courses">Courses</button>
+        <button class="edu-tab-btn" data-tab="ap-scores" id="tab-ap-scores">AP Scores</button>
         <button class="edu-tab-btn" data-tab="clubs" id="tab-clubs">Clubs &amp; Activities</button>
       </div>
 
@@ -949,7 +951,14 @@ class PortfolioApp {
                     <div class="course-info">
                       <div class="course-header-row">
                         <h4>${c.name}${c.summer ? ' <span class="course-summer"><i class="fas fa-sun"></i> Summer</span>' : ''}${c.csAcademy ? ' <span class="course-cs-academy"><i class="fas fa-laptop-code"></i> CS Academy</span>' : ''}</h4>
-                        <span class="course-level level-${c.level.toLowerCase()}">${c.level}</span>
+                        <div class="course-badges">
+                          <span class="course-level level-${c.level.toLowerCase()}">${c.level}</span>
+                          ${c.apScore !== undefined
+                            ? c.apScore === 'In Progress'
+                              ? `<span class="ap-score-badge ap-score-progress">In Progress</span>`
+                              : `<span class="ap-score-badge ap-score-${c.apScore}">${c.apScore}</span>`
+                            : ''}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -958,6 +967,57 @@ class PortfolioApp {
             </div>
           `).join('')}
         </div>
+      </div>
+
+      <div class="edu-panel hidden" id="edu-panel-ap-scores">
+        <div class="ap-scores-summary">
+          <div class="gpa-card">
+            <span class="gpa-value">${allAPCourses.length}</span>
+            <span class="gpa-label">Total AP Courses</span>
+          </div>
+          <div class="gpa-card">
+            <span class="gpa-value">${completedAP.length}</span>
+            <span class="gpa-label">Completed</span>
+          </div>
+          ${avgScore > 0 ? `<div class="gpa-card">
+            <span class="gpa-value">${avgScore.toFixed(2)}</span>
+            <span class="gpa-label">Average Score</span>
+          </div>` : ''}
+        </div>
+        <div class="ap-score-scale">
+          ${[5,4,3,2,1].map(s => `
+            <div class="ap-scale-item">
+              <span class="ap-score-badge ap-score-${s}">${s}</span>
+              <span class="ap-scale-label">${s === 5 ? 'Extremely Well Qualified' : s === 4 ? 'Well Qualified' : s === 3 ? 'Qualified' : s === 2 ? 'Possibly Qualified' : 'No Recommendation'}</span>
+            </div>
+          `).join('')}
+        </div>
+        ${completedAP.length > 0 ? `
+        <div class="ap-scores-section-title"><i class="fas fa-check-circle"></i> Completed (${completedAP.length})</div>
+        <div class="ap-scores-grid">
+          ${completedAP.map(c => `
+            <div class="ap-score-card fade-in">
+              <div class="ap-score-card-content">
+                <div class="ap-score-card-name">${c.name}</div>
+                <div class="ap-score-card-meta">${c.grade} &middot; ${c.year}</div>
+              </div>
+              <span class="ap-score-badge ap-score-${c.apScore}">${c.apScore}</span>
+            </div>
+          `).join('')}
+        </div>` : ''}
+        ${inProgressAP.length > 0 ? `
+        <div class="ap-scores-section-title" style="margin-top:2rem"><i class="fas fa-clock"></i> In Progress (${inProgressAP.length})</div>
+        <div class="ap-scores-grid">
+          ${inProgressAP.map(c => `
+            <div class="ap-score-card fade-in">
+              <div class="ap-score-card-content">
+                <div class="ap-score-card-name">${c.name}</div>
+                <div class="ap-score-card-meta">${c.grade} &middot; ${c.year}</div>
+              </div>
+              <span class="ap-score-badge ap-score-progress">In Progress</span>
+            </div>
+          `).join('')}
+        </div>` : ''}
       </div>
 
       <div class="edu-panel hidden" id="edu-panel-clubs">
