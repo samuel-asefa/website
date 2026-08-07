@@ -219,7 +219,7 @@ const RESEARCH_PROJECTS: Project[] = [
   },
   {
     title: 'Hybrid DeepONet–SHRED-ROM for Flow Field Prediction',
-    description: 'A hybrid neural operator framework combining a SHRED-style LSTM encoder with a geometry-conditioned DeepONet to reconstruct 2D CFD flow fields from 12 sparse sensors across 20 unseen geometries. Achieved mean relative L₂ error of 0.047 — outperforming standalone DeepONet and SHRED-ROM baselines.',
+    description: 'A hybrid neural operator framework combining a SHRED-style LSTM encoder with a geometry-conditioned DeepONet to reconstruct 2D CFD flow fields from 12 sparse sensors across 20 unseen geometries. Achieved mean relative L₂ error of 0.047, outperforming standalone DeepONet and SHRED-ROM baselines.',
     image: '/images/hybrid_reconstruction_example.png',
     images: [
       '/images/hybrid_reconstruction_example.png',
@@ -227,7 +227,9 @@ const RESEARCH_PROJECTS: Project[] = [
       '/images/hybrid_architecture.png',
     ],
     technologies: ['Python', 'PyTorch', 'DeepONet', 'LSTM', 'CFD', 'Machine Learning'],
-    links: {}
+    links: {
+      paper: 'https://www.cambridge.org/engage/coe/article-details/6a5bdd84810b9dcc82490692'
+    }
   },
   {
     title: 'TEG Powered Cooking Pollution Capturing Device',
@@ -988,10 +990,10 @@ class PortfolioApp {
                         <div class="course-badges">
                           <span class="course-level level-${c.level.toLowerCase()}">${c.level}</span>
                           ${c.apScore !== undefined
-                            ? c.apScore === 'In Progress'
-                              ? `<span class="ap-score-badge ap-score-progress">In Progress</span>`
-                              : `<span class="ap-score-badge ap-score-${c.apScore}">${c.apScore}</span>`
-                            : ''}
+        ? c.apScore === 'In Progress'
+          ? `<span class="ap-score-badge ap-score-progress">In Progress</span>`
+          : `<span class="ap-score-badge ap-score-${c.apScore}">${c.apScore}</span>`
+        : ''}
                         </div>
                       </div>
                     </div>
@@ -1019,7 +1021,7 @@ class PortfolioApp {
           </div>` : ''}
         </div>
         <div class="ap-score-scale">
-          ${[5,4,3,2,1].map(s => `
+          ${[5, 4, 3, 2, 1].map(s => `
             <div class="ap-scale-item">
               <span class="ap-score-badge ap-score-${s}">${s}</span>
               <span class="ap-scale-label">${s === 5 ? 'Extremely Well Qualified' : s === 4 ? 'Well Qualified' : s === 3 ? 'Qualified' : s === 2 ? 'Possibly Qualified' : 'No Recommendation'}</span>
@@ -1321,13 +1323,13 @@ class PortfolioApp {
     `;
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-    const modal     = document.getElementById('image-modal') as HTMLElement;
-    const modalImg  = document.getElementById('modal-image') as HTMLImageElement;
+    const modal = document.getElementById('image-modal') as HTMLElement;
+    const modalImg = document.getElementById('modal-image') as HTMLImageElement;
     const modalIframe = document.getElementById('modal-iframe') as HTMLIFrameElement;
-    const closeBtn  = document.getElementById('modal-close-btn') as HTMLElement;
-    const prevBtn   = document.getElementById('modal-prev') as HTMLButtonElement;
-    const nextBtn   = document.getElementById('modal-next') as HTMLButtonElement;
-    const dotsEl    = document.getElementById('modal-dots') as HTMLElement;
+    const closeBtn = document.getElementById('modal-close-btn') as HTMLElement;
+    const prevBtn = document.getElementById('modal-prev') as HTMLButtonElement;
+    const nextBtn = document.getElementById('modal-next') as HTMLButtonElement;
+    const dotsEl = document.getElementById('modal-dots') as HTMLElement;
     const counterEl = document.getElementById('modal-counter') as HTMLElement;
 
     const closeModal = () => {
