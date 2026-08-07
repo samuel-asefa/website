@@ -218,6 +218,18 @@ const RESEARCH_PROJECTS: Project[] = [
     }
   },
   {
+    title: 'Hybrid DeepONet–SHRED-ROM for Flow Field Prediction',
+    description: 'A hybrid neural operator framework combining a SHRED-style LSTM encoder with a geometry-conditioned DeepONet to reconstruct 2D CFD flow fields from 12 sparse sensors across 20 unseen geometries. Achieved mean relative L₂ error of 0.047 — outperforming standalone DeepONet and SHRED-ROM baselines.',
+    image: '/images/hybrid_reconstruction_example.png',
+    images: [
+      '/images/hybrid_reconstruction_example.png',
+      '/images/sensor_layout_example.png',
+      '/images/hybrid_architecture.png',
+    ],
+    technologies: ['Python', 'PyTorch', 'DeepONet', 'LSTM', 'CFD', 'Machine Learning'],
+    links: {}
+  },
+  {
     title: 'TEG Powered Cooking Pollution Capturing Device',
     description: 'Conducted research on Thermoelectric Powered Regeneration of Incomplete Combustion Cooking Pollutant Capturing Amines.',
     image: '/images/teg-research.png',
