@@ -203,7 +203,7 @@ const RESEARCH_PROJECTS: Project[] = [
   {
     title: 'Adaptive Sensor Fusion for Autonomous Robots',
     description: 'A lightweight neural network coupled with an Extended Kalman Filter to adaptively weight encoder, IMU, ultrasonic, and camera sensors. Achieved 66.2% RMSE reduction under severe degradation vs. a standard EKF across 500 Monte Carlo trials.',
-    image: '/images/sensor-fusion-research.png',
+    image: '/images/fig_rmse_comparison.png',
     technologies: ['Python', 'PyTorch', 'NumPy', 'Machine Learning', 'Robotics'],
     links: {
       github: 'https://github.com/samuel-asefa/Adaptive-Sensor-Fusion-Using-Machine-Learning-for-Robust-Localization-in-LowCost-Autonomous-Robots'
