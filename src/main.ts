@@ -233,7 +233,7 @@ const RESEARCH_PROJECTS: Project[] = [
   },
   {
     title: 'TEG Powered Cooking Pollution Capturing Device',
-    description: 'Conducted research on Thermoelectric Powered Regeneration of Incomplete Combustion Cooking Pollutant Capturing Amines.',
+    description: 'A COMSOL simulation of a thermoelectric generator array that harvests waste heat from cookstove exhaust to autonomously regenerate amine-functionalized sorbent filters. A 220 K thermal gradient produces 2.8 W of regenerative power, reducing CO and VOC surface concentrations by 87.6% and 81.3% within 6 minutes across 50 simulated cycles.',
     image: '/images/teg-research.png',
     technologies: ['CAD', 'COMSOL'],
     links: {
