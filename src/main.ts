@@ -9,6 +9,7 @@ interface Project {
   title: string;
   description: string;
   image: string;
+  images?: string[];   // optional extra images for gallery
   technologies: string[];
   links: {
     demo?: string;
@@ -204,6 +205,13 @@ const RESEARCH_PROJECTS: Project[] = [
     title: 'Adaptive Sensor Fusion for Autonomous Robots',
     description: 'A lightweight neural network coupled with an Extended Kalman Filter to adaptively weight encoder, IMU, ultrasonic, and camera sensors. Achieved 66.2% RMSE reduction under severe degradation vs. a standard EKF across 500 Monte Carlo trials.',
     image: '/images/fig_rmse_comparison.png',
+    images: [
+      '/images/fig_rmse_comparison.png',
+      '/images/fig_training_curves.png',
+      '/images/fig_camera_failure_confidence.png',
+      '/images/fig_camera_failure_error.png',
+      '/images/fig_wheel_slip_error.png',
+    ],
     technologies: ['Python', 'PyTorch', 'NumPy', 'Machine Learning', 'Robotics'],
     links: {
       github: 'https://github.com/samuel-asefa/Adaptive-Sensor-Fusion-Using-Machine-Learning-for-Robust-Localization-in-LowCost-Autonomous-Robots'
@@ -857,10 +865,14 @@ class PortfolioApp {
   private renderProjectCategory(containerId: string, projects: Project[]): void {
     const container = document.getElementById(containerId);
     if (!container) return;
-    container.innerHTML = projects.map(project => `
+    container.innerHTML = projects.map(project => {
+      const gallery = project.images && project.images.length > 1 ? project.images : null;
+      const galleryAttr = gallery ? `data-gallery='${JSON.stringify(gallery)}'` : '';
+      return `
       <article class="project-card fade-in">
-        <div class="project-img">
-          <img src="${project.image}" alt="${project.title} screenshot" loading="lazy" style="cursor: pointer;">
+        <div class="project-img" ${galleryAttr}>
+          <img src="${project.image}" alt="${project.title} screenshot" loading="lazy">
+          ${gallery ? `<div class="img-count-badge"><i class="fas fa-images"></i> ${gallery.length}</div>` : ''}
         </div>
         <div class="project-content">
           <h3>${project.title}</h3>
@@ -876,7 +888,8 @@ class PortfolioApp {
           </div>
         </div>
       </article>
-    `).join('');
+    `;
+    }).join('');
     container.querySelectorAll('.project-card').forEach(el => this.intersectionObserver?.observe(el));
   }
 
@@ -1273,34 +1286,115 @@ class PortfolioApp {
   }
 
   private initializeImageModal(): void {
-    // Create modal HTML
+    // Gallery state
+    let galleryImages: string[] = [];
+    let galleryIndex = 0;
+
     const modalHTML = `
       <div id="image-modal" class="image-modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modal-image" alt="Enlarged project image" style="display: none;">
-        <iframe class="modal-content" id="modal-iframe" style="display: none; width: 80vw; height: 80vh; background: white; border: none; border-radius: 8px;" title="Document viewer"></iframe>
+        <span class="modal-close" id="modal-close-btn" aria-label="Close">&times;</span>
+        <button class="modal-nav modal-prev" id="modal-prev" aria-label="Previous image">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="modal-media-wrap">
+          <img class="modal-content" id="modal-image" alt="Enlarged project image" style="display: none;">
+          <iframe class="modal-content" id="modal-iframe" style="display: none; width: 80vw; height: 80vh; background: white; border: none; border-radius: 8px;" title="Document viewer"></iframe>
+        </div>
+        <button class="modal-nav modal-next" id="modal-next" aria-label="Next image">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="modal-dots" id="modal-dots"></div>
+        <div class="modal-counter" id="modal-counter"></div>
       </div>
     `;
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-    const modal = document.getElementById('image-modal') as HTMLElement;
-    const modalImg = document.getElementById('modal-image') as HTMLImageElement;
+    const modal     = document.getElementById('image-modal') as HTMLElement;
+    const modalImg  = document.getElementById('modal-image') as HTMLImageElement;
     const modalIframe = document.getElementById('modal-iframe') as HTMLIFrameElement;
-    const closeBtn = document.querySelector('.modal-close') as HTMLElement;
+    const closeBtn  = document.getElementById('modal-close-btn') as HTMLElement;
+    const prevBtn   = document.getElementById('modal-prev') as HTMLButtonElement;
+    const nextBtn   = document.getElementById('modal-next') as HTMLButtonElement;
+    const dotsEl    = document.getElementById('modal-dots') as HTMLElement;
+    const counterEl = document.getElementById('modal-counter') as HTMLElement;
 
-    // Add click event to all project images and award media cards
+    const closeModal = () => {
+      modal.style.display = 'none';
+      modalIframe.src = '';
+      document.body.style.overflow = 'auto';
+      galleryImages = [];
+      galleryIndex = 0;
+    };
+
+    const buildDots = () => {
+      dotsEl.innerHTML = galleryImages.map((_, i) =>
+        `<button class="modal-dot${i === galleryIndex ? ' active' : ''}" data-idx="${i}" aria-label="Image ${i + 1}"></button>`
+      ).join('');
+      dotsEl.querySelectorAll('.modal-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+          galleryIndex = parseInt((dot as HTMLElement).dataset.idx || '0', 10);
+          showCurrent();
+        });
+      });
+    };
+
+    const showCurrent = () => {
+      const src = galleryImages[galleryIndex];
+      modalImg.src = src;
+      modalImg.style.display = 'block';
+      modalIframe.style.display = 'none';
+
+      // arrows
+      prevBtn.style.display = galleryImages.length > 1 ? 'flex' : 'none';
+      nextBtn.style.display = galleryImages.length > 1 ? 'flex' : 'none';
+
+      // dots
+      dotsEl.style.display = galleryImages.length > 1 ? 'flex' : 'none';
+      dotsEl.querySelectorAll('.modal-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === galleryIndex);
+      });
+
+      // counter
+      counterEl.textContent = galleryImages.length > 1 ? `${galleryIndex + 1} / ${galleryImages.length}` : '';
+    };
+
+    const openGallery = (images: string[], startIndex: number) => {
+      galleryImages = images;
+      galleryIndex = startIndex;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      buildDots();
+      showCurrent();
+    };
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      showCurrent();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      galleryIndex = (galleryIndex + 1) % galleryImages.length;
+      showCurrent();
+    });
+
+    // Click on project images
     document.addEventListener('click', (e: MouseEvent) => {
       const target = e.target as HTMLElement;
 
-      // Project Images
+      // Project image click — check for gallery data on parent .project-img
       if (target.tagName === 'IMG' && target.closest('.project-img')) {
-        const img = target as HTMLImageElement;
-        modal.style.display = 'flex';
-        modalImg.style.display = 'block';
-        modalIframe.style.display = 'none';
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        document.body.style.overflow = 'hidden';
+        const projectImgDiv = target.closest('.project-img') as HTMLElement;
+        const galleryData = projectImgDiv?.dataset.gallery;
+        if (galleryData) {
+          const imgs: string[] = JSON.parse(galleryData);
+          openGallery(imgs, 0);
+        } else {
+          const img = target as HTMLImageElement;
+          openGallery([img.src], 0);
+        }
+        return;
       }
 
       // Award Media Cards
@@ -1314,42 +1408,32 @@ class PortfolioApp {
           document.body.style.overflow = 'hidden';
           modalImg.style.display = 'none';
           modalIframe.style.display = 'block';
+          prevBtn.style.display = 'none';
+          nextBtn.style.display = 'none';
+          dotsEl.style.display = 'none';
+          counterEl.textContent = '';
           modalIframe.src = link;
         } else if (link) {
           window.open(link, '_blank');
         } else if (img) {
-          modal.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
-          modalImg.style.display = 'block';
-          modalIframe.style.display = 'none';
-          modalImg.src = img.src;
-          modalImg.alt = img.alt;
+          openGallery([img.src], 0);
         }
       }
     });
 
-    // Close modal on close button click
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      modalIframe.src = '';
-      document.body.style.overflow = 'auto';
-    });
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e: MouseEvent) => { if (e.target === modal) closeModal(); });
 
-    // Close modal on background click
-    modal.addEventListener('click', (e: MouseEvent) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-        modalIframe.src = '';
-        document.body.style.overflow = 'auto';
-      }
-    });
-
-    // Close modal on Escape key
     document.addEventListener('keydown', (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && modal.style.display === 'flex') {
-        modal.style.display = 'none';
-        modalIframe.src = '';
-        document.body.style.overflow = 'auto';
+      if (modal.style.display !== 'flex') return;
+      if (e.key === 'Escape') { closeModal(); }
+      if (e.key === 'ArrowLeft' && galleryImages.length > 1) {
+        galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+        showCurrent();
+      }
+      if (e.key === 'ArrowRight' && galleryImages.length > 1) {
+        galleryIndex = (galleryIndex + 1) % galleryImages.length;
+        showCurrent();
       }
     });
   }

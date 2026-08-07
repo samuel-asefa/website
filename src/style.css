@@ -1034,6 +1034,7 @@ section {
 }
 
 .project-img {
+  position: relative;
   width: 100%;
   height: 200px;
   overflow: hidden;
@@ -1454,11 +1455,23 @@ footer {
   align-items: center;
   justify-content: center;
   animation: fadeIn 0.3s ease;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-media-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  padding: 0 5rem;
+  box-sizing: border-box;
 }
 
 .modal-content {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 80vh;
   object-fit: contain;
   border-radius: var(--border-radius);
   box-shadow: 0 0 30px rgba(0, 170, 255, 0.3);
@@ -1494,6 +1507,104 @@ footer {
   color: var(--accent-color);
   transform: rotate(90deg);
 }
+
+/* Nav arrows */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  z-index: 10002;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-nav:hover {
+  background: rgba(14, 165, 233, 0.3);
+  border-color: var(--accent-color);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.modal-prev { left: 1.5rem; }
+.modal-next { right: 1.5rem; }
+
+/* Dot indicators */
+.modal-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+
+.modal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  padding: 0;
+}
+
+.modal-dot.active {
+  background: var(--accent-color);
+  transform: scale(1.3);
+}
+
+.modal-dot:hover {
+  background: rgba(14, 165, 233, 0.6);
+}
+
+/* Counter */
+.modal-counter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+/* Image count badge on project card */
+.img-count-badge {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.project-card:hover .img-count-badge {
+  opacity: 0.85;
+}
+
 
 /* ─── Education Section ────────────────────────────────────────────── */
 .education {
