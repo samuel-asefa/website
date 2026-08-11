@@ -111,7 +111,7 @@ const SOFTWARE_PROJECTS: Project[] = [
   },
   {
     title: 'Sciolytics',
-    description: 'A comprehensive platform for Science Olympiad teams to track progress, manage resources, and analyze performance data.',
+    description: 'The ultimate Science Olympiad prep platform with 1,750+ practice questions, event wikis, and progress tracking across 15+ events.',
     image: '/images/sciolytics.png',
     technologies: ['TypeScript', 'Firebase'],
     links: {
