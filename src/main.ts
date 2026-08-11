@@ -641,6 +641,7 @@ class PortfolioApp {
     this.initializeProjectFilters();
     this.initializeEducationTabs();
     this.initializeImageModal();
+    this.renderGitHubStats();
   }
 
   private handleLoadingScreen(): void {
@@ -940,6 +941,127 @@ class PortfolioApp {
       </div>
     `).join('');
     document.querySelectorAll('.contact-card').forEach(el => this.intersectionObserver?.observe(el));
+  }
+
+  private async renderGitHubStats(): Promise<void> {
+    const grid = document.getElementById('github-stats-grid');
+    if (!grid) return;
+
+    const LANG_COLORS: Record<string, string> = {
+      TypeScript: '#3178c6', JavaScript: '#f1e05a', Python: '#3572A5',
+      HTML: '#e34c26', CSS: '#563d7c', 'C++': '#f34b7d', Java: '#b07219',
+      'C#': '#178600', Swift: '#F05138', Go: '#00ADD8', Rust: '#dea584',
+      Vue: '#41b883', Kotlin: '#A97BFF', Dart: '#00B4AB', Ruby: '#701516',
+      Shell: '#89e051', SCSS: '#c6538c',
+    };
+
+    try {
+      const [userRes, reposRes] = await Promise.all([
+        fetch('https://api.github.com/users/samuel-asefa'),
+        fetch('https://api.github.com/users/samuel-asefa/repos?per_page=100&sort=pushed'),
+      ]);
+      if (!userRes.ok) throw new Error('User fetch failed');
+
+      const user = await userRes.json();
+      const repos: any[] = reposRes.ok ? await reposRes.json() : [];
+
+      // Aggregate stats
+      let totalStars = 0, totalForks = 0;
+      const langBytes: Record<string, number> = {};
+      for (const repo of repos) {
+        totalStars += repo.stargazers_count || 0;
+        totalForks += repo.forks_count || 0;
+        if (repo.language) langBytes[repo.language] = (langBytes[repo.language] || 0) + 1;
+      }
+      const topLangs = Object.entries(langBytes)
+        .sort(([, a], [, b]) => b - a)
+        .slice(0, 6);
+      const langTotal = topLangs.reduce((s, [, c]) => s + c, 0);
+
+      // Member since year
+      const memberYear = new Date(user.created_at).getFullYear();
+      const yearsActive = new Date().getFullYear() - memberYear + 1;
+
+      const fmt = (n: number) => n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
+
+      grid.innerHTML = `
+        <!-- Card 1: Stats -->
+        <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener" class="gh-stat-card fade-in">
+          <div class="gh-card-header">
+            <i class="fab fa-github gh-icon"></i>
+            <span class="gh-card-title">GitHub Stats</span>
+          </div>
+          <div class="gh-metrics">
+            <div class="gh-metric">
+              <span class="gh-metric-val">${fmt(user.public_repos)}</span>
+              <span class="gh-metric-label">Repos</span>
+            </div>
+            <div class="gh-metric">
+              <span class="gh-metric-val">${fmt(totalStars)}</span>
+              <span class="gh-metric-label">Stars</span>
+            </div>
+            <div class="gh-metric">
+              <span class="gh-metric-val">${fmt(user.followers)}</span>
+              <span class="gh-metric-label">Followers</span>
+            </div>
+            <div class="gh-metric">
+              <span class="gh-metric-val">${fmt(totalForks)}</span>
+              <span class="gh-metric-label">Forks</span>
+            </div>
+          </div>
+          <div class="gh-since">Member since ${memberYear} &middot; ${yearsActive} year${yearsActive !== 1 ? 's' : ''} coding</div>
+        </a>
+
+        <!-- Card 2: Top Languages -->
+        <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener" class="gh-stat-card fade-in">
+          <div class="gh-card-header">
+            <i class="fas fa-code gh-icon"></i>
+            <span class="gh-card-title">Most Used Languages</span>
+          </div>
+          <div class="gh-langs">
+            ${topLangs.map(([lang, count]) => {
+              const pct = Math.round(count / langTotal * 100);
+              const color = LANG_COLORS[lang] || '#64748b';
+              return `
+              <div class="gh-lang-row">
+                <span class="gh-lang-dot" style="background:${color}"></span>
+                <span class="gh-lang-name">${lang}</span>
+                <div class="gh-lang-track"><div class="gh-lang-fill" style="width:${pct}%;background:${color}"></div></div>
+                <span class="gh-lang-pct">${pct}%</span>
+              </div>`;
+            }).join('')}
+          </div>
+        </a>
+
+        <!-- Card 3: Profile summary -->
+        <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener" class="gh-stat-card gh-profile-card fade-in">
+          <div class="gh-card-header">
+            <i class="fas fa-user gh-icon"></i>
+            <span class="gh-card-title">Profile</span>
+          </div>
+          <img src="${user.avatar_url}" alt="GitHub Avatar" class="gh-avatar">
+          <div class="gh-profile-name">${user.name || user.login}</div>
+          <div class="gh-profile-bio">${user.bio || 'Developer &amp; Engineer'}</div>
+          <div class="gh-profile-meta">
+            ${user.location ? `<span><i class="fas fa-map-marker-alt"></i> ${user.location}</span>` : ''}
+            <span><i class="fas fa-users"></i> ${fmt(user.followers)} followers</span>
+          </div>
+        </a>
+      `;
+
+      grid.querySelectorAll('.gh-stat-card').forEach(el => {
+        el.classList.add('fade-in');
+        this.intersectionObserver?.observe(el);
+      });
+
+    } catch (_) {
+      grid.innerHTML = `
+        <div class="gh-stat-card gh-error-card" style="grid-column: 1/-1">
+          <i class="fab fa-github" style="font-size:2rem;margin-bottom:0.75rem;opacity:0.5"></i>
+          <p style="color:var(--text-muted);margin-bottom:1rem">Stats temporarily unavailable.</p>
+          <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener" class="btn primary-btn">View on GitHub</a>
+        </div>`;
+    }
   }
 
   private renderEducation(): void {
