@@ -101,7 +101,7 @@ const SKILLS_DATA = {
 const SOFTWARE_PROJECTS: Project[] = [
   {
     title: 'RoboRoute',
-    description: 'An advanced path planning and autonomous routine simulator for the VEX Robotics Competition game, High Stakes.',
+    description: 'A VEX field simulator for planning auton and programming skills routes with waypoint editing, heading control, and LemLib code export.',
     image: '/images/roboroute.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
