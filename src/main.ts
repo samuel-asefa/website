@@ -141,7 +141,7 @@ const SOFTWARE_PROJECTS: Project[] = [
   },
   {
     title: 'Studently',
-    description: 'An intuitive and minimalist task list application with clean UI.',
+    description: 'A student task manager with color-coded categories, deadline optimization, and real-time cloud sync across devices.',
     image: '/images/studently.png',
     technologies: ['Svelte', 'JavaScript', 'HTML'],
     links: {
