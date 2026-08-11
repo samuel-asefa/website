@@ -196,7 +196,9 @@ const HARDWARE_PROJECTS: Project[] = [
     description: 'A high-altitude balloon payload designed to capture and analyze Normalized Difference Vegetation Index (NDVI) mapping data.',
     image: '/images/nasapayload.jpeg',
     images: [
+      '/images/nasapayload.jpeg',
       '/images/nasa-techrise-soldering.JPG',
+      '/images/techrise.webp'
     ],
     technologies: ['Hardware', 'Sensors', 'Python'],
     links: {}
