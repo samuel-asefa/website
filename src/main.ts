@@ -407,6 +407,17 @@ const CLUBS_DATA: Club[] = [
 
 const AWARDS_DATA: Award[] = [
   {
+    title: 'GQMC Final Round Qualifier',
+    issuer: 'Global Quantum Mechanics Challenge',
+    date: 'Aug 2026',
+    description: [
+      'Qualified for the final round of the Global Quantum Mechanics Challenge.'
+    ],
+    media: [
+      { title: 'Qualification Results', image: '/images/gqmc-final-round.png' },
+      { title: 'Certificate of Participation', image: 'images/gqmc-certificate-of-participation2.png' }
+    ]
+  }, {
     title: 'ICSC Pre-Final Round Qualifier',
     issuer: 'International Computer Science Competition',
     date: 'Jul 2026',
