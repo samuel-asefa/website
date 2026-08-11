@@ -151,7 +151,7 @@ const SOFTWARE_PROJECTS: Project[] = [
   },
   {
     title: 'AmharicQuest',
-    description: 'An Amharic learning app with a full Fidel (alphabet) reference, vocabulary quizzes, and XP tracking.',
+    description: 'An Amharic learning platform with 230+ Fidel characters, 42 vocab words across 9 categories, 9 structured lessons, and progress tracking.',
     image: '/images/amharicquest.png',
     technologies: ['TypeScript', 'Firebase'],
     links: {
