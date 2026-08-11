@@ -277,13 +277,13 @@ header.scrolled {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 0.25rem;
+  gap: 0rem;
 }
 
 .nav-link {
   color: var(--text-secondary);
   text-decoration: none;
-  padding: 0.45rem 0.9rem;
+  padding: 0.45rem 0.75rem;
   font-weight: 500;
   font-size: 0.95rem;
   border-radius: var(--radius-sm);
@@ -308,7 +308,7 @@ header.scrolled {
   border-radius: 1px;
 }
 .nav-link:hover::after,
-.nav-link.active::after { width: calc(100% - 1.8rem); }
+.nav-link.active::after { width: calc(100% - 1.5rem); }
 
 /* Hamburger */
 .hamburger {
@@ -977,6 +977,7 @@ section {
 
 .bento-about   { grid-column: span 2; }
 .bento-projects { grid-column: span 2; }
+.bento-contact  { grid-column: span 2; }
 
 .bento-card {
   position: relative;
@@ -1086,11 +1087,11 @@ section {
 
 @media (max-width: 900px) {
   .bento-grid { grid-template-columns: repeat(2, 1fr); }
-  .bento-about, .bento-projects { grid-column: span 2; }
+  .bento-about, .bento-projects, .bento-contact { grid-column: span 2; }
 }
 @media (max-width: 600px) {
   .bento-grid { grid-template-columns: 1fr; }
-  .bento-about, .bento-projects { grid-column: span 1; }
+  .bento-about, .bento-projects, .bento-contact { grid-column: span 1; }
 }
 
 /* ═══════════════════════════════════════════════════
