@@ -201,7 +201,9 @@ const HARDWARE_PROJECTS: Project[] = [
       '/images/techrise.webp'
     ],
     technologies: ['Hardware', 'Sensors', 'Python'],
-    links: {}
+    links: {
+      github: 'https://github.com/SBAerospace/NDVI-Mapping'
+    }
   }
 ];
 
