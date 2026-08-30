@@ -9,7 +9,7 @@ interface Project {
   title: string;
   description: string;
   image: string;
-  images?: string[];   // optional extra images for gallery
+  images?: string[];   
   technologies: string[];
   links: {
     demo?: string;
@@ -135,7 +135,7 @@ const SOFTWARE_PROJECTS: Project[] = [
     image: '/images/circuitspace.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
-      demo: 'https://samuel-asefa.github.io/CircuitSpace/',
+      demo: 'https://circuitspace.vercel.app',
       github: 'https://github.com/samuel-asefa/CircuitSpace'
     }
   },
@@ -225,7 +225,7 @@ const RESEARCH_PROJECTS: Project[] = [
     }
   },
   {
-    title: 'Hybrid DeepONet–SHRED-ROM for Flow Field Prediction',
+    title: 'Hybrid DeepONet-SHRED-ROM for Flow Field Prediction',
     description: 'A hybrid neural operator framework combining a SHRED-style LSTM encoder with a geometry-conditioned DeepONet to reconstruct 2D CFD flow fields from 12 sparse sensors across 20 unseen geometries. Achieved mean relative L₂ error of 0.047, outperforming standalone DeepONet and SHRED-ROM baselines.',
     image: '/images/hybrid_reconstruction_example.png',
     images: [
@@ -275,8 +275,8 @@ const COURSES_DATA: YearCourses[] = [
   {
     year: '2026-27',
     grade: 'Grade 12',
-    //uwGPA: 3.96,
-    //wGPA: 4.83,
+    
+    
     courses: [
       { name: 'AP English IV-Lit/Comp.', level: 'AP', apScore: 'In Progress' },
       { name: 'AP European History', level: 'AP', apScore: 'In Progress' },
@@ -341,7 +341,7 @@ const CLUBS_DATA: Club[] = [
   {
     name: 'VEX Robotics',
     role: 'Workshop Lead | Lead Builder',
-    years: '2023 – Present',
+    years: '2023 - Present',
     description: [
       'Taught 10+ recruits CAD and build fundamentals through structured workshops',
       'Created interactive lessons with CAD to help students learn robot design and assembly',
@@ -353,7 +353,7 @@ const CLUBS_DATA: Club[] = [
   {
     name: 'Aerospace Team',
     role: 'Design Lead | Electronics Lead',
-    years: '2024 – Present',
+    years: '2024 - Present',
     description: [
       'Built and programmed airbrakes system including wiring and a custom PCB',
       'Designed circuitry for NDVI mapping payload and onboard data collection',
@@ -365,7 +365,7 @@ const CLUBS_DATA: Club[] = [
   {
     name: 'Science Olympiad',
     role: 'Executive Board | Build Captain',
-    years: '2023 – Present',
+    years: '2023 - Present',
     description: [
       'Led build events and managed $1,000+ in materials and devices',
       'Oversaw design and iteration of team-built devices across multiple competition cycles',
@@ -376,7 +376,7 @@ const CLUBS_DATA: Club[] = [
   {
     name: 'XSTEM Club',
     role: 'President',
-    years: '2023 – Present',
+    years: '2023 - Present',
     description: [
       'Organized school-wide STEM workshops and competitions, managing logistics for large-scale events',
       'Led weekly sessions on cutting-edge engineering and technology topics for club members',
@@ -387,7 +387,7 @@ const CLUBS_DATA: Club[] = [
   {
     name: 'Computer Science Club',
     role: 'President',
-    years: '2023 – Present',
+    years: '2023 - Present',
     description: [
       'Led a Circuits & Electronics workshop with 65 students based in C++',
       'Helped organize a school-wide hackathon with 74 participants',
@@ -397,7 +397,7 @@ const CLUBS_DATA: Club[] = [
   {
     name: 'Mathletes',
     role: 'Member',
-    years: '2023 – Present',
+    years: '2023 - Present',
     description: [
       'Competed in the NJ Math League and other regional mathematics competitions',
       'Actively participated in meetings to prepare for competitions and improve competition skills'
@@ -718,9 +718,9 @@ class PortfolioApp {
     document.querySelectorAll('a[href*="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
         const url = new URL(this.href);
-        // If it's on a different page, let the browser navigate normally
+        
         if (url.pathname !== window.location.pathname && url.pathname !== window.location.pathname + 'index.html') {
-          // Note: local dev handles '/' and '/index.html' similarly, but let's be safe.
+          
           const isRootPath = window.location.pathname === '/' || window.location.pathname === '';
           if (!(isRootPath && url.pathname.endsWith('/index.html'))) {
             return;
@@ -742,7 +742,7 @@ class PortfolioApp {
             behavior: 'smooth'
           });
 
-          // update URL hash without jump
+          
           window.history.pushState(null, '', hash);
         }
       });
@@ -965,7 +965,7 @@ class PortfolioApp {
       const user = await userRes.json();
       const repos: any[] = reposRes.ok ? await reposRes.json() : [];
 
-      // Aggregate stats
+      
       let totalStars = 0, totalForks = 0;
       const langBytes: Record<string, number> = {};
       for (const repo of repos) {
@@ -978,7 +978,7 @@ class PortfolioApp {
         .slice(0, 6);
       const langTotal = topLangs.reduce((s, [, c]) => s + c, 0);
 
-      // Member since year
+      
       const memberYear = new Date(user.created_at).getFullYear();
       const yearsActive = new Date().getFullYear() - memberYear + 1;
 
@@ -1020,16 +1020,16 @@ class PortfolioApp {
           </div>
           <div class="gh-langs">
             ${topLangs.map(([lang, count]) => {
-              const pct = Math.round(count / langTotal * 100);
-              const color = LANG_COLORS[lang] || '#64748b';
-              return `
+        const pct = Math.round(count / langTotal * 100);
+        const color = LANG_COLORS[lang] || '#64748b';
+        return `
               <div class="gh-lang-row">
                 <span class="gh-lang-dot" style="background:${color}"></span>
                 <span class="gh-lang-name">${lang}</span>
                 <div class="gh-lang-track"><div class="gh-lang-fill" style="width:${pct}%;background:${color}"></div></div>
                 <span class="gh-lang-pct">${pct}%</span>
               </div>`;
-            }).join('')}
+      }).join('')}
           </div>
         </a>
 
@@ -1068,7 +1068,7 @@ class PortfolioApp {
     const container = document.getElementById('education-content');
     if (!container) return;
 
-    // Calculate cumulative GPA from years that have values filled in
+    
     const yearsWithGPA = COURSES_DATA.filter(y => y.uwGPA !== undefined && y.wGPA !== undefined && (y.uwGPA > 0 || y.wGPA > 0));
     const cumulativeUW = yearsWithGPA.length > 0
       ? yearsWithGPA.reduce((sum, y) => sum + (y.uwGPA || 0), 0) / yearsWithGPA.length
@@ -1077,7 +1077,7 @@ class PortfolioApp {
       ? yearsWithGPA.reduce((sum, y) => sum + (y.wGPA || 0), 0) / yearsWithGPA.length
       : 0;
 
-    // Collect all AP courses with scores for the AP Scores panel
+    
     const allAPCourses = COURSES_DATA.flatMap(yearData =>
       yearData.courses
         .filter(c => c.level === 'AP' && c.apScore !== undefined)
@@ -1283,7 +1283,7 @@ class PortfolioApp {
     const container = document.getElementById('circuit-background');
     if (!container) return;
 
-    // Use a canvas — single batched draw call per frame, zero DOM thrashing
+    
     const canvas = document.createElement('canvas');
     canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
     container.appendChild(canvas);
@@ -1296,7 +1296,7 @@ class PortfolioApp {
     const GRID = 95;
     const MAX_DIST = GRID * 1.7;
 
-    // --- Build nodes ---
+    
     interface CNode {
       bx: number; by: number;
       x: number; y: number;
@@ -1310,7 +1310,7 @@ class PortfolioApp {
 
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
-        if (Math.random() > 0.48) {          // fewer nodes
+        if (Math.random() > 0.48) {          
           const bx = i * GRID + (Math.random() - 0.5) * GRID * 0.55;
           const by = j * GRID + (Math.random() - 0.5) * GRID * 0.55;
           nodes.push({
@@ -1319,13 +1319,13 @@ class PortfolioApp {
             amp: 4 + Math.random() * 8,
             phase: Math.random() * Math.PI * 2,
             speed: 0.0025 + Math.random() * 0.005,
-            opacity: 0.15 + Math.random() * 0.25,  // subtler nodes
+            opacity: 0.15 + Math.random() * 0.25,  
           });
         }
       }
     }
 
-    // --- Build edge list (static topology, positions update each frame) ---
+    
     interface Edge { a: CNode; b: CNode; }
     const edges: Edge[] = [];
     for (let i = 0; i < nodes.length; i++) {
@@ -1337,11 +1337,11 @@ class PortfolioApp {
       }
     }
 
-    // --- Pulses travelling along edges ---
+    
     interface Pulse { edge: Edge; t: number; speed: number; }
     const pulses: Pulse[] = [];
 
-    // Seed a few pulses immediately so it doesn't look empty at start
+    
     for (let k = 0; k < 12; k++) {
       pulses.push({
         edge: edges[Math.floor(Math.random() * edges.length)],
@@ -1351,32 +1351,32 @@ class PortfolioApp {
     }
 
     let lastSpawn = 0;
-    const SPAWN_INTERVAL = 280; // ms between new pulses — less frequent = more subtle
+    const SPAWN_INTERVAL = 280; 
 
-    // --- Main render loop ---
+    
     let time = 0;
     let lastTs = 0;
 
     const draw = (ts: number) => {
-      const dt = Math.min(ts - lastTs, 32); // cap at ~30fps delta to avoid jumps
+      const dt = Math.min(ts - lastTs, 32); 
       lastTs = ts;
       time += dt;
 
-      // Clear
+      
       ctx.clearRect(0, 0, W, H);
 
-      // 1. Update node positions (smooth sine float)
+      
       const t = time * 0.001;
       nodes.forEach(n => {
         n.x = n.bx + Math.sin(t * n.speed * 6.28 + n.phase) * n.amp;
         n.y = n.by + Math.cos(t * n.speed * 6.28 * 0.71 + n.phase) * n.amp * 0.6;
       });
 
-      // 2. Draw edges
+      
       ctx.lineWidth = 0.7;
       edges.forEach(e => {
         const dist = Math.hypot(e.a.x - e.b.x, e.a.y - e.b.y);
-        // Fade edges that have stretched far (dynamic opacity)
+        
         const alpha = Math.max(0, 0.08 * (1 - dist / (MAX_DIST * 1.1)));
         if (alpha <= 0) return;
         ctx.strokeStyle = ACCENT + alpha + ')';
@@ -1386,7 +1386,7 @@ class PortfolioApp {
         ctx.stroke();
       });
 
-      // 3. Draw nodes
+      
       nodes.forEach(n => {
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
@@ -1394,7 +1394,7 @@ class PortfolioApp {
         ctx.fill();
       });
 
-      // 4. Spawn & draw pulses
+      
       if (ts - lastSpawn > SPAWN_INTERVAL && edges.length > 0) {
         pulses.push({
           edge: edges[Math.floor(Math.random() * edges.length)],
@@ -1406,21 +1406,21 @@ class PortfolioApp {
 
       for (let i = pulses.length - 1; i >= 0; i--) {
         const p = pulses[i];
-        p.t += p.speed * (dt / 16.67); // frame-rate independent advance
+        p.t += p.speed * (dt / 16.67); 
 
         if (p.t >= 1) { pulses.splice(i, 1); continue; }
 
         const px = p.edge.a.x + (p.edge.b.x - p.edge.a.x) * p.t;
         const py = p.edge.a.y + (p.edge.b.y - p.edge.a.y) * p.t;
 
-        // Smooth fade in (0→0.2) and out (0.8→1)
+        
         const fade = p.t < 0.2
           ? p.t / 0.2
           : p.t > 0.8
             ? (1 - p.t) / 0.2
             : 1;
 
-        // Glow halo
+        
         const grd = ctx.createRadialGradient(px, py, 0, px, py, 8);
         grd.addColorStop(0, ACCENT + (0.45 * fade) + ')');
         grd.addColorStop(0.4, ACCENT + (0.15 * fade) + ')');
@@ -1430,7 +1430,7 @@ class PortfolioApp {
         ctx.fillStyle = grd;
         ctx.fill();
 
-        // Core dot
+        
         ctx.beginPath();
         ctx.arc(px, py, 1.6, 0, Math.PI * 2);
         ctx.fillStyle = ACCENT + (0.6 * fade) + ')';
@@ -1444,7 +1444,7 @@ class PortfolioApp {
   }
 
   private initializeImageModal(): void {
-    // Gallery state
+    
     let galleryImages: string[] = [];
     let galleryIndex = 0;
 
@@ -1502,17 +1502,17 @@ class PortfolioApp {
       modalImg.style.display = 'block';
       modalIframe.style.display = 'none';
 
-      // arrows
+      
       prevBtn.style.display = galleryImages.length > 1 ? 'flex' : 'none';
       nextBtn.style.display = galleryImages.length > 1 ? 'flex' : 'none';
 
-      // dots
+      
       dotsEl.style.display = galleryImages.length > 1 ? 'flex' : 'none';
       dotsEl.querySelectorAll('.modal-dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === galleryIndex);
       });
 
-      // counter
+      
       counterEl.textContent = galleryImages.length > 1 ? `${galleryIndex + 1} / ${galleryImages.length}` : '';
     };
 
@@ -1537,11 +1537,11 @@ class PortfolioApp {
       showCurrent();
     });
 
-    // Click on project images
+    
     document.addEventListener('click', (e: MouseEvent) => {
       const target = e.target as HTMLElement;
 
-      // Project image click — check for gallery data on parent .project-img
+      
       if (target.tagName === 'IMG' && target.closest('.project-img')) {
         const projectImgDiv = target.closest('.project-img') as HTMLElement;
         const galleryData = projectImgDiv?.dataset.gallery;
@@ -1555,7 +1555,7 @@ class PortfolioApp {
         return;
       }
 
-      // Award Media Cards
+      
       const awardCard = target.closest('.award-media-card');
       if (awardCard) {
         const link = awardCard.getAttribute('data-link');
