@@ -9,7 +9,7 @@ interface Project {
   title: string;
   description: string;
   image: string;
-  images?: string[];   
+  images?: string[];
   technologies: string[];
   links: {
     demo?: string;
@@ -132,7 +132,7 @@ const SOFTWARE_PROJECTS: Project[] = [
   {
     title: 'CircuitSpace',
     description: 'An intuitive circuit planner for rocketry with circuit validation, mass calculation, and more.',
-    image: '/images/circuitspace.png',
+    image: '/images/circuit-space.png',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     links: {
       demo: 'https://circuitspace.vercel.app',
@@ -275,8 +275,8 @@ const COURSES_DATA: YearCourses[] = [
   {
     year: '2026-27',
     grade: 'Grade 12',
-    
-    
+
+
     courses: [
       { name: 'AP English IV-Lit/Comp.', level: 'AP', apScore: 'In Progress' },
       { name: 'AP European History', level: 'AP', apScore: 'In Progress' },
@@ -718,9 +718,9 @@ class PortfolioApp {
     document.querySelectorAll('a[href*="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
         const url = new URL(this.href);
-        
+
         if (url.pathname !== window.location.pathname && url.pathname !== window.location.pathname + 'index.html') {
-          
+
           const isRootPath = window.location.pathname === '/' || window.location.pathname === '';
           if (!(isRootPath && url.pathname.endsWith('/index.html'))) {
             return;
@@ -742,7 +742,7 @@ class PortfolioApp {
             behavior: 'smooth'
           });
 
-          
+
           window.history.pushState(null, '', hash);
         }
       });
@@ -965,7 +965,7 @@ class PortfolioApp {
       const user = await userRes.json();
       const repos: any[] = reposRes.ok ? await reposRes.json() : [];
 
-      
+
       let totalStars = 0, totalForks = 0;
       const langBytes: Record<string, number> = {};
       for (const repo of repos) {
@@ -978,7 +978,7 @@ class PortfolioApp {
         .slice(0, 6);
       const langTotal = topLangs.reduce((s, [, c]) => s + c, 0);
 
-      
+
       const memberYear = new Date(user.created_at).getFullYear();
       const yearsActive = new Date().getFullYear() - memberYear + 1;
 
@@ -1068,7 +1068,7 @@ class PortfolioApp {
     const container = document.getElementById('education-content');
     if (!container) return;
 
-    
+
     const yearsWithGPA = COURSES_DATA.filter(y => y.uwGPA !== undefined && y.wGPA !== undefined && (y.uwGPA > 0 || y.wGPA > 0));
     const cumulativeUW = yearsWithGPA.length > 0
       ? yearsWithGPA.reduce((sum, y) => sum + (y.uwGPA || 0), 0) / yearsWithGPA.length
@@ -1077,7 +1077,7 @@ class PortfolioApp {
       ? yearsWithGPA.reduce((sum, y) => sum + (y.wGPA || 0), 0) / yearsWithGPA.length
       : 0;
 
-    
+
     const allAPCourses = COURSES_DATA.flatMap(yearData =>
       yearData.courses
         .filter(c => c.level === 'AP' && c.apScore !== undefined)
@@ -1283,7 +1283,7 @@ class PortfolioApp {
     const container = document.getElementById('circuit-background');
     if (!container) return;
 
-    
+
     const canvas = document.createElement('canvas');
     canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
     container.appendChild(canvas);
@@ -1296,7 +1296,7 @@ class PortfolioApp {
     const GRID = 95;
     const MAX_DIST = GRID * 1.7;
 
-    
+
     interface CNode {
       bx: number; by: number;
       x: number; y: number;
@@ -1310,7 +1310,7 @@ class PortfolioApp {
 
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
-        if (Math.random() > 0.48) {          
+        if (Math.random() > 0.48) {
           const bx = i * GRID + (Math.random() - 0.5) * GRID * 0.55;
           const by = j * GRID + (Math.random() - 0.5) * GRID * 0.55;
           nodes.push({
@@ -1319,13 +1319,13 @@ class PortfolioApp {
             amp: 4 + Math.random() * 8,
             phase: Math.random() * Math.PI * 2,
             speed: 0.0025 + Math.random() * 0.005,
-            opacity: 0.15 + Math.random() * 0.25,  
+            opacity: 0.15 + Math.random() * 0.25,
           });
         }
       }
     }
 
-    
+
     interface Edge { a: CNode; b: CNode; }
     const edges: Edge[] = [];
     for (let i = 0; i < nodes.length; i++) {
@@ -1337,11 +1337,11 @@ class PortfolioApp {
       }
     }
 
-    
+
     interface Pulse { edge: Edge; t: number; speed: number; }
     const pulses: Pulse[] = [];
 
-    
+
     for (let k = 0; k < 12; k++) {
       pulses.push({
         edge: edges[Math.floor(Math.random() * edges.length)],
@@ -1351,32 +1351,32 @@ class PortfolioApp {
     }
 
     let lastSpawn = 0;
-    const SPAWN_INTERVAL = 280; 
+    const SPAWN_INTERVAL = 280;
 
-    
+
     let time = 0;
     let lastTs = 0;
 
     const draw = (ts: number) => {
-      const dt = Math.min(ts - lastTs, 32); 
+      const dt = Math.min(ts - lastTs, 32);
       lastTs = ts;
       time += dt;
 
-      
+
       ctx.clearRect(0, 0, W, H);
 
-      
+
       const t = time * 0.001;
       nodes.forEach(n => {
         n.x = n.bx + Math.sin(t * n.speed * 6.28 + n.phase) * n.amp;
         n.y = n.by + Math.cos(t * n.speed * 6.28 * 0.71 + n.phase) * n.amp * 0.6;
       });
 
-      
+
       ctx.lineWidth = 0.7;
       edges.forEach(e => {
         const dist = Math.hypot(e.a.x - e.b.x, e.a.y - e.b.y);
-        
+
         const alpha = Math.max(0, 0.08 * (1 - dist / (MAX_DIST * 1.1)));
         if (alpha <= 0) return;
         ctx.strokeStyle = ACCENT + alpha + ')';
@@ -1386,7 +1386,7 @@ class PortfolioApp {
         ctx.stroke();
       });
 
-      
+
       nodes.forEach(n => {
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
@@ -1394,7 +1394,7 @@ class PortfolioApp {
         ctx.fill();
       });
 
-      
+
       if (ts - lastSpawn > SPAWN_INTERVAL && edges.length > 0) {
         pulses.push({
           edge: edges[Math.floor(Math.random() * edges.length)],
@@ -1406,21 +1406,21 @@ class PortfolioApp {
 
       for (let i = pulses.length - 1; i >= 0; i--) {
         const p = pulses[i];
-        p.t += p.speed * (dt / 16.67); 
+        p.t += p.speed * (dt / 16.67);
 
         if (p.t >= 1) { pulses.splice(i, 1); continue; }
 
         const px = p.edge.a.x + (p.edge.b.x - p.edge.a.x) * p.t;
         const py = p.edge.a.y + (p.edge.b.y - p.edge.a.y) * p.t;
 
-        
+
         const fade = p.t < 0.2
           ? p.t / 0.2
           : p.t > 0.8
             ? (1 - p.t) / 0.2
             : 1;
 
-        
+
         const grd = ctx.createRadialGradient(px, py, 0, px, py, 8);
         grd.addColorStop(0, ACCENT + (0.45 * fade) + ')');
         grd.addColorStop(0.4, ACCENT + (0.15 * fade) + ')');
@@ -1430,7 +1430,7 @@ class PortfolioApp {
         ctx.fillStyle = grd;
         ctx.fill();
 
-        
+
         ctx.beginPath();
         ctx.arc(px, py, 1.6, 0, Math.PI * 2);
         ctx.fillStyle = ACCENT + (0.6 * fade) + ')';
@@ -1444,7 +1444,7 @@ class PortfolioApp {
   }
 
   private initializeImageModal(): void {
-    
+
     let galleryImages: string[] = [];
     let galleryIndex = 0;
 
@@ -1502,17 +1502,17 @@ class PortfolioApp {
       modalImg.style.display = 'block';
       modalIframe.style.display = 'none';
 
-      
+
       prevBtn.style.display = galleryImages.length > 1 ? 'flex' : 'none';
       nextBtn.style.display = galleryImages.length > 1 ? 'flex' : 'none';
 
-      
+
       dotsEl.style.display = galleryImages.length > 1 ? 'flex' : 'none';
       dotsEl.querySelectorAll('.modal-dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === galleryIndex);
       });
 
-      
+
       counterEl.textContent = galleryImages.length > 1 ? `${galleryIndex + 1} / ${galleryImages.length}` : '';
     };
 
@@ -1537,11 +1537,11 @@ class PortfolioApp {
       showCurrent();
     });
 
-    
+
     document.addEventListener('click', (e: MouseEvent) => {
       const target = e.target as HTMLElement;
 
-      
+
       if (target.tagName === 'IMG' && target.closest('.project-img')) {
         const projectImgDiv = target.closest('.project-img') as HTMLElement;
         const galleryData = projectImgDiv?.dataset.gallery;
@@ -1555,7 +1555,7 @@ class PortfolioApp {
         return;
       }
 
-      
+
       const awardCard = target.closest('.award-media-card');
       if (awardCard) {
         const link = awardCard.getAttribute('data-link');
