@@ -36,7 +36,6 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Fixed site-wide animated background -->
     <div id="circuit-background"></div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
@@ -53,7 +52,7 @@
                     <li><a href="education.html" class="nav-link">Education</a></li>
                     <li><a href="awards.html" class="nav-link">Awards</a></li>
                     <li><a href="projects.html" class="nav-link">Projects</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
                 </ul>
                 <button class="hamburger" aria-label="Menu toggle" aria-expanded="false">
                     <span></span>
@@ -70,58 +69,87 @@
                 <h2>Get In Touch</h2>
                 <div class="section-line"></div>
             </div>
-            
-            <div class="contact-content">
-                <!-- Top Row: Reasons -->
-                <div class="contact-reasons-full">
-                    <h3>Why Contact Me?</h3>
-                    <div class="reasons-horizontal">
-                        <div class="reason-card">
-                            <i class="fas fa-code"></i>
-                            <h4>Collaboration</h4>
-                            <p>Interested in working together on a software or hardware project.</p>
+
+            <div class="contact-page-layout">
+
+                <div class="contact-left-col">
+                    <p class="contact-intro">Have a project in mind, a question, or just want to connect? I'd love to hear from you.</p>
+
+                    <div class="contact-reason-list">
+                        <div class="contact-reason-item">
+                            <div class="contact-reason-icon"><i class="fas fa-code"></i></div>
+                            <div class="contact-reason-body">
+                                <h4>Collaboration</h4>
+                                <p>Interested in working together on a software or hardware project.</p>
+                            </div>
                         </div>
-                        <div class="reason-card">
-                            <i class="fas fa-lightbulb"></i>
-                            <h4>Questions</h4>
-                            <p>Want to know more about my projects or learn from my experiences.</p>
+                        <div class="contact-reason-item">
+                            <div class="contact-reason-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="contact-reason-body">
+                                <h4>Questions</h4>
+                                <p>Want to know more about my projects or learn from my experiences.</p>
+                            </div>
                         </div>
-                        <div class="reason-card">
-                            <i class="fas fa-coffee"></i>
-                            <h4>Networking</h4>
-                            <p>Just want to say hi and connect!</p>
+                        <div class="contact-reason-item">
+                            <div class="contact-reason-icon"><i class="fas fa-handshake"></i></div>
+                            <div class="contact-reason-body">
+                                <h4>Networking</h4>
+                                <p>Just want to say hi and connect!</p>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="contact-secondary-links">
+                        <a href="mailto:samuelasefa20@gmail.com" class="contact-link-row">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-link-info">
+                                <span class="contact-link-title">Email</span>
+                                <span class="contact-link-value">samuelasefa20@gmail.com</span>
+                            </div>
+                            <i class="fas fa-arrow-right contact-link-arrow"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/samuelasefa/" target="_blank" rel="noopener" class="contact-link-row">
+                            <i class="fab fa-linkedin"></i>
+                            <div class="contact-link-info">
+                                <span class="contact-link-title">LinkedIn</span>
+                                <span class="contact-link-value">linkedin.com/in/samuelasefa</span>
+                            </div>
+                            <i class="fas fa-arrow-right contact-link-arrow"></i>
+                        </a>
+                        <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener" class="contact-link-row">
+                            <i class="fab fa-github"></i>
+                            <div class="contact-link-info">
+                                <span class="contact-link-title">GitHub</span>
+                                <span class="contact-link-value">github.com/samuel-asefa</span>
+                            </div>
+                            <i class="fas fa-arrow-right contact-link-arrow"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Bottom Row: Form and Cards -->
-                <div class="contact-split-layout">
-                    <div class="contact-form-container">
+                <div class="contact-right-col">
+                    <div class="contact-form-card">
                         <h3>Send a Message</h3>
-                        <form id="contactForm" class="contact-form">
-                            <div class="form-group">
+                        <form id="contactForm" class="contact-form-fields">
+                            <div class="cform-group">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" required placeholder="Your Name">
                             </div>
-                            <div class="form-group">
+                            <div class="cform-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                             </div>
-                            <div class="form-group">
+                            <div class="cform-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="What's on your mind?"></textarea>
+                                <textarea id="message" name="message" rows="6" required placeholder="What's on your mind?"></textarea>
                             </div>
-                            <button type="submit" class="btn primary-btn submit-btn">
+                            <button type="submit" class="btn primary-btn contact-submit-btn">
                                 Send Message <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
                     </div>
-
-                    <!-- Right: Contact Cards -->
-                    <div class="contact-cards-container">
-                        <div class="contact-info" id="contact-info-grid"></div>
-                    </div>
                 </div>
+
             </div>
         </section>
     </main>
@@ -156,10 +184,8 @@
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            
             const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
             const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-            
             window.location.href = `mailto:samuelasefa20@gmail.com?subject=${subject}&body=${body}`;
         });
     </script>
