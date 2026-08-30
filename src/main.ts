@@ -152,7 +152,7 @@ const SOFTWARE_PROJECTS: Project[] = [
   {
     title: 'AmharicQuest',
     description: 'An Amharic learning platform with 230+ Fidel characters, 42 vocab words across 9 categories, 9 structured lessons, and progress tracking.',
-    image: '/images/amharicquest.png',
+    image: '/images/amharic-quest.png',
     technologies: ['TypeScript', 'Firebase'],
     links: {
       demo: 'https://amharicquest.vercel.app/',
