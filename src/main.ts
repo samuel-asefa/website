@@ -955,6 +955,7 @@ class PortfolioApp {
       Shell: '#89e051', SCSS: '#c6538c',
     };
 
+    // Render stats cards
     try {
       const [userRes, reposRes] = await Promise.all([
         fetch('https://api.github.com/users/samuel-asefa'),
@@ -964,7 +965,6 @@ class PortfolioApp {
 
       const user = await userRes.json();
       const repos: any[] = reposRes.ok ? await reposRes.json() : [];
-
 
       let totalStars = 0, totalForks = 0;
       const langBytes: Record<string, number> = {};
@@ -977,7 +977,6 @@ class PortfolioApp {
         .sort(([, a], [, b]) => b - a)
         .slice(0, 6);
       const langTotal = topLangs.reduce((s, [, c]) => s + c, 0);
-
 
       const memberYear = new Date(user.created_at).getFullYear();
       const yearsActive = new Date().getFullYear() - memberYear + 1;
@@ -1061,6 +1060,215 @@ class PortfolioApp {
           <p style="color:var(--text-muted);margin-bottom:1rem">Stats temporarily unavailable.</p>
           <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener" class="btn primary-btn">View on GitHub</a>
         </div>`;
+    }
+
+    // Render contribution activity calendar
+    await this.renderGitHubActivityGraph();
+  }
+
+  private async renderGitHubActivityGraph(): Promise<void> {
+    const graphContainer = document.getElementById('github-graph');
+    if (!graphContainer) return;
+
+    try {
+      const res = await fetch('https://github-contributions-api.jogruber.de/v4/samuel-asefa?y=last');
+      if (!res.ok) throw new Error('Failed to fetch contributions');
+      const data = await res.json();
+      const contributions: Array<{ date: string; count: number; level: number }> = data.contributions || [];
+      if (!contributions.length) throw new Error('No contribution data');
+
+      const totalContribs = data.total?.lastYear ?? contributions.reduce((acc, c) => acc + (c.count || 0), 0);
+
+      // Calculate streaks
+      let maxStreak = 0;
+      let currentStreak = 0;
+      let tempStreak = 0;
+
+      for (const day of contributions) {
+        if (day.count > 0) {
+          tempStreak++;
+          if (tempStreak > maxStreak) maxStreak = tempStreak;
+        } else {
+          tempStreak = 0;
+        }
+      }
+
+      // Current active streak from end
+      let idx = contributions.length - 1;
+      if (idx >= 0 && contributions[idx].count === 0 && idx > 0) {
+        idx--; // Allow 0 count for today if today just started
+      }
+      while (idx >= 0 && contributions[idx].count > 0) {
+        currentStreak++;
+        idx--;
+      }
+
+      // Organize into 53 weeks starting Sunday
+      const weeks: Array<Array<{ date: string; count: number; level: number } | null>> = [];
+      let currentWeek: Array<{ date: string; count: number; level: number } | null> = [];
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const monthLabels: Array<{ col: number; label: string }> = [];
+      let lastMonth = -1;
+
+      // Pad start
+      const firstDate = new Date(contributions[0].date + 'T00:00:00');
+      const firstDow = firstDate.getDay(); // 0 = Sunday
+      for (let i = 0; i < firstDow; i++) {
+        currentWeek.push(null);
+      }
+
+      for (const day of contributions) {
+        const d = new Date(day.date + 'T00:00:00');
+        const m = d.getMonth();
+
+        if (currentWeek.length === 7) {
+          weeks.push(currentWeek);
+          currentWeek = [];
+        }
+
+        const colIdx = weeks.length;
+        if (m !== lastMonth) {
+          if (monthLabels.length === 0 || colIdx - monthLabels[monthLabels.length - 1].col >= 2) {
+            monthLabels.push({ col: colIdx, label: monthNames[m] });
+          }
+          lastMonth = m;
+        }
+
+        currentWeek.push(day);
+      }
+
+      if (currentWeek.length > 0) {
+        while (currentWeek.length < 7) {
+          currentWeek.push(null);
+        }
+        weeks.push(currentWeek);
+      }
+
+      const LEVEL_COLORS = [
+        'rgba(255, 255, 255, 0.05)', // level 0
+        '#075985',                   // level 1
+        '#0284c7',                   // level 2
+        '#0ea5e9',                   // level 3
+        '#38bdf8'                    // level 4
+      ];
+
+      const cellStep = 14;
+      const offsetX = 30;
+      const offsetY = 24;
+      const totalWidth = offsetX + weeks.length * cellStep + 10;
+      const totalHeight = offsetY + 7 * cellStep + 4;
+
+      let rectsSvg = '';
+      weeks.forEach((week, wIdx) => {
+        const x = offsetX + wIdx * cellStep;
+        week.forEach((day, dIdx) => {
+          if (!day) return;
+          const y = offsetY + dIdx * cellStep;
+          const color = LEVEL_COLORS[Math.min(day.level, 4)] || LEVEL_COLORS[0];
+          rectsSvg += `<rect class="gh-cell" data-date="${day.date}" data-count="${day.count}" x="${x}" y="${y}" width="10" height="10" rx="2" fill="${color}" />`;
+        });
+      });
+
+      let monthsSvg = '';
+      monthLabels.forEach(m => {
+        const x = offsetX + m.col * cellStep;
+        monthsSvg += `<text x="${x}" y="14" fill="#94a3b8" font-size="10" font-family="Outfit, sans-serif">${m.label}</text>`;
+      });
+
+      const daysSvg = `
+        <text x="0" y="${offsetY + 1 * cellStep + 8}" fill="#64748b" font-size="9" font-family="Outfit, sans-serif">Mon</text>
+        <text x="0" y="${offsetY + 3 * cellStep + 8}" fill="#64748b" font-size="9" font-family="Outfit, sans-serif">Wed</text>
+        <text x="0" y="${offsetY + 5 * cellStep + 8}" fill="#64748b" font-size="9" font-family="Outfit, sans-serif">Fri</text>
+      `;
+
+      graphContainer.innerHTML = `
+        <div class="gh-graph-header">
+          <div class="gh-graph-header-left">
+            <i class="fas fa-chart-line gh-icon"></i>
+            <span class="gh-card-title">Contribution Activity</span>
+            <span class="gh-graph-badge">${totalContribs.toLocaleString()} contributions in the last year</span>
+          </div>
+          <div class="gh-streak-badge">
+            <i class="fas fa-fire"></i>
+            <span><strong>${currentStreak}</strong> day streak</span>
+          </div>
+        </div>
+
+        <div class="gh-calendar-wrapper">
+          <svg class="gh-calendar-svg" viewBox="0 0 ${totalWidth} ${totalHeight}" xmlns="http://www.w3.org/2000/svg">
+            ${monthsSvg}
+            ${daysSvg}
+            ${rectsSvg}
+          </svg>
+        </div>
+
+        <div class="gh-graph-footer">
+          <div class="gh-graph-footer-stats">
+            <span>Longest Streak: <strong>${maxStreak} days</strong></span>
+          </div>
+          <div class="gh-legend">
+            <span>Less</span>
+            <span class="gh-legend-cell level-0"></span>
+            <span class="gh-legend-cell level-1"></span>
+            <span class="gh-legend-cell level-2"></span>
+            <span class="gh-legend-cell level-3"></span>
+            <span class="gh-legend-cell level-4"></span>
+            <span>More</span>
+          </div>
+        </div>
+
+        <div class="gh-tooltip" id="gh-tooltip"></div>
+      `;
+
+      // Attach tooltip hover handlers
+      const tooltip = graphContainer.querySelector('#gh-tooltip') as HTMLElement;
+      if (tooltip) {
+        graphContainer.querySelectorAll('.gh-cell').forEach(cell => {
+          cell.addEventListener('mouseenter', (e: Event) => {
+            const target = e.target as SVGRectElement;
+            const dateStr = target.getAttribute('data-date') || '';
+            const count = parseInt(target.getAttribute('data-count') || '0', 10);
+            const dateFormatted = new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric'
+            });
+
+            tooltip.innerHTML = count === 0
+              ? `No contributions on ${dateFormatted}`
+              : `<strong>${count} contribution${count > 1 ? 's' : ''}</strong> on ${dateFormatted}`;
+
+            const rectBounds = target.getBoundingClientRect();
+            const containerBounds = graphContainer.getBoundingClientRect();
+
+            tooltip.style.left = `${rectBounds.left - containerBounds.left + rectBounds.width / 2}px`;
+            tooltip.style.top = `${rectBounds.top - containerBounds.top}px`;
+            tooltip.classList.add('visible');
+          });
+
+          cell.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('visible');
+          });
+        });
+      }
+
+    } catch (_) {
+      // Graceful fallback to SVG chart image if API fails
+      graphContainer.innerHTML = `
+        <div class="gh-graph-header">
+          <div class="gh-graph-header-left">
+            <i class="fas fa-chart-line gh-icon"></i>
+            <span class="gh-card-title">Contribution Activity</span>
+          </div>
+          <a href="https://github.com/samuel-asefa" target="_blank" rel="noopener" class="gh-streak-badge">
+            <i class="fab fa-github"></i>
+            <span>View on GitHub</span>
+          </a>
+        </div>
+        <div class="gh-calendar-wrapper">
+          <img src="https://ghchart.rshah.org/0ea5e9/samuel-asefa" alt="GitHub Contribution Graph" class="github-activity-graph">
+        </div>
+      `;
     }
   }
 

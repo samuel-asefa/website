@@ -1544,12 +1544,157 @@ section {
   overflow: hidden;
   background: var(--surface-1);
   border: 1px solid var(--border);
-  padding: 1rem;
-  transition: border-color 0.28s ease;
+  padding: 1.5rem;
+  transition: transform 0.28s var(--ease-out), border-color 0.28s ease, box-shadow 0.28s ease;
+  position: relative;
 }
 
 .github-graph:hover {
   border-color: var(--border-accent);
+  box-shadow: var(--shadow-hover);
+}
+
+.gh-graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.gh-graph-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.gh-graph-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+}
+
+.gh-streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+}
+
+.gh-streak-badge i {
+  color: #f59e0b;
+}
+
+.gh-calendar-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gh-calendar-wrapper::-webkit-scrollbar {
+  height: 4px;
+}
+
+.gh-calendar-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.gh-calendar-svg {
+  display: block;
+  min-width: 720px;
+  width: 100%;
+  height: auto;
+}
+
+.gh-cell {
+  cursor: pointer;
+  transition: filter 0.15s ease, stroke 0.15s ease;
+}
+
+.gh-cell:hover {
+  stroke: #ffffff;
+  stroke-width: 1.2px;
+  filter: brightness(1.3);
+}
+
+.gh-graph-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.gh-graph-footer-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gh-graph-footer-stats strong {
+  color: var(--text);
+}
+
+.gh-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.gh-legend-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.gh-legend-cell.level-0 { background: rgba(255, 255, 255, 0.05); }
+.gh-legend-cell.level-1 { background: #075985; }
+.gh-legend-cell.level-2 { background: #0284c7; }
+.gh-legend-cell.level-3 { background: #0ea5e9; }
+.gh-legend-cell.level-4 { background: #38bdf8; }
+
+.gh-tooltip {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-accent);
+  color: var(--text);
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -100%) translateY(-8px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 50;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.gh-tooltip.visible {
+  opacity: 1;
+  transform: translate(-50%, -100%) translateY(-12px);
 }
 
 .github-activity-graph {
