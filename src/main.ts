@@ -298,6 +298,7 @@ const COURSES_DATA: YearCourses[] = [
       { name: 'AP World History: Modern', level: 'AP', apScore: 5 },
       { name: 'AP Calculus-BC', level: 'AP', apScore: 5 },
       { name: 'AP Physics C', level: 'AP', apScore: 5 },
+      { name: 'AP Physics 2', level: 'AP', apScore: 4 },
       { name: 'Virtual Reality & Game Design', level: 'AP', csAcademy: true },
       { name: 'Mobile App Development', level: 'AP', csAcademy: true },
       { name: 'Advanced Biology', level: 'Regular', summer: true },
@@ -646,14 +647,26 @@ class PortfolioApp {
 
   private handleLoadingScreen(): void {
     const loadingScreen = document.getElementById('loading-screen');
-    window.addEventListener('load', () => {
+    if (!loadingScreen) return;
+
+    let isHidden = false;
+    const hideLoader = () => {
+      if (isHidden) return;
+      isHidden = true;
+      loadingScreen.style.opacity = '0';
+      loadingScreen.style.pointerEvents = 'none';
       setTimeout(() => {
-        if (loadingScreen) {
-          loadingScreen.style.opacity = '0';
-          setTimeout(() => loadingScreen.style.display = 'none', 500);
-        }
-      }, 1000);
-    });
+        loadingScreen.style.display = 'none';
+      }, 400);
+    };
+
+    if (document.readyState === 'complete') {
+      setTimeout(hideLoader, 200);
+    } else {
+      window.addEventListener('load', () => setTimeout(hideLoader, 200));
+      // Safety fallback: guaranteed to dismiss loader after 800ms
+      setTimeout(hideLoader, 800);
+    }
   }
 
   private initializeDynamicYear(): void {
@@ -1428,7 +1441,7 @@ class PortfolioApp {
       </div>
     `;
 
-    container.querySelectorAll('.course-year-group, .club-card').forEach(el => this.intersectionObserver?.observe(el));
+    container.querySelectorAll('.course-year-group, .ap-score-card, .club-card').forEach(el => this.intersectionObserver?.observe(el));
   }
 
   private renderAwards(): void {
@@ -1480,6 +1493,9 @@ class PortfolioApp {
         const panelEl = panel as HTMLElement;
         if (panelEl.id === `edu-panel-${tab}`) {
           panelEl.classList.remove('hidden');
+          panelEl.querySelectorAll('.fade-in').forEach(el => {
+            el.classList.add('is-visible');
+          });
         } else {
           panelEl.classList.add('hidden');
         }
