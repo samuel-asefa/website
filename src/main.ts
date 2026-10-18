@@ -361,7 +361,7 @@ const CLUBS_DATA: Club[] = [
       'Designed and 3D printed all rocket components (fin can, transition piece, airbrakes)',
       'Ran Finite Element Analysis and other simulations to optimize rocket design'
     ],
-    link: 'https://sbaerospace.github.io'
+    link: 'https://sbaerospace.vercel.app/'
   },
   {
     name: 'Science Olympiad',
