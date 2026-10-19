@@ -43,12 +43,15 @@ interface YearCourses {
   wGPA?: number;
 }
 
-interface Club {
+interface ExperienceItem {
   name: string;
   role: string;
   years: string;
   description: string[];
   link?: string;
+  category: 'Experience' | 'Community Engagement';
+  commitment?: string;
+  roleHistory?: string;
 }
 
 interface AwardMedia {
@@ -338,72 +341,144 @@ const COURSES_DATA: YearCourses[] = [
   }
 ];
 
-const CLUBS_DATA: Club[] = [
+const EXPERIENCE_DATA: ExperienceItem[] = [
   {
-    name: 'VEX Robotics',
-    role: 'Workshop Lead | Lead Builder',
-    years: '2023 - Present',
+    name: 'SBHS Robotics Club',
+    role: 'Build Lead | Workshop Lead | VEX Team 750W',
+    years: 'Jun. 2025 - Present',
+    commitment: '8-24 hours/week, 44 weeks/year',
+    roleHistory: 'Builder/Programmer (2023-2024), CAD Lead (2024-2025), Build Lead (2025-2027), Workshop Lead (2025-2027)',
+    category: 'Experience',
     description: [
-      'Taught 10+ recruits CAD and build fundamentals through structured workshops',
-      'Created interactive lessons with CAD to help students learn robot design and assembly',
-      'Utilized CAD software to prototype multiple iterations of our robots design',
-      'Built and improved designs through competition and practice'
+      "Led build, CAD, and testing of my team's competition robot through 10+ major design iterations.",
+      'Taught workshops consisting of 130+ instructional slides and 10 interactive CAD projects, mentoring 26 builders across 6 teams.',
+      'Created a 7-part <a href="https://www.youtube.com/@samuel-asefa" target="_blank" rel="noopener noreferrer">YouTube</a> CAD series with 12,500+ impressions, 1,450+ views, and 38 hours of watch time.',
+      'Led team to 25-10 qualification record (71.4% win rate) in 11th grade; earned 3 judged awards from 10th grade onward: Excellence (1/36 teams) and 2 Amaze Awards (1/56; 1/65 teams).'
     ],
-    link: 'https://750w.github.io'
+    link: 'https://sbrobotics.vercel.app/'
   },
   {
-    name: 'Aerospace Team',
-    role: 'Design Lead | Electronics Lead',
-    years: '2024 - Present',
+    name: 'SBHS Science Olympiad Club',
+    role: 'Captain of Build Events',
+    years: 'May 2025 - Present',
+    commitment: '8-20 hours/week, 32 weeks/year',
+    roleHistory: 'Competitor (2023-2027), Executive Board Member (2025-2027), Captain of Build Events (2025-2027)',
+    category: 'Experience',
     description: [
-      'Built and programmed airbrakes system including wiring and a custom PCB',
-      'Designed circuitry for NDVI mapping payload and onboard data collection',
-      'Designed and 3D printed all rocket components (fin can, transition piece, airbrakes)',
-      'Ran Finite Element Analysis and other simulations to optimize rocket design'
+      'Led 5+ build events and managed $1,000+ in materials and devices.',
+      'Helped increase annual team engineering medals from 7 to 11 (+57%).'
     ],
-    link: 'https://sbaerospace.vercel.app/'
+    link: 'https://sbscioly.github.io/index.html'
   },
   {
-    name: 'Science Olympiad',
-    role: 'Executive Board | Build Captain',
-    years: '2023 - Present',
+    name: 'SBHS Aerospace Club',
+    role: 'Co-Vice President',
+    years: 'Sep. 2026 - Present',
+    commitment: '6-16 hours/week, 40 weeks/year',
+    roleHistory: 'Member (2024-2025), Design Lead (2025-2026), Electronics Lead (2025-2026), Co-Vice President (2026-2027)',
+    category: 'Experience',
     description: [
-      'Led build events and managed $1,000+ in materials and devices',
-      'Oversaw design and iteration of team-built devices across multiple competition cycles',
-      'Competed in build events including Air Trajectory, Engineering CAD, Hovercraft, and Robot Tour'
+      'Competed in the American Rocketry Challenge National Finals, placing 50th out of 100 teams.',
+      'Built and programmed an airbrakes system with custom wiring and a printed circuit board (PCB).',
+      'Designed circuitry and onboard data collection for an NDVI mapping payload.',
+      'Designed and 3D-printed 20+ rocket components, including fin cans, transition pieces, and airbrakes.',
+      'Ran Finite Element Analysis (FEA) and Computational Fluid Dynamics (CFD) to optimize rocket design.'
     ],
-    link: 'https://sbscioly.github.io'
+    link: 'https://sbaerospace.vercel.app'
   },
   {
-    name: 'XSTEM Club',
+    name: 'SBHS Computer Science Club',
     role: 'President',
-    years: '2023 - Present',
+    years: 'Jun. 2026 - Present',
+    commitment: '3-5 hours/week, 22 weeks/year',
+    roleHistory: 'Member (2023-2025), Club Officer (2025-2026), President (2026-2027)',
+    category: 'Experience',
     description: [
-      'Organized school-wide STEM workshops and competitions, managing logistics for large-scale events',
-      'Led weekly sessions on cutting-edge engineering and technology topics for club members',
-      'Mentored students in hands-on projects and technical skill development'
+      'Directed school-wide computer science initiatives & grew membership from 251 to 351 students (+40%).',
+      'Organized 105-student hackathon featuring $1,000 in prizes & 8 industry judges from technology companies.',
+      'Developed and led a 10-session C++ circuits and electronics workshop series serving 65 students.',
+      'Coordinated 17-member board, event planning, sponsorships, & workshops to expand student engagement.'
     ],
-    link: 'https://x-stem.github.io'
+    link: 'https://sbcsclub.vercel.app/'
   },
   {
-    name: 'Computer Science Club',
-    role: 'President',
-    years: '2023 - Present',
+    name: 'SBHS XSTEM Club',
+    role: 'Co-President',
+    years: 'May 2026 - Present',
+    commitment: '3-5 hours/week, 22 weeks/year',
+    roleHistory: 'Member (2023-2024), Executive Board Member (2024-2026), Co-President (2026-2027)',
+    category: 'Experience',
     description: [
-      'Led a Circuits & Electronics workshop with 65 students based in C++',
-      'Helped organize a school-wide hackathon with 74 participants',
+      'Led entrepreneurship programming for 200+ students; hosted 6 industry speakers on business and STEM.',
+      'Increased competition submissions from 240 to 500+ across 10 competitions.',
+      'Helped SBHS achieve the most Blue Ocean Competition submissions of any school worldwide.',
+      'Mentored 3 Blue Ocean Competition Top-350 teams (Top 2.7% internationally).',
+      'Mentored 30+ students individually to enter international business and innovation competitions.'
     ],
-    link: 'https://sbcsclub.vercel.app'
+    link: 'https://x-stem.github.io/'
   },
   {
-    name: 'Mathletes',
-    role: 'Member',
-    years: '2023 - Present',
+    name: 'Personal Medium Page',
+    role: 'Robotics Writer',
+    years: 'May 2026 - Present',
+    commitment: '2-3 hours/week, 52 weeks/year',
+    category: 'Experience',
     description: [
-      'Competed in the NJ Math League and other regional mathematics competitions',
-      'Actively participated in meetings to prepare for competitions and improve competition skills'
-    ]
+      'Published 20+ robotics/AI articles (16,000+ words) on control systems and emerging technologies.',
+      'Earned 10,000+ views, 2,200+ reads, and 400+ reactions through accessible technical writing.'
+    ],
+    link: 'https://medium.com/@samuel-asefa'
   },
+  {
+    name: 'VividSense',
+    role: 'Head of Engineering',
+    years: 'Oct. 2024 - Present',
+    commitment: '2-8 hours/week, 26 weeks/year',
+    category: 'Experience',
+    description: [
+      'Helped build DexArm, an affordable prosthetic arm designed for everyday tasks.',
+      'Helped build SurroundScanner, an ultrasonic navigation aid for people with visual impairments.'
+    ],
+    link: 'https://www.vividsenselabs.com/'
+  },
+  {
+    name: 'RoboZone',
+    role: 'Co-Founder | Co-President',
+    years: 'Mar. 2024 - Present',
+    commitment: '4-12 hours/week, 26 weeks/year',
+    category: 'Community Engagement',
+    description: [
+      'Manage administrative operations, including fiscal sponsorship through Hack Club, a 501(c)(3) nonprofit.',
+      'Programmed website using HTML, CSS, JavaScript, and Astro, with PocketBase for registration.',
+      'Developed an 8-week Arduino/CAD/C++ curriculum; led 15+ mentors teaching 90+ students across 160 workshop hours and contributing 2,000+ team service hours.'
+    ],
+    link: 'https://www.linkedin.com/company/robozonenj'
+  },
+  {
+    name: 'TurboTutors',
+    role: 'Co-Founder | Vice President',
+    years: 'Jan. 2024 - Present',
+    commitment: '2-8 hours/week, 16 weeks/year',
+    category: 'Community Engagement',
+    description: [
+      'Created 1,200+ curriculum slides, compiled 2,500+ practice problems, and built the organization website.',
+      'Ran operations supporting 500+ tutoring sessions serving 100+ students in CS, Mathematics, and Physics.'
+    ],
+    link: 'https://turbotutors.org'
+  },
+  {
+    name: 'Schoolhouse.world',
+    role: 'Silver-Level Tutor',
+    years: 'May 2026 - Present',
+    commitment: '2-8 hours/week, 18 weeks/year',
+    category: 'Community Engagement',
+    description: [
+      'Tutored 70+ students (Top 5%) from 15+ countries (Top 5%).',
+      'Received 80+ “Super Helpful” (Top 10%) and 120+ “Positive” ratings (Top 10%).',
+      'Hosted 44 sessions (Top 5%) in computer science, math, science, and history across 44 hours of tutoring.'
+    ],
+    link: 'https://schoolhouse.world/portfolio/5778efb9-9143-470d-81be-37338da57a25'
+  }
 ];
 
 const AWARDS_DATA: Award[] = [
@@ -891,6 +966,7 @@ class PortfolioApp {
     this.renderSkillCategory('technologies-grid', SKILLS_DATA.technologies);
     this.renderProjects();
     this.renderEducation();
+    this.renderExperience();
     this.renderAwards();
     this.renderContactInfo();
   }
@@ -1314,7 +1390,6 @@ class PortfolioApp {
       <div class="edu-tabs">
         <button class="edu-tab-btn active" data-tab="courses" id="tab-courses">Courses</button>
         <button class="edu-tab-btn" data-tab="ap-scores" id="tab-ap-scores">AP Scores</button>
-        <button class="edu-tab-btn" data-tab="clubs" id="tab-clubs">Clubs &amp; Activities</button>
       </div>
 
       <div class="edu-panel" id="edu-panel-courses">
@@ -1420,28 +1495,61 @@ class PortfolioApp {
           `).join('')}
         </div>` : ''}
       </div>
-
-      <div class="edu-panel hidden" id="edu-panel-clubs">
-        <div class="clubs-grid">
-          ${CLUBS_DATA.map(club => `
-            <div class="club-card fade-in">
-              <div class="club-header">
-                <div>
-                  <h3>${club.name}${club.link ? ` <a href="${club.link}" target="_blank" rel="noopener" class="club-ext-link"><i class="fas fa-external-link-alt"></i></a>` : ''}</h3>
-                  <p class="club-role">${club.role}</p>
-                  <p class="club-years"><i class="fas fa-calendar-alt"></i> ${club.years}</p>
-                </div>
-              </div>
-              <ul class="club-desc-list">
-                ${club.description.map(point => `<li>${point}</li>`).join('')}
-              </ul>
-            </div>
-          `).join('')}
-        </div>
-      </div>
     `;
 
-    container.querySelectorAll('.course-year-group, .ap-score-card, .club-card').forEach(el => this.intersectionObserver?.observe(el));
+    container.querySelectorAll('.course-year-group, .ap-score-card').forEach(el => this.intersectionObserver?.observe(el));
+  }
+
+  private renderExperience(): void {
+    const container = document.getElementById('experience-content');
+    if (!container) return;
+
+    const renderCard = (item: ExperienceItem) => `
+      <article class="experience-card fade-in">
+        <div class="experience-card-header">
+          <div class="experience-card-title-row">
+            <h3 class="experience-card-name">
+              ${item.name}
+              ${item.link ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="experience-ext-link" aria-label="Visit ${item.name}"><i class="fas fa-external-link-alt"></i></a>` : ''}
+            </h3>
+          </div>
+          <div class="experience-role">${item.role}</div>
+          <div class="experience-meta">${item.years}${item.commitment ? ` &middot; ${item.commitment}` : ''}</div>
+        </div>
+        <ul class="experience-desc-list">
+          ${item.description.map(point => `<li>${point}</li>`).join('')}
+        </ul>
+        ${item.roleHistory ? `
+          <div class="experience-card-track">
+            <span class="track-label">Roles:</span> ${item.roleHistory}
+          </div>
+        ` : ''}
+      </article>
+    `;
+
+    const experienceItems = EXPERIENCE_DATA.filter(item => item.category === 'Experience');
+    const communityItems = EXPERIENCE_DATA.filter(item => item.category === 'Community Engagement');
+
+    container.innerHTML = `
+      ${experienceItems.length > 0 ? `
+        <div class="experience-section">
+          <h3 class="experience-section-title"><i class="fas fa-briefcase"></i> Experience</h3>
+          <div class="experience-grid">
+            ${experienceItems.map(renderCard).join('')}
+          </div>
+        </div>
+      ` : ''}
+      ${communityItems.length > 0 ? `
+        <div class="experience-section" style="margin-top: 3.5rem;">
+          <h3 class="experience-section-title"><i class="fas fa-hands-helping"></i> Community Engagement</h3>
+          <div class="experience-grid">
+            ${communityItems.map(renderCard).join('')}
+          </div>
+        </div>
+      ` : ''}
+    `;
+
+    container.querySelectorAll('.experience-card').forEach(el => this.intersectionObserver?.observe(el));
   }
 
   private renderAwards(): void {
