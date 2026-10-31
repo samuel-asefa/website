@@ -224,6 +224,7 @@ const RESEARCH_PROJECTS: Project[] = [
     ],
     technologies: ['Python', 'PyTorch', 'NumPy', 'Machine Learning', 'Robotics'],
     links: {
+      paper: 'https://doi.org/10.33774/coe-2026-n3z2n',
       github: 'https://github.com/samuel-asefa/Adaptive-Sensor-Fusion-Using-Machine-Learning-for-Robust-Localization-in-LowCost-Autonomous-Robots'
     }
   },
