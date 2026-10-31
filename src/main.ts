@@ -239,7 +239,7 @@ const RESEARCH_PROJECTS: Project[] = [
     ],
     technologies: ['Python', 'PyTorch', 'DeepONet', 'LSTM', 'CFD', 'Machine Learning'],
     links: {
-      paper: 'https://www.cambridge.org/engage/coe/article-details/6a5bdd84810b9dcc82490692'
+      paper: 'https://doi.org/10.33774/coe-2026-6h7gp-v2'
     }
   },
   {
