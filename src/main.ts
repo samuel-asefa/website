@@ -15,6 +15,7 @@ interface Project {
     demo?: string;
     website?: string;
     paper?: string;
+    presentation?: string;
     github?: string;
   };
 }
@@ -243,12 +244,21 @@ const RESEARCH_PROJECTS: Project[] = [
     }
   },
   {
-    title: 'TEG Powered Cooking Pollution Capturing Device',
-    description: 'A COMSOL simulation of a thermoelectric generator array that harvests waste heat from cookstove exhaust to autonomously regenerate amine-functionalized sorbent filters. A 220 K thermal gradient produces 2.8 W of regenerative power, reducing CO and VOC surface concentrations by 87.6% and 81.3% within 6 minutes across 50 simulated cycles.',
+    title: 'Thermoelectric-Assisted Amine Regeneration for Cookstove Pollution Capture',
+    description: 'A computational model coupling aldehyde capture, packed-bed transport, thermoelectric generation, and resistive heating across 1,500 conditions. Achieved near-100% aldehyde capture, with TEG output (0.002-0.152 W) identifying thermal regeneration as the primary limiting constraint.',
     image: '/images/teg-research.png',
-    technologies: ['CAD', 'COMSOL'],
+    images: [
+      '/images/teg-research.png',
+      '/images/teg_system_concept.png',
+      '/images/teg_thermal_response.jpg',
+      '/images/teg_sweep_histograms.png',
+      '/images/teg_pareto_tradeoffs.png',
+      '/images/teg_sensitivity_analysis.png'
+    ],
+    technologies: ['Python', 'COMSOL', 'Thermodynamics', 'Packed-Bed Transport', 'Energy Harvesting'],
     links: {
-      paper: 'https://www.cambridge.org/engage/coe/article-details/691404bcef936fb4a2b1b9fa'
+      paper: 'https://doi.org/10.33774/coe-2025-mj9mb',
+      presentation: 'https://doi.org/10.5281/zenodo.23328194'
     }
   },
   {
@@ -1011,6 +1021,7 @@ class PortfolioApp {
             ${project.links.demo ? `<a href="${project.links.demo}" target="_blank" rel="noopener" class="btn primary-btn">Project Demo</a>` : ''}
             ${project.links.website ? `<a href="${project.links.website}" target="_blank" rel="noopener" class="btn primary-btn">Website</a>` : ''}
             ${project.links.paper ? `<a href="${project.links.paper}" target="_blank" rel="noopener" class="btn primary-btn">Research Paper</a>` : ''}
+            ${project.links.presentation ? `<a href="${project.links.presentation}" target="_blank" rel="noopener" class="btn primary-btn">Presentation</a>` : ''}
             ${project.links.github ? `<a href="${project.links.github}" target="_blank" rel="noopener" class="btn secondary-btn">GitHub</a>` : ''}
           </div>
         </div>
