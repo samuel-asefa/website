@@ -494,6 +494,14 @@ const EXPERIENCE_DATA: ExperienceItem[] = [
 
 const AWARDS_DATA: Award[] = [
   {
+    title: 'National Merit Commended Student',
+    issuer: 'National Merit Scholarship Corporation',
+    date: 'Sep 2026',
+    description: [
+      'Recognizes the 50,000 members of each graduating class with the highest scores on the PSAT out of 1.3 million (Top 3.8%).'
+    ]
+  },
+  {
     title: 'GQMC Final Round Qualifier',
     issuer: 'Global Quantum Mechanics Challenge',
     date: 'Aug 2026',
