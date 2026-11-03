@@ -494,6 +494,14 @@ const EXPERIENCE_DATA: ExperienceItem[] = [
 
 const AWARDS_DATA: Award[] = [
   {
+    title: 'MIT URTC Accepted Lightning Talk',
+    issuer: 'MIT Undergraduate Research Technology Conference',
+    date: 'Sep 2026',
+    description: [
+      'Accepted for presentation on Thermoelectric-Assisted Regeneration of Aminosilica Sorbents for Cookstove Aldehyde Capture.'
+    ]
+  },
+  {
     title: 'National Merit Commended Student',
     issuer: 'National Merit Scholarship Corporation',
     date: 'Sep 2026',
