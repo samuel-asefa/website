@@ -463,7 +463,7 @@ const EXPERIENCE_DATA: ExperienceItem[] = [
       'Programmed website using HTML, CSS, JavaScript, and Astro, with PocketBase for registration.',
       'Developed an 8-week Arduino/CAD/C++ curriculum; led 15+ mentors teaching 90+ students across 160 workshop hours and contributing 2,000+ team service hours.'
     ],
-    link: 'https://www.linkedin.com/company/robozonenj'
+    link: 'https://robozone.world/'
   },
   {
     name: 'TurboTutors',
