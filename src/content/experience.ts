@@ -4,15 +4,15 @@ import type { ExperienceItem } from './types';
 export const experience: ExperienceItem[] = [
   {
     org: 'SBHS Robotics Club, VEX Team 750W',
-    role: 'Build lead and workshop lead',
+    role: 'Build Lead and Workshop Lead',
     dates: 'Jun 2025 – present',
     kind: 'leadership',
     commitment: '8–24 hours a week, 44 weeks a year',
     roles: [
-      { title: 'Builder and programmer', years: '2023–24' },
-      { title: 'CAD lead', years: '2024–25' },
-      { title: 'Build lead', years: '2025–27' },
-      { title: 'Workshop lead', years: '2025–27' },
+      { title: 'Builder and Programmer', years: '2023–24' },
+      { title: 'CAD Lead', years: '2024–25' },
+      { title: 'Build Lead', years: '2025–27' },
+      { title: 'Workshop Lead', years: '2025–27' },
     ],
     points: [
       'Led build, CAD, and testing of the team’s competition robot through 10+ major design iterations.',
@@ -31,7 +31,7 @@ export const experience: ExperienceItem[] = [
     commitment: '3–5 hours a week, 22 weeks a year',
     roles: [
       { title: 'Member', years: '2023–25' },
-      { title: 'Club officer', years: '2025–26' },
+      { title: 'Club Officer', years: '2025–26' },
       { title: 'President', years: '2026–27' },
     ],
     points: [
@@ -44,15 +44,15 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'SBHS Aerospace Club',
-    role: 'Co-vice president',
+    role: 'Co-Vice President',
     dates: 'Sep 2026 – present',
     kind: 'leadership',
     commitment: '6–16 hours a week, 40 weeks a year',
     roles: [
       { title: 'Member', years: '2024–25' },
-      { title: 'Design lead', years: '2025–26' },
-      { title: 'Electronics lead', years: '2025–26' },
-      { title: 'Co-vice president', years: '2026–27' },
+      { title: 'Design Lead', years: '2025–26' },
+      { title: 'Electronics Lead', years: '2025–26' },
+      { title: 'Co-Vice President', years: '2026–27' },
     ],
     points: [
       'Competed at the American Rocketry Challenge National Finals, placing 50th of 100 teams.',
@@ -62,18 +62,18 @@ export const experience: ExperienceItem[] = [
       'Ran finite element analysis (FEA) and computational fluid dynamics (CFD) to refine rocket designs.',
     ],
     href: 'https://sbaerospace.vercel.app/',
-    projects: ['ndvi-payload', 'circuitspace'],
+    projects: ['rocketry-airbrakes', 'ndvi-payload', 'circuitspace'],
   },
   {
     org: 'SBHS Science Olympiad',
-    role: 'Captain of build events',
+    role: 'Captain of Build Events',
     dates: 'May 2025 – present',
     kind: 'leadership',
     commitment: '8–20 hours a week, 32 weeks a year',
     roles: [
       { title: 'Competitor', years: '2023–27' },
-      { title: 'Executive board member', years: '2025–27' },
-      { title: 'Captain of build events', years: '2025–27' },
+      { title: 'Executive Board Member', years: '2025–27' },
+      { title: 'Captain of Build Events', years: '2025–27' },
     ],
     points: [
       'Lead 5+ build events and manage $1,000+ in materials and devices.',
@@ -84,14 +84,14 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'SBHS XSTEM Club',
-    role: 'Co-president',
+    role: 'Co-President',
     dates: 'May 2026 – present',
     kind: 'leadership',
     commitment: '3–5 hours a week, 22 weeks a year',
     roles: [
       { title: 'Member', years: '2023–24' },
-      { title: 'Executive board member', years: '2024–26' },
-      { title: 'Co-president', years: '2026–27' },
+      { title: 'Executive Board Member', years: '2024–26' },
+      { title: 'Co-President', years: '2026–27' },
     ],
     points: [
       'Lead entrepreneurship programming for 200+ students; hosted 6 industry speakers on business and STEM.',
@@ -103,7 +103,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'VividSense',
-    role: 'Head of engineering',
+    role: 'Head of Engineering',
     dates: 'Oct 2024 – present',
     kind: 'leadership',
     commitment: '2–8 hours a week, 26 weeks a year',
@@ -116,7 +116,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'Medium',
-    role: 'Robotics writer',
+    role: 'Robotics Writer',
     dates: 'May 2026 – present',
     kind: 'leadership',
     commitment: '2–3 hours a week, 52 weeks a year',
@@ -128,7 +128,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'RoboZone',
-    role: 'Co-founder and co-president',
+    role: 'Co-Founder and Co-President',
     dates: 'Mar 2024 – present',
     kind: 'community',
     commitment: '4–12 hours a week, 26 weeks a year',
@@ -141,7 +141,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'TurboTutors',
-    role: 'Co-founder and vice president',
+    role: 'Co-Founder and Vice President',
     dates: 'Jan 2024 – present',
     kind: 'community',
     commitment: '2–8 hours a week, 16 weeks a year',
@@ -153,7 +153,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'Schoolhouse.world',
-    role: 'Silver-level tutor',
+    role: 'Silver-Level Tutor',
     dates: 'May 2026 – present',
     kind: 'community',
     commitment: '2–8 hours a week, 18 weeks a year',

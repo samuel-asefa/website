@@ -67,7 +67,7 @@ export const renderExperience = (): string => {
     {
       title: 'Experience',
       description:
-        'Samuel Asefa’s experience: VEX Team 750W build lead, Aerospace Club, Science Olympiad, Computer Science Club, XSTEM, VividSense, RoboZone, TurboTutors, and tutoring.',
+        'Samuel Asefa’s experience: VEX Team 750W Build Lead, Aerospace Club, Science Olympiad, Computer Science Club, XSTEM, VividSense, RoboZone, TurboTutors, and tutoring.',
       path: '/experience.html',
       image: '/images/push-back-robot.jpeg',
       nav: 'experience',

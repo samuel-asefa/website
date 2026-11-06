@@ -2,14 +2,14 @@ import type { Award } from './types';
 
 /**
  * Awards, newest first. `scope` says whose award it is:
- * individual (mine), team (shared with a team), project (a project I led).
+ * individual (mine) or team (shared with teammates or co-authors).
  */
 export const awards: Award[] = [
   {
     title: 'MIT URTC lightning talk (accepted)',
     issuer: 'MIT Undergraduate Research Technology Conference',
     date: 'Sep 2026',
-    scope: 'project',
+    scope: 'team',
     description: [
       'Accepted for a lightning talk on thermoelectric-assisted regeneration of aminosilica sorbents for cookstove aldehyde capture.',
     ],
@@ -86,7 +86,7 @@ export const awards: Award[] = [
     title: 'Garden State Cyber CTF, top 7%',
     issuer: 'NJCCIC',
     date: 'Mar 2026',
-    scope: 'individual',
+    scope: 'team',
     description: ['Placed 29th of 420 teams in the Garden State Capture the Flag cybersecurity competition.'],
   },
   {
@@ -107,6 +107,8 @@ export const awards: Award[] = [
     media: [
       { title: 'TechRise team', src: '/images/techrise.webp' },
       { title: 'The payload', src: '/images/nasapayload.jpeg' },
+      { title: 'Payload in its case', src: '/images/TechRise1.jpg' },
+      { title: 'Balloon liftoff', src: '/images/TechRise2.jpg' },
     ],
     project: 'ndvi-payload',
   },
@@ -139,6 +141,7 @@ export const awards: Award[] = [
       'Qualified for the national finals (top 100 of 1,001 entries) and placed 50th at the finals in Virginia.',
     ],
     media: [{ title: 'At the national finals', src: '/images/arc.jpg' }],
+    project: 'rocketry-airbrakes',
   },
   {
     title: 'LaunchSB, 2nd place',

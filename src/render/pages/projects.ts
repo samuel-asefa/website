@@ -11,11 +11,13 @@ const ORDER = [
   'circuitspace',
   'studently',
   'amharicquest',
-  'heavy',
   'dexarm',
   'surroundscanner',
   'push-back-robot',
+  'high-stakes-robot',
+  'robot-tour',
   'ndvi-payload',
+  'rocketry-airbrakes',
   'adaptive-sensor-fusion',
   'hybrid-flow-reconstruction',
   'cookstove-thermoelectric-regeneration',
@@ -29,6 +31,7 @@ const rank = (p: Project) => {
 };
 
 const CATS: Category[] = ['software', 'hardware', 'research'];
+const CAT_ICON: Record<Category, string> = { software: 'fa-code', hardware: 'fa-microchip', research: 'fa-flask' };
 
 export const renderProjects = (): string => {
   const sorted = [...projects].sort((a, b) => rank(a) - rank(b));
@@ -54,7 +57,7 @@ export const renderProjects = (): string => {
   <div class="projects-content">
     ${CATS.map(
       (c) => `<div class="project-category" data-category="${c}">
-      <h2 class="category-title">${CATEGORY_LABEL[c]} Projects</h2>
+      <h2 class="category-title"><i class="fas ${CAT_ICON[c]}" aria-hidden="true"></i> ${CATEGORY_LABEL[c]} Projects</h2>
       <div class="projects-grid">
         ${sorted
           .filter((p) => p.category === c)

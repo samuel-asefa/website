@@ -31,11 +31,11 @@ const personJsonLd = () => ({
 
 /** Phrases for the typed line under the title. Each is a verifiable role. */
 const TYPED = [
-  'Build lead for VEX Team 750W',
-  'Co-founder of RoboZone',
+  'Build Lead for VEX Team 750W',
+  'Co-Founder of RoboZone',
   'Creator of RoboRoute',
-  'Robotics and ML researcher',
-  'NASA TechRise winning team',
+  'Robotics and ML Researcher',
+  'NASA TechRise Winning Team',
 ];
 
 const BENTO: { cls: string; href: string; src: string; pos: string; alt: string; title: string; text: string }[] = [

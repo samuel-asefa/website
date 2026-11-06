@@ -59,27 +59,21 @@ const header = (current?: NavKey): string => `
 </header>`;
 
 const year = new Date().getFullYear();
-const updated = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
 const footer = (): string => `
 <footer>
   <div class="footer-content">
-    <div class="footer-left">
-      <div class="footer-logo">Samuel Asefa</div>
-      <div class="footer-sub">Robotics, software, and research · South Brunswick, NJ</div>
-    </div>
+    <div class="footer-logo">Samuel Asefa</div>
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/samuelasefa/" rel="noopener" target="_blank" aria-label="LinkedIn profile" class="social-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
       <a href="https://github.com/samuel-asefa" rel="noopener" target="_blank" aria-label="GitHub profile" class="social-icon"><i class="fab fa-github" aria-hidden="true"></i></a>
       <a href="https://www.youtube.com/@samuel-asefa" rel="noopener" target="_blank" aria-label="YouTube channel" class="social-icon"><i class="fab fa-youtube" aria-hidden="true"></i></a>
       <a href="https://medium.com/@samuel-asefa" rel="noopener" target="_blank" aria-label="Medium articles" class="social-icon"><img src="/images/medium.png" alt="" width="20" height="20" style="width: 20px; height: 20px; object-fit: contain;"></a>
-      <a href="https://orcid.org/0009-0009-2279-3148" rel="noopener" target="_blank" aria-label="ORCID research profile" class="social-icon"><i class="fab fa-orcid" aria-hidden="true"></i></a>
       <a href="mailto:${SITE.email}" aria-label="Email ${SITE.email}" class="social-icon"><i class="fas fa-envelope" aria-hidden="true"></i></a>
     </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; ${year} Samuel Asefa. All Rights Reserved.</p>
-    <p class="footer-built">Built with Vite · Updated ${updated}</p>
   </div>
 </footer>
 

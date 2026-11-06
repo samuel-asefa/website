@@ -737,12 +737,6 @@ main:focus {
   background: rgba(251, 146, 60, 0.08);
 }
 
-.scope-project {
-  color: var(--research-accent);
-  border-color: rgba(129, 140, 248, 0.35);
-  background: var(--research-tint);
-}
-
 .pub-list {
   display: grid;
   gap: 0.9rem;
@@ -1368,9 +1362,92 @@ figcaption {
   font-size: 1.3rem;
 }
 
+/* School card with the school's own logo: the logo stands free, lit by a soft glow in
+   the school's gold, with a large faint copy of it fading off the right edge. */
+.school-card--logo {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  gap: 1.5rem;
+  padding-block: 1.6rem;
+}
+
+.school-card--logo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 4.6rem 50%, rgba(250, 204, 21, 0.11), transparent 15rem);
+  pointer-events: none;
+}
+
+.school-card--logo::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -2.5rem;
+  z-index: -1;
+  width: 13rem;
+  aspect-ratio: 1080 / 1181;
+  translate: 0 -50%;
+  background: var(--school-logo) center / contain no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* Phones and small tablets: logo on top, everything centered, location and class year on
+   their own lines, rank below. (Side by side needs about 760px for the name to fit.) */
+@media (max-width: 760px) {
+  .school-card--logo {
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1.6rem 1.25rem 1.4rem;
+    text-align: center;
+  }
+
+  .school-card--logo::before {
+    background: radial-gradient(circle at 50% 3.4rem, rgba(250, 204, 21, 0.12), transparent 11rem);
+  }
+
+  .school-card--logo::after {
+    display: none;
+  }
+
+  .school-card--logo .school-meta-item {
+    display: block;
+  }
+
+  .school-card--logo .school-meta-sep {
+    display: none;
+  }
+
+  .school-card--logo .school-rank {
+    align-self: stretch;
+    align-items: center;
+    padding: 0.9rem 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+}
+
+.school-logo {
+  flex-shrink: 0;
+  width: 66px;
+  height: 72px;
+}
+
+.school-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(250, 204, 21, 0.25));
+}
+
 .school-name {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .school-meta {
@@ -1378,13 +1455,385 @@ figcaption {
   color: var(--text-secondary);
 }
 
+.school-meta-item {
+  white-space: nowrap;
+}
+
 .school-meta i {
   color: var(--accent);
-  margin-right: 0.15rem;
+  margin-right: 0.3rem;
+}
+
+.school-meta-sep {
+  padding: 0 0.45rem;
+  color: var(--text-muted);
 }
 
 .edu-panel:focus-visible {
   outline-offset: 6px;
+}
+
+/* Education: tabs, stats, and year headers share the school card's finish
+   (same surface, radius, and shadow; a soft accent glow where it uses gold). */
+.edu-tabs {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 2.5rem;
+  padding: 0.3rem;
+  gap: 0.25rem;
+  flex-wrap: nowrap;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-1);
+  box-shadow: var(--shadow-card);
+}
+
+.edu-tab-btn {
+  padding: 0.6rem 1.6rem;
+  border: 0;
+}
+
+.edu-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.edu-tab-btn.active {
+  background: var(--accent);
+  box-shadow: 0 2px 10px rgba(14, 165, 233, 0.2);
+}
+
+.edu-stats {
+  display: grid;
+  gap: 1rem;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.edu-stats--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.edu-stats--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 1rem;
+}
+
+.edu-stat {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+  padding: 1.15rem 1.35rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.edu-stat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 0, rgba(14, 165, 233, 0.07), transparent 70%);
+  pointer-events: none;
+}
+
+.edu-stat:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+}
+
+.edu-stat-value {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+.edu-stat-label {
+  margin-top: 0.15rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.edu-stat-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* AP-Weighted: same blue as AP with a lighter fill; the label does the distinguishing. */
+.level-ap-weighted {
+  background: rgba(14, 165, 233, 0.06);
+  color: var(--accent);
+  border: 1px solid rgba(14, 165, 233, 0.22);
+}
+
+.edu-stats--2:has(+ .edu-note) {
+  margin-bottom: 1.1rem;
+}
+
+.edu-note {
+  max-width: 720px;
+  margin: 0 auto 2.75rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.edu-note .course-level {
+  display: inline-flex;
+  margin: 0 0.15rem;
+  vertical-align: 0.05em;
+}
+
+/* Class rank on the right of the school banner (a small gold note echoes the logo). The watermark
+   moves further off the edge and fades a little so the rank reads cleanly. */
+.school-card--logo:has(.school-rank)::after {
+  right: -4rem;
+  opacity: 0.045;
+}
+
+.school-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.school-rank {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  padding-left: 1.4rem;
+  border-left: 1px solid var(--border);
+  text-align: right;
+}
+
+.school-rank-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.school-rank-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.school-rank-note {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #eab308;
+}
+
+/* AP score key: one row of five under the stats, badge over label. */
+.ap-score-scale {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-card);
+}
+
+.ap-scale-item {
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.ap-scale-label {
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+/* Year headers: white title, the school year as a pill, and an accent rule that fades out. */
+.course-year-group {
+  margin-bottom: 3rem;
+}
+
+.course-year-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 0;
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.3), rgba(255, 255, 255, 0.06) 35%, transparent) bottom / 100% 1px no-repeat;
+}
+
+.course-year-title {
+  font-size: 1.3rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.course-year-subtitle {
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+.year-gpa .gpa-item {
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  border-color: rgba(14, 165, 233, 0.25);
+  border-radius: 999px;
+  background: var(--accent-faint);
+}
+
+.year-gpa .gpa-item .gpa-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.year-gpa .gpa-item .gpa-value {
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* "In progress" year: matches the purple In Progress badges. */
+.year-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 999px;
+  background: rgba(168, 85, 247, 0.1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #c084fc;
+}
+
+.year-status-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #c084fc;
+  box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.18);
+}
+
+/* AP list headings: white with an accent icon and a count pill; year rules fade out. */
+.ap-scores-section-title {
+  margin: 0 0 1.1rem;
+  gap: 0.6rem;
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.ap-scores-section-title i {
+  color: var(--accent);
+}
+
+.ap-scores-section-title--gap {
+  margin-top: 2.75rem;
+}
+
+.ap-count {
+  min-width: 1.4em;
+  padding: 0 0.4rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.ap-year-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ap-year-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-bright), transparent);
+}
+
+@media (max-width: 600px) {
+  .edu-tabs {
+    margin-bottom: 2rem;
+  }
+
+  .edu-stats {
+    gap: 0.7rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .edu-stats--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .edu-stat {
+    padding: 0.95rem 1.05rem 1rem;
+  }
+
+  .ap-score-scale {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem 1rem;
+  }
+
+  .ap-scale-item {
+    flex-direction: row;
+  }
+
+  .course-year-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Site name and nav links stay on one line. Just above the menu-button breakpoint
+   (769–1000px) the links tighten up so the full nav still fits beside the name. */
+.logo,
+.nav-link {
+  white-space: nowrap;
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+  .header-container {
+    padding-inline: 1.25rem;
+  }
+
+  .logo {
+    font-size: 1.35rem;
+  }
+
+  .nav-link {
+    padding-inline: 0.5rem;
+    font-size: 0.88rem;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: calc(100% - 1rem);
+  }
 }
 
 /* ── Awards ──────────────────────────────────────────────── */
@@ -1667,8 +2116,393 @@ a.award-media-card {
 .contact-info { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
 .github-stats-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
 .projects-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
-.courses-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+/* At most 3 columns, so course names have room to stay on one line. */
+.courses-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
 .ap-scores-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
 .experience-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
 .awards-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
 .socials-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+
+/* Videos on project pages (portrait phone clips) */
+.pd-video-wrap {
+  max-width: 420px;
+}
+
+.fig--video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-bright);
+  background: #000;
+}
+
+/* Tall single figures (portrait photos, section views) stay within the screen. */
+.pd-figure-wrap .fig {
+  align-items: center;
+}
+
+.pd-figure-wrap .media-link {
+  max-width: 100%;
+}
+
+.pd-figure-wrap .media {
+  width: auto;
+  max-width: 100%;
+  max-height: 75vh;
+}
+
+.pd-figure-wrap figcaption {
+  align-self: stretch;
+}
+
+.pd-video-wrap {
+  margin-inline: auto;
+}
+
+/* Several portrait clips side by side; one per row on phones, kept to a readable width. */
+.pd-video-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 600px) {
+  .pd-video-row {
+    max-width: 340px;
+    margin-inline: auto;
+  }
+}
+
+/* A clip beside a related photo (both usually portrait). */
+.pd-media-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+  max-width: 880px;
+}
+
+.pd-media-row .fig--photo .media {
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .pd-media-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Self-studied AP exams: tag on the card, matching the Summer / CS Academy tags. */
+.course-self-study {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.12rem 0.4rem;
+  border-radius: 10px;
+  background: var(--accent-faint);
+  color: var(--accent-hover);
+  border: 1px solid var(--border-accent);
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.course-self-study i {
+  font-size: 0.52rem;
+}
+
+.ap-self-study-note {
+  max-width: 720px;
+  margin: 0 auto 2.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.ap-self-study-note .course-self-study {
+  margin: 0 0.15rem;
+}
+
+/* Exam name inside a score badge when one class has two exams (Physics C: Mech, E&M). */
+.ap-exam-short {
+  font-size: 0.62rem;
+  font-weight: 700;
+  opacity: 0.8;
+  margin-right: 0.3rem;
+  letter-spacing: 0.03em;
+}
+
+/* Year sub-headings inside the Completed AP list (newest year first). */
+.ap-year-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary, var(--text));
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 1.5rem 0 0.7rem;
+}
+
+.ap-year-title:first-of-type {
+  margin-top: 0.25rem;
+}
+
+.ap-year-title span {
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* AP score colours run blue → green → yellow → orange → red from 5 to 1,
+   so the top score uses the site accent. (Swaps the original 5 / 4 colours.) */
+.ap-score-5 {
+  background: rgba(14, 165, 233, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.ap-score-4 {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Course cards: subject emoji on the left, then a one-line title over the level and
+   tags (score far right). Titles never wrap, so every card is the same height. */
+.course-card--stacked {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.15rem;
+}
+
+.course-body {
+  container: course / inline-size;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Subject emoji (course and AP cards). Fixed width so names line up down a column;
+   emoji fonts listed first so every platform draws the color version. */
+.course-emoji {
+  flex: none;
+  width: 1.4rem;
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Twemoji Mozilla', sans-serif;
+  font-size: 1.25rem;
+  font-variant-emoji: emoji;
+  line-height: 1;
+  text-align: center;
+  user-select: none;
+}
+
+.ap-score-card {
+  gap: 0.6rem;
+}
+
+.ap-score-card-content {
+  flex: 1 1 auto;
+  margin-right: 0.4rem;
+}
+
+.course-name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.course-name-short {
+  display: none;
+}
+
+/* Title space too narrow for the longest full names (about 306px): use the short name. */
+@container course (max-width: 312px) {
+  .course-name-full:has(+ .course-name-short) {
+    display: none;
+  }
+
+  .course-name-short {
+    display: inline;
+  }
+}
+
+/* Smallest phones: too narrow for the longest name without a short version
+   ("Virtual Reality and Game Design", about 224px), so the title steps down a size. */
+@container course (max-width: 232px) {
+  .course-name {
+    font-size: 0.88rem;
+  }
+}
+
+.course-chips {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+}
+
+.course-scores {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* One height for every chip in the row. */
+.course-chips .course-level,
+.course-chips .course-summer,
+.course-chips .course-cs-academy,
+.course-chips .ap-score-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 1.5rem;
+  box-sizing: border-box;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.course-chips .course-summer,
+.course-chips .course-cs-academy {
+  gap: 0.3rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.64rem;
+}
+
+/* Phones: one column, so tighten spacing to keep the list short. */
+@media (max-width: 600px) {
+  .courses-grid {
+    gap: 0.7rem;
+  }
+
+  .course-card--stacked {
+    gap: 0.55rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .course-body {
+    gap: 0.6rem;
+  }
+}
+
+/* ── Site-wide consistency ─────────────────────────────────
+   One look for the pieces that repeat across pages: filters are segmented
+   controls (like the Education tabs), group headings share the white title
+   with a faint fading rule, and page-section toggles fill only when active. */
+.project-filters {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 3rem;
+  padding: 0.3rem;
+  gap: 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-1);
+  box-shadow: var(--shadow-card);
+}
+
+.filter-btn {
+  padding: 0.55rem 1.25rem;
+  border: 0;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.filter-btn.active {
+  box-shadow: 0 2px 10px rgba(14, 165, 233, 0.2);
+}
+
+@media (max-width: 600px) {
+  .project-filters {
+    border-radius: 1.1rem;
+  }
+
+  .filter-btn {
+    padding-inline: 1rem;
+  }
+}
+
+/* Group headings: Projects categories, Experience sections, Education years. */
+.category-title,
+.experience-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 0;
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.3), rgba(255, 255, 255, 0.06) 35%, transparent) bottom / 100% 1px no-repeat;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  text-align: left;
+  color: var(--text);
+}
+
+.category-title::after {
+  content: none;
+}
+
+.category-title i,
+.experience-section-title i {
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+.project-category[data-category="research"] .category-title {
+  color: var(--text);
+  background-image: linear-gradient(90deg, rgba(129, 140, 248, 0.35), rgba(255, 255, 255, 0.06) 35%, transparent);
+}
+
+.project-category[data-category="research"] .category-title i {
+  color: var(--research-accent);
+}
+
+@media (max-width: 600px) {
+  .category-title,
+  .experience-section-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Project page "On this page" bar: hover is a soft highlight; only the current section fills. */
+.pd-toc a:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.pd-toc a.active {
+  color: var(--bg);
+  background: var(--accent);
+}
+
+/* Education: the centered 720px column only makes sense when the grid below is much
+   wider. On narrower screens the banner, stats, and key use the full width, so their
+   edges line up with the course grid. */
+@media (max-width: 900px) {
+  .school-card,
+  .edu-stats,
+  .ap-score-scale {
+    max-width: none;
+  }
+}

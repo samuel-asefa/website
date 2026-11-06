@@ -18,6 +18,14 @@ export const figure = (src: string, alt: string, extra: Extra = {}): Media => ({
   ...extra,
 });
 
+/** CAD view or 3D render on its own background. Shown like a photo, so it can be cropped to fill a frame. */
+export const render = (src: string, alt: string, extra: Extra = {}): Media => ({
+  src,
+  alt,
+  kind: 'render',
+  ...extra,
+});
+
 /** Screenshot of software. */
 export const screenshot = (src: string, alt: string, extra: Extra = {}): Media => ({
   src,

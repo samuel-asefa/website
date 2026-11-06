@@ -13,10 +13,12 @@ import {
   recognitionList,
   statusLabel,
   techTags,
+  videoFigure,
 } from '../components';
 import { diagrams } from '../diagrams';
 import { esc, rich, summarize } from '../html';
 import { page } from '../layout';
+import { lightboxOnly } from '../media';
 import { routeSketch } from '../route-sketch';
 
 const ORDER: { key: SectionKey; label: string; icon: string }[] = [
@@ -61,6 +63,12 @@ const block = (b: Block, group: string): string => {
         .join('')}</ol>`;
     case 'note':
       return `<aside class="pd-note">${b.title ? `<p class="pd-note-title"><i class="fas fa-circle-info" aria-hidden="true"></i> ${esc(b.title)}</p>` : ''}<p>${rich(b.html)}</p></aside>`;
+    case 'video':
+      return b.beside
+        ? `<div class="pd-media-row">${videoFigure(b.video)}${figure(b.beside, { sizes: '(min-width: 900px) 460px, 92vw', group })}</div>`
+        : `<div class="pd-video-wrap">${videoFigure(b.video)}</div>`;
+    case 'videos':
+      return `<div class="pd-video-row">${b.videos.map(videoFigure).join('')}</div>`;
     case 'diagram':
       return `<figure class="fig fig--diagram">${diagrams[b.id] ?? ''}<figcaption><span class="fig-label">Diagram</span> ${rich(b.caption)}</figcaption></figure>`;
     case 'demo':
@@ -83,7 +91,7 @@ const jsonLd = (p: Project) => {
       datePublished: pub.date,
       url: pub.href,
       ...(pub.doi ? { identifier: { '@type': 'PropertyValue', propertyID: 'DOI', value: pub.doi } } : {}),
-      creativeWorkStatus: pub.status === 'preprint' ? 'Preprint (not peer reviewed)' : 'Published',
+      creativeWorkStatus: pub.status === 'preprint' ? 'Preprint' : 'Published',
       publisher: { '@type': 'Organization', name: pub.venue },
     });
   }
@@ -131,7 +139,7 @@ export const renderProject = (p: Project): string => {
       ${p.links?.length ? `<div class="project-links pd-links">${linkButtons(p.links, 6)}</div>` : ''}
     </div>
 
-    ${p.cover ? `<div class="pd-cover pd-cover-${p.cover.kind}">${figure(p.cover, { sizes: '(min-width: 1200px) 1100px, 94vw', group: p.slug, eager: true })}</div>` : ''}
+    ${p.cover ? `<div class="pd-cover pd-cover-${p.cover.kind}">${figure(p.cover, { sizes: '(min-width: 1200px) 1100px, 94vw', group: p.slug, eager: true })}${(p.gallery ?? []).map((m) => lightboxOnly(m, p.slug)).join('')}</div>` : ''}
 
     <div class="pd-summary${p.facts?.length || p.recognition?.length ? '' : ' pd-summary-single'}">
       <div class="pd-card pd-summary-text">

@@ -1,5 +1,5 @@
 import type { Project } from './types';
-import { figure, photo, screenshot } from './media';
+import { figure, photo, render, screenshot } from './media';
 
 /**
  * Projects, in no particular order (pages sort them).
@@ -16,13 +16,13 @@ export const projects: Project[] = [
     line: 'Team 750W’s VEX V5 robot for the 2025–26 season. I lead the build.',
     category: 'hardware',
     tags: ['Robotics', 'CAD', 'VEX V5'],
-    depth: 'overview',
+    depth: 'case-study',
     dates: '2025–26 season',
     start: '2025-06',
     status: 'Competed in the 2025–26 season',
     summary:
-      'Push Back is the 2025–26 VEX V5 Robotics Competition game. Team 750W designs, builds, and programs a new robot for each season’s game. Since June 2025 I’ve been the team’s build lead, responsible for the build, CAD, and testing of our competition robot, which has gone through more than ten major design iterations.',
-    role: 'Build lead and workshop lead, Team 750W',
+      'Push Back is the 2025–26 VEX V5 Robotics Competition game. Team 750W designs, builds, and programs a new robot for each season’s game. Since June 2025 I’ve been the team’s Build Lead, responsible for the build, CAD, and testing of our competition robot, which has gone through more than ten major design iterations.',
+    role: 'Build Lead and Workshop Lead, Team 750W',
     team: 'Team 750W, South Brunswick High School Robotics Club',
     featured: 1,
     cover: photo(
@@ -30,7 +30,7 @@ export const projects: Project[] = [
       '750W’s Push Back robot photographed from floor level against a dark background: an aluminum VEX frame with red and green sprockets, red pneumatic cylinders, and a curved arm arching over the top.',
       {
         caption:
-          'Team 750W’s Push Back robot, 2025–26. I led its build, CAD, and testing as build lead.',
+          'Team 750W’s Push Back robot, 2025–26. I led its build, CAD, and testing as Build Lead.',
         focus: '50% 40%',
         ratio: '4 / 5',
       },
@@ -43,11 +43,6 @@ export const projects: Project[] = [
     recognition: [
       { title: 'Amaze Award, SBHS Push Back Tournament', scope: 'team' },
       { title: 'Amaze Award, Pirate Popoff Push Back Tournament', scope: 'team' },
-      {
-        title: 'Excellence Award, CCHS High Stakes Tournament',
-        scope: 'team',
-        detail: 'Previous season (2024–25), 1 of 36 teams',
-      },
     ],
     sections: {
       context: {
@@ -56,14 +51,62 @@ export const projects: Project[] = [
           {
             type: 'steps',
             steps: [
-              { label: 'Builder and programmer', date: '2023–24', html: 'First season on 750W (Over Under).' },
-              { label: 'CAD lead', date: '2024–25', html: 'Led the team’s CAD for High Stakes. That season’s robot earned the Excellence Award at the CCHS tournament (1 of 36 teams).' },
-              { label: 'Build lead and workshop lead', date: '2025–present', html: 'Lead build, CAD, and testing for the competition robot, and teach the club’s workshops.' },
+              { label: 'Builder and Programmer', date: '2023–24', html: 'First season on 750W (Over Under).' },
+              { label: 'CAD Lead', date: '2024–25', html: 'Led the team’s CAD for <a href="/projects/high-stakes-robot.html">High Stakes</a>. That season’s robot earned the Excellence Award at the CCHS tournament (1 of 36 teams).' },
+              { label: 'Build Lead and Workshop Lead', date: '2025–present', html: 'Lead build, CAD, and testing for the competition robot, and teach the club’s workshops.' },
             ],
           },
           {
             type: 'text',
             html: 'The robot is programmed in C++ with a custom PID library. Awards on this page belong to the whole team; my part was leading the build and the design iterations behind it.',
+          },
+        ],
+      },
+      design: {
+        title: 'Concepts in CAD',
+        blocks: [
+          {
+            type: 'text',
+            html: 'CAD designs from the Push Back season, from an earlier concept to a later one checked against a goal.',
+          },
+          {
+            type: 'figures',
+            media: [
+              figure('/images/OldPushBackConcept.png', 'CAD model of a 750W robot holding a stack of red and blue Push Back blocks inside its frame, with a spiked intake roller at the front.', {
+                caption: 'An earlier concept, holding red and blue blocks inside the frame.',
+              }),
+              figure('/images/PushBackConcept.png', 'CAD model of a later 750W concept: a tall aluminum frame with a row of flex-wheel rollers on an angled intake at the front and an air tank along the side.', {
+                caption: 'A later concept with a flex-wheel intake on an angled arm.',
+              }),
+            ],
+          },
+          {
+            type: 'figure',
+            media: figure('/images/PushBackConceptInAction.png', 'The later concept in CAD, tilted against an orange long goal on the field, with a red block at the top of the intake.', {
+              caption: 'The later concept placed against a goal in CAD, with a block at the top of the intake.',
+            }),
+          },
+          {
+            type: 'figures',
+            media: [
+              figure('/images/BasketBot.png', 'CAD model of BasketBot: a 750W robot with a large mesh basket on top and a stack of spoked roller intakes carrying a column of red blocks.', {
+                caption: 'BasketBot, another Push Back design: a mesh basket above a column of roller intakes.',
+              }),
+              figure('/images/BasketBotInAction.png', 'BasketBot in CAD on the field, loaded with red blocks in its intake and blue blocks in its basket.', {
+                caption: 'BasketBot on the field in CAD, loaded with red and blue blocks.',
+              }),
+            ],
+          },
+        ],
+      },
+      process: {
+        title: 'Version 2, built',
+        blocks: [
+          {
+            type: 'figure',
+            media: photo('/images/V2PushBack.png', 'Version 2 of the Push Back robot on a carpeted floor, with a curved chain-mesh hood over red sprockets, an aluminum frame, and red and blue blocks scattered around it.', {
+              caption: 'Version 2 of the robot, built. The competition robot went through more than ten major iterations.',
+            }),
           },
         ],
       },
@@ -87,7 +130,101 @@ export const projects: Project[] = [
       { label: '750W on GitHub', href: 'https://github.com/750W', kind: 'code' },
       { label: 'My CAD tutorial series', href: 'https://www.youtube.com/@samuel-asefa', kind: 'video', note: '7 parts on YouTube' },
     ],
-    related: ['roboroute', 'adaptive-sensor-fusion'],
+    related: ['high-stakes-robot', 'roboroute', 'adaptive-sensor-fusion'],
+  },
+  {
+    slug: 'high-stakes-robot',
+    title: 'VEX Robot: High Stakes',
+    line: 'Team 750W’s VEX V5 robot for the 2024–25 season. I led the CAD.',
+    category: 'hardware',
+    tags: ['Robotics', 'CAD', 'VEX V5'],
+    depth: 'overview',
+    dates: '2024–25 season',
+    start: '2024-05',
+    status: 'Competed in the 2024–25 season',
+    summary:
+      'High Stakes is the 2024–25 VEX V5 Robotics Competition game, played with rings scored on stakes and mobile goals. I was Team 750W’s CAD Lead that season. BanquetBot, shown here, is one of our robot designs for it. That season’s robot earned the Excellence Award at the CCHS High Stakes Tournament, 1 of 36 teams.',
+    role: 'CAD Lead, Team 750W',
+    team: 'Team 750W, South Brunswick High School Robotics Club',
+    cover: render('/images/BanquetBotInAction.png', 'CAD model of BanquetBot on a High Stakes field next to the ladder, with red and blue rings and orange and blue mobile-goal stakes around it.', {
+      caption: 'BanquetBot placed on a High Stakes field in CAD, with rings, mobile goals, and the ladder.',
+    }),
+    recognition: [
+      { title: 'Excellence Award, CCHS High Stakes Tournament', scope: 'team', detail: '1 of 36 teams' },
+    ],
+    sections: {
+      design: {
+        title: 'BanquetBot in CAD',
+        blocks: [
+          {
+            type: 'figure',
+            media: figure('/images/BanquetBot.png', 'CAD model of a VEX robot with a tall chain-driven conveyor in the middle, two red pneumatic air tanks, omni-wheel drive, and two clamp arms on top.', {
+              caption: 'BanquetBot, a robot design for High Stakes (2024–25): a chain-driven conveyor in the middle, two air tanks, and clamp arms on top.',
+            }),
+          },
+        ],
+      },
+    },
+    technologies: ['VEX V5', 'CAD'],
+    links: [
+      { label: 'Team 750W site', href: 'https://750w.github.io/', kind: 'site' },
+      { label: 'My CAD tutorial series', href: 'https://www.youtube.com/@samuel-asefa', kind: 'video', note: '7 parts on YouTube' },
+    ],
+    related: ['push-back-robot', 'roboroute'],
+  },
+  {
+    slug: 'robot-tour',
+    title: 'Robot Tour',
+    line: 'A self-driving robot for Science Olympiad’s Robot Tour build event, built on a Pololu 3pi+ 32U4.',
+    category: 'hardware',
+    tags: ['Robotics', 'Science Olympiad', 'Arduino'],
+    depth: 'overview',
+    dates: '2025–26 season',
+    start: '2025-09',
+    team: 'SBHS Science Olympiad',
+    summary:
+      'Robot Tour is a Science Olympiad build event: teams design, build, and program a robot that drives itself along a track to a target point, aiming to arrive in a set time as accurately as possible. Our robot is built on a Pololu 3pi+ 32U4 and programmed in Arduino. The clips below are from testing in February 2026.',
+    cover: photo('/images/robot-tour.jpg', 'A small round Pololu 3pi+ robot with a blue status light sitting on a beige foam mat, with a hand holding a pencil beside it.', {
+      caption: 'Marking the robot’s start position before a test run.',
+    }),
+    sections: {
+      process: {
+        title: 'Testing',
+        blocks: [
+          {
+            type: 'videos',
+            videos: [
+              {
+                src: '/media/video/robot-tour-imu-test.mp4',
+                poster: '/media/video/robot-tour-imu-test-poster.jpg',
+                width: 720,
+                height: 1280,
+                label: 'A hand turns the round robot beside a laptop running the Arduino IDE, whose serial monitor scrolls accelerometer, magnetometer, and gyroscope readings.',
+                caption: 'Checking the inertial sensors: turning the robot by hand while the serial monitor streams accelerometer, magnetometer, and gyroscope readings (10 seconds).',
+              },
+              {
+                src: '/media/video/robot-tour-test-run.mp4',
+                poster: '/media/video/robot-tour-test-run-poster.jpg',
+                width: 720,
+                height: 1280,
+                label: 'A hand marks the robot’s start position on a foam mat with a pencil, then the robot drives itself away across the mat.',
+                caption: 'A test run: marking the start position, then the robot drives itself across the mat (17 seconds).',
+              },
+              {
+                src: '/media/video/robot-tour-short-run.mp4',
+                poster: '/media/video/robot-tour-short-run-poster.jpg',
+                width: 720,
+                height: 1280,
+                label: 'The robot drives across the foam mat as someone walks alongside it.',
+                caption: 'A short run across the mat (2 seconds).',
+              },
+            ],
+          },
+        ],
+      },
+    },
+    technologies: ['C++', 'Arduino', 'Pololu 3pi+ 32U4'],
+    related: ['push-back-robot', 'sciolytics'],
   },
   {
     slug: 'ndvi-payload',
@@ -100,8 +237,8 @@ export const projects: Project[] = [
     start: '2026-01',
     status: 'Payload hardware and logging code built',
     summary:
-      'Our aerospace club proposed an NDVI (vegetation index) mapping payload that would use machine learning, and NASA selected it as a winner of the TechRise Student Challenge in the high-altitude balloon category, with $1,500 in funding. As electronics lead I designed the payload’s circuitry and onboard data collection, and wrote the code that logs flight telemetry and four sensors to an SD card once per second.',
-    role: 'Electronics lead: circuitry, sensors, and logging firmware',
+      'Our aerospace club proposed an NDVI (vegetation index) mapping payload that would use machine learning, and NASA selected it as a winner of the TechRise Student Challenge in the high-altitude balloon category, with $1,500 in funding. As Electronics Lead, I designed the payload’s circuitry and onboard data collection, and wrote the code that logs flight telemetry and four sensors to an SD card once per second.',
+    role: 'Electronics Lead: circuitry, sensors, and logging firmware',
     team: 'South Brunswick High School Aerospace Club',
     cover: photo(
       '/images/nasapayload.jpeg',
@@ -138,7 +275,7 @@ export const projects: Project[] = [
       design: {
         title: 'Data path',
         blocks: [
-          { type: 'diagram', id: 'ndvi-dataflow', caption: 'How data moves through the payload, drawn from the firmware’s README. This is a data-flow sketch, not a wiring schematic.' },
+          { type: 'diagram', id: 'ndvi-dataflow', caption: 'How data moves through the payload, drawn from the firmware’s README; the board is identified from the build photo. This is a data-flow sketch, not a wiring schematic.' },
           {
             type: 'list',
             items: [
@@ -171,15 +308,218 @@ export const projects: Project[] = [
               }),
             ],
           },
+          {
+            type: 'figures',
+            media: [
+              photo('/images/TechRise1.jpg', 'The payload in its clear enclosure, set into pink foam, with a 3D-printed plate reading South Brunswick Aerospace, NASA TechRise and an Adafruit Metro M4 Express board inside.', {
+                caption: 'The finished payload in its foam case, under a 3D-printed South Brunswick Aerospace / NASA TechRise plate. The Adafruit Metro M4 Express board is visible inside.',
+              }),
+              photo('/images/TechRise2.jpg', 'A livestream frame of a high-altitude balloon rising into a blue sky with a gondola and parachute below it, with an overlay listing launch stages and Liftoff highlighted.', {
+                caption: 'World View’s launch livestream at liftoff of the TechRise balloon flight.',
+              }),
+            ],
+          },
         ],
       },
     },
-    technologies: ['Python', 'I²C sensors', 'SD logging', 'Soldering'],
+    technologies: ['Python', 'Adafruit Metro M4 Express', 'I²C sensors', 'SD logging', 'Soldering'],
     links: [
       { label: 'Payload firmware', href: 'https://github.com/SBAerospace/NDVI-Mapping', kind: 'code' },
       { label: 'SBHS Aerospace Club', href: 'https://sbaerospace.vercel.app/', kind: 'site' },
     ],
-    related: ['circuitspace'],
+    related: ['rocketry-airbrakes', 'circuitspace'],
+  },
+  {
+    slug: 'rocketry-airbrakes',
+    title: 'Competition Rockets & Airbrakes',
+    line: 'American Rocketry Challenge rockets with 3D-printed parts and an airbrake that predicts apogee in flight.',
+    category: 'hardware',
+    tags: ['Aerospace', 'CAD', 'Embedded'],
+    depth: 'case-study',
+    dates: '2024 – present',
+    start: '2024-09',
+    status: 'Ongoing: 2026–27 season',
+    summary:
+      'Our aerospace club designs, builds, and flies rockets for the American Rocketry Challenge (ARC). In 2025 the team placed 50th of 100 at the national finals. For the 2025–26 rocket I built and programmed an airbrake system: a 3D-printed module whose servo pushes flaps out through the body tube, run by flight code that predicts apogee from barometer and accelerometer readings and deploys the brakes to aim for a 750 ft target.',
+    role: 'Design Lead and Electronics Lead (2025–26); Co-Vice President (2026–27)',
+    team: 'South Brunswick High School Aerospace Club',
+    cover: photo(
+      '/images/LastYearRocketUpClose.png',
+      'A gray rocket with a blue band and blue fins leaving the launch rail over a snowy field, with a purple-white motor flame at the base.',
+      {
+        caption: 'The 2025–26 rocket leaving the launch rail at a winter launch.',
+        focus: '50% 45%',
+        ratio: '3 / 4',
+      },
+    ),
+    facts: [
+      { value: '50th of 100', label: 'ARC national finals, 2025', condition: 'team result; top 100 of 1,001 entries qualified' },
+      { value: '750 ft', label: 'airbrake target apogee', condition: '228.6 m, set in the 2025–26 flight code' },
+      { value: '20+', label: 'rocket parts I designed and 3D-printed', condition: 'including fin cans, transitions, and airbrakes' },
+    ],
+    recognition: [
+      {
+        title: 'American Rocketry Challenge 2025, national finalist',
+        scope: 'team',
+        detail: 'Top 100 of 1,001 entries; 50th at the national finals in Virginia',
+        date: 'Apr 2025',
+      },
+    ],
+    sections: {
+      context: {
+        title: 'The competition',
+        blocks: [
+          {
+            type: 'text',
+            html: 'The American Rocketry Challenge is a national student rocketry competition scored on how closely a rocket matches its target altitude and flight time. Our club builds a new rocket each season. I joined as a member in 2024–25, was Design Lead and Electronics Lead in 2025–26, and am Co-Vice President this year.',
+          },
+          {
+            type: 'figure',
+            media: photo('/images/arc.jpg', 'Nine members of the aerospace team in matching navy shirts and lanyards stand in front of the American Rocketry Challenge backdrop.', {
+              caption: 'Our team at the 2025 ARC national finals in Virginia, where we placed 50th of 100.',
+            }),
+          },
+        ],
+      },
+      design: {
+        title: 'The airbrake',
+        blocks: [
+          {
+            type: 'text',
+            html: 'To land closer to the target altitude, the 2025–26 rocket carries airbrakes: flaps that extend from the body tube partway through the climb to add drag. The module is 3D-printed, with a servo in the lower bay driving the flaps.',
+          },
+          {
+            type: 'figure',
+            media: figure('/images/Airbrakes.png', 'Section view of the airbrake module in CAD: a servo in the lower bay, a linkage above it, and thin flaps sticking out through slots on both sides of the body tube, with bolts holding the bulkheads together.', {
+              caption: 'Section view of the airbrake module in CAD. The servo (lower middle) drives the flaps that extend through slots in the body tube.',
+            }),
+          },
+          {
+            type: 'text',
+            html: 'The flight code (<a href="https://github.com/samuel-asefa/RocketPlus">Rocket++</a>) runs on an Arduino-compatible board with a BME280 barometer and an MPU6050 accelerometer on I²C:',
+          },
+          {
+            type: 'list',
+            ordered: true,
+            items: [
+              'Altitude comes from barometric pressure; vertical velocity comes from integrating the accelerometer.',
+              'Every loop, it simulates the rest of the climb (gravity plus quadratic drag, in 0.01 s steps) to predict apogee with the brakes deployed and without them.',
+              'When the predicted apogee with brakes falls to the 228.6 m (750 ft) target, it swings the servo from 0° to 90° to deploy them.',
+            ],
+          },
+          {
+            type: 'video',
+            video: {
+              src: '/media/video/airbrakes-bench-test.mp4',
+              poster: '/media/video/airbrakes-bench-test-poster.jpg',
+              width: 720,
+              height: 1280,
+              label: 'Bench test: a printed airbrake section on a desk; the servo turns and the flaps slide out through slots in the tube.',
+              caption: 'Bench test of the printed airbrake section: the servo turns and the flaps slide out through the body tube (4 seconds).',
+            },
+            beside: photo('/images/OriginalAirbrakesCircuit.jpeg', 'A breadboard on a white table with a small purple microcontroller board, an MPU-6050 sensor board, a second purple sensor board, and many colored jumper wires, connected by a blue USB cable.', {
+              caption: 'The first airbrake circuit on a breadboard: a microcontroller with an MPU-6050 (right) and a second sensor board. The flight version moved to custom wiring and a printed circuit board.',
+            }),
+          },
+        ],
+      },
+      process: {
+        title: 'Three seasons of rockets',
+        blocks: [
+          {
+            type: 'steps',
+            steps: [
+              { label: 'National finals', date: '2024–25', html: 'The team qualified for the ARC national finals (top 100 of 1,001 entries) and placed 50th in Virginia.' },
+              { label: 'Airbrake rocket', date: '2025–26', html: 'A new rocket with the airbrake module, flown at launches on grass and on snow.' },
+              { label: 'This year’s rocket', date: '2026–27', html: 'A new red-and-tan rocket, modeled in CAD and assembled.' },
+            ],
+          },
+          {
+            type: 'figure',
+            media: figure('/images/LastYearRocketCAD.png', 'Side view CAD of the 2025–26 rocket: a blue nose cone, a gray body tube with a mechanism bay in the middle where small flaps stick out, and blue fins at the tail.', {
+              caption: 'The 2025–26 rocket in CAD. The airbrake bay is in the middle of the body tube.',
+            }),
+          },
+          {
+            type: 'video',
+            video: {
+              src: '/media/video/rocket-launch-2025-26.mp4',
+              poster: '/media/video/rocket-launch-2025-26-poster.jpg',
+              width: 720,
+              height: 1280,
+              label: 'A rocket on a launch rail in a grassy field lifts off with a smoke trail and climbs out of frame.',
+              caption: 'Launch of the 2025–26 rocket from a grassy field (6 seconds).',
+            },
+          },
+          {
+            type: 'figure',
+            media: figure('/images/ThisYearRocketCAD.png', 'Side view CAD of the 2026–27 rocket: a gold nose cone, a copper-colored body with a mechanism bay in the middle, and gold fins at the tail.', {
+              caption: 'This year’s (2026–27) rocket in CAD.',
+            }),
+          },
+          {
+            type: 'figures',
+            media: [
+              photo('/images/ThisYearRocket.png', 'A tall red rocket with tan nose cone, coupler, and fins standing upright in a room, next to a desk with a monitor and a cordless drill.', {
+                caption: 'The 2026–27 rocket assembled.',
+                focus: '50% 40%',
+              }),
+              photo('/images/ThisYearTeamAndRocket.jpeg', 'Nine students stand behind a table with a South Brunswick Aerospace Club banner in a park, with a red rocket and two white model rockets standing on the table.', {
+                caption: 'This year’s club members with the new rocket.',
+                focus: '50% 40%',
+              }),
+            ],
+          },
+        ],
+      },
+      evidence: {
+        title: 'Printed parts',
+        blocks: [
+          {
+            type: 'text',
+            html: 'I designed and 3D-printed more than 20 rocket components, including fin cans, transition pieces, and airbrake parts, and ran finite element analysis (FEA) and computational fluid dynamics (CFD) on the designs.',
+          },
+          {
+            type: 'figures',
+            media: [
+              figure('/images/FinCan.png', 'CAD render of a blue fin can: a short tube with four swept fins, cutouts in the wall, and a threaded ring inside.', {
+                caption: 'A fin can in CAD.',
+              }),
+              photo('/images/Prints.png', '3D-printed blue parts laid out on a quilt: two body-tube sections, a finned section, two slotted discs, four small flaps, a grid plate, a square frame, and two cross-shaped brackets.', {
+                caption: 'Printed rocket parts laid out before assembly.',
+              }),
+            ],
+          },
+        ],
+      },
+      reflection: {
+        title: 'What’s next for the flight code',
+        blocks: [
+          {
+            type: 'text',
+            html: 'From the planned updates in the Rocket++ README:',
+          },
+          {
+            type: 'list',
+            items: [
+              'Kalman filtering for a smoother velocity estimate (the current velocity is integrated from the accelerometer alone).',
+              'Logging to flash memory instead of only over serial.',
+              'A deployment override switch and fallback thresholds for manual deployment.',
+            ],
+          },
+          {
+            type: 'text',
+            html: 'The drag and mass constants in the public code are placeholders that have to be set for each rocket.',
+          },
+        ],
+      },
+    },
+    technologies: ['C++', 'Arduino', 'BME280', 'MPU6050', 'CAD', '3D printing', 'FEA and CFD'],
+    links: [
+      { label: 'Airbrake flight code (Rocket++)', href: 'https://github.com/samuel-asefa/RocketPlus', kind: 'code' },
+      { label: 'SBHS Aerospace Club', href: 'https://sbaerospace.vercel.app/', kind: 'site' },
+    ],
+    related: ['ndvi-payload', 'circuitspace'],
   },
   {
     slug: 'dexarm',
@@ -192,18 +532,21 @@ export const projects: Project[] = [
     start: '2025-10',
     status: 'In development',
     summary:
-      'DexArm is VividSense’s low-cost, modular prosthetic arm, meant to restore everyday functions such as gripping, lifting, and releasing objects. I helped build it as VividSense’s head of engineering. It won first place at LaunchSB in April 2026, out of more than 40 teams.',
-    role: 'Head of engineering, VividSense',
+      'DexArm is VividSense’s low-cost, modular prosthetic arm, meant to restore everyday functions such as gripping, lifting, and releasing objects. I helped build it as VividSense’s Head of Engineering. It won first place at LaunchSB in April 2026, out of more than 40 teams.',
+    role: 'Head of Engineering, VividSense',
     team: 'VividSense',
     cover: photo(
-      '/images/dexarm.jpg',
-      'An early DexArm prototype against a dark blue backdrop: cardboard fingers and palm, with small servos and wiring held in the palm with blue tape and a power cable leading out the side.',
-      {
-        caption: 'An early DexArm prototype: cardboard fingers, with servos and wiring taped into the palm.',
-        focus: '50% 40%',
-        ratio: '4 / 3',
-      },
+      '/images/dexarm.png',
+      'The DexArm prosthetic arm in black, standing upright with its palm open and fingers raised, against a dark gray backdrop.',
+      { caption: 'DexArm, VividSense’s prosthetic arm.' },
     ),
+    gallery: [
+      photo(
+        '/images/dexarm.jpg',
+        'An early DexArm prototype against a dark blue backdrop: cardboard fingers and palm, with small servos and wiring held in the palm with blue tape and a power cable leading out the side.',
+        { caption: 'An early DexArm prototype: cardboard fingers, with servos and wiring taped into the palm.' },
+      ),
+    ],
     recognition: [
       { title: 'LaunchSB, 1st place', scope: 'team', detail: 'Out of 40+ teams', date: 'Apr 2026' },
     ],
@@ -225,7 +568,7 @@ export const projects: Project[] = [
     start: '2024-12',
     summary:
       'SurroundScanner is a pair of glasses with ultrasonic sensors that detect nearby obstacles and alert the wearer through audio feedback, as a low-cost navigation aid for people with visual impairments. I helped build it at VividSense. It placed second at LaunchSB in April 2025, out of more than 40 teams.',
-    role: 'Head of engineering, VividSense',
+    role: 'Head of Engineering, VividSense',
     team: 'VividSense',
     cover: photo(
       '/images/surroundscanner.png',
@@ -260,7 +603,7 @@ export const projects: Project[] = [
     status: 'Live, version 3.0',
     summary:
       'Planning a VEX autonomous routine means turning a strategy into field coordinates and headings, then into code. RoboRoute does that in the browser: you place waypoints on a to-scale field, set a heading at each one, and copy out <a href="https://github.com/LemLib/LemLib">LemLib</a> motion commands.',
-    role: 'Designer and developer',
+    role: 'Designer and Developer',
     team: 'Solo',
     featured: 2,
     cover: screenshot(
@@ -328,7 +671,7 @@ export const projects: Project[] = [
       { label: 'Open RoboRoute', href: 'https://samuel-asefa.github.io/RoboRoute/src/', kind: 'demo' },
       { label: 'Source', href: 'https://github.com/samuel-asefa/RoboRoute', kind: 'code' },
     ],
-    related: ['push-back-robot', 'heavy'],
+    related: ['push-back-robot'],
   },
   {
     slug: 'sciolytics',
@@ -342,7 +685,7 @@ export const projects: Project[] = [
     status: 'Live',
     summary:
       'A practice platform for Science Olympiad competitors, coaches, and teams: 1,750+ practice questions across 15+ events, event wikis, analytics on accuracy by event and subtopic, custom tests, and teams that can assign tests to members. A Gemini-based importer turns study guides into draft questions. I built it while competing in Science Olympiad and captaining our build events.',
-    role: 'Designer and developer',
+    role: 'Designer and Developer',
     team: 'Solo',
     cover: screenshot(
       '/images/sciolytics.png',
@@ -367,7 +710,7 @@ export const projects: Project[] = [
     status: 'Live',
     summary:
       'CircuitSpace is a design tool for low-voltage rocket and payload electronics. You wire components from a library of 60+ parts on a schematic canvas, and it runs 25+ electrical rule checks (floating inputs, I²C address collisions, regulator overloads, power-budget limits) while tracking voltage, current, power, mass, and battery runtime. It exports BOMs, netlists, reports, and schematics.',
-    role: 'Designer and developer',
+    role: 'Designer and Developer',
     team: 'Solo',
     cover: screenshot(
       '/images/circuit-space.png',
@@ -393,7 +736,7 @@ export const projects: Project[] = [
     status: 'Live',
     summary:
       'AmharicQuest teaches Amharic starting from its script, the Fidel: all 33 consonant families, each in seven vowel orders (230+ characters with romanization), then 42 vocabulary words across nine categories and nine lessons from beginner to intermediate, with quizzes and progress tracking.',
-    role: 'Designer and developer',
+    role: 'Designer and Developer',
     team: 'Solo',
     cover: screenshot(
       '/images/amharic-quest.png',
@@ -404,26 +747,6 @@ export const projects: Project[] = [
     links: [
       { label: 'Open AmharicQuest', href: 'https://amharicquest.vercel.app/', kind: 'demo' },
       { label: 'Source', href: 'https://github.com/samuel-asefa/AmharicQuest', kind: 'code' },
-    ],
-  },
-  {
-    slug: 'heavy',
-    title: 'Heavy',
-    line: 'A weight calculator for VEX V5 robots: pick parts and lengths, get total mass.',
-    category: 'software',
-    tags: ['Robotics', 'Web app'],
-    depth: 'entry',
-    dates: 'Mar – May 2025',
-    start: '2025-03',
-    team: 'Solo',
-    cover: screenshot(
-      '/images/heavy.png',
-      'The Heavy calculator: a list of VEX metal structure parts with per-length weights, and a running total weight panel.',
-    ),
-    technologies: ['JavaScript'],
-    links: [
-      { label: 'Open Heavy', href: 'https://samuel-asefa.github.io/Heavy/', kind: 'demo' },
-      { label: 'Source', href: 'https://github.com/samuel-asefa/Heavy', kind: 'code' },
     ],
   },
   {
@@ -471,10 +794,10 @@ export const projects: Project[] = [
     depth: 'case-study',
     dates: '2026',
     start: '2026-07',
-    status: 'Preprint (working paper), not peer reviewed',
+    status: 'Preprint (working paper)',
     summary:
       'Low-cost robots localize with sensors that fail in ordinary ways. I paired an Extended Kalman Filter with a small neural network that estimates, at every step, how much to trust each sensor. In 500 simulated Monte Carlo trials under severe sensor degradation, it reduced localization RMSE by 66.2% compared with a standard EKF.',
-    role: 'First author; wrote the simulation, training, and figure code',
+    role: 'First Author; wrote the simulation, training, and figure code',
     team: 'With Rohan Kunala and Arav Pyati',
     collaborators: ['Rohan Kunala', 'Arav Pyati'],
     featured: 3,
@@ -496,7 +819,7 @@ export const projects: Project[] = [
       {
         title: 'Adaptive Sensor Fusion Using Machine Learning for Robust Localization in Low-Cost Autonomous Robots',
         status: 'preprint',
-        statusNote: 'Working paper, version 1. Not peer reviewed.',
+        statusNote: 'Working paper, version 1.',
         venue: 'Cambridge Open Engage',
         date: '31 Aug 2026',
         authors: ['Samuel Asefa', 'Rohan Kunala', 'Arav Pyati'],
@@ -570,7 +893,7 @@ export const projects: Project[] = [
     },
     technologies: ['Python', 'PyTorch', 'NumPy', 'Extended Kalman filter'],
     links: [
-      { label: 'Preprint', href: 'https://doi.org/10.33774/coe-2026-n3z2n', kind: 'paper', note: 'working paper, not peer reviewed' },
+      { label: 'Preprint', href: 'https://doi.org/10.33774/coe-2026-n3z2n', kind: 'paper', note: 'working paper' },
       {
         label: 'Simulation and training code',
         href: 'https://github.com/samuel-asefa/Adaptive-Sensor-Fusion-Using-Machine-Learning-for-Robust-Localization-in-Low-Cost-Autonomous-Robots',
@@ -591,7 +914,7 @@ export const projects: Project[] = [
     status: 'Computational study. Accepted MIT URTC lightning talk, 2026',
     summary:
       'Biomass cookstove exhaust carries formaldehyde and acetaldehyde. Aminosilica sorbents can capture them, but a filter only stays useful if its sorbent can be regenerated with heat, which is hard to supply where these stoves are used. With Rishabh Jitender, I modeled whether a thermoelectric generator running off the stove’s own exhaust could provide that heat. Across 1,500 simulated cases, capture stayed near 100%, and none fully regenerated the bed.',
-    role: 'Lead author (2026 study); sole author (2025 preprint)',
+    role: 'Lead Author (2026 study); Sole Author (2025 preprint)',
     team: 'With Rishabh Jitender, Georgia Institute of Technology (2026 study)',
     collaborators: ['Rishabh Jitender'],
     cover: figure(
@@ -609,7 +932,7 @@ export const projects: Project[] = [
       { value: '0 of 1,500', label: 'cases fully regenerated the bed', condition: '2026 computational study' },
     ],
     recognition: [
-      { title: 'MIT URTC lightning talk, accepted', scope: 'project', detail: 'MIT Undergraduate Research Technology Conference', date: 'Sep 2026' },
+      { title: 'MIT URTC lightning talk, accepted', scope: 'team', detail: 'MIT Undergraduate Research Technology Conference', date: 'Sep 2026' },
     ],
     publications: [
       {
@@ -625,7 +948,7 @@ export const projects: Project[] = [
       {
         title: 'Thermoelectric Powered Regeneration of Incomplete Combustion Cooking Pollutant Capturing Amines',
         status: 'preprint',
-        statusNote: 'Working paper, version 1. Not peer reviewed. An earlier model with different assumptions.',
+        statusNote: 'Working paper, version 1. An earlier model with different assumptions.',
         venue: 'Cambridge Open Engage',
         date: '1 Dec 2025',
         authors: ['Samuel Asefa'],
@@ -751,7 +1074,7 @@ export const projects: Project[] = [
         href: 'https://github.com/samuel-asefa/Thermoelectric-Assisted-Regeneration-of-Aminosilica-Sorbents-for-Cookstove-Aldehyde-Capture',
         kind: 'code',
       },
-      { label: '2025 preprint', href: 'https://doi.org/10.33774/coe-2025-mj9mb', kind: 'paper', note: 'working paper, not peer reviewed' },
+      { label: '2025 preprint', href: 'https://doi.org/10.33774/coe-2025-mj9mb', kind: 'paper', note: 'working paper' },
     ],
     related: ['adaptive-sensor-fusion'],
   },
@@ -764,10 +1087,10 @@ export const projects: Project[] = [
     depth: 'overview',
     dates: '2026',
     start: '2026-06',
-    status: 'Preprint (working paper, v2), not peer reviewed',
+    status: 'Preprint (working paper, v2)',
     summary:
       'High-fidelity flow simulation is too slow to repeat for every small change in geometry. This model reads a 30-step history from 12 sparse velocity sensors with a SHRED-style LSTM encoder, conditions a DeepONet on the geometry and flow parameters, and predicts velocity and speed anywhere in the domain. On 20 geometry cases it never saw in training, its mean relative L₂ error was 0.047 (median 0.045).',
-    role: 'Co-author (second of three)',
+    role: 'Co-Author (second of three)',
     team: 'With Rohan Kunala and Irenov Joel',
     collaborators: ['Rohan Kunala', 'Irenov Joel'],
     cover: figure(
@@ -787,7 +1110,7 @@ export const projects: Project[] = [
       {
         title: 'Hybrid DeepONet–SHRED-ROM Framework for Rapid Prediction of Flow Fields Across Geometry Variations',
         status: 'preprint',
-        statusNote: 'Working paper, version 2 (v1 posted 20 Jul 2026). Not peer reviewed.',
+        statusNote: 'Working paper, version 2 (v1 posted 20 Jul 2026).',
         venue: 'Cambridge Open Engage',
         date: '4 Sep 2026',
         authors: ['Rohan Kunala', 'Samuel Asefa', 'Irenov Joel'],
@@ -822,7 +1145,6 @@ export const projects: Project[] = [
             type: 'list',
             items: [
               'Tested on a single parameterized vortex-wake dataset, in two dimensions.',
-              'Working paper, not peer reviewed.',
             ],
           },
         ],
@@ -830,7 +1152,7 @@ export const projects: Project[] = [
     },
     technologies: ['Python', 'PyTorch', 'DeepONet', 'LSTM'],
     links: [
-      { label: 'Preprint', href: 'https://doi.org/10.33774/coe-2026-6h7gp-v2', kind: 'paper', note: 'working paper, not peer reviewed' },
+      { label: 'Preprint', href: 'https://doi.org/10.33774/coe-2026-6h7gp-v2', kind: 'paper', note: 'working paper' },
     ],
     related: ['adaptive-sensor-fusion'],
   },

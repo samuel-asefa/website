@@ -19,7 +19,7 @@ export const diagrams: Record<string, string> = {
   <div class="flow__col flow__col--core">
     <p class="flow__head">Logger</p>
     <div class="flow__core">
-      <strong>Microcontroller loop</strong>
+      <strong>Adafruit Metro M4 Express</strong>
       <ol>
         <li>Mount SD card, start I²C bus</li>
         <li>Detect and configure each sensor</li>

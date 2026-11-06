@@ -26,6 +26,20 @@ export interface Media {
   ratio?: string;
 }
 
+/**
+ * Short clip shown with controls (never autoplayed). Provide an H.264 MP4
+ * in public/media/video plus a poster frame; see README → "Media conventions".
+ */
+export interface Video {
+  src: string;
+  poster: string;
+  width: number;
+  height: number;
+  /** Describes what happens in the clip, for screen readers and captions. */
+  label: string;
+  caption?: Html;
+}
+
 export type Category = 'hardware' | 'software' | 'research';
 
 export type LinkKind = 'code' | 'demo' | 'paper' | 'slides' | 'site' | 'video' | 'data';
@@ -34,7 +48,7 @@ export interface ResourceLink {
   label: string;
   href: string;
   kind: LinkKind;
-  /** Optional qualifier shown after the label, e.g. "preprint, not peer reviewed". */
+  /** Optional qualifier shown after the label, e.g. "working paper". */
   note?: string;
 }
 
@@ -45,7 +59,7 @@ export interface Fact {
   condition?: string;
 }
 
-export type RecognitionScope = 'individual' | 'team' | 'project';
+export type RecognitionScope = 'individual' | 'team';
 
 export interface Recognition {
   title: string;
@@ -64,7 +78,7 @@ export type PublicationStatus =
 export interface Publication {
   title: string;
   status: PublicationStatus;
-  /** Plain-language status line, e.g. "Working paper, version 2. Not peer reviewed." */
+  /** Plain-language status line, e.g. "Working paper, version 2." */
   statusNote: string;
   venue: string;
   date: string;
@@ -82,6 +96,10 @@ export type Block =
   | { type: 'steps'; steps: { label: string; date?: string; html: Html }[] }
   | { type: 'note'; title?: string; html: Html }
   | { type: 'diagram'; id: string; caption: Html }
+  /** A clip, optionally shown beside a related image. */
+  | { type: 'video'; video: Video; beside?: Media }
+  /** Several clips side by side (stacked on phones). */
+  | { type: 'videos'; videos: Video[] }
   | { type: 'demo'; id: 'route-sketch' };
 
 export interface Section {
@@ -122,6 +140,8 @@ export interface Project {
   /** Homepage selection order. Absent → not on the homepage. */
   featured?: number;
   cover?: Media;
+  /** More images that appear only in the image viewer, right after the cover (e.g. an early prototype). */
+  gallery?: Media[];
   facts?: Fact[];
   recognition?: Recognition[];
   publications?: Publication[];
@@ -160,14 +180,33 @@ export interface Award {
 }
 
 export interface Course {
+  /** One subject emoji shown beside the name (decorative; hidden from screen readers). */
+  emoji?: string;
   name: string;
-  /** Level exactly as recorded by the school schedule. */
-  level: 'AP' | 'Honors' | 'Regular';
+  /** Shorter name for the course card when the card is too narrow for the full one. */
+  short?: string;
+  /**
+   * Level as recorded by the school schedule. 'AP-Weighted' is not an AP class but is
+   * weighted like one in the GPA (CS Academy courses, post-AP math and physics).
+   */
+  level: 'AP' | 'AP-Weighted' | 'Honors' | 'Regular';
   /** Advanced CS Academy course (school designation). */
   csAcademy?: boolean;
   summer?: boolean;
-  apScore?: 1 | 2 | 3 | 4 | 5 | 'in-progress';
+  /** Self-studied AP exam, not a class on my schedule. Shown on the AP Scores tab only. */
+  selfStudy?: boolean;
+  apScore?: ApScore;
+  /**
+   * The AP exam(s) actually taken for this class, when that isn't simply the class's
+   * own exam: two exams (AP Physics C: Mechanics and E&M), or a different exam (the BC
+   * exam taken in the AB class). The AP Scores tab lists each exam; the course list
+   * keeps one card with a labelled badge per exam. `emoji` overrides the course's on the
+   * AP Scores tab.
+   */
+  apExams?: { name: string; short: string; emoji?: string; apScore: ApScore }[];
 }
+
+export type ApScore = 1 | 2 | 3 | 4 | 5 | 'in-progress';
 
 export interface SchoolYear {
   year: string;

@@ -71,6 +71,7 @@ for (const src of [...refs].sort()) {
     !force &&
     prev &&
     prev.mtime === mtime &&
+    prev.bytes !== undefined &&
     prev.widths.every((w) => existsSync(path.join(OUT, `${name}-${w}.webp`))) &&
     existsSync(path.join(OUT, 'share', `${name}.jpg`));
   if (upToDate) {
@@ -90,7 +91,7 @@ for (const src of [...refs].sort()) {
   // Standard widths up to the original, plus the original width itself when
   // it is meaningfully larger than the last standard step.
   const widths = WIDTHS.filter((x) => x <= w);
-  if (!widths.length || (w - widths[widths.length - 1] > 200 && w < WIDTHS[WIDTHS.length - 1])) widths.push(w);
+  if (!widths.includes(w) && w < WIDTHS[WIDTHS.length - 1]) widths.push(w);
 
   for (const width of widths) {
     await input
@@ -109,7 +110,8 @@ for (const src of [...refs].sort()) {
     .toFile(path.join(OUT, 'share', `${name}.jpg`));
 
   const { dominant } = await input.clone().resize(64).flatten({ background: '#ffffff' }).stats();
-  manifest[src] = { w, h, color: toHex(dominant), widths, base, share: `/media/share/${name}.jpg`, mtime };
+  const bytes = (await stat(file)).size;
+  manifest[src] = { w, h, color: toHex(dominant), widths, base, share: `/media/share/${name}.jpg`, mtime, bytes };
   made++;
   console.log(`  ${src} → ${widths.join(', ')}`);
 }

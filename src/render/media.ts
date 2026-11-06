@@ -9,6 +9,7 @@ export interface ManifestEntry {
   widths: number[];
   base: string;
   share?: string;
+  bytes?: number;
 }
 
 const manifest = manifestJson as Record<string, ManifestEntry>;
@@ -30,6 +31,16 @@ export const mediaUrl = (src: string, max = 1600): string => {
   const fit = info.widths.filter((w) => w <= max);
   const w = fit.length ? fit[fit.length - 1] : info.widths[0];
   return `${info.base}-${w}.webp`;
+};
+
+/**
+ * Link target for "open original". Very large originals (e.g. a 87 MB PNG)
+ * are replaced by the largest web version so nobody downloads them by accident.
+ */
+export const originalUrl = (src: string): string => {
+  const info = mediaInfo(src);
+  if (info?.bytes && info.bytes > 8_000_000) return `${info.base}-${info.widths[info.widths.length - 1]}.webp`;
+  return src;
 };
 
 /** Absolute-path JPEG suitable for social previews. */
@@ -71,6 +82,15 @@ export const img = (m: Media, o: ImgOptions): string => {
   })}>`;
 };
 
+/** An image that exists only in the lightbox: a hidden entry in `group`, placed after the figure it follows. */
+export const lightboxOnly = (m: Media, group: string): string =>
+  `<a hidden href="${esc(originalUrl(m.src))}" data-lightbox${attrs({
+    'data-group': group,
+    'data-full': mediaUrl(m.src, 2400),
+    'data-alt': m.alt,
+    'data-caption': m.caption ? m.caption.replace(/<[^>]+>/g, '') : undefined,
+  })}></a>`;
+
 let figureCounter = 0;
 /** Figure numbers restart on every page render. */
 export const resetFigureNumbers = (): void => {
@@ -98,7 +118,7 @@ export const fig = (m: Media, o: FigureOptions): string => {
   const image = img(m, o);
   const target = o.href
     ? `<a class="media-link" href="${esc(o.href)}">${image}</a>`
-    : `<a class="media-link" href="${esc(m.src)}" data-lightbox${attrs({
+    : `<a class="media-link" href="${esc(originalUrl(m.src))}" data-lightbox${attrs({
         'data-group': o.group,
         'data-full': mediaUrl(m.src, 2400),
         'data-caption': m.caption ? m.caption.replace(/<[^>]+>/g, '') : undefined,

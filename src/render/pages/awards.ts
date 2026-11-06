@@ -4,7 +4,7 @@ import type { Award, RecognitionScope } from '../../content/types';
 import { SCOPE_LABEL, projectPageUrl, scopeBadge, sectionHeader } from '../components';
 import { esc, rich } from '../html';
 import { page } from '../layout';
-import { mediaInfo, mediaUrl } from '../media';
+import { mediaInfo, mediaUrl, originalUrl } from '../media';
 
 const mediaCard = (a: Award, m: NonNullable<Award['media']>[number]): string => {
   if (!m.src) return '';
@@ -19,7 +19,7 @@ const mediaCard = (a: Award, m: NonNullable<Award['media']>[number]): string => 
   if (m.href?.endsWith('.pdf')) {
     return `<button type="button" class="award-media-card" data-modal-pdf="${esc(m.href)}" data-caption="${esc(`${a.title}: ${m.title}`)}" aria-label="Open ${esc(m.title)}">${imgTag}${label}</button>`;
   }
-  return `<button type="button" class="award-media-card" data-modal-src="${esc(info ? mediaUrl(m.src, 2400) : m.src)}" data-original="${esc(m.src)}" data-group="${esc(a.title)}" data-caption="${esc(`${a.title}: ${m.title}`)}" aria-label="View ${esc(m.title)}">${imgTag}${label}</button>`;
+  return `<button type="button" class="award-media-card" data-modal-src="${esc(info ? mediaUrl(m.src, 2400) : m.src)}" data-original="${esc(originalUrl(m.src))}" data-group="${esc(a.title)}" data-caption="${esc(`${a.title}: ${m.title}`)}" aria-label="View ${esc(m.title)}">${imgTag}${label}</button>`;
 };
 
 const awardCard = (a: Award): string => {
@@ -41,14 +41,13 @@ const awardCard = (a: Award): string => {
 };
 
 export const renderAwards = (): string => {
-  const scopes: RecognitionScope[] = ['individual', 'team', 'project'];
+  const scopes: RecognitionScope[] = ['individual', 'team'];
   const count = (s: RecognitionScope) => awards.filter((a) => a.scope === s).length;
   const main = `
 <section id="awards" class="awards page-section">
   ${sectionHeader({
     title: 'Honors & Awards',
     level: 1,
-    intro: 'Each award is marked <strong>Individual</strong>, <strong>Team</strong>, or <strong>Project</strong>, so it’s clear whose work it recognizes.',
   })}
   <div class="awards-content">
     <div class="project-filters award-filters" role="group" aria-label="Filter awards">

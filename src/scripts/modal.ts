@@ -187,7 +187,7 @@ export const initModal = (): void => {
       openWith(
         links.map((l) => ({
           src: l.dataset.full || l.href,
-          alt: l.querySelector('img')?.alt ?? '',
+          alt: l.dataset.alt ?? l.querySelector('img')?.alt ?? '',
           caption: l.dataset.caption ?? '',
           original: l.getAttribute('href') ?? undefined,
         })),

@@ -8,8 +8,8 @@ The site keeps its original design (dark theme, Outfit, sky-blue accent, glass c
 
 - **Project detail pages** at `/projects/<slug>.html` for 11 projects: overview, role and team, key numbers with their conditions, publications with honest status, sections (context, design, process, results, reflection), figures with captions, resources, related projects.
 - **Homepage**: featured projects, an interactive RoboRoute demo, a recognition strip, and the Skills & Technologies section the Explore card linked to (it didn't exist before). The typed-text line under the title now works.
-- **Projects page**: corrected and expanded descriptions, research status labels (preprint, not peer reviewed), a key metric per project, Details buttons, image galleries, counts on the filters, and linkable filters (`/projects.html?category=research`).
-- **Awards**: Individual / Team / Project badges and filters, links to related projects, accessible image and PDF viewer.
+- **Projects page**: corrected and expanded descriptions, research status labels (preprint, accepted talk), a key metric per project, Details buttons, image galleries, counts on the filters, and linkable filters (`/projects.html?category=research`).
+- **Awards**: Individual / Team badges and filters, links to related projects, accessible image and PDF viewer.
 - **Education**: school header, keyboard-accessible tabs (linkable with `#ap-scores`), GPA labelled as the average of yearly GPAs.
 - **About**: expanded bio, a Teaching & Community section, the same photo carousel (Swiper now installed from npm at a pinned version and loaded only on this page).
 - **Experience**: links from each role to related project pages.
@@ -72,7 +72,7 @@ docs/                     local-only notes (git-ignored)
 All copy lives in `src/content/*.ts`; templates never need to change for content edits. Text fields accept a little inline HTML (`<a>`, `<em>`, `<strong>`, `<code>`). Leave a field out rather than guessing; every template treats optional fields as optional.
 
 - Numbers go in `facts` with the condition that makes them true, e.g. `{ value: '66.2%', label: 'lower RMSE than a standard EKF', condition: 'severe degradation, in simulation' }`. The first fact appears as the metric pill on project cards.
-- Awards and recognition carry a `scope`: `individual`, `team`, or `project`.
+- Awards and recognition carry a `scope`: `individual` or `team` (shared with teammates or co-authors).
 - Research uses `publications` with a `status` (`preprint`, `peer-reviewed`, `conference-talk-accepted`, …) and a plain-language `statusNote`.
 
 ## Adding a project
@@ -89,7 +89,16 @@ All copy lives in `src/content/*.ts`; templates never need to change for content
 
 - Originals stay untouched in `public/images/`. `npm run media` writes WebP versions at 160, 480, 800, 1200, 1800, and 2400 px (never upscaled, EXIF rotation applied, transparency kept) and a 1200×630 JPEG for link previews, and records dimensions and a placeholder colour.
 - Use `photo()`, `figure()`, or `screenshot()` from `src/content/media.ts`. Figures (charts) are never cropped and sit on a white mat; captions say what the image shows.
-- Every image on a project page can be enlarged; the modal links to the original file.
+- A project's `gallery` holds extra images that appear only in the image viewer, right after the cover (for example, an early prototype).
+- Every image on a project page can be enlarged; the modal links to the original file (or, for originals over 8 MB, to the largest web version).
+- **Videos**: browsers don't reliably play `.mov`. Convert clips to H.264 MP4 with a poster frame and put both in `public/media/video/`, then add a `video` block to the project (optionally with `beside` to show it next to a photo), or a `videos` block to show several clips side by side. With ffmpeg:
+
+  ```bash
+  ffmpeg -i clip.mov -c:v libx264 -crf 24 -pix_fmt yuv420p -c:a aac -b:a 96k -movflags +faststart public/media/video/clip.mp4
+  ffmpeg -ss 2 -i clip.mov -frames:v 1 -vf scale=720:-2 public/media/video/clip-poster.jpg
+  ```
+
+  Videos show controls and never autoplay; nothing downloads until a visitor presses play.
 
 ## Interaction notes
 

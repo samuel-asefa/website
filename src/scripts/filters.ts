@@ -1,6 +1,6 @@
 /**
  * Filters on the Projects page (by category, as on the original site) and
- * the Awards page (by individual/team/project). Buttons expose aria-pressed,
+ * the Awards page (by individual/team). Buttons expose aria-pressed,
  * results are announced, and the choice is kept in the URL
  * (?category=research, ?type=team) so filtered views can be linked.
  */

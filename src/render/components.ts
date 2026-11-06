@@ -1,6 +1,6 @@
-import type { Category, Fact, LinkKind, Media, Project, Publication, Recognition, RecognitionScope, ResourceLink } from '../content/types';
+import type { Category, Fact, LinkKind, Media, Project, Publication, Recognition, RecognitionScope, ResourceLink, Video } from '../content/types';
 import { esc, isExternal, join, rich } from './html';
-import { fig, img, mediaInfo, mediaUrl } from './media';
+import { fig, img, mediaInfo, mediaUrl, originalUrl } from './media';
 
 export const CATEGORY_LABEL: Record<Category, string> = {
   hardware: 'Hardware',
@@ -11,7 +11,6 @@ export const CATEGORY_LABEL: Record<Category, string> = {
 export const SCOPE_LABEL: Record<RecognitionScope, string> = {
   individual: 'Individual',
   team: 'Team',
-  project: 'Project',
 };
 
 const LINK_LABEL: Record<LinkKind, { text: string; icon: string; primary: boolean }> = {
@@ -73,7 +72,7 @@ export const statusLabel = (p: Project): string => {
   const pub = p.publications[0];
   const text =
     pub.status === 'preprint'
-      ? 'Preprint · not peer reviewed'
+      ? 'Preprint'
       : pub.status === 'conference-talk-accepted'
         ? 'Accepted talk · computational study'
         : pub.status === 'peer-reviewed'
@@ -87,9 +86,9 @@ export const techTags = (items: string[] | undefined, className = 'project-tech'
     ? `<div class="${className}">${items.map((t) => `<span${spanClass ? ` class="${spanClass}"` : ''}>${esc(t)}</span>`).join('')}</div>`
     : '';
 
-/** Gallery list for the image modal: cover plus every image on the project page. */
+/** Gallery list for the image modal: cover, viewer-only images, then every image on the project page. */
 export const projectGallery = (p: Project): Media[] => {
-  const out: Media[] = p.cover ? [p.cover] : [];
+  const out: Media[] = [...(p.cover ? [p.cover] : []), ...(p.gallery ?? [])];
   for (const s of Object.values(p.sections ?? {})) {
     for (const b of s?.blocks ?? []) {
       if (b.type === 'figure') out.push(b.media);
@@ -102,7 +101,7 @@ export const projectGallery = (p: Project): Media[] => {
 const galleryAttr = (items: Media[]): string =>
   items.length > 1
     ? ` data-gallery="${esc(
-        JSON.stringify(items.map((m) => ({ src: mediaUrl(m.src, 2400), alt: m.alt, caption: (m.caption ?? '').replace(/<[^>]+>/g, ''), original: m.src }))),
+        JSON.stringify(items.map((m) => ({ src: mediaUrl(m.src, 2400), alt: m.alt, caption: (m.caption ?? '').replace(/<[^>]+>/g, ''), original: originalUrl(m.src) }))),
       )}"`
     : '';
 
@@ -217,3 +216,13 @@ export const thumb = (src: string, alt: string, max = 800, style?: string): stri
     info ? ` srcset="${info.widths.filter((w) => w <= max * 2).map((w) => `${info.base}-${w}.webp ${w}w`).join(', ')}" sizes="(min-width: 900px) 33vw, 92vw" width="${info.w}" height="${info.h}"` : ''
   } alt="${esc(alt)}" loading="lazy" decoding="async"${style ? ` style="${style}"` : ''}>`;
 };
+
+/** A short clip with controls; never autoplays. Loads nothing until played. */
+export const videoFigure = (v: Video): string =>
+  `<figure class="fig fig--video">
+  <video class="media media--video" controls playsinline preload="none" poster="${esc(v.poster)}" width="${v.width}" height="${v.height}" aria-label="${esc(v.label)}">
+    <source src="${esc(v.src)}" type="video/mp4">
+    <a href="${esc(v.src)}">Download the video</a>
+  </video>
+  ${v.caption ? `<figcaption><span class="fig-label">Video</span> ${rich(v.caption)}</figcaption>` : ''}
+</figure>`;

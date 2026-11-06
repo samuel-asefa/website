@@ -90,7 +90,7 @@ for (const [url, html] of docs) {
 
   // Preconnect hints point at bare origins and aren't real links.
   const linkable = html.replace(/<link rel="preconnect"[^>]*>/g, '');
-  for (const m of linkable.matchAll(/\s(?:href|src)="([^"]+)"/g)) {
+  for (const m of linkable.matchAll(/\s(?:href|src|poster)="([^"]+)"/g)) {
     const href = m[1].replace(/&amp;/g, '&');
     if (/^(mailto:|tel:|data:|javascript:)/.test(href)) continue;
     if (/^https?:\/\//.test(href)) {
