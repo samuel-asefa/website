@@ -1,0 +1,972 @@
+{
+  "/images/3dprint.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/3dprint-png",
+    "share": "/media/share/3dprint-png.jpg",
+    "mtime": 1750114006526.5273
+  },
+  "/images/amharic-quest.png": {
+    "w": 3456,
+    "h": 1824,
+    "color": "#182838",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharic-quest-png",
+    "share": "/media/share/amharic-quest-png.jpg",
+    "mtime": 1788104323105.8162
+  },
+  "/images/androidstudio.png": {
+    "w": 1200,
+    "h": 1200,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200
+    ],
+    "base": "/media/androidstudio-png",
+    "share": "/media/share/androidstudio-png.jpg",
+    "mtime": 1766638585699.0913
+  },
+  "/images/apscholar.png": {
+    "w": 2200,
+    "h": 1700,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2200
+    ],
+    "base": "/media/apscholar-png",
+    "share": "/media/share/apscholar-png.jpg",
+    "mtime": 1778990802891.038
+  },
+  "/images/arc.jpg": {
+    "w": 3840,
+    "h": 2713,
+    "color": "#586878",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/arc-jpg",
+    "share": "/media/share/arc-jpg.jpg",
+    "mtime": 1778988405771.3154
+  },
+  "/images/arduino.png": {
+    "w": 2048,
+    "h": 2048,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "base": "/media/arduino-png",
+    "share": "/media/share/arduino-png.jpg",
+    "mtime": 1750114006527.0813
+  },
+  "/images/circuit-space.png": {
+    "w": 3456,
+    "h": 1824,
+    "color": "#181818",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/circuit-space-png",
+    "share": "/media/share/circuit-space-png.jpg",
+    "mtime": 1788104504876.1648
+  },
+  "/images/comsol.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/comsol-png",
+    "share": "/media/share/comsol-png.jpg",
+    "mtime": 1765551267818.9268
+  },
+  "/images/cpp.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/cpp-png",
+    "share": "/media/share/cpp-png.jpg",
+    "mtime": 1750114006527.4373
+  },
+  "/images/csharp.png": {
+    "w": 800,
+    "h": 800,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800
+    ],
+    "base": "/media/csharp-png",
+    "share": "/media/share/csharp-png.jpg",
+    "mtime": 1750114006527.642
+  },
+  "/images/css.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/css-png",
+    "share": "/media/share/css-png.jpg",
+    "mtime": 1750114006527.7917
+  },
+  "/images/dexarm.jpg": {
+    "w": 1260,
+    "h": 904,
+    "color": "#182838",
+    "widths": [
+      160,
+      480,
+      800,
+      1200
+    ],
+    "base": "/media/dexarm-jpg",
+    "share": "/media/share/dexarm-jpg.jpg",
+    "mtime": 1766458522865.9658
+  },
+  "/images/fig_camera_failure_confidence.png": {
+    "w": 2551,
+    "h": 1422,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/fig-camera-failure-confidence-png",
+    "share": "/media/share/fig-camera-failure-confidence-png.jpg",
+    "mtime": 1786076077354.5334
+  },
+  "/images/fig_camera_failure_error.png": {
+    "w": 2504,
+    "h": 1422,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/fig-camera-failure-error-png",
+    "share": "/media/share/fig-camera-failure-error-png.jpg",
+    "mtime": 1786076077295.9492
+  },
+  "/images/fig_rmse_comparison.png": {
+    "w": 2641,
+    "h": 1581,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/fig-rmse-comparison-png",
+    "share": "/media/share/fig-rmse-comparison-png.jpg",
+    "mtime": 1786076077325.3003
+  },
+  "/images/fig_training_curves.png": {
+    "w": 2121,
+    "h": 1422,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2121
+    ],
+    "base": "/media/fig-training-curves-png",
+    "share": "/media/share/fig-training-curves-png.jpg",
+    "mtime": 1786076077270.2944
+  },
+  "/images/fig_wheel_slip_error.png": {
+    "w": 2552,
+    "h": 1422,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/fig-wheel-slip-error-png",
+    "share": "/media/share/fig-wheel-slip-error-png.jpg",
+    "mtime": 1786076077315.8972
+  },
+  "/images/firebase.png": {
+    "w": 140,
+    "h": 191,
+    "color": "#f8f8f8",
+    "widths": [
+      140
+    ],
+    "base": "/media/firebase-png",
+    "share": "/media/share/firebase-png.jpg",
+    "mtime": 1750114006529.4492
+  },
+  "/images/flask.png": {
+    "w": 797,
+    "h": 747,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      797
+    ],
+    "base": "/media/flask-png",
+    "share": "/media/share/flask-png.jpg",
+    "mtime": 1750114006529.7473
+  },
+  "/images/flutter.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/flutter-png",
+    "share": "/media/share/flutter-png.jpg",
+    "mtime": 1750114006529.9932
+  },
+  "/images/fusion.png": {
+    "w": 389,
+    "h": 412,
+    "color": "#e8e8e8",
+    "widths": [
+      160,
+      389
+    ],
+    "base": "/media/fusion-png",
+    "share": "/media/share/fusion-png.jpg",
+    "mtime": 1750114006530.2078
+  },
+  "/images/global-trade-prediction-model.png": {
+    "w": 1400,
+    "h": 600,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200
+    ],
+    "base": "/media/global-trade-prediction-model-png",
+    "share": "/media/share/global-trade-prediction-model-png.jpg",
+    "mtime": 1766470060439.7627
+  },
+  "/images/go.png": {
+    "w": 2039,
+    "h": 2039,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2039
+    ],
+    "base": "/media/go-png",
+    "share": "/media/share/go-png.jpg",
+    "mtime": 1750114006530.7246
+  },
+  "/images/gqmc-certificate-of-participation.png": {
+    "w": 1653,
+    "h": 2339,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1653
+    ],
+    "base": "/media/gqmc-certificate-of-participation-png",
+    "share": "/media/share/gqmc-certificate-of-participation-png.jpg",
+    "mtime": 1783045084515.2148
+  },
+  "/images/gqmc-certificate-of-participation2.png": {
+    "w": 1653,
+    "h": 2339,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1653
+    ],
+    "base": "/media/gqmc-certificate-of-participation2-png",
+    "share": "/media/share/gqmc-certificate-of-participation2-png.jpg",
+    "mtime": 1786470927000
+  },
+  "/images/gqmc-final-round.png": {
+    "w": 1653,
+    "h": 2339,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1653
+    ],
+    "base": "/media/gqmc-final-round-png",
+    "share": "/media/share/gqmc-final-round-png.jpg",
+    "mtime": 1786471167000
+  },
+  "/images/gqmc-performance-report.png": {
+    "w": 1653,
+    "h": 2339,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1653
+    ],
+    "base": "/media/gqmc-performance-report-png",
+    "share": "/media/share/gqmc-performance-report-png.jpg",
+    "mtime": 1783045255067.6848
+  },
+  "/images/heavy.png": {
+    "w": 1692,
+    "h": 880,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1692
+    ],
+    "base": "/media/heavy-png",
+    "share": "/media/share/heavy-png.jpg",
+    "mtime": 1766382938558.42
+  },
+  "/images/html.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/html-png",
+    "share": "/media/share/html-png.jpg",
+    "mtime": 1750114006532.2358
+  },
+  "/images/hybrid_architecture.png": {
+    "w": 3754,
+    "h": 1324,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/hybrid-architecture-png",
+    "share": "/media/share/hybrid-architecture-png.jpg",
+    "mtime": 1786076652757.7415
+  },
+  "/images/hybrid_reconstruction_example.png": {
+    "w": 3590,
+    "h": 1052,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/hybrid-reconstruction-example-png",
+    "share": "/media/share/hybrid-reconstruction-example-png.jpg",
+    "mtime": 1786076652739.1436
+  },
+  "/images/icsc-participation-certificate.png": {
+    "w": 1653,
+    "h": 2339,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1653
+    ],
+    "base": "/media/icsc-participation-certificate-png",
+    "share": "/media/share/icsc-participation-certificate-png.jpg",
+    "mtime": 1785289589000
+  },
+  "/images/icsc-performance-report.png": {
+    "w": 1653,
+    "h": 2339,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1653
+    ],
+    "base": "/media/icsc-performance-report-png",
+    "share": "/media/share/icsc-performance-report-png.jpg",
+    "mtime": 1785289823000
+  },
+  "/images/inventor.png": {
+    "w": 241,
+    "h": 256,
+    "color": "#e8e8e8",
+    "widths": [
+      160
+    ],
+    "base": "/media/inventor-png",
+    "share": "/media/share/inventor-png.jpg",
+    "mtime": 1750114006532.585
+  },
+  "/images/java.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/java-png",
+    "share": "/media/share/java-png.jpg",
+    "mtime": 1750114006532.7246
+  },
+  "/images/javascript.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/javascript-png",
+    "share": "/media/share/javascript-png.jpg",
+    "mtime": 1750114006532.923
+  },
+  "/images/life-expectancy-prediction-model.jpg": {
+    "w": 3456,
+    "h": 2160,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/life-expectancy-prediction-model-jpg",
+    "share": "/media/share/life-expectancy-prediction-model-jpg.jpg",
+    "mtime": 1766470030241.5466
+  },
+  "/images/mathify.png": {
+    "w": 3418,
+    "h": 1760,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/mathify-png",
+    "share": "/media/share/mathify-png.jpg",
+    "mtime": 1766466264919.492
+  },
+  "/images/medium.png": {
+    "w": 600,
+    "h": 600,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/medium-png",
+    "share": "/media/share/medium-png.jpg",
+    "mtime": 1782051579159.6519
+  },
+  "/images/nasa-techrise-soldering.JPG": {
+    "w": 1347,
+    "h": 887,
+    "color": "#181818",
+    "widths": [
+      160,
+      480,
+      800,
+      1200
+    ],
+    "base": "/media/nasa-techrise-soldering-jpg",
+    "share": "/media/share/nasa-techrise-soldering-jpg.jpg",
+    "mtime": 1786406705750.0999
+  },
+  "/images/nasapayload.jpeg": {
+    "w": 3024,
+    "h": 4032,
+    "color": "#b8b8b8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/nasapayload-jpeg",
+    "share": "/media/share/nasapayload-jpeg.jpg",
+    "mtime": 1778991058283.1956
+  },
+  "/images/national-recognition-program-award.png": {
+    "w": 2200,
+    "h": 1700,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2200
+    ],
+    "base": "/media/national-recognition-program-award-png",
+    "share": "/media/share/national-recognition-program-award-png.jpg",
+    "mtime": 1783044895213.0608
+  },
+  "/images/node.png": {
+    "w": 1817,
+    "h": 2048,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "base": "/media/node-png",
+    "share": "/media/share/node-png.jpg",
+    "mtime": 1750114006534.8154
+  },
+  "/images/onlinechallenges.jpg": {
+    "w": 1080,
+    "h": 1080,
+    "color": "#084868",
+    "widths": [
+      160,
+      480,
+      800,
+      1080
+    ],
+    "base": "/media/onlinechallenges-jpg",
+    "share": "/media/share/onlinechallenges-jpg.jpg",
+    "mtime": 1778989686810.382
+  },
+  "/images/onshape.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/onshape-png",
+    "share": "/media/share/onshape-png.jpg",
+    "mtime": 1750114006535.0283
+  },
+  "/images/pandas.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/pandas-png",
+    "share": "/media/share/pandas-png.jpg",
+    "mtime": 1766637553849.282
+  },
+  "/images/proposalpicture.png": {
+    "w": 816,
+    "h": 1056,
+    "color": "#181818",
+    "widths": [
+      160,
+      480,
+      800
+    ],
+    "base": "/media/proposalpicture-png",
+    "share": "/media/share/proposalpicture-png.jpg",
+    "mtime": 1778989943838.713
+  },
+  "/images/push-back-robot.jpeg": {
+    "w": 4284,
+    "h": 5712,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/push-back-robot-jpeg",
+    "share": "/media/share/push-back-robot-jpeg.jpg",
+    "mtime": 1766459790566.0784
+  },
+  "/images/pvsa2023.jpeg": {
+    "w": 2916,
+    "h": 2187,
+    "color": "#d8c8b8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/pvsa2023-jpeg",
+    "share": "/media/share/pvsa2023-jpeg.jpg",
+    "mtime": 1778988162025.8848
+  },
+  "/images/pvsa2024.jpeg": {
+    "w": 2540,
+    "h": 1905,
+    "color": "#e8d8c8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/pvsa2024-jpeg",
+    "share": "/media/share/pvsa2024-jpeg.jpg",
+    "mtime": 1778988161993.039
+  },
+  "/images/pvsamedals.jpeg": {
+    "w": 2952,
+    "h": 2214,
+    "color": "#483828",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/pvsamedals-jpeg",
+    "share": "/media/share/pvsamedals-jpeg.jpg",
+    "mtime": 1778988162014.0671
+  },
+  "/images/python.png": {
+    "w": 2400,
+    "h": 2390,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/python-png",
+    "share": "/media/share/python-png.jpg",
+    "mtime": 1750114006536.103
+  },
+  "/images/react.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/react-png",
+    "share": "/media/share/react-png.jpg",
+    "mtime": 1750114006536.3347
+  },
+  "/images/roboroute.png": {
+    "w": 1136,
+    "h": 568,
+    "color": "#383838",
+    "widths": [
+      160,
+      480,
+      800,
+      1136
+    ],
+    "base": "/media/roboroute-png",
+    "share": "/media/share/roboroute-png.jpg",
+    "mtime": 1750114006537.3438
+  },
+  "/images/samuel-asefa.jpg": {
+    "w": 460,
+    "h": 460,
+    "color": "#282838",
+    "widths": [
+      160,
+      460
+    ],
+    "base": "/media/samuel-asefa-jpg",
+    "share": "/media/share/samuel-asefa-jpg.jpg",
+    "mtime": 1765697602011.4548
+  },
+  "/images/sciolytics.png": {
+    "w": 3454,
+    "h": 1832,
+    "color": "#080818",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/sciolytics-png",
+    "share": "/media/share/sciolytics-png.jpg",
+    "mtime": 1783647519959.8176
+  },
+  "/images/sensor_layout_example.png": {
+    "w": 1954,
+    "h": 1174,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "base": "/media/sensor-layout-example-png",
+    "share": "/media/share/sensor-layout-example-png.jpg",
+    "mtime": 1786076652710.6653
+  },
+  "/images/studently.png": {
+    "w": 3456,
+    "h": 1752,
+    "color": "#081828",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/studently-png",
+    "share": "/media/share/studently-png.jpg",
+    "mtime": 1766811255315.0828
+  },
+  "/images/surroundscanner.png": {
+    "w": 2532,
+    "h": 1170,
+    "color": "#080838",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/surroundscanner-png",
+    "share": "/media/share/surroundscanner-png.jpg",
+    "mtime": 1766429891896.1594
+  },
+  "/images/swift.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/swift-png",
+    "share": "/media/share/swift-png.jpg",
+    "mtime": 1750114006538.4395
+  },
+  "/images/tailwind.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/tailwind-png",
+    "share": "/media/share/tailwind-png.jpg",
+    "mtime": 1750114006538.789
+  },
+  "/images/techrise.webp": {
+    "w": 1200,
+    "h": 900,
+    "color": "#080818",
+    "widths": [
+      160,
+      480,
+      800,
+      1200
+    ],
+    "base": "/media/techrise-webp",
+    "share": "/media/share/techrise-webp.jpg",
+    "mtime": 1778988878520.816
+  },
+  "/images/teg-cycle-traces-urtc.jpg": {
+    "w": 1936,
+    "h": 2048,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800
+    ],
+    "base": "/media/teg-cycle-traces-urtc-jpg",
+    "share": "/media/share/teg-cycle-traces-urtc-jpg.jpg",
+    "mtime": 1793906653850.3167
+  },
+  "/images/teg-system-concept-urtc.jpg": {
+    "w": 2048,
+    "h": 1412,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "base": "/media/teg-system-concept-urtc-jpg",
+    "share": "/media/share/teg-system-concept-urtc-jpg.jpg",
+    "mtime": 1793906653847.783
+  },
+  "/images/teg_sweep_histograms.png": {
+    "w": 1024,
+    "h": 814,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1024
+    ],
+    "base": "/media/teg-sweep-histograms-png",
+    "share": "/media/share/teg-sweep-histograms-png.jpg",
+    "mtime": 1793476267745.9316
+  },
+  "/images/teg_thermal_response.jpg": {
+    "w": 1024,
+    "h": 820,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1024
+    ],
+    "base": "/media/teg-thermal-response-jpg",
+    "share": "/media/share/teg-thermal-response-jpg.jpg",
+    "mtime": 1793476267743.7834
+  },
+  "/images/unity.png": {
+    "w": 999,
+    "h": 1024,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800
+    ],
+    "base": "/media/unity-png",
+    "share": "/media/share/unity-png.jpg",
+    "mtime": 1750114006539.0427
+  },
+  "/images/vexicon.png": {
+    "w": 521,
+    "h": 521,
+    "color": "#080808",
+    "widths": [
+      160,
+      480
+    ],
+    "base": "/media/vexicon-png",
+    "share": "/media/share/vexicon-png.jpg",
+    "mtime": 1750114006539.3743
+  }
+}

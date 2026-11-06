@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local tooling and internal notes (not part of the site)
+.claude/
+docs/
+
+# macOS
+Icon?

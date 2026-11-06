@@ -1,18 +1,22 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { pagesPlugin } from './build/pages-plugin';
+import { SITE } from './src/config/site';
 
 export default defineConfig({
+  appType: 'mpa',
+  plugins: [
+    pagesPlugin({
+      origin: SITE.origin,
+      // In dev, load through Vite so content and template edits apply on reload.
+      routes: async (server) => {
+        const mod = server
+          ? ((await server.ssrLoadModule('/src/render/routes.ts')) as typeof import('./src/render/routes'))
+          : await import('./src/render/routes');
+        return mod.routes();
+      },
+    }),
+  ],
   build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        about: resolve(__dirname, 'about.html'),
-        experience: resolve(__dirname, 'experience.html'),
-        awards: resolve(__dirname, 'awards.html'),
-        education: resolve(__dirname, 'education.html'),
-        projects: resolve(__dirname, 'projects.html'),
-        contact: resolve(__dirname, 'contact.html'),
-      }
-    }
-  }
+    target: 'es2020',
+  },
 });
