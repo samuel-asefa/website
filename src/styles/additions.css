@@ -1242,6 +1242,160 @@ figcaption {
   color: var(--text-muted);
 }
 
+/* ── Floating facts: labels never take up room in the grid ── */
+.about-carousel-wrapper {
+  container-type: inline-size;
+}
+
+.fact-chips {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 2.25rem 0.5rem;
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 2.75rem auto 0;
+}
+
+.fact-chip {
+  --fact-offset: 3px;
+  --fact-delay: -1s;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  min-width: 0;
+  transform: translateY(var(--fact-offset));
+  animation: fact-float 5s ease-in-out var(--fact-delay) infinite;
+}
+
+.fact-chip:nth-child(2n) { --fact-offset: -4px; --fact-delay: -3.2s; }
+.fact-chip:nth-child(3n) { --fact-offset: 6px; --fact-delay: -2.1s; }
+.fact-chip:nth-child(4n) { --fact-offset: -1px; --fact-delay: -4.4s; }
+
+/* Bridge the gap so a visitor can move onto the label without losing it. */
+.fact-chip::before {
+  content: '';
+  position: absolute;
+  inset: -0.8rem 0 100%;
+}
+
+.fact-trigger {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 15px;
+  background: linear-gradient(145deg, rgba(28, 43, 63, 0.75), var(--surface-1));
+  border: 1px solid var(--border-bright);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  color: var(--text);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  transition: transform 0.25s var(--ease-spring), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fact-emoji {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  font-size: 1.35rem;
+  font-variant-emoji: emoji;
+  line-height: 1;
+  transition: transform 0.25s var(--ease-spring);
+}
+
+.fact-label {
+  --label-x: -50%;
+  position: absolute;
+  bottom: calc(100% + 0.7rem);
+  left: 50%;
+  width: max-content;
+  max-width: 12rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-accent);
+  border-radius: 10px;
+  background: #0f1c2e;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(var(--label-x), 5px) scale(0.96);
+  transform-origin: bottom center;
+  transition: opacity 0.18s ease, transform 0.18s var(--ease-out), visibility 0.18s;
+}
+
+/* The two end labels grow inward, including at narrow phone widths. */
+.fact-chip:first-child .fact-label { --label-x: 0%; left: 0; transform-origin: bottom left; }
+.fact-chip:last-child .fact-label { --label-x: 0%; left: auto; right: 0; transform-origin: bottom right; }
+
+.fact-chip[data-open],
+.fact-chips:not([data-enhanced]) .fact-chip:is(:hover, :focus-within) {
+  z-index: 3;
+  animation-play-state: paused;
+}
+
+.fact-chip[data-open] .fact-trigger,
+.fact-chips:not([data-enhanced]) .fact-chip:is(:hover, :focus-within) .fact-trigger {
+  transform: translateY(-3px) rotate(-6deg) scale(1.08);
+  border-color: var(--border-accent);
+  box-shadow: 0 0 20px var(--accent-glow), 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.fact-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.fact-chip[data-open] .fact-emoji {
+  transform: scale(1.1);
+}
+
+.fact-chip[data-open] .fact-label,
+.fact-chips:not([data-enhanced]) .fact-chip:is(:hover, :focus-within) .fact-label {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(var(--label-x), 0) scale(1);
+}
+
+@keyframes fact-float {
+  0%, 100% { transform: translateY(var(--fact-offset)); }
+  50% { transform: translateY(calc(var(--fact-offset) - 5px)); }
+}
+
+/* Container width, rather than the viewport, decides when to use two even rows. */
+@container (max-width: 407px) {
+  .fact-chips {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    row-gap: 3.25rem;
+  }
+  .fact-chips .fact-chip { --fact-offset: 0px; }
+  .fact-chip:nth-child(4n + 1) .fact-label {
+    --label-x: 0%;
+    left: 0;
+    right: auto;
+    transform-origin: bottom left;
+  }
+  .fact-chip:nth-child(4n) .fact-label {
+    --label-x: 0%;
+    left: auto;
+    right: 0;
+    transform-origin: bottom right;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fact-chip { animation: none; }
+  .fact-trigger, .fact-emoji, .fact-label { transition: none; }
+}
+
 /* Four columns, two, or one: never three, so the eight cards always fill whole rows.
    The number and its unit stay on one line. */
 .impact-num {

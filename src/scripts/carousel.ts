@@ -6,8 +6,6 @@
  */
 import Swiper from 'swiper';
 import { A11y, Autoplay, EffectCards, Keyboard } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-cards';
 
 export const initCarousel = (el: HTMLElement, reduceMotion: boolean): void => {
   el.tabIndex = 0;

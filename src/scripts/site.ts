@@ -30,7 +30,8 @@ if (cursor && finePointer && !reduceMotion) {
     cursor.style.left = `${e.clientX}px`;
     cursor.style.top = `${e.clientY}px`;
   });
-  const interactive = 'a, button, input, textarea, .project-card, .skill-item, .bento-card';
+  // Keep the small fact emojis sharp beneath the cursor's hover blur.
+  const interactive = 'a, button:not(.fact-trigger), input, textarea, .project-card, .skill-item, .bento-card';
   document.addEventListener('mouseover', (e) => {
     const on = (e.target as Element | null)?.closest(interactive);
     cursor.classList.toggle('cursor-hover', Boolean(on));
@@ -172,6 +173,9 @@ if (tabs) void import('./tabs').then((m) => m.initTabs(tabs));
 
 const carousel = document.querySelector<HTMLElement>('.mySwiper');
 if (carousel) void import('./carousel').then((m) => m.initCarousel(carousel, reduceMotion));
+
+const facts = document.querySelector<HTMLElement>('.fact-chips');
+if (facts) void import('./facts').then((m) => m.initFacts(facts));
 
 document.querySelectorAll<HTMLElement>('[data-route-sketch]').forEach((el) => {
   whenNear(el, () => void import('./route-sketch').then((m) => m.initRouteSketch(el)));

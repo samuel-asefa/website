@@ -4,6 +4,10 @@ import { SITE } from './src/config/site';
 
 export default defineConfig({
   appType: 'mpa',
+  // The HTML routes are virtual, so discovery cannot find these page-only imports.
+  optimizeDeps: {
+    include: ['swiper', 'swiper/modules'],
+  },
   plugins: [
     pagesPlugin({
       origin: SITE.origin,

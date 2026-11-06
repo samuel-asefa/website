@@ -5,6 +5,18 @@ import { sectionHeader, thumb } from '../components';
 import { page } from '../layout';
 import { mediaUrl } from '../media';
 
+/** Fixed-size emoji cards; labels float above them without changing the layout. */
+const FACTS: { emoji: string; label: string }[] = [
+  { emoji: '🇪🇹', label: 'Ethiopian-American' },
+  { emoji: '📍', label: 'From New Jersey' },
+  { emoji: '🤖', label: 'Robotics' },
+  { emoji: '🔬', label: 'Research' },
+  { emoji: '💻', label: 'Programming' },
+  { emoji: '🚀', label: 'Aerospace' },
+  { emoji: '🌍', label: 'Geography' },
+  { emoji: '✏️', label: 'Writing' },
+];
+
 const SLIDES: { src: string; alt: string }[] = [
   { src: '/images/projects/rocketry-airbrakes/arc.jpg', alt: 'The SBHS aerospace team at the American Rocketry Challenge national finals in 2025' },
   { src: '/images/projects/ndvi-payload/techrise.webp', alt: 'The NASA TechRise team with the winner’s certificate' },
@@ -107,6 +119,12 @@ export const renderAbout = (): string => {
         </div>
       </div>
       <p class="carousel-hint">Swipe or drag the cards. Use the arrow keys when the photos are focused.</p>
+      <ul class="fact-chips" aria-label="A little about me">
+        ${FACTS.map((f, i) => `<li class="fact-chip">
+          <button class="fact-trigger" type="button" aria-label="${esc(f.label)}" aria-expanded="false" aria-controls="about-fact-${i}"><span class="fact-emoji" aria-hidden="true">${f.emoji}</span></button>
+          <span class="fact-label" id="about-fact-${i}">${esc(f.label)}</span>
+        </li>`).join('\n        ')}
+      </ul>
     </div>
   </div>
 
@@ -145,6 +163,7 @@ export const renderAbout = (): string => {
       image: '/images/projects/rocketry-airbrakes/arc.jpg',
       type: 'profile',
       nav: 'about',
+      head: '<link rel="stylesheet" href="/src/styles/carousel.css">',
       jsonLd: [
         {
           '@context': 'https://schema.org',

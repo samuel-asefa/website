@@ -1,0 +1,12 @@
+/* Load the carousel layout with the page, before its interactive module runs. */
+@import 'swiper/css';
+@import 'swiper/css/effect-cards';
+
+/* Keep one photo contained if JavaScript is delayed or unavailable. */
+.mySwiper:not(.swiper-initialized) {
+  overflow: hidden;
+}
+
+.mySwiper:not(.swiper-initialized) .swiper-slide:not(:first-child) {
+  visibility: hidden;
+}
