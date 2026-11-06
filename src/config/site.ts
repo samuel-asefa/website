@@ -19,7 +19,7 @@ export const SITE = {
   description:
     'Samuel Asefa builds VEX robots, writes software like RoboRoute, publishes simulation-based research, and teaches robotics through RoboZone.',
   /** Default share image (a real project photograph). */
-  defaultShareImage: '/images/push-back-robot.jpeg',
+  defaultShareImage: '/images/projects/push-back-robot/push-back-robot.jpeg',
   school: 'South Brunswick High School',
 } as const;
 

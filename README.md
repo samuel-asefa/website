@@ -62,7 +62,7 @@ src/
 build/pages-plugin.ts     Vite plugin: renders the routes, writes sitemap.xml and robots.txt
 scripts/media.mjs         image derivatives
 scripts/check-site.mjs    post-build checks
-public/images/            original media (unchanged; old URLs still work)
+public/images/            original media, by section (see Media conventions)
 public/media/             generated WebP versions and share images
 docs/                     local-only notes (git-ignored)
 ```
@@ -77,7 +77,7 @@ All copy lives in `src/content/*.ts`; templates never need to change for content
 
 ## Adding a project
 
-1. Put the image in `public/images/`.
+1. Put its images in `public/images/projects/<slug>/` (the folder named after the project's slug).
 2. Add an entry to `src/content/projects.ts`. Required: `slug`, `title`, `line` (card description), `category`, `depth`, `dates`, `start`.
    - `depth: 'entry'`: a card on the Projects page that links straight to the project's first link.
    - `depth: 'overview'` or `'case-study'`: a card plus its own page at `/projects/<slug>.html`. Add whichever `sections` you can support; missing ones are skipped.
@@ -87,7 +87,21 @@ All copy lives in `src/content/*.ts`; templates never need to change for content
 
 ## Media conventions
 
-- Originals stay untouched in `public/images/`. `npm run media` writes WebP versions at 160, 480, 800, 1200, 1800, and 2400 px (never upscaled, EXIF rotation applied, transparency kept) and a 1200×630 JPEG for link previews, and records dimensions and a placeholder colour.
+- Originals live in `public/images/`, one folder per part of the site:
+
+  ```
+  public/images/
+    projects/<slug>/   each project's images, slides, and original video files
+    awards/            certificates, letters, medals, award PDFs
+    skills/            skill icons
+    experience/        square organization logos for the Experience page (256px)
+    education/         school logo
+    site/              profile photo and footer icons
+    archive/           files the site doesn't use (kept, not deleted)
+  ```
+
+  Images shown on several pages live with the project they come from (the ARC team photo is in `projects/rocketry-airbrakes/`). File names must stay unique across folders, because generated files in `public/media/` are named after the file alone.
+- Originals are never modified. `npm run media` writes WebP versions at 160, 480, 800, 1200, 1800, and 2400 px (never upscaled, EXIF rotation applied, transparency kept) and a 1200×630 JPEG for link previews, and records dimensions and a placeholder colour.
 - Use `photo()`, `figure()`, or `screenshot()` from `src/content/media.ts`. Figures (charts) are never cropped and sit on a white mat; captions say what the image shows.
 - A project's `gallery` holds extra images that appear only in the image viewer, right after the cover (for example, an early prototype).
 - Every image on a project page can be enlarged; the modal links to the original file (or, for originals over 8 MB, to the largest web version).

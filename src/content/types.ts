@@ -12,7 +12,7 @@ export type Html = string;
 export type MediaKind = 'photo' | 'figure' | 'screenshot' | 'diagram' | 'render';
 
 export interface Media {
-  /** Path of the original under /public, e.g. "/images/arc.jpg". */
+  /** Path of the original under /public, e.g. "/images/projects/rocketry-airbrakes/arc.jpg". */
   src: string;
   alt: string;
   kind: MediaKind;
@@ -158,6 +158,8 @@ export interface Role {
 
 export interface ExperienceItem {
   org: string;
+  /** Square organization logo (public/images/experience/), shown beside the name. */
+  icon?: string;
   role: string;
   dates: string;
   kind: 'leadership' | 'community';

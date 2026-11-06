@@ -13,7 +13,7 @@ const personJsonLd = () => ({
   name: SITE.name,
   alternateName: 'Sammy Asefa',
   url: absoluteUrl('/'),
-  image: absoluteUrl(mediaUrl('/images/samuel-asefa.jpg', 480)),
+  image: absoluteUrl(mediaUrl('/images/site/samuel-asefa.jpg', 480)),
   email: `mailto:${SITE.email}`,
   jobTitle: 'Student',
   affiliation: { '@type': 'EducationalOrganization', name: SITE.school },
@@ -42,7 +42,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
   {
     cls: 'bento-about',
     href: '/about.html',
-    src: '/images/arc.jpg',
+    src: '/images/projects/rocketry-airbrakes/arc.jpg',
     pos: '--img-x: center; --img-y: 25%;',
     alt: 'The SBHS aerospace team at the American Rocketry Challenge national finals',
     title: 'About Me',
@@ -51,7 +51,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
   {
     cls: 'bento-education',
     href: '/education.html',
-    src: '/images/techrise.webp',
+    src: '/images/projects/ndvi-payload/techrise.webp',
     pos: '--img-x: center; --img-y: center;',
     alt: 'The NASA TechRise team with the winner’s certificate',
     title: 'Education',
@@ -60,7 +60,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
   {
     cls: 'bento-skills',
     href: '/#skills',
-    src: '/images/push-back-robot.jpeg',
+    src: '/images/projects/push-back-robot/push-back-robot.jpeg',
     pos: '--img-x: center; --img-y: 55%;',
     alt: 'Team 750W’s Push Back robot',
     title: 'Skills & Technologies',
@@ -69,7 +69,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
   {
     cls: 'bento-projects',
     href: '/projects.html',
-    src: '/images/surroundscanner.png',
+    src: '/images/projects/surroundscanner/surroundscanner.png',
     pos: '--img-x: center; --img-y: 25%;',
     alt: 'The SurroundScanner ultrasonic glasses',
     title: 'Projects',
@@ -78,7 +78,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
   {
     cls: 'bento-awards',
     href: '/awards.html',
-    src: '/images/pvsamedals.jpeg',
+    src: '/images/awards/pvsamedals.jpeg',
     pos: '--img-x: center; --img-y: center;',
     alt: 'Two Presidential Volunteer Service Award medals',
     title: 'Awards & Honors',
@@ -87,7 +87,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
   {
     cls: 'bento-contact',
     href: '/contact.html',
-    src: '/images/nasapayload.jpeg',
+    src: '/images/projects/ndvi-payload/nasapayload.jpeg',
     pos: '--img-x: center; --img-y: center;',
     alt: 'The NDVI mapping payload in its clear enclosure',
     title: 'Get in Touch',
@@ -96,13 +96,13 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
 ];
 
 const RECOGNITION: { icon: string; text: string }[] = [
-  { icon: 'fas fa-rocket', text: 'NASA TechRise Winner (team)' },
+  { icon: 'fas fa-rocket', text: 'NASA TechRise Winner' },
   { icon: 'fas fa-code', text: 'USACO Gold Division' },
   { icon: 'fas fa-medal', text: 'National Merit Commended' },
   { icon: 'fas fa-microphone', text: 'MIT URTC Lightning Talk (accepted)' },
-  { icon: 'fas fa-trophy', text: 'LaunchSB 1st Place (team)' },
-  { icon: 'fas fa-flag-checkered', text: 'American Rocketry Challenge National Finalist (team)' },
-  { icon: 'fas fa-robot', text: 'VEX Excellence & Amaze Awards (team)' },
+  { icon: 'fas fa-trophy', text: 'LaunchSB 1st Place' },
+  { icon: 'fas fa-flag-checkered', text: 'American Rocketry Challenge National Finalist' },
+  { icon: 'fas fa-robot', text: 'VEX Excellence & Amaze Awards' },
 ];
 
 export const renderHome = (): string => {
@@ -120,17 +120,19 @@ export const renderHome = (): string => {
       <p class="hero-desc">I’m a senior at South Brunswick High School interested in robotics, electrical engineering, and computer science. I lead the build for VEX Team 750W, write tools like RoboRoute, do simulation-based research, and co-founded RoboZone to teach students robotics.</p>
       <ul class="hero-credibility" aria-label="Highlights">
         <li class="hero-cred-item"><i class="fas fa-robot" aria-hidden="true"></i> Build Lead, Team 750W</li>
-        <li class="hero-cred-item"><i class="fas fa-rocket" aria-hidden="true"></i> NASA TechRise Winner (team)</li>
+        <li class="hero-cred-item"><i class="fas fa-users" aria-hidden="true"></i> Co-Founder, RoboZone</li>
         <li class="hero-cred-item"><i class="fas fa-code" aria-hidden="true"></i> USACO Gold</li>
-        <li class="hero-cred-item"><i class="fas fa-flask" aria-hidden="true"></i> 3 Research Preprints</li>
+        <li class="hero-cred-item"><i class="fas fa-rocket" aria-hidden="true"></i> NASA TechRise Winner</li>
+        <li class="hero-cred-item"><i class="fas fa-trophy" aria-hidden="true"></i> ARC National Finalist</li>
+        <li class="hero-cred-item"><i class="fas fa-flask" aria-hidden="true"></i> MIT URTC Talk · 3 Preprints</li>
       </ul>
       <div class="hero-btns">
         <a href="/projects.html" class="btn primary-btn">View Projects</a>
-        <a href="/contact.html" class="btn secondary-btn">Contact Me</a>
+        <a href="/about.html" class="btn secondary-btn">About Me</a>
       </div>
     </div>
     <div class="hero-image">
-      ${thumb('/images/samuel-asefa.jpg', 'Samuel Asefa', 480).replace('loading="lazy" decoding="async"', 'fetchpriority="high"').replace('<img ', '<img class="profile-image" ')}
+      ${thumb('/images/site/samuel-asefa.jpg', 'Samuel Asefa', 480).replace('loading="lazy" decoding="async"', 'fetchpriority="high"').replace('<img ', '<img class="profile-image" ')}
       <div class="image-outline"></div>
     </div>
   </div>
@@ -223,7 +225,7 @@ export const renderHome = (): string => {
       description:
         'Samuel Asefa - a senior at South Brunswick High School building VEX robots, software like RoboRoute, and simulation-based research, and teaching robotics through RoboZone.',
       path: '/',
-      image: '/images/samuel-asefa.jpg',
+      image: '/images/site/samuel-asefa.jpg',
       imageAlt: 'Samuel Asefa',
       type: 'profile',
       jsonLd: [personJsonLd()],

@@ -1,364 +1,5 @@
 {
-  "/images/3dprint.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/3dprint-png",
-    "share": "/media/share/3dprint-png.jpg",
-    "mtime": 1750114006526.5273,
-    "bytes": 18423
-  },
-  "/images/Airbrakes.png": {
-    "w": 1396,
-    "h": 1518,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1396
-    ],
-    "base": "/media/airbrakes-png",
-    "share": "/media/share/airbrakes-png.jpg",
-    "mtime": 1778195950581.8164,
-    "bytes": 657425
-  },
-  "/images/BanquetBot.png": {
-    "w": 1600,
-    "h": 1602,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1600
-    ],
-    "base": "/media/banquetbot-png",
-    "share": "/media/share/banquetbot-png.jpg",
-    "mtime": 1793501310359.7368,
-    "bytes": 1016853
-  },
-  "/images/BanquetBotInAction.png": {
-    "w": 1600,
-    "h": 1602,
-    "color": "#585858",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1600
-    ],
-    "base": "/media/banquetbotinaction-png",
-    "share": "/media/share/banquetbotinaction-png.jpg",
-    "mtime": 1793504093406.0461,
-    "bytes": 1199635
-  },
-  "/images/BasketBot.png": {
-    "w": 1600,
-    "h": 1602,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1600
-    ],
-    "base": "/media/basketbot-png",
-    "share": "/media/share/basketbot-png.jpg",
-    "mtime": 1793501468922.824,
-    "bytes": 1872002
-  },
-  "/images/BasketBotInAction.png": {
-    "w": 1600,
-    "h": 1602,
-    "color": "#685868",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1600
-    ],
-    "base": "/media/basketbotinaction-png",
-    "share": "/media/share/basketbotinaction-png.jpg",
-    "mtime": 1793501565595.4163,
-    "bytes": 2214828
-  },
-  "/images/FinCan.png": {
-    "w": 1600,
-    "h": 1202,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1600
-    ],
-    "base": "/media/fincan-png",
-    "share": "/media/share/fincan-png.jpg",
-    "mtime": 1793423263293.1182,
-    "bytes": 366562
-  },
-  "/images/LastYearRocketCAD.png": {
-    "w": 3000,
-    "h": 1002,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/lastyearrocketcad-png",
-    "share": "/media/share/lastyearrocketcad-png.jpg",
-    "mtime": 1793507778143.3125,
-    "bytes": 183968
-  },
-  "/images/LastYearRocketUpClose.png": {
-    "w": 616,
-    "h": 974,
-    "color": "#c8d8d8",
-    "widths": [
-      160,
-      480,
-      616
-    ],
-    "base": "/media/lastyearrocketupclose-png",
-    "share": "/media/share/lastyearrocketupclose-png.jpg",
-    "mtime": 1793506442014.1553,
-    "bytes": 410105
-  },
-  "/images/OldPushBackConcept.png": {
-    "w": 2400,
-    "h": 1602,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/oldpushbackconcept-png",
-    "share": "/media/share/oldpushbackconcept-png.jpg",
-    "mtime": 1793505250342.716,
-    "bytes": 2091303
-  },
-  "/images/OriginalAirbrakesCircuit.jpeg": {
-    "w": 3024,
-    "h": 4032,
-    "color": "#d8d8c8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/originalairbrakescircuit-jpeg",
-    "share": "/media/share/originalairbrakescircuit-jpeg.jpg",
-    "mtime": 1793508470866.4497,
-    "bytes": 2642286
-  },
-  "/images/Prints.png": {
-    "w": 4032,
-    "h": 2268,
-    "color": "#888878",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/prints-png",
-    "share": "/media/share/prints-png.jpg",
-    "mtime": 1793506589439.833,
-    "bytes": 10200678
-  },
-  "/images/PushBackConcept.png": {
-    "w": 2200,
-    "h": 1602,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2200
-    ],
-    "base": "/media/pushbackconcept-png",
-    "share": "/media/share/pushbackconcept-png.jpg",
-    "mtime": 1793504915095.474,
-    "bytes": 1649421
-  },
-  "/images/PushBackConceptInAction.png": {
-    "w": 2400,
-    "h": 1602,
-    "color": "#685868",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/pushbackconceptinaction-png",
-    "share": "/media/share/pushbackconceptinaction-png.jpg",
-    "mtime": 1793505993841.968,
-    "bytes": 1995392
-  },
-  "/images/TechRise1.jpg": {
-    "w": 1536,
-    "h": 2048,
-    "color": "#f88888",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1536
-    ],
-    "base": "/media/techrise1-jpg",
-    "share": "/media/share/techrise1-jpg.jpg",
-    "mtime": 1793509755778.2249,
-    "bytes": 341859
-  },
-  "/images/TechRise2.jpg": {
-    "w": 2048,
-    "h": 1156,
-    "color": "#386888",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2048
-    ],
-    "base": "/media/techrise2-jpg",
-    "share": "/media/share/techrise2-jpg.jpg",
-    "mtime": 1793509784670.2234,
-    "bytes": 58845
-  },
-  "/images/ThisYearRocket.png": {
-    "w": 4284,
-    "h": 5712,
-    "color": "#787878",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/thisyearrocket-png",
-    "share": "/media/share/thisyearrocket-png.jpg",
-    "mtime": 1793506301646.2183,
-    "bytes": 87562205
-  },
-  "/images/ThisYearRocketCAD.png": {
-    "w": 3000,
-    "h": 1002,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/thisyearrocketcad-png",
-    "share": "/media/share/thisyearrocketcad-png.jpg",
-    "mtime": 1793507592048.2974,
-    "bytes": 242970
-  },
-  "/images/ThisYearTeamAndRocket.jpeg": {
-    "w": 5712,
-    "h": 4284,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/thisyearteamandrocket-jpeg",
-    "share": "/media/share/thisyearteamandrocket-jpeg.jpg",
-    "mtime": 1793506820215.577,
-    "bytes": 4752353
-  },
-  "/images/V2PushBack.png": {
-    "w": 4148,
-    "h": 3686,
-    "color": "#686858",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/v2pushback-png",
-    "share": "/media/share/v2pushback-png.jpg",
-    "mtime": 1793504380654.7039,
-    "bytes": 20209284
-  },
-  "/images/amharic-quest.png": {
-    "w": 3456,
-    "h": 1824,
-    "color": "#182838",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/amharic-quest-png",
-    "share": "/media/share/amharic-quest-png.jpg",
-    "mtime": 1788104323105.8162,
-    "bytes": 479383
-  },
-  "/images/androidstudio.png": {
-    "w": 1200,
-    "h": 1200,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      800,
-      1200
-    ],
-    "base": "/media/androidstudio-png",
-    "share": "/media/share/androidstudio-png.jpg",
-    "mtime": 1766638585699.0913,
-    "bytes": 56034
-  },
-  "/images/apscholar.png": {
+  "/images/awards/apscholar.png": {
     "w": 2200,
     "h": 1700,
     "color": "#f8f8f8",
@@ -375,318 +16,7 @@
     "mtime": 1778990802891.038,
     "bytes": 74495
   },
-  "/images/arc.jpg": {
-    "w": 3840,
-    "h": 2713,
-    "color": "#586878",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/arc-jpg",
-    "share": "/media/share/arc-jpg.jpg",
-    "mtime": 1778988405771.3154,
-    "bytes": 6619981
-  },
-  "/images/arduino.png": {
-    "w": 2048,
-    "h": 2048,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2048
-    ],
-    "base": "/media/arduino-png",
-    "share": "/media/share/arduino-png.jpg",
-    "mtime": 1750114006527.0813,
-    "bytes": 149455
-  },
-  "/images/circuit-space.png": {
-    "w": 3456,
-    "h": 1824,
-    "color": "#181818",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/circuit-space-png",
-    "share": "/media/share/circuit-space-png.jpg",
-    "mtime": 1788104504876.1648,
-    "bytes": 627084
-  },
-  "/images/comsol.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/comsol-png",
-    "share": "/media/share/comsol-png.jpg",
-    "mtime": 1793985236961.0837,
-    "bytes": 13522
-  },
-  "/images/cpp.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/cpp-png",
-    "share": "/media/share/cpp-png.jpg",
-    "mtime": 1750114006527.4373,
-    "bytes": 18654
-  },
-  "/images/csharp.png": {
-    "w": 800,
-    "h": 800,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      800
-    ],
-    "base": "/media/csharp-png",
-    "share": "/media/share/csharp-png.jpg",
-    "mtime": 1750114006527.642,
-    "bytes": 35245
-  },
-  "/images/css.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/css-png",
-    "share": "/media/share/css-png.jpg",
-    "mtime": 1750114006527.7917,
-    "bytes": 16450
-  },
-  "/images/dexarm.jpg": {
-    "w": 1260,
-    "h": 904,
-    "color": "#182838",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1260
-    ],
-    "base": "/media/dexarm-jpg",
-    "share": "/media/share/dexarm-jpg.jpg",
-    "mtime": 1766458522865.9658,
-    "bytes": 428327
-  },
-  "/images/dexarm.png": {
-    "w": 3444,
-    "h": 1580,
-    "color": "#282828",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/dexarm-png",
-    "share": "/media/share/dexarm-png.jpg",
-    "mtime": 1777844246166.8245,
-    "bytes": 3462112
-  },
-  "/images/fig_camera_failure_confidence.png": {
-    "w": 2551,
-    "h": 1422,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/fig-camera-failure-confidence-png",
-    "share": "/media/share/fig-camera-failure-confidence-png.jpg",
-    "mtime": 1786076077354.5334,
-    "bytes": 230761
-  },
-  "/images/fig_camera_failure_error.png": {
-    "w": 2504,
-    "h": 1422,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/fig-camera-failure-error-png",
-    "share": "/media/share/fig-camera-failure-error-png.jpg",
-    "mtime": 1786076077295.9492,
-    "bytes": 170195
-  },
-  "/images/fig_rmse_comparison.png": {
-    "w": 2641,
-    "h": 1581,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/fig-rmse-comparison-png",
-    "share": "/media/share/fig-rmse-comparison-png.jpg",
-    "mtime": 1786076077325.3003,
-    "bytes": 123955
-  },
-  "/images/fig_training_curves.png": {
-    "w": 2121,
-    "h": 1422,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2121
-    ],
-    "base": "/media/fig-training-curves-png",
-    "share": "/media/share/fig-training-curves-png.jpg",
-    "mtime": 1786076077270.2944,
-    "bytes": 116644
-  },
-  "/images/fig_wheel_slip_error.png": {
-    "w": 2552,
-    "h": 1422,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/fig-wheel-slip-error-png",
-    "share": "/media/share/fig-wheel-slip-error-png.jpg",
-    "mtime": 1786076077315.8972,
-    "bytes": 161992
-  },
-  "/images/firebase.png": {
-    "w": 140,
-    "h": 191,
-    "color": "#f8f8f8",
-    "widths": [
-      140
-    ],
-    "base": "/media/firebase-png",
-    "share": "/media/share/firebase-png.jpg",
-    "mtime": 1750114006529.4492,
-    "bytes": 2477
-  },
-  "/images/flask.png": {
-    "w": 797,
-    "h": 747,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      797
-    ],
-    "base": "/media/flask-png",
-    "share": "/media/share/flask-png.jpg",
-    "mtime": 1750114006529.7473,
-    "bytes": 70048
-  },
-  "/images/flutter.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/flutter-png",
-    "share": "/media/share/flutter-png.jpg",
-    "mtime": 1750114006529.9932,
-    "bytes": 11061
-  },
-  "/images/fusion.png": {
-    "w": 389,
-    "h": 412,
-    "color": "#e8e8e8",
-    "widths": [
-      160,
-      389
-    ],
-    "base": "/media/fusion-png",
-    "share": "/media/share/fusion-png.jpg",
-    "mtime": 1750114006530.2078,
-    "bytes": 8209
-  },
-  "/images/global-trade-prediction-model.png": {
-    "w": 1400,
-    "h": 600,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1400
-    ],
-    "base": "/media/global-trade-prediction-model-png",
-    "share": "/media/share/global-trade-prediction-model-png.jpg",
-    "mtime": 1766470060439.7627,
-    "bytes": 35498
-  },
-  "/images/go.png": {
-    "w": 2039,
-    "h": 2039,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2039
-    ],
-    "base": "/media/go-png",
-    "share": "/media/share/go-png.jpg",
-    "mtime": 1750114006530.7246,
-    "bytes": 128007
-  },
-  "/images/gqmc-certificate-of-participation.png": {
+  "/images/awards/gqmc-certificate-of-participation.png": {
     "w": 1653,
     "h": 2339,
     "color": "#f8f8f8",
@@ -702,7 +32,7 @@
     "mtime": 1783045084515.2148,
     "bytes": 78579
   },
-  "/images/gqmc-certificate-of-participation2.png": {
+  "/images/awards/gqmc-certificate-of-participation2.png": {
     "w": 1653,
     "h": 2339,
     "color": "#f8f8f8",
@@ -718,7 +48,7 @@
     "mtime": 1786470927000,
     "bytes": 77169
   },
-  "/images/gqmc-final-round.png": {
+  "/images/awards/gqmc-final-round.png": {
     "w": 1653,
     "h": 2339,
     "color": "#f8f8f8",
@@ -734,7 +64,7 @@
     "mtime": 1786471167000,
     "bytes": 74303
   },
-  "/images/gqmc-performance-report.png": {
+  "/images/awards/gqmc-performance-report.png": {
     "w": 1653,
     "h": 2339,
     "color": "#f8f8f8",
@@ -750,55 +80,7 @@
     "mtime": 1783045255067.6848,
     "bytes": 73595
   },
-  "/images/html.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/html-png",
-    "share": "/media/share/html-png.jpg",
-    "mtime": 1750114006532.2358,
-    "bytes": 15876
-  },
-  "/images/hybrid_architecture.png": {
-    "w": 3754,
-    "h": 1324,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/hybrid-architecture-png",
-    "share": "/media/share/hybrid-architecture-png.jpg",
-    "mtime": 1786076652757.7415,
-    "bytes": 169322
-  },
-  "/images/hybrid_reconstruction_example.png": {
-    "w": 3590,
-    "h": 1052,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/hybrid-reconstruction-example-png",
-    "share": "/media/share/hybrid-reconstruction-example-png.jpg",
-    "mtime": 1786076652739.1436,
-    "bytes": 188395
-  },
-  "/images/icsc-participation-certificate.png": {
+  "/images/awards/icsc-participation-certificate.png": {
     "w": 1653,
     "h": 2339,
     "color": "#f8f8f8",
@@ -814,7 +96,7 @@
     "mtime": 1785289589000,
     "bytes": 177947
   },
-  "/images/icsc-performance-report.png": {
+  "/images/awards/icsc-performance-report.png": {
     "w": 1653,
     "h": 2339,
     "color": "#f8f8f8",
@@ -830,129 +112,7 @@
     "mtime": 1785289823000,
     "bytes": 147747
   },
-  "/images/inventor.png": {
-    "w": 241,
-    "h": 256,
-    "color": "#e8e8e8",
-    "widths": [
-      160,
-      241
-    ],
-    "base": "/media/inventor-png",
-    "share": "/media/share/inventor-png.jpg",
-    "mtime": 1750114006532.585,
-    "bytes": 4267
-  },
-  "/images/java.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/java-png",
-    "share": "/media/share/java-png.jpg",
-    "mtime": 1750114006532.7246,
-    "bytes": 22651
-  },
-  "/images/javascript.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/javascript-png",
-    "share": "/media/share/javascript-png.jpg",
-    "mtime": 1750114006532.923,
-    "bytes": 10183
-  },
-  "/images/life-expectancy-prediction-model.jpg": {
-    "w": 3456,
-    "h": 2160,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/life-expectancy-prediction-model-jpg",
-    "share": "/media/share/life-expectancy-prediction-model-jpg.jpg",
-    "mtime": 1766470030241.5466,
-    "bytes": 693688
-  },
-  "/images/mathify.png": {
-    "w": 3418,
-    "h": 1760,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/mathify-png",
-    "share": "/media/share/mathify-png.jpg",
-    "mtime": 1766466264919.492,
-    "bytes": 217641
-  },
-  "/images/medium.png": {
-    "w": 600,
-    "h": 600,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      600
-    ],
-    "base": "/media/medium-png",
-    "share": "/media/share/medium-png.jpg",
-    "mtime": 1782051579159.6519,
-    "bytes": 16694
-  },
-  "/images/nasa-techrise-soldering.JPG": {
-    "w": 1347,
-    "h": 887,
-    "color": "#181818",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1347
-    ],
-    "base": "/media/nasa-techrise-soldering-jpg",
-    "share": "/media/share/nasa-techrise-soldering-jpg.jpg",
-    "mtime": 1786406705750.0999,
-    "bytes": 259830
-  },
-  "/images/nasapayload.jpeg": {
-    "w": 3024,
-    "h": 4032,
-    "color": "#b8b8b8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/nasapayload-jpeg",
-    "share": "/media/share/nasapayload-jpeg.jpg",
-    "mtime": 1778991058283.1956,
-    "bytes": 2551082
-  },
-  "/images/national-recognition-program-award.png": {
+  "/images/awards/national-recognition-program-award.png": {
     "w": 2200,
     "h": 1700,
     "color": "#f8f8f8",
@@ -969,24 +129,7 @@
     "mtime": 1783044895213.0608,
     "bytes": 220009
   },
-  "/images/node.png": {
-    "w": 1817,
-    "h": 2048,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      1817
-    ],
-    "base": "/media/node-png",
-    "share": "/media/share/node-png.jpg",
-    "mtime": 1750114006534.8154,
-    "bytes": 174459
-  },
-  "/images/onlinechallenges.jpg": {
+  "/images/awards/onlinechallenges.jpg": {
     "w": 1080,
     "h": 1080,
     "color": "#084868",
@@ -1001,35 +144,7 @@
     "mtime": 1778989686810.382,
     "bytes": 81645
   },
-  "/images/onshape.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/onshape-png",
-    "share": "/media/share/onshape-png.jpg",
-    "mtime": 1750114006535.0283,
-    "bytes": 37318
-  },
-  "/images/pandas.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/pandas-png",
-    "share": "/media/share/pandas-png.jpg",
-    "mtime": 1766637553849.282,
-    "bytes": 7399
-  },
-  "/images/proposalpicture.png": {
+  "/images/awards/proposalpicture.png": {
     "w": 816,
     "h": 1056,
     "color": "#181818",
@@ -1044,24 +159,7 @@
     "mtime": 1778989943838.713,
     "bytes": 813248
   },
-  "/images/push-back-robot.jpeg": {
-    "w": 4284,
-    "h": 5712,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/push-back-robot-jpeg",
-    "share": "/media/share/push-back-robot-jpeg.jpg",
-    "mtime": 1766459790566.0784,
-    "bytes": 3468404
-  },
-  "/images/pvsa2023.jpeg": {
+  "/images/awards/pvsa2023.jpeg": {
     "w": 2916,
     "h": 2187,
     "color": "#d8c8b8",
@@ -1078,7 +176,7 @@
     "mtime": 1778988162025.8848,
     "bytes": 1574188
   },
-  "/images/pvsa2024.jpeg": {
+  "/images/awards/pvsa2024.jpeg": {
     "w": 2540,
     "h": 1905,
     "color": "#e8d8c8",
@@ -1095,7 +193,7 @@
     "mtime": 1778988161993.039,
     "bytes": 1157506
   },
-  "/images/pvsamedals.jpeg": {
+  "/images/awards/pvsamedals.jpeg": {
     "w": 2952,
     "h": 2214,
     "color": "#483828",
@@ -1112,81 +210,7 @@
     "mtime": 1778988162014.0671,
     "bytes": 2160768
   },
-  "/images/python.png": {
-    "w": 2400,
-    "h": 2390,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/python-png",
-    "share": "/media/share/python-png.jpg",
-    "mtime": 1750114006536.103,
-    "bytes": 165074
-  },
-  "/images/react.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#080808",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/react-png",
-    "share": "/media/share/react-png.jpg",
-    "mtime": 1750114006536.3347,
-    "bytes": 32439
-  },
-  "/images/roboroute.png": {
-    "w": 1136,
-    "h": 568,
-    "color": "#383838",
-    "widths": [
-      160,
-      480,
-      800,
-      1136
-    ],
-    "base": "/media/roboroute-png",
-    "share": "/media/share/roboroute-png.jpg",
-    "mtime": 1750114006537.3438,
-    "bytes": 305300
-  },
-  "/images/robot-tour.jpg": {
-    "w": 880,
-    "h": 660,
-    "color": "#988878",
-    "widths": [
-      160,
-      480,
-      800,
-      880
-    ],
-    "base": "/media/robot-tour-jpg",
-    "share": "/media/share/robot-tour-jpg.jpg",
-    "mtime": 1793985887883.9004,
-    "bytes": 45029
-  },
-  "/images/samuel-asefa.jpg": {
-    "w": 460,
-    "h": 460,
-    "color": "#282838",
-    "widths": [
-      160,
-      460
-    ],
-    "base": "/media/samuel-asefa-jpg",
-    "share": "/media/share/samuel-asefa-jpg.jpg",
-    "mtime": 1765697602011.4548,
-    "bytes": 23650
-  },
-  "/images/sbhs-logo.png": {
+  "/images/education/sbhs-logo.png": {
     "w": 1080,
     "h": 1181,
     "color": "#f8f8f8",
@@ -1201,118 +225,256 @@
     "mtime": 1793986963619.1123,
     "bytes": 700134
   },
-  "/images/sciolytics.png": {
-    "w": 3454,
-    "h": 1832,
-    "color": "#080818",
+  "/images/experience/750w.png": {
+    "w": 256,
+    "h": 256,
+    "color": "#786808",
     "widths": [
       160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
+      256
     ],
-    "base": "/media/sciolytics-png",
-    "share": "/media/share/sciolytics-png.jpg",
-    "mtime": 1783647519959.8176,
-    "bytes": 829310
+    "base": "/media/750w-png",
+    "share": "/media/share/750w-png.jpg",
+    "mtime": 1793991423828.3555,
+    "bytes": 39039
   },
-  "/images/sensor_layout_example.png": {
-    "w": 1954,
-    "h": 1174,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      1954
-    ],
-    "base": "/media/sensor-layout-example-png",
-    "share": "/media/share/sensor-layout-example-png.jpg",
-    "mtime": 1786076652710.6653,
-    "bytes": 105697
-  },
-  "/images/studently.png": {
-    "w": 3456,
-    "h": 1752,
-    "color": "#081828",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/studently-png",
-    "share": "/media/share/studently-png.jpg",
-    "mtime": 1766811255315.0828,
-    "bytes": 334069
-  },
-  "/images/surroundscanner.png": {
-    "w": 2532,
-    "h": 1170,
-    "color": "#080838",
-    "widths": [
-      160,
-      480,
-      800,
-      1200,
-      1800,
-      2400
-    ],
-    "base": "/media/surroundscanner-png",
-    "share": "/media/share/surroundscanner-png.jpg",
-    "mtime": 1766429891896.1594,
-    "bytes": 4050440
-  },
-  "/images/swift.png": {
-    "w": 512,
-    "h": 512,
-    "color": "#f8f8f8",
-    "widths": [
-      160,
-      480,
-      512
-    ],
-    "base": "/media/swift-png",
-    "share": "/media/share/swift-png.jpg",
-    "mtime": 1750114006538.4395,
-    "bytes": 14774
-  },
-  "/images/tailwind.png": {
-    "w": 512,
-    "h": 512,
+  "/images/experience/aerospace.png": {
+    "w": 256,
+    "h": 256,
     "color": "#080808",
     "widths": [
       160,
-      480,
-      512
+      256
     ],
-    "base": "/media/tailwind-png",
-    "share": "/media/share/tailwind-png.jpg",
-    "mtime": 1750114006538.789,
-    "bytes": 15269
+    "base": "/media/aerospace-png",
+    "share": "/media/share/aerospace-png.jpg",
+    "mtime": 1793991791371.6934,
+    "bytes": 63106
   },
-  "/images/techrise.webp": {
-    "w": 1200,
-    "h": 900,
-    "color": "#080818",
+  "/images/experience/cs-club.png": {
+    "w": 256,
+    "h": 256,
+    "color": "#080808",
+    "widths": [
+      160,
+      256
+    ],
+    "base": "/media/cs-club-png",
+    "share": "/media/share/cs-club-png.jpg",
+    "mtime": 1793991424009.4097,
+    "bytes": 48629
+  },
+  "/images/experience/medium-logo.png": {
+    "w": 256,
+    "h": 256,
+    "color": "#080808",
+    "widths": [
+      160,
+      256
+    ],
+    "base": "/media/medium-logo-png",
+    "share": "/media/share/medium-logo-png.jpg",
+    "mtime": 1793991444754.0837,
+    "bytes": 9408
+  },
+  "/images/experience/robozone.png": {
+    "w": 256,
+    "h": 256,
+    "color": "#48a8f8",
+    "widths": [
+      160,
+      256
+    ],
+    "base": "/media/robozone-png",
+    "share": "/media/share/robozone-png.jpg",
+    "mtime": 1793991805954.191,
+    "bytes": 25096
+  },
+  "/images/experience/schoolhouse.png": {
+    "w": 180,
+    "h": 180,
+    "color": "#289878",
+    "widths": [
+      160,
+      180
+    ],
+    "base": "/media/schoolhouse-png",
+    "share": "/media/share/schoolhouse-png.jpg",
+    "mtime": 1793991424233.2646,
+    "bytes": 2917
+  },
+  "/images/experience/science-olympiad.png": {
+    "w": 256,
+    "h": 256,
+    "color": "#181818",
+    "widths": [
+      160,
+      256
+    ],
+    "base": "/media/science-olympiad-png",
+    "share": "/media/share/science-olympiad-png.jpg",
+    "mtime": 1793991424070.3167,
+    "bytes": 47537
+  },
+  "/images/experience/turbotutors.png": {
+    "w": 256,
+    "h": 256,
+    "color": "#386888",
+    "widths": [
+      160,
+      256
+    ],
+    "base": "/media/turbotutors-png",
+    "share": "/media/share/turbotutors-png.jpg",
+    "mtime": 1793991791516.5808,
+    "bytes": 15897
+  },
+  "/images/experience/vividsense.png": {
+    "w": 256,
+    "h": 256,
+    "color": "#080808",
+    "widths": [
+      160,
+      256
+    ],
+    "base": "/media/vividsense-png",
+    "share": "/media/share/vividsense-png.jpg",
+    "mtime": 1793991424167.7976,
+    "bytes": 44420
+  },
+  "/images/experience/xstem.png": {
+    "w": 256,
+    "h": 256,
+    "color": "#289878",
+    "widths": [
+      160,
+      256
+    ],
+    "base": "/media/xstem-png",
+    "share": "/media/share/xstem-png.jpg",
+    "mtime": 1793991424126.4026,
+    "bytes": 36938
+  },
+  "/images/projects/adaptive-sensor-fusion/fig_camera_failure_confidence.png": {
+    "w": 2551,
+    "h": 1422,
+    "color": "#f8f8f8",
     "widths": [
       160,
       480,
       800,
-      1200
+      1200,
+      1800,
+      2400
     ],
-    "base": "/media/techrise-webp",
-    "share": "/media/share/techrise-webp.jpg",
-    "mtime": 1778988878520.816,
-    "bytes": 82772
+    "base": "/media/fig-camera-failure-confidence-png",
+    "share": "/media/share/fig-camera-failure-confidence-png.jpg",
+    "mtime": 1786076077354.5334,
+    "bytes": 230761
   },
-  "/images/teg-cycle-traces-urtc.jpg": {
+  "/images/projects/adaptive-sensor-fusion/fig_camera_failure_error.png": {
+    "w": 2504,
+    "h": 1422,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/fig-camera-failure-error-png",
+    "share": "/media/share/fig-camera-failure-error-png.jpg",
+    "mtime": 1786076077295.9492,
+    "bytes": 170195
+  },
+  "/images/projects/adaptive-sensor-fusion/fig_rmse_comparison.png": {
+    "w": 2641,
+    "h": 1581,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/fig-rmse-comparison-png",
+    "share": "/media/share/fig-rmse-comparison-png.jpg",
+    "mtime": 1786076077325.3003,
+    "bytes": 123955
+  },
+  "/images/projects/adaptive-sensor-fusion/fig_training_curves.png": {
+    "w": 2121,
+    "h": 1422,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2121
+    ],
+    "base": "/media/fig-training-curves-png",
+    "share": "/media/share/fig-training-curves-png.jpg",
+    "mtime": 1786076077270.2944,
+    "bytes": 116644
+  },
+  "/images/projects/adaptive-sensor-fusion/fig_wheel_slip_error.png": {
+    "w": 2552,
+    "h": 1422,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/fig-wheel-slip-error-png",
+    "share": "/media/share/fig-wheel-slip-error-png.jpg",
+    "mtime": 1786076077315.8972,
+    "bytes": 161992
+  },
+  "/images/projects/amharicquest/amharic-quest.png": {
+    "w": 3456,
+    "h": 1824,
+    "color": "#182838",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharic-quest-png",
+    "share": "/media/share/amharic-quest-png.jpg",
+    "mtime": 1788104323105.8162,
+    "bytes": 479383
+  },
+  "/images/projects/circuitspace/circuit-space.png": {
+    "w": 3456,
+    "h": 1824,
+    "color": "#181818",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/circuit-space-png",
+    "share": "/media/share/circuit-space-png.jpg",
+    "mtime": 1788104504876.1648,
+    "bytes": 627084
+  },
+  "/images/projects/cookstove-thermoelectric-regeneration/teg-cycle-traces-urtc.jpg": {
     "w": 1936,
     "h": 2048,
     "color": "#f8f8f8",
@@ -1329,7 +491,7 @@
     "mtime": 1793906653850.3167,
     "bytes": 175076
   },
-  "/images/teg-system-concept-urtc.jpg": {
+  "/images/projects/cookstove-thermoelectric-regeneration/teg-system-concept-urtc.jpg": {
     "w": 2048,
     "h": 1412,
     "color": "#f8f8f8",
@@ -1346,7 +508,7 @@
     "mtime": 1793906653847.783,
     "bytes": 153335
   },
-  "/images/teg_sweep_histograms.png": {
+  "/images/projects/cookstove-thermoelectric-regeneration/teg_sweep_histograms.png": {
     "w": 1024,
     "h": 814,
     "color": "#f8f8f8",
@@ -1361,7 +523,7 @@
     "mtime": 1793476267745.9316,
     "bytes": 102393
   },
-  "/images/teg_thermal_response.jpg": {
+  "/images/projects/cookstove-thermoelectric-regeneration/teg_thermal_response.jpg": {
     "w": 1024,
     "h": 820,
     "color": "#f8f8f8",
@@ -1376,7 +538,975 @@
     "mtime": 1793476267743.7834,
     "bytes": 67624
   },
-  "/images/unity.png": {
+  "/images/projects/dexarm/dexarm.jpg": {
+    "w": 1260,
+    "h": 904,
+    "color": "#182838",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1260
+    ],
+    "base": "/media/dexarm-jpg",
+    "share": "/media/share/dexarm-jpg.jpg",
+    "mtime": 1766458522865.9658,
+    "bytes": 428327
+  },
+  "/images/projects/dexarm/dexarm.png": {
+    "w": 3444,
+    "h": 1580,
+    "color": "#282828",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/dexarm-png",
+    "share": "/media/share/dexarm-png.jpg",
+    "mtime": 1777844246166.8245,
+    "bytes": 3462112
+  },
+  "/images/projects/global-trade-model/global-trade-prediction-model.png": {
+    "w": 1400,
+    "h": 600,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1400
+    ],
+    "base": "/media/global-trade-prediction-model-png",
+    "share": "/media/share/global-trade-prediction-model-png.jpg",
+    "mtime": 1766470060439.7627,
+    "bytes": 35498
+  },
+  "/images/projects/high-stakes-robot/BanquetBot.png": {
+    "w": 1600,
+    "h": 1602,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "base": "/media/banquetbot-png",
+    "share": "/media/share/banquetbot-png.jpg",
+    "mtime": 1793501310359.7368,
+    "bytes": 1016853
+  },
+  "/images/projects/high-stakes-robot/BanquetBotInAction.png": {
+    "w": 1600,
+    "h": 1602,
+    "color": "#585858",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "base": "/media/banquetbotinaction-png",
+    "share": "/media/share/banquetbotinaction-png.jpg",
+    "mtime": 1793504093406.0461,
+    "bytes": 1199635
+  },
+  "/images/projects/hybrid-flow-reconstruction/hybrid_architecture.png": {
+    "w": 3754,
+    "h": 1324,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/hybrid-architecture-png",
+    "share": "/media/share/hybrid-architecture-png.jpg",
+    "mtime": 1786076652757.7415,
+    "bytes": 169322
+  },
+  "/images/projects/hybrid-flow-reconstruction/hybrid_reconstruction_example.png": {
+    "w": 3590,
+    "h": 1052,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/hybrid-reconstruction-example-png",
+    "share": "/media/share/hybrid-reconstruction-example-png.jpg",
+    "mtime": 1786076652739.1436,
+    "bytes": 188395
+  },
+  "/images/projects/hybrid-flow-reconstruction/sensor_layout_example.png": {
+    "w": 1954,
+    "h": 1174,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      1954
+    ],
+    "base": "/media/sensor-layout-example-png",
+    "share": "/media/share/sensor-layout-example-png.jpg",
+    "mtime": 1786076652710.6653,
+    "bytes": 105697
+  },
+  "/images/projects/life-expectancy-model/life-expectancy-prediction-model.jpg": {
+    "w": 3456,
+    "h": 2160,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/life-expectancy-prediction-model-jpg",
+    "share": "/media/share/life-expectancy-prediction-model-jpg.jpg",
+    "mtime": 1766470030241.5466,
+    "bytes": 693688
+  },
+  "/images/projects/mathify/mathify.png": {
+    "w": 3418,
+    "h": 1760,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/mathify-png",
+    "share": "/media/share/mathify-png.jpg",
+    "mtime": 1766466264919.492,
+    "bytes": 217641
+  },
+  "/images/projects/ndvi-payload/TechRise1.jpg": {
+    "w": 1536,
+    "h": 2048,
+    "color": "#f88888",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1536
+    ],
+    "base": "/media/techrise1-jpg",
+    "share": "/media/share/techrise1-jpg.jpg",
+    "mtime": 1793509755778.2249,
+    "bytes": 341859
+  },
+  "/images/projects/ndvi-payload/TechRise2.jpg": {
+    "w": 2048,
+    "h": 1156,
+    "color": "#386888",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "base": "/media/techrise2-jpg",
+    "share": "/media/share/techrise2-jpg.jpg",
+    "mtime": 1793509784670.2234,
+    "bytes": 58845
+  },
+  "/images/projects/ndvi-payload/nasa-techrise-soldering.JPG": {
+    "w": 1347,
+    "h": 887,
+    "color": "#181818",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1347
+    ],
+    "base": "/media/nasa-techrise-soldering-jpg",
+    "share": "/media/share/nasa-techrise-soldering-jpg.jpg",
+    "mtime": 1786406705750.0999,
+    "bytes": 259830
+  },
+  "/images/projects/ndvi-payload/nasapayload.jpeg": {
+    "w": 3024,
+    "h": 4032,
+    "color": "#b8b8b8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/nasapayload-jpeg",
+    "share": "/media/share/nasapayload-jpeg.jpg",
+    "mtime": 1778991058283.1956,
+    "bytes": 2551082
+  },
+  "/images/projects/ndvi-payload/techrise.webp": {
+    "w": 1200,
+    "h": 900,
+    "color": "#080818",
+    "widths": [
+      160,
+      480,
+      800,
+      1200
+    ],
+    "base": "/media/techrise-webp",
+    "share": "/media/share/techrise-webp.jpg",
+    "mtime": 1778988878520.816,
+    "bytes": 82772
+  },
+  "/images/projects/push-back-robot/BasketBot.png": {
+    "w": 1600,
+    "h": 1602,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "base": "/media/basketbot-png",
+    "share": "/media/share/basketbot-png.jpg",
+    "mtime": 1793501468922.824,
+    "bytes": 1872002
+  },
+  "/images/projects/push-back-robot/BasketBotInAction.png": {
+    "w": 1600,
+    "h": 1602,
+    "color": "#685868",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "base": "/media/basketbotinaction-png",
+    "share": "/media/share/basketbotinaction-png.jpg",
+    "mtime": 1793501565595.4163,
+    "bytes": 2214828
+  },
+  "/images/projects/push-back-robot/OldPushBackConcept.png": {
+    "w": 2400,
+    "h": 1602,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/oldpushbackconcept-png",
+    "share": "/media/share/oldpushbackconcept-png.jpg",
+    "mtime": 1793505250342.716,
+    "bytes": 2091303
+  },
+  "/images/projects/push-back-robot/PushBackConcept.png": {
+    "w": 2200,
+    "h": 1602,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2200
+    ],
+    "base": "/media/pushbackconcept-png",
+    "share": "/media/share/pushbackconcept-png.jpg",
+    "mtime": 1793504915095.474,
+    "bytes": 1649421
+  },
+  "/images/projects/push-back-robot/PushBackConceptInAction.png": {
+    "w": 2400,
+    "h": 1602,
+    "color": "#685868",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/pushbackconceptinaction-png",
+    "share": "/media/share/pushbackconceptinaction-png.jpg",
+    "mtime": 1793505993841.968,
+    "bytes": 1995392
+  },
+  "/images/projects/push-back-robot/V2PushBack.png": {
+    "w": 4148,
+    "h": 3686,
+    "color": "#686858",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/v2pushback-png",
+    "share": "/media/share/v2pushback-png.jpg",
+    "mtime": 1793504380654.7039,
+    "bytes": 20209284
+  },
+  "/images/projects/push-back-robot/push-back-robot.jpeg": {
+    "w": 4284,
+    "h": 5712,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/push-back-robot-jpeg",
+    "share": "/media/share/push-back-robot-jpeg.jpg",
+    "mtime": 1766459790566.0784,
+    "bytes": 3468404
+  },
+  "/images/projects/roboroute/roboroute.png": {
+    "w": 1136,
+    "h": 568,
+    "color": "#383838",
+    "widths": [
+      160,
+      480,
+      800,
+      1136
+    ],
+    "base": "/media/roboroute-png",
+    "share": "/media/share/roboroute-png.jpg",
+    "mtime": 1750114006537.3438,
+    "bytes": 305300
+  },
+  "/images/projects/robot-tour/robot-tour.jpg": {
+    "w": 880,
+    "h": 660,
+    "color": "#988878",
+    "widths": [
+      160,
+      480,
+      800,
+      880
+    ],
+    "base": "/media/robot-tour-jpg",
+    "share": "/media/share/robot-tour-jpg.jpg",
+    "mtime": 1793985887883.9004,
+    "bytes": 45029
+  },
+  "/images/projects/rocketry-airbrakes/Airbrakes.png": {
+    "w": 1396,
+    "h": 1518,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1396
+    ],
+    "base": "/media/airbrakes-png",
+    "share": "/media/share/airbrakes-png.jpg",
+    "mtime": 1778195950581.8164,
+    "bytes": 657425
+  },
+  "/images/projects/rocketry-airbrakes/FinCan.png": {
+    "w": 1600,
+    "h": 1202,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "base": "/media/fincan-png",
+    "share": "/media/share/fincan-png.jpg",
+    "mtime": 1793423263293.1182,
+    "bytes": 366562
+  },
+  "/images/projects/rocketry-airbrakes/LastYearRocketCAD.png": {
+    "w": 3000,
+    "h": 1002,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/lastyearrocketcad-png",
+    "share": "/media/share/lastyearrocketcad-png.jpg",
+    "mtime": 1793507778143.3125,
+    "bytes": 183968
+  },
+  "/images/projects/rocketry-airbrakes/LastYearRocketUpClose.png": {
+    "w": 616,
+    "h": 974,
+    "color": "#c8d8d8",
+    "widths": [
+      160,
+      480,
+      616
+    ],
+    "base": "/media/lastyearrocketupclose-png",
+    "share": "/media/share/lastyearrocketupclose-png.jpg",
+    "mtime": 1793506442014.1553,
+    "bytes": 410105
+  },
+  "/images/projects/rocketry-airbrakes/OriginalAirbrakesCircuit.jpeg": {
+    "w": 3024,
+    "h": 4032,
+    "color": "#d8d8c8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/originalairbrakescircuit-jpeg",
+    "share": "/media/share/originalairbrakescircuit-jpeg.jpg",
+    "mtime": 1793508470866.4497,
+    "bytes": 2642286
+  },
+  "/images/projects/rocketry-airbrakes/Prints.png": {
+    "w": 4032,
+    "h": 2268,
+    "color": "#888878",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/prints-png",
+    "share": "/media/share/prints-png.jpg",
+    "mtime": 1793506589439.833,
+    "bytes": 10200678
+  },
+  "/images/projects/rocketry-airbrakes/ThisYearRocket.png": {
+    "w": 4284,
+    "h": 5712,
+    "color": "#787878",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/thisyearrocket-png",
+    "share": "/media/share/thisyearrocket-png.jpg",
+    "mtime": 1793506301646.2183,
+    "bytes": 87562205
+  },
+  "/images/projects/rocketry-airbrakes/ThisYearRocketCAD.png": {
+    "w": 3000,
+    "h": 1002,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/thisyearrocketcad-png",
+    "share": "/media/share/thisyearrocketcad-png.jpg",
+    "mtime": 1793507592048.2974,
+    "bytes": 242970
+  },
+  "/images/projects/rocketry-airbrakes/ThisYearTeamAndRocket.jpeg": {
+    "w": 5712,
+    "h": 4284,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/thisyearteamandrocket-jpeg",
+    "share": "/media/share/thisyearteamandrocket-jpeg.jpg",
+    "mtime": 1793506820215.577,
+    "bytes": 4752353
+  },
+  "/images/projects/rocketry-airbrakes/arc.jpg": {
+    "w": 3840,
+    "h": 2713,
+    "color": "#586878",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/arc-jpg",
+    "share": "/media/share/arc-jpg.jpg",
+    "mtime": 1778988405771.3154,
+    "bytes": 6619981
+  },
+  "/images/projects/sciolytics/sciolytics.png": {
+    "w": 3454,
+    "h": 1832,
+    "color": "#080818",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/sciolytics-png",
+    "share": "/media/share/sciolytics-png.jpg",
+    "mtime": 1783647519959.8176,
+    "bytes": 829310
+  },
+  "/images/projects/studently/studently.png": {
+    "w": 3456,
+    "h": 1752,
+    "color": "#081828",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/studently-png",
+    "share": "/media/share/studently-png.jpg",
+    "mtime": 1766811255315.0828,
+    "bytes": 334069
+  },
+  "/images/projects/surroundscanner/surroundscanner.png": {
+    "w": 2532,
+    "h": 1170,
+    "color": "#080838",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/surroundscanner-png",
+    "share": "/media/share/surroundscanner-png.jpg",
+    "mtime": 1766429891896.1594,
+    "bytes": 4050440
+  },
+  "/images/site/medium.png": {
+    "w": 600,
+    "h": 600,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      600
+    ],
+    "base": "/media/medium-png",
+    "share": "/media/share/medium-png.jpg",
+    "mtime": 1782051579159.6519,
+    "bytes": 16694
+  },
+  "/images/site/samuel-asefa.jpg": {
+    "w": 460,
+    "h": 460,
+    "color": "#282838",
+    "widths": [
+      160,
+      460
+    ],
+    "base": "/media/samuel-asefa-jpg",
+    "share": "/media/share/samuel-asefa-jpg.jpg",
+    "mtime": 1765697602011.4548,
+    "bytes": 23650
+  },
+  "/images/skills/3dprint.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/3dprint-png",
+    "share": "/media/share/3dprint-png.jpg",
+    "mtime": 1750114006526.5273,
+    "bytes": 18423
+  },
+  "/images/skills/androidstudio.png": {
+    "w": 1200,
+    "h": 1200,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200
+    ],
+    "base": "/media/androidstudio-png",
+    "share": "/media/share/androidstudio-png.jpg",
+    "mtime": 1766638585699.0913,
+    "bytes": 56034
+  },
+  "/images/skills/arduino.png": {
+    "w": 2048,
+    "h": 2048,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2048
+    ],
+    "base": "/media/arduino-png",
+    "share": "/media/share/arduino-png.jpg",
+    "mtime": 1750114006527.0813,
+    "bytes": 149455
+  },
+  "/images/skills/comsol.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/comsol-png",
+    "share": "/media/share/comsol-png.jpg",
+    "mtime": 1793985236961.0837,
+    "bytes": 13522
+  },
+  "/images/skills/cpp.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/cpp-png",
+    "share": "/media/share/cpp-png.jpg",
+    "mtime": 1750114006527.4373,
+    "bytes": 18654
+  },
+  "/images/skills/csharp.png": {
+    "w": 800,
+    "h": 800,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800
+    ],
+    "base": "/media/csharp-png",
+    "share": "/media/share/csharp-png.jpg",
+    "mtime": 1750114006527.642,
+    "bytes": 35245
+  },
+  "/images/skills/css.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/css-png",
+    "share": "/media/share/css-png.jpg",
+    "mtime": 1750114006527.7917,
+    "bytes": 16450
+  },
+  "/images/skills/firebase.png": {
+    "w": 140,
+    "h": 191,
+    "color": "#f8f8f8",
+    "widths": [
+      140
+    ],
+    "base": "/media/firebase-png",
+    "share": "/media/share/firebase-png.jpg",
+    "mtime": 1750114006529.4492,
+    "bytes": 2477
+  },
+  "/images/skills/flask.png": {
+    "w": 797,
+    "h": 747,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      797
+    ],
+    "base": "/media/flask-png",
+    "share": "/media/share/flask-png.jpg",
+    "mtime": 1750114006529.7473,
+    "bytes": 70048
+  },
+  "/images/skills/flutter.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/flutter-png",
+    "share": "/media/share/flutter-png.jpg",
+    "mtime": 1750114006529.9932,
+    "bytes": 11061
+  },
+  "/images/skills/fusion.png": {
+    "w": 389,
+    "h": 412,
+    "color": "#e8e8e8",
+    "widths": [
+      160,
+      389
+    ],
+    "base": "/media/fusion-png",
+    "share": "/media/share/fusion-png.jpg",
+    "mtime": 1750114006530.2078,
+    "bytes": 8209
+  },
+  "/images/skills/go.png": {
+    "w": 2039,
+    "h": 2039,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2039
+    ],
+    "base": "/media/go-png",
+    "share": "/media/share/go-png.jpg",
+    "mtime": 1750114006530.7246,
+    "bytes": 128007
+  },
+  "/images/skills/html.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/html-png",
+    "share": "/media/share/html-png.jpg",
+    "mtime": 1750114006532.2358,
+    "bytes": 15876
+  },
+  "/images/skills/inventor.png": {
+    "w": 241,
+    "h": 256,
+    "color": "#e8e8e8",
+    "widths": [
+      160,
+      241
+    ],
+    "base": "/media/inventor-png",
+    "share": "/media/share/inventor-png.jpg",
+    "mtime": 1750114006532.585,
+    "bytes": 4267
+  },
+  "/images/skills/java.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/java-png",
+    "share": "/media/share/java-png.jpg",
+    "mtime": 1750114006532.7246,
+    "bytes": 22651
+  },
+  "/images/skills/javascript.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/javascript-png",
+    "share": "/media/share/javascript-png.jpg",
+    "mtime": 1750114006532.923,
+    "bytes": 10183
+  },
+  "/images/skills/node.png": {
+    "w": 1817,
+    "h": 2048,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      1817
+    ],
+    "base": "/media/node-png",
+    "share": "/media/share/node-png.jpg",
+    "mtime": 1750114006534.8154,
+    "bytes": 174459
+  },
+  "/images/skills/onshape.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/onshape-png",
+    "share": "/media/share/onshape-png.jpg",
+    "mtime": 1750114006535.0283,
+    "bytes": 37318
+  },
+  "/images/skills/pandas.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/pandas-png",
+    "share": "/media/share/pandas-png.jpg",
+    "mtime": 1766637553849.282,
+    "bytes": 7399
+  },
+  "/images/skills/python.png": {
+    "w": 2400,
+    "h": 2390,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/python-png",
+    "share": "/media/share/python-png.jpg",
+    "mtime": 1750114006536.103,
+    "bytes": 165074
+  },
+  "/images/skills/react.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/react-png",
+    "share": "/media/share/react-png.jpg",
+    "mtime": 1750114006536.3347,
+    "bytes": 32439
+  },
+  "/images/skills/swift.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/swift-png",
+    "share": "/media/share/swift-png.jpg",
+    "mtime": 1750114006538.4395,
+    "bytes": 14774
+  },
+  "/images/skills/tailwind.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/tailwind-png",
+    "share": "/media/share/tailwind-png.jpg",
+    "mtime": 1750114006538.789,
+    "bytes": 15269
+  },
+  "/images/skills/unity.png": {
     "w": 999,
     "h": 1024,
     "color": "#080808",
@@ -1391,7 +1521,7 @@
     "mtime": 1750114006539.0427,
     "bytes": 64108
   },
-  "/images/vexicon.png": {
+  "/images/skills/vexicon.png": {
     "w": 521,
     "h": 521,
     "color": "#080808",

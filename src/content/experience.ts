@@ -4,6 +4,7 @@ import type { ExperienceItem } from './types';
 export const experience: ExperienceItem[] = [
   {
     org: 'SBHS Robotics Club, VEX Team 750W',
+    icon: '/images/experience/750w.png',
     role: 'Build Lead and Workshop Lead',
     dates: 'Jun 2025 – present',
     kind: 'leadership',
@@ -25,6 +26,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'SBHS Computer Science Club',
+    icon: '/images/experience/cs-club.png',
     role: 'President',
     dates: 'Jun 2026 – present',
     kind: 'leadership',
@@ -44,6 +46,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'SBHS Aerospace Club',
+    icon: '/images/experience/aerospace.png',
     role: 'Co-Vice President',
     dates: 'Sep 2026 – present',
     kind: 'leadership',
@@ -66,6 +69,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'SBHS Science Olympiad',
+    icon: '/images/experience/science-olympiad.png',
     role: 'Captain of Build Events',
     dates: 'May 2025 – present',
     kind: 'leadership',
@@ -84,6 +88,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'SBHS XSTEM Club',
+    icon: '/images/experience/xstem.png',
     role: 'Co-President',
     dates: 'May 2026 – present',
     kind: 'leadership',
@@ -103,6 +108,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'VividSense',
+    icon: '/images/experience/vividsense.png',
     role: 'Head of Engineering',
     dates: 'Oct 2024 – present',
     kind: 'leadership',
@@ -116,6 +122,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'Medium',
+    icon: '/images/experience/medium-logo.png',
     role: 'Robotics Writer',
     dates: 'May 2026 – present',
     kind: 'leadership',
@@ -128,6 +135,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'RoboZone',
+    icon: '/images/experience/robozone.png',
     role: 'Co-Founder and Co-President',
     dates: 'Mar 2024 – present',
     kind: 'community',
@@ -141,6 +149,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'TurboTutors',
+    icon: '/images/experience/turbotutors.png',
     role: 'Co-Founder and Vice President',
     dates: 'Jan 2024 – present',
     kind: 'community',
@@ -153,6 +162,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     org: 'Schoolhouse.world',
+    icon: '/images/experience/schoolhouse.png',
     role: 'Silver-Level Tutor',
     dates: 'May 2026 – present',
     kind: 'community',

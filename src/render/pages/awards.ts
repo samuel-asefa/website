@@ -72,7 +72,7 @@ export const renderAwards = (): string => {
       description:
         'Awards and honors earned by Samuel Asefa in robotics, research, programming, science, and service, each marked as an individual or team award.',
       path: '/awards.html',
-      image: '/images/pvsamedals.jpeg',
+      image: '/images/awards/pvsamedals.jpeg',
       nav: 'awards',
     },
     main,

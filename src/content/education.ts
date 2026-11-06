@@ -6,7 +6,7 @@ export const school = {
   graduation: 'Class of 2027',
   classRank: { rank: '5–10', classSize: 670, top: 'Top 1%' },
   /** Official school logo, from the header of sbhs.sbschools.org. */
-  logo: '/images/sbhs-logo.png',
+  logo: '/images/education/sbhs-logo.png',
 };
 
 /**

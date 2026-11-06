@@ -102,7 +102,7 @@ export const renderContact = (): string => {
       title: 'Contact',
       description: `Get in touch with Samuel Asefa by email (${SITE.email}), LinkedIn, or GitHub.`,
       path: '/contact.html',
-      image: '/images/nasapayload.jpeg',
+      image: '/images/projects/ndvi-payload/nasapayload.jpeg',
       nav: 'contact',
     },
     main,

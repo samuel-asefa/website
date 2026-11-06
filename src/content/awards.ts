@@ -31,8 +31,8 @@ export const awards: Award[] = [
     scope: 'individual',
     description: ['Qualified for the final round.'],
     media: [
-      { title: 'Qualification results', src: '/images/gqmc-final-round.png' },
-      { title: 'Certificate of participation', src: '/images/gqmc-certificate-of-participation2.png' },
+      { title: 'Qualification results', src: '/images/awards/gqmc-final-round.png' },
+      { title: 'Certificate of participation', src: '/images/awards/gqmc-certificate-of-participation2.png' },
     ],
   },
   {
@@ -42,8 +42,8 @@ export const awards: Award[] = [
     scope: 'individual',
     description: ['Qualified for the second round.'],
     media: [
-      { title: 'Qualification results', src: '/images/icsc-performance-report.png' },
-      { title: 'Certificate of participation', src: '/images/icsc-participation-certificate.png' },
+      { title: 'Qualification results', src: '/images/awards/icsc-performance-report.png' },
+      { title: 'Certificate of participation', src: '/images/awards/icsc-participation-certificate.png' },
     ],
   },
   {
@@ -53,8 +53,8 @@ export const awards: Award[] = [
     scope: 'individual',
     description: ['Qualified for the second round.'],
     media: [
-      { title: 'Qualification results', src: '/images/gqmc-performance-report.png' },
-      { title: 'Certificate of participation', src: '/images/gqmc-certificate-of-participation.png' },
+      { title: 'Qualification results', src: '/images/awards/gqmc-performance-report.png' },
+      { title: 'Certificate of participation', src: '/images/awards/gqmc-certificate-of-participation.png' },
     ],
   },
   {
@@ -63,7 +63,7 @@ export const awards: Award[] = [
     date: 'Jun 2026',
     scope: 'individual',
     description: ['Recognized by the College Board National Recognition Program for academic achievement.'],
-    media: [{ title: 'Award letter', src: '/images/national-recognition-program-award.png' }],
+    media: [{ title: 'Award letter', src: '/images/awards/national-recognition-program-award.png' }],
   },
   {
     title: 'NJ Science League, AP Physics C team plaque',
@@ -105,10 +105,10 @@ export const awards: Award[] = [
       'Selected in the high-altitude balloon category for a proposed NDVI mapping payload using machine learning; $1,500 in funding.',
     ],
     media: [
-      { title: 'TechRise team', src: '/images/techrise.webp' },
-      { title: 'The payload', src: '/images/nasapayload.jpeg' },
-      { title: 'Payload in its case', src: '/images/TechRise1.jpg' },
-      { title: 'Balloon liftoff', src: '/images/TechRise2.jpg' },
+      { title: 'TechRise team', src: '/images/projects/ndvi-payload/techrise.webp' },
+      { title: 'The payload', src: '/images/projects/ndvi-payload/nasapayload.jpeg' },
+      { title: 'Payload in its case', src: '/images/projects/ndvi-payload/TechRise1.jpg' },
+      { title: 'Balloon liftoff', src: '/images/projects/ndvi-payload/TechRise2.jpg' },
     ],
     project: 'ndvi-payload',
   },
@@ -118,7 +118,7 @@ export const awards: Award[] = [
     date: 'Jul 2025',
     scope: 'individual',
     description: ['An average score of at least 3.5 on all AP exams taken, and 3 or higher on five or more exams.'],
-    media: [{ title: 'Certificate', src: '/images/apscholar.png', href: '/images/apscholar.pdf' }],
+    media: [{ title: 'Certificate', src: '/images/awards/apscholar.png', href: '/images/awards/apscholar.pdf' }],
   },
   {
     title: 'Presidential Volunteer Service Award, Gold (twice)',
@@ -127,9 +127,9 @@ export const awards: Award[] = [
     scope: 'individual',
     description: ['200+ volunteer hours with RoboZone and TurboTutors over two years.'],
     media: [
-      { title: '2024–25 certificate', src: '/images/pvsa2024.jpeg' },
-      { title: '2023–24 certificate', src: '/images/pvsa2023.jpeg' },
-      { title: 'Both medals', src: '/images/pvsamedals.jpeg' },
+      { title: '2024–25 certificate', src: '/images/awards/pvsa2024.jpeg' },
+      { title: '2023–24 certificate', src: '/images/awards/pvsa2023.jpeg' },
+      { title: 'Both medals', src: '/images/awards/pvsamedals.jpeg' },
     ],
   },
   {
@@ -140,7 +140,7 @@ export const awards: Award[] = [
     description: [
       'Qualified for the national finals (top 100 of 1,001 entries) and placed 50th at the finals in Virginia.',
     ],
-    media: [{ title: 'At the national finals', src: '/images/arc.jpg' }],
+    media: [{ title: 'At the national finals', src: '/images/projects/rocketry-airbrakes/arc.jpg' }],
     project: 'rocketry-airbrakes',
   },
   {
@@ -160,8 +160,8 @@ export const awards: Award[] = [
       'Top 6 of about 50 teams for my proposal on automating aircraft riveting, a case study in robotics-driven aerospace manufacturing; awarded $100.',
     ],
     media: [
-      { title: '2025 winners announcement', src: '/images/onlinechallenges.jpg', href: 'https://recf.org/2025-online-challenges-winners-announced/' },
-      { title: 'My proposal (PDF, 12.6 MB)', src: '/images/proposalpicture.png', href: '/images/Proposal.pdf' },
+      { title: '2025 winners announcement', src: '/images/awards/onlinechallenges.jpg', href: 'https://recf.org/2025-online-challenges-winners-announced/' },
+      { title: 'My proposal (PDF, 12.6 MB)', src: '/images/awards/proposalpicture.png', href: '/images/awards/Proposal.pdf' },
     ],
   },
   {

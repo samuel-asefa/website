@@ -75,7 +75,7 @@ export const renderProjects = (): string => {
       description:
         'Software, hardware, and research projects by Samuel Asefa, including RoboRoute, the NDVI mapping payload, and preprints on sensor fusion and flow prediction.',
       path: '/projects.html',
-      image: '/images/roboroute.png',
+      image: '/images/projects/roboroute/roboroute.png',
       nav: 'projects',
     },
     main,

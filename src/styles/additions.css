@@ -1242,11 +1242,47 @@ figcaption {
   color: var(--text-muted);
 }
 
+/* Four columns, two, or one: never three, so the eight cards always fill whole rows.
+   The number and its unit stay on one line. */
+.impact-num {
+  white-space: nowrap;
+}
+/* Four columns, two, or one: never three, so the eight cards always fill whole rows. */
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
   margin-bottom: 4rem;
+}
+
+/* Four across needs about 1150px, or the number and its unit wrap; below that, two. */
+@media (max-width: 1150px) {
+  .impact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Number on the left, a subject emoji on the right (same emoji fonts as the course cards). */
+.impact-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.impact-emoji {
+  flex: none;
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Twemoji Mozilla', sans-serif;
+  font-size: 1.5rem;
+  font-variant-emoji: emoji;
+  line-height: 1;
+  user-select: none;
 }
 
 .impact-card {
@@ -1333,6 +1369,42 @@ figcaption {
 .experience-meta i {
   color: var(--accent);
   opacity: 0.8;
+}
+
+/* Organization logo beside each experience: a 48px rounded tile, aligned with the name. */
+.experience-card-header--logo {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  column-gap: 0.9rem;
+  align-items: start;
+}
+
+.experience-card-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.experience-logo {
+  width: 48px;
+  height: 48px;
+  margin-top: 0.15rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-bright);
+  object-fit: cover;
+  background: var(--surface-2);
+}
+
+/* The external-link icon follows the name inline instead of wrapping to its own line. */
+.experience-card-name {
+  display: block;
+}
+
+.experience-ext-link {
+  display: inline-flex;
+  margin-left: 0.45rem;
+  vertical-align: 0.1em;
 }
 
 /* ── Education ───────────────────────────────────────────── */
@@ -2504,5 +2576,13 @@ a.award-media-card {
   .edu-stats,
   .ap-score-scale {
     max-width: none;
+  }
+}
+
+/* Phones: the hero's text runs down to the bottom of the screen, so the scroll hint
+   would sit on top of the tags or buttons. Scrolling is obvious on a phone anyway. */
+@media (max-width: 600px) {
+  .scroll-indicator {
+    display: none;
   }
 }

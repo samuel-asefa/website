@@ -6,18 +6,20 @@ import { page } from '../layout';
 import { mediaUrl } from '../media';
 
 const SLIDES: { src: string; alt: string }[] = [
-  { src: '/images/arc.jpg', alt: 'The SBHS aerospace team at the American Rocketry Challenge national finals in 2025' },
-  { src: '/images/techrise.webp', alt: 'The NASA TechRise team with the winner’s certificate' },
-  { src: '/images/push-back-robot.jpeg', alt: 'Team 750W’s Push Back competition robot' },
-  { src: '/images/nasapayload.jpeg', alt: 'The NDVI mapping payload in its clear enclosure' },
-  { src: '/images/ThisYearTeamAndRocket.jpeg', alt: 'This year’s SBHS Aerospace Club members with the club’s new red rocket and two model rockets in a park' },
-  { src: '/images/V2PushBack.png', alt: 'Version 2 of Team 750W’s Push Back robot, with red and blue blocks on the floor around it' },
-  { src: '/images/LastYearRocketUpClose.png', alt: 'The 2025–26 competition rocket leaving the launch rail over a snowy field' },
-  { src: '/images/pvsamedals.jpeg', alt: 'Two Presidential Volunteer Service Award gold medals' },
+  { src: '/images/projects/rocketry-airbrakes/arc.jpg', alt: 'The SBHS aerospace team at the American Rocketry Challenge national finals in 2025' },
+  { src: '/images/projects/ndvi-payload/techrise.webp', alt: 'The NASA TechRise team with the winner’s certificate' },
+  { src: '/images/projects/push-back-robot/push-back-robot.jpeg', alt: 'Team 750W’s Push Back competition robot' },
+  { src: '/images/projects/ndvi-payload/nasapayload.jpeg', alt: 'The NDVI mapping payload in its clear enclosure' },
+  { src: '/images/projects/rocketry-airbrakes/ThisYearTeamAndRocket.jpeg', alt: 'This year’s SBHS Aerospace Club members with the club’s new red rocket and two model rockets in a park' },
+  { src: '/images/projects/push-back-robot/V2PushBack.png', alt: 'Version 2 of Team 750W’s Push Back robot, with red and blue blocks on the floor around it' },
+  { src: '/images/projects/rocketry-airbrakes/LastYearRocketUpClose.png', alt: 'The 2025–26 competition rocket leaving the launch rail over a snowy field' },
+  { src: '/images/awards/pvsamedals.jpeg', alt: 'Two Presidential Volunteer Service Award gold medals' },
 ];
 
-const IMPACT: { num: string; unit: string; title: string; href: string; text: string }[] = [
+/** Teaching & Community cards. Eight fill two full rows of four (or four rows of two). */
+const IMPACT: { emoji: string; num: string; unit: string; title: string; href: string; text: string }[] = [
   {
+    emoji: '🤖',
     num: '90+',
     unit: 'students',
     title: 'RoboZone',
@@ -25,6 +27,7 @@ const IMPACT: { num: string; unit: string; title: string; href: string; text: st
     text: 'Co-Founder and Co-President. I developed our 8-week Arduino, CAD, and C++ curriculum and lead 15+ mentors who have taught it over 160 workshop hours.',
   },
   {
+    emoji: '🛠️',
     num: '26',
     unit: 'builders',
     title: '750W Workshops',
@@ -32,6 +35,7 @@ const IMPACT: { num: string; unit: string; title: string; href: string; text: st
     text: 'As Workshop Lead, I mentor builders across six robotics teams, teaching from 130+ slides and 10 hands-on CAD projects, plus a 7-part CAD series on YouTube.',
   },
   {
+    emoji: '⚡',
     num: '65',
     unit: 'students',
     title: 'C++ Circuits Series',
@@ -39,11 +43,44 @@ const IMPACT: { num: string; unit: string; title: string; href: string; text: st
     text: 'A ten-session circuits and electronics workshop series I developed and led for the Computer Science Club.',
   },
   {
+    emoji: '💡',
+    num: '200+',
+    unit: 'students',
+    title: 'XSTEM',
+    href: 'https://x-stem.github.io/',
+    text: 'Co-President. I lead entrepreneurship programming, have hosted 6 industry speakers, and mentored 3 Blue Ocean Competition teams that placed in the top 350.',
+  },
+  {
+    emoji: '📚',
     num: '500+',
     unit: 'sessions',
-    title: 'Tutoring',
+    title: 'TurboTutors',
     href: 'https://turbotutors.org',
-    text: 'Co-Founder of TurboTutors (500+ sessions for 100+ students in CS, math, and physics) and a Schoolhouse.world tutor for 70+ students from 15+ countries.',
+    text: 'Co-Founder and Vice President. I created 1,200+ curriculum slides and 2,500+ practice problems for 100+ students in CS, math, and physics.',
+  },
+  {
+    emoji: '🌍',
+    num: '70+',
+    unit: 'students',
+    title: 'Schoolhouse.world',
+    href: 'https://schoolhouse.world/portfolio/5778efb9-9143-470d-81be-37338da57a25',
+    text: 'Silver-Level Tutor for students from 15+ countries in computer science, math, science, and history, with 80+ “Super Helpful” ratings.',
+  },
+  {
+    emoji: '🚀',
+    num: '20+',
+    unit: 'students',
+    title: 'Aerospace Workshops',
+    href: 'https://sbaerospace.vercel.app/',
+    text: 'Workshops the Aerospace Club runs at the South Brunswick Public Library, where we’ve taught 20+ students.',
+  },
+  {
+    emoji: '✍️',
+    num: '10K+',
+    unit: 'views',
+    title: 'Robotics Writing',
+    href: 'https://medium.com/@samuel-asefa',
+    text: '20+ articles on Medium about robotics, control systems, and AI (16,000+ words), with 2,200+ reads.',
   },
 ];
 
@@ -77,7 +114,7 @@ export const renderAbout = (): string => {
   <div class="impact-grid">
     ${IMPACT.map(
       (c) => `<a class="impact-card" href="${c.href}" target="_blank" rel="noopener">
-      <span class="impact-num">${esc(c.num)} <span>${esc(c.unit)}</span></span>
+      <span class="impact-top"><span class="impact-num">${esc(c.num)} <span>${esc(c.unit)}</span></span><span class="impact-emoji" aria-hidden="true">${c.emoji}</span></span>
       <h3>${esc(c.title)} <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></h3>
       <p>${esc(c.text)}</p>
     </a>`,
@@ -105,7 +142,7 @@ export const renderAbout = (): string => {
       description:
         'About Samuel Asefa - a senior at South Brunswick High School in robotics, aerospace, Science Olympiad, and computer science, and Co-Founder of RoboZone and TurboTutors.',
       path: '/about.html',
-      image: '/images/arc.jpg',
+      image: '/images/projects/rocketry-airbrakes/arc.jpg',
       type: 'profile',
       nav: 'about',
       jsonLd: [
@@ -118,7 +155,7 @@ export const renderAbout = (): string => {
             name: SITE.name,
             alternateName: 'Sammy Asefa',
             url: absoluteUrl('/'),
-            image: absoluteUrl(mediaUrl('/images/samuel-asefa.jpg', 480)),
+            image: absoluteUrl(mediaUrl('/images/site/samuel-asefa.jpg', 480)),
             affiliation: { '@type': 'EducationalOrganization', name: SITE.school },
           },
         },

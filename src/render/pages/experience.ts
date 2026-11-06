@@ -4,19 +4,24 @@ import type { ExperienceItem } from '../../content/types';
 import { projectPageUrl, sectionHeader } from '../components';
 import { esc, rich } from '../html';
 import { page } from '../layout';
+import { mediaUrl } from '../media';
 
 const card = (item: ExperienceItem): string => {
   const related = (item.projects ?? []).map(projectBySlug).filter((p) => p && p.depth !== 'entry');
   return `<article class="experience-card">
-  <div class="experience-card-header">
-    <div class="experience-card-title-row">
-      <h3 class="experience-card-name">
-        ${esc(item.org)}
-        ${item.href ? `<a href="${esc(item.href)}" target="_blank" rel="noopener" class="experience-ext-link" aria-label="Visit ${esc(item.org)} website (opens in a new tab)"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>` : ''}
-      </h3>
+  <div class="experience-card-header${item.icon ? ' experience-card-header--logo' : ''}">
+    ${item.icon ? `<img class="experience-logo" src="${esc(mediaUrl(item.icon, 160))}" alt="" width="48" height="48" loading="lazy" decoding="async">` : ''}
+    <div class="experience-card-heading">
+      <div class="experience-card-title-row">
+        <h3 class="experience-card-name">${esc(item.org)}${
+          item.href
+            ? `<a href="${esc(item.href)}" target="_blank" rel="noopener" class="experience-ext-link" aria-label="Visit ${esc(item.org)} website (opens in a new tab)"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>`
+            : ''
+        }</h3>
+      </div>
+      <div class="experience-role">${esc(item.role)}</div>
+      <div class="experience-meta"><i class="far fa-calendar" aria-hidden="true"></i> ${esc(item.dates)}${item.commitment ? ` &middot; <i class="far fa-clock" aria-hidden="true"></i> ${esc(item.commitment)}` : ''}</div>
     </div>
-    <div class="experience-role">${esc(item.role)}</div>
-    <div class="experience-meta"><i class="far fa-calendar" aria-hidden="true"></i> ${esc(item.dates)}${item.commitment ? ` &middot; <i class="far fa-clock" aria-hidden="true"></i> ${esc(item.commitment)}` : ''}</div>
   </div>
   <ul class="experience-desc-list">
     ${item.points.map((pt) => `<li>${rich(pt)}</li>`).join('\n    ')}
@@ -69,7 +74,7 @@ export const renderExperience = (): string => {
       description:
         'Samuel Asefa’s experience: VEX Team 750W Build Lead, Aerospace Club, Science Olympiad, Computer Science Club, XSTEM, VividSense, RoboZone, TurboTutors, and tutoring.',
       path: '/experience.html',
-      image: '/images/push-back-robot.jpeg',
+      image: '/images/projects/push-back-robot/push-back-robot.jpeg',
       nav: 'experience',
     },
     main,

@@ -226,7 +226,7 @@ export const renderEducation = (): string => {
       title: 'Education',
       description: 'Samuel Asefa’s coursework at South Brunswick High School by year, AP exam scores, and GPA.',
       path: '/education.html',
-      image: '/images/techrise.webp',
+      image: '/images/projects/ndvi-payload/techrise.webp',
       nav: 'education',
     },
     main,

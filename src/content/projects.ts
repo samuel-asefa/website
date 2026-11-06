@@ -26,7 +26,7 @@ export const projects: Project[] = [
     team: 'Team 750W, South Brunswick High School Robotics Club',
     featured: 1,
     cover: photo(
-      '/images/push-back-robot.jpeg',
+      '/images/projects/push-back-robot/push-back-robot.jpeg',
       '750W’s Push Back robot photographed from floor level against a dark background: an aluminum VEX frame with red and green sprockets, red pneumatic cylinders, and a curved arm arching over the top.',
       {
         caption:
@@ -72,27 +72,27 @@ export const projects: Project[] = [
           {
             type: 'figures',
             media: [
-              figure('/images/OldPushBackConcept.png', 'CAD model of a 750W robot holding a stack of red and blue Push Back blocks inside its frame, with a spiked intake roller at the front.', {
+              figure('/images/projects/push-back-robot/OldPushBackConcept.png', 'CAD model of a 750W robot holding a stack of red and blue Push Back blocks inside its frame, with a spiked intake roller at the front.', {
                 caption: 'An earlier concept, holding red and blue blocks inside the frame.',
               }),
-              figure('/images/PushBackConcept.png', 'CAD model of a later 750W concept: a tall aluminum frame with a row of flex-wheel rollers on an angled intake at the front and an air tank along the side.', {
+              figure('/images/projects/push-back-robot/PushBackConcept.png', 'CAD model of a later 750W concept: a tall aluminum frame with a row of flex-wheel rollers on an angled intake at the front and an air tank along the side.', {
                 caption: 'A later concept with a flex-wheel intake on an angled arm.',
               }),
             ],
           },
           {
             type: 'figure',
-            media: figure('/images/PushBackConceptInAction.png', 'The later concept in CAD, tilted against an orange long goal on the field, with a red block at the top of the intake.', {
+            media: figure('/images/projects/push-back-robot/PushBackConceptInAction.png', 'The later concept in CAD, tilted against an orange long goal on the field, with a red block at the top of the intake.', {
               caption: 'The later concept placed against a goal in CAD, with a block at the top of the intake.',
             }),
           },
           {
             type: 'figures',
             media: [
-              figure('/images/BasketBot.png', 'CAD model of BasketBot: a 750W robot with a large mesh basket on top and a stack of spoked roller intakes carrying a column of red blocks.', {
+              figure('/images/projects/push-back-robot/BasketBot.png', 'CAD model of BasketBot: a 750W robot with a large mesh basket on top and a stack of spoked roller intakes carrying a column of red blocks.', {
                 caption: 'BasketBot, another Push Back design: a mesh basket above a column of roller intakes.',
               }),
-              figure('/images/BasketBotInAction.png', 'BasketBot in CAD on the field, loaded with red blocks in its intake and blue blocks in its basket.', {
+              figure('/images/projects/push-back-robot/BasketBotInAction.png', 'BasketBot in CAD on the field, loaded with red blocks in its intake and blue blocks in its basket.', {
                 caption: 'BasketBot on the field in CAD, loaded with red and blue blocks.',
               }),
             ],
@@ -104,7 +104,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: 'figure',
-            media: photo('/images/V2PushBack.png', 'Version 2 of the Push Back robot on a carpeted floor, with a curved chain-mesh hood over red sprockets, an aluminum frame, and red and blue blocks scattered around it.', {
+            media: photo('/images/projects/push-back-robot/V2PushBack.png', 'Version 2 of the Push Back robot on a carpeted floor, with a curved chain-mesh hood over red sprockets, an aluminum frame, and red and blue blocks scattered around it.', {
               caption: 'Version 2 of the robot, built. The competition robot went through more than ten major iterations.',
             }),
           },
@@ -146,7 +146,7 @@ export const projects: Project[] = [
       'High Stakes is the 2024–25 VEX V5 Robotics Competition game, played with rings scored on stakes and mobile goals. I was Team 750W’s CAD Lead that season. BanquetBot, shown here, is one of our robot designs for it. That season’s robot earned the Excellence Award at the CCHS High Stakes Tournament, 1 of 36 teams.',
     role: 'CAD Lead, Team 750W',
     team: 'Team 750W, South Brunswick High School Robotics Club',
-    cover: render('/images/BanquetBotInAction.png', 'CAD model of BanquetBot on a High Stakes field next to the ladder, with red and blue rings and orange and blue mobile-goal stakes around it.', {
+    cover: render('/images/projects/high-stakes-robot/BanquetBotInAction.png', 'CAD model of BanquetBot on a High Stakes field next to the ladder, with red and blue rings and orange and blue mobile-goal stakes around it.', {
       caption: 'BanquetBot placed on a High Stakes field in CAD, with rings, mobile goals, and the ladder.',
     }),
     recognition: [
@@ -158,7 +158,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: 'figure',
-            media: figure('/images/BanquetBot.png', 'CAD model of a VEX robot with a tall chain-driven conveyor in the middle, two red pneumatic air tanks, omni-wheel drive, and two clamp arms on top.', {
+            media: figure('/images/projects/high-stakes-robot/BanquetBot.png', 'CAD model of a VEX robot with a tall chain-driven conveyor in the middle, two red pneumatic air tanks, omni-wheel drive, and two clamp arms on top.', {
               caption: 'BanquetBot, a robot design for High Stakes (2024–25): a chain-driven conveyor in the middle, two air tanks, and clamp arms on top.',
             }),
           },
@@ -184,7 +184,7 @@ export const projects: Project[] = [
     team: 'SBHS Science Olympiad',
     summary:
       'Robot Tour is a Science Olympiad build event: teams design, build, and program a robot that drives itself along a track to a target point, aiming to arrive in a set time as accurately as possible. Our robot is built on a Pololu 3pi+ 32U4 and programmed in Arduino. The clips below are from testing in February 2026.',
-    cover: photo('/images/robot-tour.jpg', 'A small round Pololu 3pi+ robot with a blue status light sitting on a beige foam mat, with a hand holding a pencil beside it.', {
+    cover: photo('/images/projects/robot-tour/robot-tour.jpg', 'A small round Pololu 3pi+ robot with a blue status light sitting on a beige foam mat, with a hand holding a pencil beside it.', {
       caption: 'Marking the robot’s start position before a test run.',
     }),
     sections: {
@@ -241,7 +241,7 @@ export const projects: Project[] = [
     role: 'Electronics Lead: circuitry, sensors, and logging firmware',
     team: 'South Brunswick High School Aerospace Club',
     cover: photo(
-      '/images/nasapayload.jpeg',
+      '/images/projects/ndvi-payload/nasapayload.jpeg',
       'The payload: a tall clear acrylic enclosure on a lab table, packed with sensor boards and colored jumper wires, with a cable leaving through the white top plate.',
       {
         caption: 'The assembled payload in its clear enclosure.',
@@ -298,11 +298,11 @@ export const projects: Project[] = [
           {
             type: 'figures',
             media: [
-              photo('/images/nasa-techrise-soldering.JPG', 'A student in a black hoodie solders at a bench under a desk lamp, with a laptop open on a video call to the left and an orange tool case to the right.', {
+              photo('/images/projects/ndvi-payload/nasa-techrise-soldering.JPG', 'A student in a black hoodie solders at a bench under a desk lamp, with a laptop open on a video call to the left and an orange tool case to the right.', {
                 caption: 'Soldering during the payload build.',
                 focus: '45% 50%',
               }),
-              photo('/images/techrise.webp', 'Nine students stand in a row in a school lab around a woman holding a NASA TechRise certificate.', {
+              photo('/images/projects/ndvi-payload/techrise.webp', 'Nine students stand in a row in a school lab around a woman holding a NASA TechRise certificate.', {
                 caption: 'The TechRise team with the winner’s certificate.',
                 focus: '50% 45%',
               }),
@@ -311,10 +311,10 @@ export const projects: Project[] = [
           {
             type: 'figures',
             media: [
-              photo('/images/TechRise1.jpg', 'The payload in its clear enclosure, set into pink foam, with a 3D-printed plate reading South Brunswick Aerospace, NASA TechRise and an Adafruit Metro M4 Express board inside.', {
+              photo('/images/projects/ndvi-payload/TechRise1.jpg', 'The payload in its clear enclosure, set into pink foam, with a 3D-printed plate reading South Brunswick Aerospace, NASA TechRise and an Adafruit Metro M4 Express board inside.', {
                 caption: 'The finished payload in its foam case, under a 3D-printed South Brunswick Aerospace / NASA TechRise plate. The Adafruit Metro M4 Express board is visible inside.',
               }),
-              photo('/images/TechRise2.jpg', 'A livestream frame of a high-altitude balloon rising into a blue sky with a gondola and parachute below it, with an overlay listing launch stages and Liftoff highlighted.', {
+              photo('/images/projects/ndvi-payload/TechRise2.jpg', 'A livestream frame of a high-altitude balloon rising into a blue sky with a gondola and parachute below it, with an overlay listing launch stages and Liftoff highlighted.', {
                 caption: 'World View’s launch livestream at liftoff of the TechRise balloon flight.',
               }),
             ],
@@ -344,7 +344,7 @@ export const projects: Project[] = [
     role: 'Design Lead and Electronics Lead (2025–26); Co-Vice President (2026–27)',
     team: 'South Brunswick High School Aerospace Club',
     cover: photo(
-      '/images/LastYearRocketUpClose.png',
+      '/images/projects/rocketry-airbrakes/LastYearRocketUpClose.png',
       'A gray rocket with a blue band and blue fins leaving the launch rail over a snowy field, with a purple-white motor flame at the base.',
       {
         caption: 'The 2025–26 rocket leaving the launch rail at a winter launch.',
@@ -375,7 +375,7 @@ export const projects: Project[] = [
           },
           {
             type: 'figure',
-            media: photo('/images/arc.jpg', 'Nine members of the aerospace team in matching navy shirts and lanyards stand in front of the American Rocketry Challenge backdrop.', {
+            media: photo('/images/projects/rocketry-airbrakes/arc.jpg', 'Nine members of the aerospace team in matching navy shirts and lanyards stand in front of the American Rocketry Challenge backdrop.', {
               caption: 'Our team at the 2025 ARC national finals in Virginia, where we placed 50th of 100.',
             }),
           },
@@ -390,7 +390,7 @@ export const projects: Project[] = [
           },
           {
             type: 'figure',
-            media: figure('/images/Airbrakes.png', 'Section view of the airbrake module in CAD: a servo in the lower bay, a linkage above it, and thin flaps sticking out through slots on both sides of the body tube, with bolts holding the bulkheads together.', {
+            media: figure('/images/projects/rocketry-airbrakes/Airbrakes.png', 'Section view of the airbrake module in CAD: a servo in the lower bay, a linkage above it, and thin flaps sticking out through slots on both sides of the body tube, with bolts holding the bulkheads together.', {
               caption: 'Section view of the airbrake module in CAD. The servo (lower middle) drives the flaps that extend through slots in the body tube.',
             }),
           },
@@ -417,7 +417,7 @@ export const projects: Project[] = [
               label: 'Bench test: a printed airbrake section on a desk; the servo turns and the flaps slide out through slots in the tube.',
               caption: 'Bench test of the printed airbrake section: the servo turns and the flaps slide out through the body tube (4 seconds).',
             },
-            beside: photo('/images/OriginalAirbrakesCircuit.jpeg', 'A breadboard on a white table with a small purple microcontroller board, an MPU-6050 sensor board, a second purple sensor board, and many colored jumper wires, connected by a blue USB cable.', {
+            beside: photo('/images/projects/rocketry-airbrakes/OriginalAirbrakesCircuit.jpeg', 'A breadboard on a white table with a small purple microcontroller board, an MPU-6050 sensor board, a second purple sensor board, and many colored jumper wires, connected by a blue USB cable.', {
               caption: 'The first airbrake circuit on a breadboard: a microcontroller with an MPU-6050 (right) and a second sensor board. The flight version moved to custom wiring and a printed circuit board.',
             }),
           },
@@ -436,7 +436,7 @@ export const projects: Project[] = [
           },
           {
             type: 'figure',
-            media: figure('/images/LastYearRocketCAD.png', 'Side view CAD of the 2025–26 rocket: a blue nose cone, a gray body tube with a mechanism bay in the middle where small flaps stick out, and blue fins at the tail.', {
+            media: figure('/images/projects/rocketry-airbrakes/LastYearRocketCAD.png', 'Side view CAD of the 2025–26 rocket: a blue nose cone, a gray body tube with a mechanism bay in the middle where small flaps stick out, and blue fins at the tail.', {
               caption: 'The 2025–26 rocket in CAD. The airbrake bay is in the middle of the body tube.',
             }),
           },
@@ -453,18 +453,18 @@ export const projects: Project[] = [
           },
           {
             type: 'figure',
-            media: figure('/images/ThisYearRocketCAD.png', 'Side view CAD of the 2026–27 rocket: a gold nose cone, a copper-colored body with a mechanism bay in the middle, and gold fins at the tail.', {
+            media: figure('/images/projects/rocketry-airbrakes/ThisYearRocketCAD.png', 'Side view CAD of the 2026–27 rocket: a gold nose cone, a copper-colored body with a mechanism bay in the middle, and gold fins at the tail.', {
               caption: 'This year’s (2026–27) rocket in CAD.',
             }),
           },
           {
             type: 'figures',
             media: [
-              photo('/images/ThisYearRocket.png', 'A tall red rocket with tan nose cone, coupler, and fins standing upright in a room, next to a desk with a monitor and a cordless drill.', {
+              photo('/images/projects/rocketry-airbrakes/ThisYearRocket.png', 'A tall red rocket with tan nose cone, coupler, and fins standing upright in a room, next to a desk with a monitor and a cordless drill.', {
                 caption: 'The 2026–27 rocket assembled.',
                 focus: '50% 40%',
               }),
-              photo('/images/ThisYearTeamAndRocket.jpeg', 'Nine students stand behind a table with a South Brunswick Aerospace Club banner in a park, with a red rocket and two white model rockets standing on the table.', {
+              photo('/images/projects/rocketry-airbrakes/ThisYearTeamAndRocket.jpeg', 'Nine students stand behind a table with a South Brunswick Aerospace Club banner in a park, with a red rocket and two white model rockets standing on the table.', {
                 caption: 'This year’s club members with the new rocket.',
                 focus: '50% 40%',
               }),
@@ -482,10 +482,10 @@ export const projects: Project[] = [
           {
             type: 'figures',
             media: [
-              figure('/images/FinCan.png', 'CAD render of a blue fin can: a short tube with four swept fins, cutouts in the wall, and a threaded ring inside.', {
+              figure('/images/projects/rocketry-airbrakes/FinCan.png', 'CAD render of a blue fin can: a short tube with four swept fins, cutouts in the wall, and a threaded ring inside.', {
                 caption: 'A fin can in CAD.',
               }),
-              photo('/images/Prints.png', '3D-printed blue parts laid out on a quilt: two body-tube sections, a finned section, two slotted discs, four small flaps, a grid plate, a square frame, and two cross-shaped brackets.', {
+              photo('/images/projects/rocketry-airbrakes/Prints.png', '3D-printed blue parts laid out on a quilt: two body-tube sections, a finned section, two slotted discs, four small flaps, a grid plate, a square frame, and two cross-shaped brackets.', {
                 caption: 'Printed rocket parts laid out before assembly.',
               }),
             ],
@@ -536,13 +536,13 @@ export const projects: Project[] = [
     role: 'Head of Engineering, VividSense',
     team: 'VividSense',
     cover: photo(
-      '/images/dexarm.png',
+      '/images/projects/dexarm/dexarm.png',
       'The DexArm prosthetic arm in black, standing upright with its palm open and fingers raised, against a dark gray backdrop.',
       { caption: 'DexArm, VividSense’s prosthetic arm.' },
     ),
     gallery: [
       photo(
-        '/images/dexarm.jpg',
+        '/images/projects/dexarm/dexarm.jpg',
         'An early DexArm prototype against a dark blue backdrop: cardboard fingers and palm, with small servos and wiring held in the palm with blue tape and a power cable leading out the side.',
         { caption: 'An early DexArm prototype: cardboard fingers, with servos and wiring taped into the palm.' },
       ),
@@ -571,7 +571,7 @@ export const projects: Project[] = [
     role: 'Head of Engineering, VividSense',
     team: 'VividSense',
     cover: photo(
-      '/images/surroundscanner.png',
+      '/images/projects/surroundscanner/surroundscanner.png',
       'A pair of glasses with two round ultrasonic sensors mounted on the bridge, lit blue and photographed low over a grid of glowing dots.',
       {
         caption: 'The SurroundScanner glasses, with two ultrasonic sensors mounted at the bridge.',
@@ -607,7 +607,7 @@ export const projects: Project[] = [
     team: 'Solo',
     featured: 2,
     cover: screenshot(
-      '/images/roboroute.png',
+      '/images/projects/roboroute/roboroute.png',
       'RoboRoute’s editor: a dark top-down VEX field with numbered waypoints joined by yellow path lines, and a toolbar for path modes, insert, delete, trim, and code generation.',
       {
         caption: 'An earlier version of the editor on the High Stakes skills field.',
@@ -688,7 +688,7 @@ export const projects: Project[] = [
     role: 'Designer and Developer',
     team: 'Solo',
     cover: screenshot(
-      '/images/sciolytics.png',
+      '/images/projects/sciolytics/sciolytics.png',
       'The Sciolytics dashboard in dark mode, greeting the user and showing practice counts, an accuracy chart over time, and a 92% score tile.',
       { caption: 'The Sciolytics dashboard.' },
     ),
@@ -713,7 +713,7 @@ export const projects: Project[] = [
     role: 'Designer and Developer',
     team: 'Solo',
     cover: screenshot(
-      '/images/circuit-space.png',
+      '/images/projects/circuitspace/circuit-space.png',
       'The CircuitSpace workspace: a component library on the left, an empty schematic canvas in the center, and a project summary panel on the right.',
       { caption: 'The CircuitSpace workspace.' },
     ),
@@ -739,7 +739,7 @@ export const projects: Project[] = [
     role: 'Designer and Developer',
     team: 'Solo',
     cover: screenshot(
-      '/images/amharic-quest.png',
+      '/images/projects/amharicquest/amharic-quest.png',
       'The AmharicQuest home screen in dark mode, greeting the learner and showing streak, XP, and level tiles, a highlighted lesson card for Basic Greetings, and quick practice options.',
       { caption: 'The AmharicQuest home screen.' },
     ),
@@ -759,7 +759,7 @@ export const projects: Project[] = [
     dates: 'Mar 2025 – 2026',
     start: '2025-03',
     team: 'Solo',
-    cover: screenshot('/images/mathify.png', 'Mathify’s practice screen: a timer at 04:39, a question, and five answer choices.'),
+    cover: screenshot('/images/projects/mathify/mathify.png', 'Mathify’s practice screen: a timer at 04:39, a question, and five answer choices.'),
     technologies: ['JavaScript', 'Firebase'],
     links: [
       { label: 'Open Mathify', href: 'https://math-ify.vercel.app/', kind: 'demo' },
@@ -776,7 +776,7 @@ export const projects: Project[] = [
     dates: 'Dec 2024 – Jan 2026',
     start: '2024-12',
     team: 'Solo',
-    cover: screenshot('/images/studently.png', 'Studently’s two-panel layout: color-coded categories on the left, a task list on the right.'),
+    cover: screenshot('/images/projects/studently/studently.png', 'Studently’s two-panel layout: color-coded categories on the left, a task list on the right.'),
     technologies: ['Svelte', 'JavaScript'],
     links: [
       { label: 'Open Studently', href: 'https://studentlyy.vercel.app/', kind: 'demo' },
@@ -802,7 +802,7 @@ export const projects: Project[] = [
     collaborators: ['Rohan Kunala', 'Arav Pyati'],
     featured: 3,
     cover: figure(
-      '/images/fig_rmse_comparison.png',
+      '/images/projects/adaptive-sensor-fusion/fig_rmse_comparison.png',
       'Bar chart titled Average Localization Error by Scenario. Localization RMSE in centimeters for dead reckoning, standard EKF, adaptive EKF, and ML adaptive fusion under normal, moderate, and severe conditions. The standard EKF bar rises to about 740 cm under severe conditions with a very large error bar; the others stay near 250 cm or below.',
       {
         caption:
@@ -856,10 +856,10 @@ export const projects: Project[] = [
           {
             type: 'figures',
             media: [
-              figure('/images/fig_camera_failure_error.png', 'Line chart of position error in meters over 15 seconds for standard EKF, adaptive EKF, and proposed ML fusion, with a shaded camera-failure window from 5 to 12 seconds.', {
+              figure('/images/projects/adaptive-sensor-fusion/fig_camera_failure_error.png', 'Line chart of position error in meters over 15 seconds for standard EKF, adaptive EKF, and proposed ML fusion, with a shaded camera-failure window from 5 to 12 seconds.', {
                 caption: 'One run with a camera failure injected from 5 to 12 s (shaded). The three filters track closely during the failure, with the proposed fusion slightly lowest at 12 s; after the camera returns, the adaptive EKF recovers furthest.',
               }),
-              figure('/images/fig_wheel_slip_error.png', 'Line chart of position error in meters over 15 seconds for standard EKF and proposed ML fusion, with a shaded wheel-slip window from 5 to 10 seconds.', {
+              figure('/images/projects/adaptive-sensor-fusion/fig_wheel_slip_error.png', 'Line chart of position error in meters over 15 seconds for standard EKF and proposed ML fusion, with a shaded wheel-slip window from 5 to 10 seconds.', {
                 caption: 'One run with wheel slip injected from 5 to 10 s. Here the proposed fusion’s error stays slightly above the standard EKF’s throughout.',
               }),
             ],
@@ -867,10 +867,10 @@ export const projects: Project[] = [
           {
             type: 'figures',
             media: [
-              figure('/images/fig_camera_failure_confidence.png', 'Line chart of predicted confidence from 0 to 1 for encoder, IMU, ultrasonic, and camera over 15 seconds, with the failure window shaded.', {
+              figure('/images/projects/adaptive-sensor-fusion/fig_camera_failure_confidence.png', 'Line chart of predicted confidence from 0 to 1 for encoder, IMU, ultrasonic, and camera over 15 seconds, with the failure window shaded.', {
                 caption: 'The network’s confidence in each sensor during the camera-failure run. Encoder confidence stays near 1; IMU confidence rises and falls inside the window. Camera confidence is already near zero from about 2 s, before the failure begins.',
               }),
-              figure('/images/fig_training_curves.png', 'Log-scale line chart of training and validation mean squared error over 30 epochs; both fall steeply then flatten.', {
+              figure('/images/projects/adaptive-sensor-fusion/fig_training_curves.png', 'Log-scale line chart of training and validation mean squared error over 30 epochs; both fall steeply then flatten.', {
                 caption: 'Training and validation loss (MSE, log scale) over 30 epochs.',
               }),
             ],
@@ -918,7 +918,7 @@ export const projects: Project[] = [
     team: 'With Rishabh Jitender, Georgia Institute of Technology (2026 study)',
     collaborators: ['Rishabh Jitender'],
     cover: figure(
-      '/images/teg-cycle-traces-urtc.jpg',
+      '/images/projects/cookstove-thermoelectric-regeneration/teg-cycle-traces-urtc.jpg',
       'Four stacked time-series panels over 180 minutes of repeated adsorption and regeneration: outlet concentration ratio near zero, average sorbent loading climbing in steps, mean bed temperature rising from 25.0 to about 26.2 °C, and TEG power switching between about 0.027 W and zero.',
       {
         caption:
@@ -972,7 +972,7 @@ export const projects: Project[] = [
           {
             type: 'figure',
             size: 'wide',
-            media: figure('/images/teg-system-concept-urtc.jpg', 'Four-panel schematic. (a) Stack: cookstove exhaust, TEG module (Bi2Te3), resistive heater, amine-functionalized porous sorbent bed with gas flow. (b) Imine-formation reactions for formaldehyde and acetaldehyde, and thermal regeneration. (c) One-dimensional computational domain with convection and axial dispersion. (d) Cycle timeline: adsorption, heating, desorption, cooling.', {
+            media: figure('/images/projects/cookstove-thermoelectric-regeneration/teg-system-concept-urtc.jpg', 'Four-panel schematic. (a) Stack: cookstove exhaust, TEG module (Bi2Te3), resistive heater, amine-functionalized porous sorbent bed with gas flow. (b) Imine-formation reactions for formaldehyde and acetaldehyde, and thermal regeneration. (c) One-dimensional computational domain with convection and axial dispersion. (d) Cycle timeline: adsorption, heating, desorption, cooling.', {
               caption: 'System concept (a), capture and regeneration chemistry (b), the 1D computational domain (c), and one cycle (d).',
               source: 'Figure 1, MIT URTC slides',
             }),
@@ -1033,14 +1033,14 @@ export const projects: Project[] = [
           {
             type: 'figure',
             size: 'wide',
-            media: figure('/images/teg_thermal_response.jpg', 'Four panels. (a) Heat map of bed temperature over position and time, ranging only from 25.000 to 25.022 °C. (b) TEG matched-load power rising with temperature difference to about 6 W at 300 K. (c) Mean bed temperature rising linearly by about 0.023 °C over six minutes. (d) Regeneration completeness versus regeneration temperature for 5- and 10-minute windows, approaching 100% only near 140 °C.', {
+            media: figure('/images/projects/cookstove-thermoelectric-regeneration/teg_thermal_response.jpg', 'Four panels. (a) Heat map of bed temperature over position and time, ranging only from 25.000 to 25.022 °C. (b) TEG matched-load power rising with temperature difference to about 6 W at 300 K. (c) Mean bed temperature rising linearly by about 0.023 °C over six minutes. (d) Regeneration completeness versus regeneration temperature for 5- and 10-minute windows, approaching 100% only near 140 °C.', {
               caption: 'Why heating fell short. In this run the bed warms by about 0.02 °C over six minutes (a, c), while regeneration only approaches completion near 140 °C (d). Matched-load TEG power grows with the temperature difference across the module (b).',
               source: 'Figure 4, MIT URTC slides',
             }),
           },
           {
             type: 'figure',
-            media: figure('/images/teg_sweep_histograms.png', 'Four histograms. (a) Formaldehyde capture efficiency, all at 1.000. (b) TEG power in watts, median 0.027, 5th percentile 0.015, 95th percentile 0.046. (c) Regeneration completeness from 0 to 1, median 0.237, with peaks at both ends. (d) Pressure drop, all at 16.432 Pa.', {
+            media: figure('/images/projects/cookstove-thermoelectric-regeneration/teg_sweep_histograms.png', 'Four histograms. (a) Formaldehyde capture efficiency, all at 1.000. (b) TEG power in watts, median 0.027, 5th percentile 0.015, 95th percentile 0.046. (c) Regeneration completeness from 0 to 1, median 0.237, with peaks at both ends. (d) Pressure drop, all at 16.432 Pa.', {
               caption: 'Distributions across the designs plotted here: capture efficiency is 1.000 at the 5th, 50th, and 95th percentiles (a); median TEG power is 0.027 W (b); regeneration completeness spreads from 0 to 1 with a median of 0.237 (c).',
             }),
           },
@@ -1067,7 +1067,7 @@ export const projects: Project[] = [
     },
     technologies: ['Python', 'Numerical modeling', 'COMSOL Multiphysics (2025 model)'],
     links: [
-      { label: 'Lightning-talk slides (PDF)', href: '/thermoelectric-mit-urtc-presentation.pdf', kind: 'slides' },
+      { label: 'Lightning-talk slides (PDF)', href: '/images/projects/cookstove-thermoelectric-regeneration/thermoelectric-mit-urtc-presentation.pdf', kind: 'slides' },
       { label: 'Slides on Zenodo', href: 'https://doi.org/10.5281/zenodo.23328194', kind: 'slides' },
       {
         label: 'Model code',
@@ -1094,7 +1094,7 @@ export const projects: Project[] = [
     team: 'With Rohan Kunala and Irenov Joel',
     collaborators: ['Rohan Kunala', 'Irenov Joel'],
     cover: figure(
-      '/images/hybrid_reconstruction_example.png',
+      '/images/projects/hybrid-flow-reconstruction/hybrid_reconstruction_example.png',
       'Three heat maps side by side for unseen test geometry 0 at time step 60: target speed field, hybrid prediction, and absolute error, with 12 sensor locations marked as white dots. Relative L2 error 0.0477.',
       {
         caption:
@@ -1125,14 +1125,14 @@ export const projects: Project[] = [
           {
             type: 'figure',
             size: 'wide',
-            media: figure('/images/hybrid_architecture.png', 'Block diagram. Top row: 12 sensors by 30 time steps, position-aware sensor encoder, SHRED-style LSTM encoder, temporal latent z_T. Bottom row: geometry and flow parameters, geometry encoder, geometry latent z_G. Both latents feed a fusion block and DeepONet branch coefficients; query coordinates pass through Fourier features and the DeepONet trunk; outputs are u, v, and s.', {
+            media: figure('/images/projects/hybrid-flow-reconstruction/hybrid_architecture.png', 'Block diagram. Top row: 12 sensors by 30 time steps, position-aware sensor encoder, SHRED-style LSTM encoder, temporal latent z_T. Bottom row: geometry and flow parameters, geometry encoder, geometry latent z_G. Both latents feed a fusion block and DeepONet branch coefficients; query coordinates pass through Fourier features and the DeepONet trunk; outputs are u, v, and s.', {
               caption: 'Sensor history and geometry are encoded separately, fused into the DeepONet branch, and evaluated at any query point by the trunk. The model predicts velocity components and speed together, and enforces consistency between predicted speed and the magnitude of the predicted velocity.',
               source: 'Figure from the preprint',
             }),
           },
           {
             type: 'figure',
-            media: figure('/images/sensor_layout_example.png', 'Heat map of speed magnitude for an unseen finite-core vortex-wake field over x from 0 to 4 and y from −1 to 1, with 12 numbered sensor positions.', {
+            media: figure('/images/projects/hybrid-flow-reconstruction/sensor_layout_example.png', 'Heat map of speed magnitude for an unseen finite-core vortex-wake field over x from 0 to 4 and y from −1 to 1, with 12 numbered sensor positions.', {
               caption: 'The 12 sensor positions over an unseen vortex-wake field. The dataset varies obstacle position, size, aspect ratio, shedding frequency, and vortex strength.',
             }),
           },
@@ -1166,7 +1166,7 @@ export const projects: Project[] = [
     dates: '2025',
     start: '2025-09',
     team: 'Solo',
-    cover: screenshot('/images/life-expectancy-prediction-model.jpg', 'Output from the life expectancy model notebook.'),
+    cover: screenshot('/images/projects/life-expectancy-model/life-expectancy-prediction-model.jpg', 'Output from the life expectancy model notebook.'),
     technologies: ['Python', 'pandas', 'scikit-learn'],
     links: [{ label: 'Source', href: 'https://github.com/samuel-asefa/LifeExpectancyModel', kind: 'code' }],
   },
@@ -1180,7 +1180,7 @@ export const projects: Project[] = [
     dates: '2025',
     start: '2025-12',
     team: 'Solo',
-    cover: screenshot('/images/global-trade-prediction-model.png', 'Output from the global trade model.'),
+    cover: screenshot('/images/projects/global-trade-model/global-trade-prediction-model.png', 'Output from the global trade model.'),
     technologies: ['Python', 'pandas', 'scikit-learn'],
     links: [{ label: 'Source', href: 'https://github.com/samuel-asefa/GlobalTradeModel', kind: 'code' }],
   },

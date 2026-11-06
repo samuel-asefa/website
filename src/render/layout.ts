@@ -68,7 +68,7 @@ const footer = (): string => `
       <a href="https://www.linkedin.com/in/samuelasefa/" rel="noopener" target="_blank" aria-label="LinkedIn profile" class="social-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
       <a href="https://github.com/samuel-asefa" rel="noopener" target="_blank" aria-label="GitHub profile" class="social-icon"><i class="fab fa-github" aria-hidden="true"></i></a>
       <a href="https://www.youtube.com/@samuel-asefa" rel="noopener" target="_blank" aria-label="YouTube channel" class="social-icon"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-      <a href="https://medium.com/@samuel-asefa" rel="noopener" target="_blank" aria-label="Medium articles" class="social-icon"><img src="/images/medium.png" alt="" width="20" height="20" style="width: 20px; height: 20px; object-fit: contain;"></a>
+      <a href="https://medium.com/@samuel-asefa" rel="noopener" target="_blank" aria-label="Medium articles" class="social-icon"><img src="/images/site/medium.png" alt="" width="20" height="20" style="width: 20px; height: 20px; object-fit: contain;"></a>
       <a href="mailto:${SITE.email}" aria-label="Email ${SITE.email}" class="social-icon"><i class="fas fa-envelope" aria-hidden="true"></i></a>
     </div>
   </div>
@@ -85,7 +85,7 @@ const footer = (): string => `
 export const page = (meta: PageMeta, main: string): string => {
   const fullTitle = meta.title ? `Samuel Asefa - ${meta.title}` : 'Samuel Asefa';
   const canonical = absoluteUrl(meta.path);
-  const share = absoluteUrl(shareImageFor(meta.image ?? '/images/samuel-asefa.jpg'));
+  const share = absoluteUrl(shareImageFor(meta.image ?? '/images/site/samuel-asefa.jpg'));
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>

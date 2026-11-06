@@ -54,6 +54,14 @@ const slug = (src) =>
     .replace(/\.([a-z]+)$/, '-$1')
     .replace(/[^a-z0-9-]+/g, '-');
 
+// Derivatives are named after the file alone, so the same name in two folders would clash.
+const named = new Map();
+for (const src of refs) {
+  const n = slug(src);
+  if (named.has(n) && named.get(n) !== src) console.warn(`  name clash: ${src} and ${named.get(n)} both map to /media/${n}; rename one`);
+  named.set(n, src);
+}
+
 const toHex = ({ r, g, b }) => '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
 
 let made = 0;
