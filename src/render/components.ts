@@ -106,7 +106,7 @@ const galleryAttr = (items: Media[]): string =>
     : '';
 
 const schoolSeal = (p: Project): string =>
-  p.mentor ? `<img class="school-seal" src="${esc(mediaUrl(p.mentor.logo, 160))}" alt="" width="22" height="22" loading="lazy" decoding="async">` : '';
+  p.mentor ? `<img class="school-seal" src="${esc(mediaUrl(p.mentor.logo, 160))}" alt="" width="40" height="40" loading="lazy" decoding="async">` : '';
 
 const mentorName = (p: Project): string =>
   !p.mentor ? '' : p.mentor.href ? `<a href="${esc(p.mentor.href)}" target="_blank" rel="noopener">${esc(p.mentor.name)}</a>` : esc(p.mentor.name);

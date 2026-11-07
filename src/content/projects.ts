@@ -90,7 +90,7 @@ export const projects: Project[] = [
             type: 'figures',
             media: [
               figure('/images/projects/push-back-robot/BasketBot.png', 'CAD model of BasketBot: a 750W robot with a large mesh basket on top and a stack of spoked roller intakes carrying a column of red blocks.', {
-                caption: 'BasketBot, another Push Back design: a mesh basket above a column of roller intakes.',
+                caption: 'BasketBot, another Push Back design, with a mesh basket above a column of roller intakes.',
               }),
               figure('/images/projects/push-back-robot/BasketBotInAction.png', 'BasketBot in CAD on the field, loaded with red blocks in its intake and blue blocks in its basket.', {
                 caption: 'BasketBot on the field in CAD, loaded with red and blue blocks.',
@@ -105,7 +105,7 @@ export const projects: Project[] = [
           {
             type: 'figure',
             media: photo('/images/projects/push-back-robot/V2PushBack.png', 'Version 2 of the Push Back robot on a carpeted floor, with a curved chain-mesh hood over red sprockets, an aluminum frame, and red and blue blocks scattered around it.', {
-              caption: 'Version 2 of the robot, built. The competition robot went through more than ten major iterations.',
+              caption: 'Version 2 of the robot. The competition robot went through more than ten major iterations.',
             }),
           },
         ],
@@ -159,7 +159,7 @@ export const projects: Project[] = [
           {
             type: 'figure',
             media: figure('/images/projects/high-stakes-robot/BanquetBot.png', 'CAD model of a VEX robot with a tall chain-driven conveyor in the middle, two red pneumatic air tanks, omni-wheel drive, and two clamp arms on top.', {
-              caption: 'BanquetBot, a robot design for High Stakes (2024–25): a chain-driven conveyor in the middle, two air tanks, and clamp arms on top.',
+              caption: 'BanquetBot, one of our High Stakes designs (2024–25), with a chain-driven conveyor in the middle, two air tanks, and clamp arms on top.',
             }),
           },
         ],
@@ -183,7 +183,7 @@ export const projects: Project[] = [
     start: '2025-09',
     team: 'SBHS Science Olympiad',
     summary:
-      'Robot Tour is a Science Olympiad build event: teams design, build, and program a robot that drives itself along a track to a target point, aiming to arrive in a set time as accurately as possible. Our robot is built on a Pololu 3pi+ 32U4 and programmed in Arduino. The clips below are from testing in February 2026.',
+      'Robot Tour is a Science Olympiad build event where teams design, build, and program a robot that drives itself along a track to a target point, trying to hit a set time as closely as possible. Our robot is built on a Pololu 3pi+ 32U4 and programmed in Arduino. The clips below are from testing in February 2026.',
     cover: photo('/images/projects/robot-tour/robot-tour.jpg', 'A small round Pololu 3pi+ robot with a blue status light sitting on a beige foam mat, with a hand holding a pencil beside it.', {
       caption: 'Marking the robot’s start position before a test run.',
     }),
@@ -200,7 +200,7 @@ export const projects: Project[] = [
                 width: 720,
                 height: 1280,
                 label: 'A hand turns the round robot beside a laptop running the Arduino IDE, whose serial monitor scrolls accelerometer, magnetometer, and gyroscope readings.',
-                caption: 'Checking the inertial sensors: turning the robot by hand while the serial monitor streams accelerometer, magnetometer, and gyroscope readings (10 seconds).',
+                caption: 'Turning the robot by hand to check its inertial sensors while the serial monitor streams accelerometer, magnetometer, and gyroscope readings (10 seconds).',
               },
               {
                 src: '/media/video/robot-tour-test-run.mp4',
@@ -208,7 +208,7 @@ export const projects: Project[] = [
                 width: 720,
                 height: 1280,
                 label: 'A hand marks the robot’s start position on a foam mat with a pencil, then the robot drives itself away across the mat.',
-                caption: 'A test run: marking the start position, then the robot drives itself across the mat (17 seconds).',
+                caption: 'A test run. The start position gets marked, then the robot drives itself across the mat (17 seconds).',
               },
               {
                 src: '/media/video/robot-tour-short-run.mp4',
@@ -238,7 +238,7 @@ export const projects: Project[] = [
     status: 'Payload hardware and logging code built',
     summary:
       'Our aerospace club proposed an NDVI (vegetation index) mapping payload that would use machine learning, and NASA selected it as a winner of the TechRise Student Challenge in the high-altitude balloon category, with $1,500 in funding. As Electronics Lead, I designed the payload’s circuitry and onboard data collection, and wrote the code that logs flight telemetry and four sensors to an SD card once per second.',
-    role: 'Electronics Lead: circuitry, sensors, and logging firmware',
+    role: 'Electronics Lead',
     team: 'South Brunswick High School Aerospace Club',
     cover: photo(
       '/images/projects/ndvi-payload/nasapayload.jpeg',
@@ -275,15 +275,15 @@ export const projects: Project[] = [
       design: {
         title: 'Data path',
         blocks: [
-          { type: 'diagram', id: 'ndvi-dataflow', caption: 'How data moves through the payload, drawn from the firmware’s README; the board is identified from the build photo. This is a data-flow sketch, not a wiring schematic.' },
+          { type: 'diagram', id: 'ndvi-dataflow', caption: 'How data moves through the payload. This is a data-flow sketch, not a wiring schematic.' },
           {
             type: 'list',
             items: [
-              '<strong>Telemetry.</strong> The WorldView flight module supplies GPS position, altitude, speed, heading, vertical velocity, pressure, temperature, and flight status.',
-              '<strong>Spectral.</strong> An AS7343 provides 11 channels: eight visible bands (F1–F8) plus near-infrared, with configurable gain and integration time.',
-              '<strong>Light.</strong> A TSL2591 measures lux, infrared, visible, and full-spectrum intensity.',
-              '<strong>Atmosphere.</strong> A BME280 records temperature, humidity, and pressure, and estimates altitude.',
-              '<strong>Motion.</strong> An MPU6050 records 3-axis acceleration and rotation.',
+              'The WorldView flight module supplies GPS position, altitude, speed, heading, vertical velocity, pressure, temperature, and flight status.',
+              'An AS7343 provides 11 channels: eight visible bands (F1–F8) plus near-infrared, with configurable gain and integration time.',
+              'A TSL2591 measures lux, infrared, visible, and full-spectrum intensity.',
+              'A BME280 records temperature, humidity, and pressure, and estimates altitude.',
+              'An MPU6050 records 3-axis acceleration and rotation.',
             ],
           },
           {
@@ -338,9 +338,9 @@ export const projects: Project[] = [
     depth: 'case-study',
     dates: '2024 – present',
     start: '2024-09',
-    status: 'Ongoing: 2026–27 season',
+    status: 'Ongoing in the 2026–27 season',
     summary:
-      'Our aerospace club designs, builds, and flies rockets for the American Rocketry Challenge (ARC). In 2025 the team placed 50th of 100 at the national finals. For the 2025–26 rocket I built and programmed an airbrake system: a 3D-printed module whose servo pushes flaps out through the body tube, run by flight code that predicts apogee from barometer and accelerometer readings and deploys the brakes to aim for a 750 ft target.',
+      'Our aerospace club designs, builds, and flies rockets for the American Rocketry Challenge (ARC). In 2025 the team placed 50th of 100 at the national finals. For the 2025–26 rocket I built and programmed an airbrake system. It’s a 3D-printed module with a servo that pushes flaps out through the body tube, and its flight code predicts apogee from barometer and accelerometer readings, then deploys the brakes to aim for a 750 ft target.',
     role: 'Design Lead and Electronics Lead (2025–26); Co-Vice President (2026–27)',
     team: 'South Brunswick High School Aerospace Club',
     cover: photo(
@@ -386,7 +386,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: 'text',
-            html: 'To land closer to the target altitude, the 2025–26 rocket carries airbrakes: flaps that extend from the body tube partway through the climb to add drag. The module is 3D-printed, with a servo in the lower bay driving the flaps.',
+            html: 'To get closer to the target altitude, the 2025–26 rocket carries airbrakes, which are flaps that extend from the body tube partway through the climb to add drag. The module is 3D-printed, with a servo in the lower bay driving the flaps.',
           },
           {
             type: 'figure',
@@ -415,10 +415,10 @@ export const projects: Project[] = [
               width: 720,
               height: 1280,
               label: 'Bench test: a printed airbrake section on a desk; the servo turns and the flaps slide out through slots in the tube.',
-              caption: 'Bench test of the printed airbrake section: the servo turns and the flaps slide out through the body tube (4 seconds).',
+              caption: 'Bench test of the printed airbrake section. The servo turns and the flaps slide out through the body tube (4 seconds).',
             },
             beside: photo('/images/projects/rocketry-airbrakes/OriginalAirbrakesCircuit.jpeg', 'A breadboard on a white table with a small purple microcontroller board, an MPU-6050 sensor board, a second purple sensor board, and many colored jumper wires, connected by a blue USB cable.', {
-              caption: 'The first airbrake circuit on a breadboard: a microcontroller with an MPU-6050 (right) and a second sensor board. The flight version moved to custom wiring and a printed circuit board.',
+              caption: 'The first airbrake circuit, on a breadboard with a microcontroller, an MPU-6050 (right), and a second sensor board. The flight version moved to custom wiring and a printed circuit board.',
             }),
           },
         ],
@@ -495,10 +495,6 @@ export const projects: Project[] = [
       reflection: {
         title: 'What’s next for the flight code',
         blocks: [
-          {
-            type: 'text',
-            html: 'From the planned updates in the Rocket++ README:',
-          },
           {
             type: 'list',
             items: [
@@ -594,7 +590,7 @@ export const projects: Project[] = [
   {
     slug: 'roboroute',
     title: 'RoboRoute',
-    line: 'A route planner for VEX autonomous routines. Click waypoints on a scaled field, export LemLib code.',
+    line: 'A route planner for VEX autonomous routines. You click waypoints on a to-scale field and it writes the LemLib code.',
     category: 'software',
     tags: ['Robotics', 'Web app'],
     depth: 'case-study',
@@ -602,7 +598,7 @@ export const projects: Project[] = [
     start: '2024-12',
     status: 'Live, version 3.0',
     summary:
-      'Planning a VEX autonomous routine means turning a strategy into field coordinates and headings, then into code. RoboRoute does that in the browser: you place waypoints on a to-scale field, set a heading at each one, and copy out <a href="https://github.com/LemLib/LemLib">LemLib</a> motion commands.',
+      'Planning a VEX autonomous routine means turning a strategy into field coordinates and headings, then into code. RoboRoute does that in the browser. You place waypoints on a to-scale field, set a heading at each one, and copy out <a href="https://github.com/LemLib/LemLib">LemLib</a> motion commands.',
     role: 'Designer and Developer',
     team: 'Solo',
     featured: 2,
@@ -624,7 +620,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: 'text',
-            html: 'The field is modeled in inches, 144 on a side, with the origin at its center. Every click is converted from canvas pixels into field inches (the canvas is 800 px for 144 in, about 5.56 px per inch, with the y-axis flipped), so exported coordinates are in field units, not screen units.',
+            html: 'The field is modeled in inches, 144 on a side, with the origin at its center. Every click is converted from canvas pixels into field inches (the canvas is 800 px for 144 in, about 5.56 px per inch, with the y-axis flipped), so exported coordinates are in field inches.',
           },
           {
             type: 'text',
@@ -645,7 +641,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: 'text',
-            html: 'Earlier versions (screenshot above) offered both straight and Bézier path modes. Version 3.0 draws straight segments only. Each exported line is a <code>moveToPose</code> target, so the curve a robot actually drives comes from LemLib’s controller rather than from the drawing; the planner’s job is to get positions and headings right.',
+            html: 'Earlier versions (screenshot above) offered both straight and Bézier path modes. Version 3.0 draws straight segments only. Each exported line is a <code>moveToPose</code> target, and LemLib’s controller decides the curve the robot actually drives, so the planner only has to get positions and headings right.',
           },
         ],
       },
@@ -680,7 +676,7 @@ export const projects: Project[] = [
     start: '2025-04',
     status: 'Live',
     summary:
-      'A practice platform for Science Olympiad competitors, coaches, and teams: 1,750+ practice questions across 15+ events, event wikis, analytics on accuracy by event and subtopic, custom tests, and teams that can assign tests to members. A Gemini-based importer turns study guides into draft questions. I built it while competing in Science Olympiad and captaining our build events.',
+      'A practice platform for Science Olympiad competitors and coaches, with 1,750+ questions across 15+ events. It also has event wikis, accuracy breakdowns by event and subtopic, and custom tests, and teams can assign tests to their members. A Gemini-based importer turns study guides into draft questions. I built it while competing in Science Olympiad and captaining our build events.',
     role: 'Designer and Developer',
     team: 'Solo',
     cover: screenshot(
@@ -731,7 +727,7 @@ export const projects: Project[] = [
     start: '2025-01',
     status: 'Live',
     summary:
-      'AmharicQuest teaches Amharic starting from its script, the Fidel: all 33 consonant families, each in seven vowel orders (230+ characters with romanization), then 42 vocabulary words across nine categories and nine lessons from beginner to intermediate, with quizzes and progress tracking.',
+      'AmharicQuest teaches Amharic starting with its script, the Fidel. You learn all 33 consonant families in their seven vowel orders (230+ characters, with romanization), then move on to 42 vocabulary words in nine categories and nine lessons that go from beginner to intermediate. There are quizzes along the way, and it tracks your progress.',
     role: 'Designer and Developer',
     team: 'Solo',
     cover: screenshot(
@@ -784,7 +780,7 @@ export const projects: Project[] = [
   {
     slug: 'adaptive-sensor-fusion',
     title: 'Adaptive Sensor Fusion for Autonomous Robots',
-    line: 'A Kalman filter that learns which sensors to trust. In simulation, 66.2% lower error than a standard EKF under severe degradation.',
+    line: 'A Kalman filter that learns which sensors to trust. In simulation it had 66.2% lower error than a standard EKF under severe degradation.',
     category: 'research',
     tags: ['Robotics', 'Machine learning', 'Simulation'],
     depth: 'case-study',
@@ -804,7 +800,7 @@ export const projects: Project[] = [
       'Bar chart titled Average Localization Error by Scenario. Localization RMSE in centimeters for dead reckoning, standard EKF, adaptive EKF, and ML adaptive fusion under normal, moderate, and severe conditions. The standard EKF bar rises to about 740 cm under severe conditions with a very large error bar; the others stay near 250 cm or below.',
       {
         caption:
-          'Average localization RMSE for four estimators at three degradation levels. The headline comparison is the severe case: standard EKF 743.6 cm, proposed method 251.7 cm. Error bars as plotted in the preprint.',
+          'Average localization RMSE for four estimators at three degradation levels. In the severe case, the standard EKF averaged 743.6 cm and the proposed method 251.7 cm. Error bars are shown as plotted in the preprint.',
         source: 'Figure from the preprint',
       },
     ),
@@ -831,7 +827,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: 'text',
-            html: 'Wheel encoders slip. IMUs drift. Ultrasonic sensors bounce off reflective surfaces, and cameras lose track in poor light or behind occlusions. A standard EKF weights each sensor with fixed noise covariances, so when a sensor starts failing, the filter keeps trusting it at the old level.',
+            html: 'Wheel encoders slip and IMUs drift. Ultrasonic sensors bounce off reflective surfaces, and cameras lose track in poor light or when something blocks the view. A standard EKF weights each sensor with fixed noise covariances, so when a sensor starts failing, the filter keeps trusting it at the old level.',
           },
         ],
       },
@@ -844,7 +840,7 @@ export const projects: Project[] = [
           },
           {
             type: 'text',
-            html: 'Baselines: dead reckoning, a conventional EKF, and an innovation-based adaptive EKF, which adjusts covariances from the filter’s own residuals instead of a learned model.',
+            html: 'I compared it against dead reckoning, a conventional EKF, and an innovation-based adaptive EKF, which adjusts covariances from the filter’s own residuals instead of using a learned model.',
           },
         ],
       },
@@ -903,7 +899,7 @@ export const projects: Project[] = [
   {
     slug: 'cookstove-thermoelectric-regeneration',
     title: 'Thermoelectric-Assisted Amine Regeneration for Cookstove Pollution Capture',
-    line: 'A computational test of thermoelectric regeneration for aldehyde-capturing sorbents. Capture worked; regeneration didn’t.',
+    line: 'A computational study of whether a thermoelectric generator can regenerate aldehyde-capturing sorbents. The sorbent captured well, but the generator couldn’t supply enough heat to regenerate it.',
     category: 'research',
     tags: ['Energy', 'Chemical engineering', 'Simulation'],
     depth: 'case-study',
@@ -916,15 +912,26 @@ export const projects: Project[] = [
     mentor: { name: 'Rishabh Jitender', href: 'https://www.linkedin.com/in/rishabh-jitender', school: 'Georgia Institute of Technology', logo: '/images/schools/georgia-tech.png' },
     commitment: '2–4 hours a week, 20 weeks a year',
     collaborators: ['Rishabh Jitender'],
-    cover: figure(
-      '/images/projects/cookstove-thermoelectric-regeneration/teg-cycle-traces-urtc.jpg',
-      'Four stacked time-series panels over 180 minutes of repeated adsorption and regeneration: outlet concentration ratio near zero, average sorbent loading climbing in steps, mean bed temperature rising from 25.0 to about 26.2 °C, and TEG power switching between about 0.027 W and zero.',
+    cover: render(
+      '/images/projects/cookstove-thermoelectric-regeneration/teg-comsol-temperature-field.png',
+      'A 3D COMSOL view of a thin layered stack colored by temperature in kelvin: a cooler blue block sits on top, and the layers beneath grade through green and yellow to a red band, with a color bar marked at 473 K.',
       {
         caption:
-          'Three hours of repeated cycles. Outlet concentration (a) stays at essentially zero, but average sorbent loading (b) climbs with every adsorption step and barely falls during regeneration. TEG power (d) sits near 0.027 W.',
-        source: 'Figure 5, MIT URTC slides',
+          'Temperature field from the first model, built in COMSOL Multiphysics in Dec 2025. Its assumptions differ from the 2026 study, so its numbers aren’t comparable.',
+        source: '2025 COMSOL Multiphysics model',
       },
     ),
+    gallery: [
+      figure(
+        '/images/projects/cookstove-thermoelectric-regeneration/teg-cycle-traces-urtc.jpg',
+        'Four stacked time-series panels over 180 minutes of repeated adsorption and regeneration: outlet concentration ratio near zero, average sorbent loading climbing in steps, mean bed temperature rising from 25.0 to about 26.2 °C, and TEG power switching between about 0.027 W and zero.',
+        {
+          caption:
+            'Three hours of repeated cycles. Outlet concentration (a) stays at essentially zero, but average sorbent loading (b) climbs with every adsorption step and barely falls during regeneration. TEG power (d) sits near 0.027 W.',
+          source: 'Figure 5, MIT URTC slides',
+        },
+      ),
+    ],
     facts: [
       { value: '≈100%', label: 'modeled aldehyde capture', condition: 'across the 1,500-case sweep' },
       { value: '0.002–0.152 W', label: 'single-module TEG output', condition: 'range across the 1,500 cases' },
@@ -961,7 +968,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: 'text',
-            html: 'Amine sites on the sorbent bind aldehydes, but capacity is finite. Restoring it takes heat, which is hard to add in low-resource cooking settings. The stove itself is hot, though. The question: can waste heat, harvested through a thermoelectric generator, provide enough local heating to regenerate the sorbent without external power?',
+            html: 'Amine sites on the sorbent bind aldehydes, but capacity is finite. Restoring it takes heat, which is hard to add in low-resource cooking settings. The stove itself is hot, though, so the question was whether its waste heat, harvested through a thermoelectric generator, could heat the sorbent enough to regenerate it without outside power.',
           },
         ],
       },
@@ -978,17 +985,11 @@ export const projects: Project[] = [
           },
           {
             type: 'text',
-            html: 'The filter has three paths. Exhaust passes through a porous aminosilica bed (gas path). Hot exhaust on one side of a TEG and ambient cooling on the other create a temperature difference (thermal path). The TEG’s output drives a resistive heater during regeneration (electrical path). The design conflict: capture pollutants, keep pressure drop low, and still deliver enough heat to reset the bed.',
+            html: 'The filter has three paths. Exhaust passes through a porous aminosilica bed (gas path). Hot exhaust on one side of a TEG and ambient cooling on the other create a temperature difference (thermal path). The TEG’s output drives a resistive heater during regeneration (electrical path). The hard part is that the filter has to capture pollutants and keep pressure drop low while still delivering enough heat to reset the bed.',
           },
           {
-            type: 'list',
-            items: [
-              '<strong>Transport:</strong> 1D axial packed-bed species balance.',
-              '<strong>Sorption:</strong> kinetic uptake and thermal desorption.',
-              '<strong>Thermal and TEG:</strong> temperature difference, voltage, matched-load power.',
-              '<strong>Pressure drop:</strong> packed-bed flow resistance.',
-              '<strong>Checks:</strong> grid convergence, solver tolerance, and TEG power and pressure-drop scaling against literature values.',
-            ],
+            type: 'text',
+            html: 'The model tracks species transport through the packed bed as a 1D axial balance, with kinetic uptake and thermal desorption on the sorbent. It also models the TEG (temperature difference, voltage, and matched-load power) and the pressure drop across the bed. We checked it for grid convergence and solver tolerance, and compared its TEG power and pressure-drop scaling against literature values.',
           },
         ],
       },
@@ -1001,7 +1002,7 @@ export const projects: Project[] = [
               {
                 label: 'BeniFlow',
                 date: 'Apr 2024',
-                html: 'An earlier entry on the same problem: a device to redirect incomplete-combustion cooking pollutants away from households. 3rd place at LaunchSB, out of 30+ teams.',
+                html: 'An earlier try at the same problem, a device that redirects incomplete-combustion cooking pollutants away from households. It placed 3rd at LaunchSB out of 30+ teams.',
               },
               {
                 label: 'First model',
@@ -1011,7 +1012,7 @@ export const projects: Project[] = [
               {
                 label: 'Second model',
                 date: '2026',
-                html: 'With Rishabh Jitender: narrowed the chemistry to formaldehyde and acetaldehyde on aminosilica sorbents, modeled a single TEG module, and ran the model on 1,500 random sets of operating parameters.',
+                html: 'Rishabh Jitender and I narrowed the chemistry to formaldehyde and acetaldehyde on aminosilica sorbents, modeled a single TEG module, and ran the model on 1,500 random sets of operating parameters.',
               },
             ],
           },
@@ -1027,20 +1028,20 @@ export const projects: Project[] = [
         blocks: [
           {
             type: 'text',
-            html: 'Capture was never the problem: both aldehydes stayed below breakthrough during the modeled adsorption window in every sampled design. The bed wasn’t running out of capacity, which made regeneration energy the deciding constraint. A single module produced 0.002–0.152 W across the 1,500 cases, and none of them fully regenerated the whole bed.',
+            html: 'Capture was never the problem. Both aldehydes stayed below breakthrough during the modeled adsorption window in every sampled design, so the bed wasn’t running out of capacity, and regeneration energy ended up being the limit. A single module produced 0.002–0.152 W across the 1,500 cases, and none of them fully regenerated the whole bed.',
           },
           {
             type: 'figure',
             size: 'wide',
             media: figure('/images/projects/cookstove-thermoelectric-regeneration/teg_thermal_response.jpg', 'Four panels. (a) Heat map of bed temperature over position and time, ranging only from 25.000 to 25.022 °C. (b) TEG matched-load power rising with temperature difference to about 6 W at 300 K. (c) Mean bed temperature rising linearly by about 0.023 °C over six minutes. (d) Regeneration completeness versus regeneration temperature for 5- and 10-minute windows, approaching 100% only near 140 °C.', {
-              caption: 'Why heating fell short. In this run the bed warms by about 0.02 °C over six minutes (a, c), while regeneration only approaches completion near 140 °C (d). Matched-load TEG power grows with the temperature difference across the module (b).',
+              caption: 'In this run the bed warms by only about 0.02 °C over six minutes (a, c), but regeneration doesn’t get close to complete until about 140 °C (d). Matched-load TEG power grows with the temperature difference across the module (b).',
               source: 'Figure 4, MIT URTC slides',
             }),
           },
           {
             type: 'figure',
             media: figure('/images/projects/cookstove-thermoelectric-regeneration/teg_sweep_histograms.png', 'Four histograms. (a) Formaldehyde capture efficiency, all at 1.000. (b) TEG power in watts, median 0.027, 5th percentile 0.015, 95th percentile 0.046. (c) Regeneration completeness from 0 to 1, median 0.237, with peaks at both ends. (d) Pressure drop, all at 16.432 Pa.', {
-              caption: 'Distributions across the designs plotted here: capture efficiency is 1.000 at the 5th, 50th, and 95th percentiles (a); median TEG power is 0.027 W (b); regeneration completeness spreads from 0 to 1 with a median of 0.237 (c).',
+              caption: 'Across the plotted designs, capture efficiency is 1.000 at the 5th, 50th, and 95th percentiles (a), and median TEG power is 0.027 W (b). Regeneration completeness spreads from 0 to 1, with a median of 0.237 (c).',
             }),
           },
         ],
@@ -1052,9 +1053,9 @@ export const projects: Project[] = [
             type: 'list',
             ordered: true,
             items: [
-              '<strong>Localize regeneration.</strong> Heat the active sorbent region instead of treating the whole bed as one thermal mass.',
-              '<strong>Increase the usable temperature difference.</strong> Improve cold-side heat rejection, or use a multi-module TEG path.',
-              '<strong>Reduce pressure drop.</strong> Lower superficial velocity, larger particles, and higher porosity.',
+              'Heat just the active part of the sorbent instead of treating the whole bed as one thermal mass.',
+              'Get a bigger usable temperature difference, with better cold-side heat rejection or a multi-module TEG path.',
+              'Cut the pressure drop with lower superficial velocity, larger particles, and higher porosity.',
             ],
           },
           {
@@ -1080,7 +1081,7 @@ export const projects: Project[] = [
   {
     slug: 'hybrid-flow-reconstruction',
     title: 'Hybrid DeepONet-SHRED-ROM for Flow Field Prediction',
-    line: 'A hybrid neural operator that predicts 2D flow for unseen geometries. Mean relative L₂ error 0.047.',
+    line: 'A hybrid neural operator that predicts 2D flow around geometries it hasn’t seen before, with a mean relative L₂ error of 0.047.',
     category: 'research',
     tags: ['Fluid dynamics', 'Machine learning'],
     depth: 'overview',
@@ -1099,7 +1100,7 @@ export const projects: Project[] = [
       'Three heat maps side by side for unseen test geometry 0 at time step 60: target speed field, hybrid prediction, and absolute error, with 12 sensor locations marked as white dots. Relative L2 error 0.0477.',
       {
         caption:
-          'One unseen test geometry at time step 60: target speed field, the model’s prediction, and absolute error, with the 12 sensors marked. Relative L₂ error for this frame: 0.0477.',
+          'One unseen test geometry at time step 60, showing the target speed field, the model’s prediction, and the absolute error, with the 12 sensors marked. This frame’s relative L₂ error is 0.0477.',
         source: 'Figure from the preprint',
       },
     ),

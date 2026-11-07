@@ -2,6 +2,8 @@
 export interface Skill {
   name: string;
   icon: string;
+  /** Wide wordmark (like LaTeX): gets a wider slot so it isn't shrunk to fit a square. */
+  wide?: boolean;
 }
 
 export const skills: { title: string; items: Skill[] }[] = [
@@ -18,7 +20,7 @@ export const skills: { title: string; items: Skill[] }[] = [
       { name: 'C#', icon: '/images/skills/csharp.png' },
       { name: 'Swift', icon: '/images/skills/swift.png' },
       { name: 'Go', icon: '/images/skills/go.png' },
-      { name: 'LaTeX', icon: '/images/skills/latex.png' },
+      { name: 'LaTeX', icon: '/images/skills/latex.png', wide: true },
     ],
   },
   {

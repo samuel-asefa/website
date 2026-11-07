@@ -42,7 +42,7 @@ export const renderProjects = (): string => {
   ${sectionHeader({
     title: 'My Projects',
     level: 1,
-    intro: 'Software, hardware, and research. Click <strong>Details</strong> on a project for the full write-up: what it is, my role, how it works, results, and source.',
+    intro: 'Software, hardware, and research projects I’ve worked on. Click <strong>Details</strong> on any of them for the full write-up.',
   })}
 
   <div class="project-filters" role="group" aria-label="Filter projects">

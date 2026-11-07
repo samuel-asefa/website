@@ -19,7 +19,7 @@ export const experience: ExperienceItem[] = [
       'Led build, CAD, and testing of the team’s competition robot through 10+ major design iterations.',
       'Taught workshops built from 130+ instructional slides and 10 interactive CAD projects, mentoring 26 builders across 6 teams.',
       'Made a 7-part <a href="https://www.youtube.com/@samuel-asefa">CAD series on YouTube</a> with 12,500+ impressions, 1,450+ views, and 38 hours of watch time.',
-      'Team record of 25–10 in qualifications in 11th grade (71.4% win rate). Three judged team awards from 10th grade on: Excellence (1 of 36 teams) and two Amaze Awards (1 of 56; 1 of 65 teams).',
+      'Team record of 25–10 in qualifications in 11th grade (71.4% win rate). Since 10th grade the team has won the Excellence Award (1 of 36 teams) and two Amaze Awards (1 of 56 and 1 of 65 teams).',
     ],
     href: 'https://sbrobotics.vercel.app/',
     projects: ['push-back-robot', 'roboroute'],
@@ -170,7 +170,7 @@ export const experience: ExperienceItem[] = [
     points: [
       'Tutored 70+ students (top 5% of tutors) from 15+ countries (top 5%).',
       'Received 80+ “Super Helpful” ratings (top 10%) and 120+ “Positive” ratings (top 10%).',
-      'Hosted 44 sessions (top 5%) in computer science, math, science, and history: 44 hours of tutoring.',
+      'Hosted 44 sessions (top 5%), 44 hours of tutoring in computer science, math, science, and history.',
     ],
     href: 'https://schoolhouse.world/portfolio/5778efb9-9143-470d-81be-37338da57a25',
   },

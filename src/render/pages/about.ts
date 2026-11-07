@@ -104,11 +104,11 @@ export const renderAbout = (): string => {
   <div class="about-hero-layout">
     <div class="about-text-wrapper">
       <div class="about-text-container">
-        <p>Hey, I'm Sammy! I'm a senior at South Brunswick High School passionate about computer science, robotics, and electrical engineering.</p>
+        <p>Hey, I'm Sammy! I'm a senior at South Brunswick High School, and I'm really into computer science, robotics, and electrical engineering.</p>
         <p>At school, I'm the Build Lead for Team <a href="https://750w.github.io/" target="_blank" rel="noopener">750W</a> in the <a href="https://sbrobotics.vercel.app/" target="_blank" rel="noopener">SBHS Robotics Club</a>, Co-Vice President of the <a href="https://sbaerospace.vercel.app/" target="_blank" rel="noopener">Aerospace Club</a>, Captain of Build Events for <a href="https://sbscioly.github.io/" target="_blank" rel="noopener">Science Olympiad</a>, Co-President of <a href="https://x-stem.github.io/" target="_blank" rel="noopener">XSTEM</a>, and President of the <a href="https://sbcsclub.vercel.app/" target="_blank" rel="noopener">Computer Science Club</a>.</p>
-        <p>Outside of school, I'm a Co-Founder and Co-President of <a href="https://robozone.world/" target="_blank" rel="noopener">RoboZone</a>, an initiative dedicated to teaching students computer science, electronics, and robotics through hands-on workshops. I also co-founded <a href="https://turbotutors.org" target="_blank" rel="noopener">TurboTutors</a> and lead engineering at <a href="https://www.vividsenselabs.com/" target="_blank" rel="noopener">VividSense</a>, where we build low-cost assistive devices like <a href="/projects/dexarm.html">Dexarm</a> and <a href="/projects/surroundscanner.html">SurroundScanner</a>.</p>
+        <p>Outside of school, I'm a Co-Founder and Co-President of <a href="https://robozone.world/" target="_blank" rel="noopener">RoboZone</a>, where we teach students computer science, electronics, and robotics in hands-on workshops. I also co-founded <a href="https://turbotutors.org" target="_blank" rel="noopener">TurboTutors</a> and lead engineering at <a href="https://www.vividsenselabs.com/" target="_blank" rel="noopener">VividSense</a>, where we build low-cost assistive devices like <a href="/projects/dexarm.html">Dexarm</a> and <a href="/projects/surroundscanner.html">SurroundScanner</a>.</p>
         <p>I also do research. I'm first author of a preprint on <a href="/projects/adaptive-sensor-fusion.html">adaptive sensor fusion for low-cost robots</a>, co-author of one on <a href="/projects/hybrid-flow-reconstruction.html">flow-field prediction</a>, and my study on <a href="/projects/cookstove-thermoelectric-regeneration.html">thermoelectric filter regeneration</a> was accepted as a lightning talk at MIT URTC. All three are computational studies.</p>
-        <p>Away from engineering, I like geography and history: I won 1st place in Geographeud at the 2022 International Geography Bee, play on JetPunk and Sporcle, and built <a href="/projects/amharicquest.html">AmharicQuest</a> for learning Amharic and its Fidel script.</p>
+        <p>Away from engineering, I like geography and history. I won 1st place in Geographeud at the 2022 International Geography Bee, I play JetPunk and Sporcle quizzes, and I built <a href="/projects/amharicquest.html">AmharicQuest</a> to help people learn Amharic and its Fidel script.</p>
       </div>
     </div>
 
@@ -158,7 +158,7 @@ export const renderAbout = (): string => {
     {
       title: 'About',
       description:
-        'About Samuel Asefa - a senior at South Brunswick High School in robotics, aerospace, Science Olympiad, and computer science, and Co-Founder of RoboZone and TurboTutors.',
+        'Samuel Asefa is a senior at South Brunswick High School who does robotics, aerospace, Science Olympiad, and computer science. He co-founded RoboZone and TurboTutors.',
       path: '/about.html',
       image: '/images/projects/rocketry-airbrakes/arc.jpg',
       type: 'profile',

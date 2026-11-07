@@ -8,27 +8,27 @@ export const renderContact = (): string => {
   ${sectionHeader({ title: 'Get In Touch', level: 1 })}
   <div class="contact-page-layout">
     <div class="contact-left-col">
-      <p class="contact-intro">Have a project in mind, a question, or just want to connect? I'd love to hear from you. Email is the fastest way to reach me.</p>
+      <p class="contact-intro">If you have a project idea or a question, or just want to say hi, I'd love to hear from you. Email is the fastest way to reach me.</p>
       <div class="contact-reason-list">
         <div class="contact-reason-item">
           <div class="contact-reason-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
           <div class="contact-reason-body">
             <h2 class="contact-reason-title">Collaboration</h2>
-            <p>Working together on a software, hardware, or research project.</p>
+            <p>Want to work together on a software, hardware, or research project?</p>
           </div>
         </div>
         <div class="contact-reason-item">
           <div class="contact-reason-icon" aria-hidden="true"><i class="fas fa-lightbulb"></i></div>
           <div class="contact-reason-body">
             <h2 class="contact-reason-title">Questions</h2>
-            <p>About RoboRoute, my research, VEX, or anything on this site.</p>
+            <p>Ask me about RoboRoute, my research, VEX, or anything else on here.</p>
           </div>
         </div>
         <div class="contact-reason-item">
           <div class="contact-reason-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
           <div class="contact-reason-body">
-            <h2 class="contact-reason-title">Networking</h2>
-            <p>Just want to say hi and connect!</p>
+            <h2 class="contact-reason-title">Saying Hi</h2>
+            <p>No reason needed. Feel free to just say hi.</p>
           </div>
         </div>
       </div>

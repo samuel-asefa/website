@@ -45,7 +45,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
     pos: '--img-x: center; --img-y: 25%;',
     alt: 'The SBHS aerospace team at the American Rocketry Challenge national finals',
     title: 'About Me',
-    text: 'Get to know me! Who I am, what I build, and the teams and groups I’m part of.',
+    text: 'A bit more about me and the teams and clubs I’m part of.',
   },
   {
     cls: 'bento-education',
@@ -63,7 +63,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
     pos: '--img-x: center; --img-y: 55%;',
     alt: 'Team 750W’s Push Back robot',
     title: 'Skills & Technologies',
-    text: 'The languages, frameworks, and tools I use to bring ideas to life.',
+    text: 'The languages, frameworks, and tools I work with.',
   },
   {
     cls: 'bento-projects',
@@ -72,7 +72,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
     pos: '--img-x: center; --img-y: 25%;',
     alt: 'The SurroundScanner ultrasonic glasses',
     title: 'Projects',
-    text: 'Software, hardware, and research projects, each with a detail page, figures, and source code.',
+    text: 'Robots, apps, and research I’ve worked on.',
   },
   {
     cls: 'bento-awards',
@@ -81,7 +81,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
     pos: '--img-x: center; --img-y: center;',
     alt: 'Two Presidential Volunteer Service Award medals',
     title: 'Awards & Honors',
-    text: 'Recognitions and honors, marked as individual or team.',
+    text: 'Competition results and honors, from robotics to research.',
   },
   {
     cls: 'bento-contact',
@@ -90,7 +90,7 @@ const BENTO: { cls: string; href: string; src: string; pos: string; alt: string;
     pos: '--img-x: center; --img-y: center;',
     alt: 'The NDVI mapping payload in its clear enclosure',
     title: 'Get in Touch',
-    text: 'Want to collaborate or just say hi? Let’s connect.',
+    text: 'Want to work on something together, or just say hi? Here’s how to reach me.',
   },
 ];
 
@@ -116,7 +116,7 @@ export const renderHome = (): string => {
       <div class="typed-text-container">
         <span class="typed-text" data-typed="${esc(JSON.stringify(TYPED))}">${esc(TYPED[0])}</span>
       </div>
-      <p class="hero-desc">I’m a senior at South Brunswick High School interested in robotics, electrical engineering, and computer science. I lead the build for VEX Team 750W, write tools like RoboRoute, do simulation-based research, and co-founded RoboZone to teach students robotics.</p>
+      <p class="hero-desc">I’m a senior at South Brunswick High School interested in robotics, electrical engineering, and computer science. I lead the build for VEX Team 750W and co-founded RoboZone to teach students robotics. I also write tools like RoboRoute and do simulation-based research.</p>
       <ul class="hero-credibility" aria-label="Highlights">
         <li class="hero-cred-item"><i class="fas fa-robot" aria-hidden="true"></i> Build Lead, Team 750W</li>
         <li class="hero-cred-item"><i class="fas fa-users" aria-hidden="true"></i> Co-Founder, RoboZone</li>
@@ -181,7 +181,7 @@ export const renderHome = (): string => {
         <h3>${esc(c.title)}</h3>
         <ul class="skills-grid">
           ${c.items
-            .map((s) => `<li class="skill-item"><img src="${esc(mediaUrl(s.icon, 160))}" alt="" width="38" height="38" loading="lazy" decoding="async"><span>${esc(s.name)}</span></li>`)
+            .map((s) => `<li class="skill-item${s.wide ? ' skill-item--wide' : ''}"><img src="${esc(mediaUrl(s.icon, 160))}" alt="" width="${s.wide ? 52 : 38}" height="38" loading="lazy" decoding="async"><span>${esc(s.name)}</span></li>`)
             .join('\n          ')}
         </ul>
       </div>`,
@@ -209,7 +209,7 @@ export const renderHome = (): string => {
   return page(
     {
       description:
-        'Samuel Asefa - a senior at South Brunswick High School building VEX robots, software like RoboRoute, and simulation-based research, and teaching robotics through RoboZone.',
+        'Samuel Asefa is a senior at South Brunswick High School. He builds VEX robots and software like RoboRoute, does simulation-based research, and teaches robotics through RoboZone.',
       path: '/',
       image: '/images/site/samuel-asefa.jpg',
       imageAlt: 'Samuel Asefa',

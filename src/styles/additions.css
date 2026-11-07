@@ -103,6 +103,12 @@ main:focus {
   list-style: none;
 }
 
+/* Wide wordmarks (LaTeX) get a wider slot, same height, so they read as clearly as square logos. */
+.skill-item--wide img {
+  width: 52px;
+  max-width: 100%;
+}
+
 /* ── Hero ────────────────────────────────────────────────── */
 .hero-subtitle {
   font-size: clamp(1.3rem, 3vw, 1.6rem);
@@ -2772,8 +2778,8 @@ a.award-media-card {
 /* Research mentors: the school's seal on a small white disc, then "Name, School". */
 .school-seal {
   flex: none;
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: #fff;
   border: 1px solid var(--border-bright);
@@ -2782,8 +2788,8 @@ a.award-media-card {
 
 .project-mentor {
   display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.65rem;
   margin: 0 0 0.75rem;
   font-size: 0.8rem;
   line-height: 1.4;
@@ -2795,7 +2801,8 @@ a.award-media-card {
 }
 
 .project-mentor .school-seal {
-  margin-top: -0.1rem;
+  width: 40px;
+  height: 40px;
 }
 
 .project-mentor a,

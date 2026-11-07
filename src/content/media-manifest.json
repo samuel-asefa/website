@@ -506,6 +506,21 @@
     "mtime": 1788104504876.1648,
     "bytes": 627084
   },
+  "/images/projects/cookstove-thermoelectric-regeneration/teg-comsol-temperature-field.png": {
+    "w": 903,
+    "h": 493,
+    "color": "#e8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      903
+    ],
+    "base": "/media/teg-comsol-temperature-field-png",
+    "share": "/media/share/teg-comsol-temperature-field-png.jpg",
+    "mtime": 1766469788807.5557,
+    "bytes": 84385
+  },
   "/images/projects/cookstove-thermoelectric-regeneration/teg-cycle-traces-urtc.jpg": {
     "w": 1936,
     "h": 2048,
@@ -1491,18 +1506,19 @@
     "bytes": 10183
   },
   "/images/skills/latex.png": {
-    "w": 512,
-    "h": 512,
+    "w": 1000,
+    "h": 385,
     "color": "#080808",
     "widths": [
       160,
       480,
-      512
+      800,
+      1000
     ],
     "base": "/media/latex-png",
     "share": "/media/share/latex-png.jpg",
-    "mtime": 1794013719791.9602,
-    "bytes": 25445
+    "mtime": 1794021525210.9014,
+    "bytes": 43853
   },
   "/images/skills/node.png": {
     "w": 1817,
