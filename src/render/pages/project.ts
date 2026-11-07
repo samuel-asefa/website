@@ -7,6 +7,7 @@ import {
   factCards,
   figure,
   linkButtons,
+  mentorCredit,
   projectCard,
   projectPageUrl,
   publicationCards,
@@ -114,11 +115,14 @@ export const renderProject = (p: Project): string => {
   const present = ORDER.filter((o) => p.sections?.[o.key]);
   const related = (p.related ?? []).map(projectBySlug).filter((r): r is Project => Boolean(r));
 
+  // [icon, label, value HTML]
   const meta: [string, string, string][] = [];
-  if (p.role) meta.push(['fas fa-user', 'Role', p.role]);
-  if (p.team) meta.push(['fas fa-users', 'Team', p.team === 'Solo' ? 'Solo project' : p.team]);
-  meta.push(['far fa-calendar', 'When', p.dates]);
-  if (p.status) meta.push(['fas fa-circle-check', 'Status', p.status]);
+  if (p.role) meta.push(['fas fa-user', 'Role', esc(p.role)]);
+  if (p.team) meta.push(['fas fa-users', 'Team', esc(p.team === 'Solo' ? 'Solo project' : p.team)]);
+  if (p.mentor) meta.push(['fas fa-chalkboard-user', 'Mentor', `<span class="pd-mentor">${mentorCredit(p)}</span>`]);
+  meta.push(['far fa-calendar', 'When', esc(p.dates)]);
+  if (p.commitment) meta.push(['far fa-clock', 'Time', esc(p.commitment)]);
+  if (p.status) meta.push(['fas fa-circle-check', 'Status', esc(p.status)]);
 
   const main = `
 <section class="project-detail page-section" data-category="${p.category}">
@@ -133,7 +137,7 @@ export const renderProject = (p: Project): string => {
       <h1>${esc(p.title)}</h1>
       <p class="pd-line">${esc(p.line)}</p>
       <ul class="pd-meta">
-        ${meta.map(([icon, k, v]) => `<li><i class="${icon}" aria-hidden="true"></i> <span class="pd-meta-k">${k}:</span> <span class="pd-meta-v">${esc(v)}</span></li>`).join('\n        ')}
+        ${meta.map(([icon, k, v]) => `<li><i class="${icon}" aria-hidden="true"></i> <span class="pd-meta-k">${k}:</span> <span class="pd-meta-v">${v}</span></li>`).join('\n        ')}
       </ul>
       ${techTags(p.technologies)}
       ${p.links?.length ? `<div class="project-links pd-links">${linkButtons(p.links, 6)}</div>` : ''}

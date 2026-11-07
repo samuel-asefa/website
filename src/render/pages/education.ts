@@ -83,7 +83,7 @@ export const renderEducation = (): string => {
     }</h4>
     <div class="course-chips">
       <span class="course-level level-${c.level.toLowerCase()}"${
-        c.level === 'AP-Weighted' ? ' title="Not an AP class; weighted like one in my GPA"' : ''
+        c.level === 'AP-Weighted' ? ' title="Not an AP class; my school weights it like AP for its college-level rigor"' : ''
       }>${c.level}</span>${
         c.summer ? '<span class="course-summer"><i class="fas fa-sun" aria-hidden="true"></i> Summer</span>' : ''
       }${c.csAcademy ? '<span class="course-cs-academy"><i class="fas fa-laptop-code" aria-hidden="true"></i> CS Academy</span>' : ''}${
@@ -161,7 +161,7 @@ export const renderEducation = (): string => {
       }
       ${
         schoolYears.some((y) => y.courses.some((c) => c.level === 'AP-Weighted'))
-          ? '<p class="edu-note">Courses marked <span class="course-level level-ap-weighted">AP-Weighted</span> aren’t AP classes, but they’re weighted like AP courses in my GPA.</p>'
+          ? '<p class="edu-note">Courses marked <span class="course-level level-ap-weighted">AP-Weighted</span> aren’t AP classes, but my school weights them the same as AP because they’re taught at a college level.</p>'
           : ''
       }
       <div class="courses-container">

@@ -36,6 +36,17 @@ export const awards: Award[] = [
     ],
   },
   {
+    title: 'International Computer Science Competition, final round qualifier',
+    issuer: 'International Computer Science Competition',
+    date: 'Aug 2026',
+    scope: 'individual',
+    description: ['Qualified for the third and final round.'],
+    media: [
+      { title: 'Pre-final results', src: '/images/awards/icsc-final-qualifier-performance-report.png' },
+      { title: 'Pre-final certificate', src: '/images/awards/icsc-final-qualifier-certificate.png' },
+    ],
+  },
+  {
     title: 'International Computer Science Competition, pre-final qualifier',
     issuer: 'International Computer Science Competition',
     date: 'Jul 2026',
@@ -95,6 +106,13 @@ export const awards: Award[] = [
     date: 'Feb 2026',
     scope: 'individual',
     description: ['Promoted to the Gold division with a perfect score in the Silver division.'],
+  },
+  {
+    title: 'USA Computing Olympiad, Silver division',
+    issuer: 'USA Computing Olympiad',
+    date: 'Feb 2026',
+    scope: 'individual',
+    description: ['Promoted to the Silver division with a perfect score in the Bronze division.'],
   },
   {
     title: 'NASA TechRise Student Challenge winner',

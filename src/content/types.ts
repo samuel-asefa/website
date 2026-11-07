@@ -136,6 +136,10 @@ export interface Project {
   summary?: Html;
   role?: string;
   team?: string;
+  /** Research mentor, shown with their school's logo on the card and project page. */
+  mentor?: { name: string; href?: string; school: string; logo: string };
+  /** Time commitment, e.g. "2–4 hours a week". */
+  commitment?: string;
   collaborators?: string[];
   /** Homepage selection order. Absent → not on the homepage. */
   featured?: number;
@@ -188,8 +192,8 @@ export interface Course {
   /** Shorter name for the course card when the card is too narrow for the full one. */
   short?: string;
   /**
-   * Level as recorded by the school schedule. 'AP-Weighted' is not an AP class but is
-   * weighted like one in the GPA (CS Academy courses, post-AP math and physics).
+   * Level as recorded by the school schedule. 'AP-Weighted' is not an AP class, but the
+   * school weights it like AP because it is taught at a college level (CS Academy, post-AP math and physics).
    */
   level: 'AP' | 'AP-Weighted' | 'Honors' | 'Regular';
   /** Advanced CS Academy course (school designation). */

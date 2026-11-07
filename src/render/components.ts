@@ -105,6 +105,22 @@ const galleryAttr = (items: Media[]): string =>
       )}"`
     : '';
 
+const schoolSeal = (p: Project): string =>
+  p.mentor ? `<img class="school-seal" src="${esc(mediaUrl(p.mentor.logo, 160))}" alt="" width="22" height="22" loading="lazy" decoding="async">` : '';
+
+const mentorName = (p: Project): string =>
+  !p.mentor ? '' : p.mentor.href ? `<a href="${esc(p.mentor.href)}" target="_blank" rel="noopener">${esc(p.mentor.name)}</a>` : esc(p.mentor.name);
+
+/** Mentor credit with the school's seal; the name links to their profile when known. */
+export const mentorCredit = (p: Project): string =>
+  p.mentor ? `${schoolSeal(p)}<span>${mentorName(p)}, ${esc(p.mentor.school)}</span>` : '';
+
+/** "Mentored by …" line for project cards: the seal leads, the text wraps beside it. */
+export const mentorLine = (p: Project, className = 'project-mentor'): string =>
+  p.mentor
+    ? `<p class="${className}">${schoolSeal(p)}<span><span class="mentor-label">Mentored by</span> ${mentorName(p)}, ${esc(p.mentor.school)}</span></p>`
+    : '';
+
 /** The original project card, with clearer status and a details link. */
 export const projectCard = (p: Project, o: { headingLevel?: 2 | 3; sizes?: string } = {}): string => {
   const h = o.headingLevel ?? 3;
@@ -128,6 +144,7 @@ export const projectCard = (p: Project, o: { headingLevel?: 2 | 3; sizes?: strin
     <p>${esc(p.line)}</p>
     ${p.facts?.[0] ? metricPill(p.facts[0]) : ''}
     <p class="project-meta">${join([esc(p.dates), p.role ? esc(p.role) : p.team === 'Solo' ? 'Solo project' : ''], ' · ')}</p>
+    ${mentorLine(p)}
     ${techTags(p.technologies)}
     <div class="project-links">
       ${p.depth !== 'entry' ? button(projectPageUrl(p), 'Details', { primary: true, icon: 'fas fa-arrow-right' }) : ''}
@@ -148,6 +165,7 @@ export const featuredCard = (p: Project): string => {
   <div class="featured-card-body">
     <h3><a href="${href}">${esc(p.title)}</a></h3>
     <p>${esc(p.line)}</p>
+    ${mentorLine(p, 'project-mentor featured-mentor')}
     ${p.facts?.[0] ? `<span class="featured-metric" title="${esc(p.facts[0].condition ?? '')}"><i class="fas fa-chart-line" aria-hidden="true"></i> ${esc(p.facts[0].value)} ${esc(p.facts[0].label)}</span>` : ''}
     ${techTags(p.technologies?.slice(0, 4), 'featured-tech', 'tech-tag')}
     <div class="featured-links">

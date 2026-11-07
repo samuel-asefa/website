@@ -80,6 +80,38 @@
     "mtime": 1783045255067.6848,
     "bytes": 73595
   },
+  "/images/awards/icsc-final-qualifier-certificate.png": {
+    "w": 1653,
+    "h": 2339,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1653
+    ],
+    "base": "/media/icsc-final-qualifier-certificate-png",
+    "share": "/media/share/icsc-final-qualifier-certificate-png.jpg",
+    "mtime": 1794019142000,
+    "bytes": 177569
+  },
+  "/images/awards/icsc-final-qualifier-performance-report.png": {
+    "w": 1653,
+    "h": 2339,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1653
+    ],
+    "base": "/media/icsc-final-qualifier-performance-report-png",
+    "share": "/media/share/icsc-final-qualifier-performance-report-png.jpg",
+    "mtime": 1794019128000,
+    "bytes": 170461
+  },
   "/images/awards/icsc-participation-certificate.png": {
     "w": 1653,
     "h": 2339,
@@ -1148,6 +1180,48 @@
     "mtime": 1766429891896.1594,
     "bytes": 4050440
   },
+  "/images/schools/cornell.png": {
+    "w": 500,
+    "h": 500,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      500
+    ],
+    "base": "/media/cornell-png",
+    "share": "/media/share/cornell-png.jpg",
+    "mtime": 1794013837416.667,
+    "bytes": 141097
+  },
+  "/images/schools/georgia-tech.png": {
+    "w": 500,
+    "h": 500,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      500
+    ],
+    "base": "/media/georgia-tech-png",
+    "share": "/media/share/georgia-tech-png.jpg",
+    "mtime": 1794013837810.1394,
+    "bytes": 97251
+  },
+  "/images/schools/ut-austin.png": {
+    "w": 500,
+    "h": 500,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      500
+    ],
+    "base": "/media/ut-austin-png",
+    "share": "/media/share/ut-austin-png.jpg",
+    "mtime": 1794013837609.692,
+    "bytes": 140818
+  },
   "/images/site/medium.png": {
     "w": 600,
     "h": 600,
@@ -1220,6 +1294,20 @@
     "share": "/media/share/arduino-png.jpg",
     "mtime": 1750114006527.0813,
     "bytes": 149455
+  },
+  "/images/skills/blender.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/blender-png",
+    "share": "/media/share/blender-png.jpg",
+    "mtime": 1794013702261.0825,
+    "bytes": 28298
   },
   "/images/skills/comsol.png": {
     "w": 512,
@@ -1401,6 +1489,20 @@
     "share": "/media/share/javascript-png.jpg",
     "mtime": 1750114006532.923,
     "bytes": 10183
+  },
+  "/images/skills/latex.png": {
+    "w": 512,
+    "h": 512,
+    "color": "#080808",
+    "widths": [
+      160,
+      480,
+      512
+    ],
+    "base": "/media/latex-png",
+    "share": "/media/share/latex-png.jpg",
+    "mtime": 1794013719791.9602,
+    "bytes": 25445
   },
   "/images/skills/node.png": {
     "w": 1817,

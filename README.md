@@ -95,6 +95,7 @@ All copy lives in `src/content/*.ts`; templates never need to change for content
     awards/            certificates, letters, medals, award PDFs
     skills/            skill icons
     experience/        square organization logos for the Experience page (256px)
+    schools/           university seals for research mentors
     education/         school logo
     site/              profile photo and footer icons
     archive/           files the site doesn't use (kept, not deleted)

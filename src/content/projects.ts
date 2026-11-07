@@ -649,10 +649,6 @@ export const projects: Project[] = [
           },
         ],
       },
-      evidence: {
-        title: 'Try the idea',
-        blocks: [{ type: 'demo', id: 'route-sketch' }],
-      },
       reflection: {
         title: 'Limits',
         blocks: [
@@ -792,13 +788,15 @@ export const projects: Project[] = [
     category: 'research',
     tags: ['Robotics', 'Machine learning', 'Simulation'],
     depth: 'case-study',
-    dates: '2026',
-    start: '2026-07',
+    dates: 'May 2026 – present',
+    start: '2026-05',
     status: 'Preprint (working paper)',
     summary:
       'Low-cost robots localize with sensors that fail in ordinary ways. I paired an Extended Kalman Filter with a small neural network that estimates, at every step, how much to trust each sensor. In 500 simulated Monte Carlo trials under severe sensor degradation, it reduced localization RMSE by 66.2% compared with a standard EKF.',
     role: 'First Author; wrote the simulation, training, and figure code',
-    team: 'With Rohan Kunala and Arav Pyati',
+    team: 'With Rohan Kunala',
+    mentor: { name: 'Arav Pyati', href: 'https://www.linkedin.com/in/aravpyati', school: 'Cornell University', logo: '/images/schools/cornell.png' },
+    commitment: '2–4 hours a week',
     collaborators: ['Rohan Kunala', 'Arav Pyati'],
     featured: 3,
     cover: figure(
@@ -909,13 +907,14 @@ export const projects: Project[] = [
     category: 'research',
     tags: ['Energy', 'Chemical engineering', 'Simulation'],
     depth: 'case-study',
-    dates: '2024 – 2026',
-    start: '2025-12',
+    dates: 'Oct 2024 – present',
+    start: '2024-10',
     status: 'Computational study. Accepted MIT URTC lightning talk, 2026',
     summary:
       'Biomass cookstove exhaust carries formaldehyde and acetaldehyde. Aminosilica sorbents can capture them, but a filter only stays useful if its sorbent can be regenerated with heat, which is hard to supply where these stoves are used. With Rishabh Jitender, I modeled whether a thermoelectric generator running off the stove’s own exhaust could provide that heat. Across 1,500 simulated cases, capture stayed near 100%, and none fully regenerated the bed.',
     role: 'Lead Author (2026 study); Sole Author (2025 preprint)',
-    team: 'With Rishabh Jitender, Georgia Institute of Technology (2026 study)',
+    mentor: { name: 'Rishabh Jitender', href: 'https://www.linkedin.com/in/rishabh-jitender', school: 'Georgia Institute of Technology', logo: '/images/schools/georgia-tech.png' },
+    commitment: '2–4 hours a week, 20 weeks a year',
     collaborators: ['Rishabh Jitender'],
     cover: figure(
       '/images/projects/cookstove-thermoelectric-regeneration/teg-cycle-traces-urtc.jpg',
@@ -1085,13 +1084,15 @@ export const projects: Project[] = [
     category: 'research',
     tags: ['Fluid dynamics', 'Machine learning'],
     depth: 'overview',
-    dates: '2026',
-    start: '2026-06',
+    dates: 'May 2026 – present',
+    start: '2026-05',
     status: 'Preprint (working paper, v2)',
     summary:
       'High-fidelity flow simulation is too slow to repeat for every small change in geometry. This model reads a 30-step history from 12 sparse velocity sensors with a SHRED-style LSTM encoder, conditions a DeepONet on the geometry and flow parameters, and predicts velocity and speed anywhere in the domain. On 20 geometry cases it never saw in training, its mean relative L₂ error was 0.047 (median 0.045).',
     role: 'Co-Author (second of three)',
-    team: 'With Rohan Kunala and Irenov Joel',
+    team: 'With Rohan Kunala',
+    mentor: { name: 'Irenov Joel', href: 'https://www.linkedin.com/in/irenovjoel', school: 'The University of Texas at Austin', logo: '/images/schools/ut-austin.png' },
+    commitment: '2–4 hours a week',
     collaborators: ['Rohan Kunala', 'Irenov Joel'],
     cover: figure(
       '/images/projects/hybrid-flow-reconstruction/hybrid_reconstruction_example.png',

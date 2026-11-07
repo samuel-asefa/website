@@ -18,6 +18,7 @@ export const skills: { title: string; items: Skill[] }[] = [
       { name: 'C#', icon: '/images/skills/csharp.png' },
       { name: 'Swift', icon: '/images/skills/swift.png' },
       { name: 'Go', icon: '/images/skills/go.png' },
+      { name: 'LaTeX', icon: '/images/skills/latex.png' },
     ],
   },
   {
@@ -42,6 +43,7 @@ export const skills: { title: string; items: Skill[] }[] = [
       { name: 'Fusion 360', icon: '/images/skills/fusion.png' },
       { name: 'Inventor', icon: '/images/skills/inventor.png' },
       { name: 'Onshape', icon: '/images/skills/onshape.png' },
+      { name: 'Blender', icon: '/images/skills/blender.png' },
       { name: 'COMSOL', icon: '/images/skills/comsol.png' },
       { name: '3D Printing', icon: '/images/skills/3dprint.png' },
     ],

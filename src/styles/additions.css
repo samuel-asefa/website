@@ -1249,8 +1249,8 @@ figcaption {
 
 .fact-chips {
   display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 2.25rem 0.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem 0.75rem;
   position: relative;
   z-index: 2;
   list-style: none;
@@ -1283,10 +1283,11 @@ figcaption {
 .fact-trigger {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: min(76px, 100%);
+  aspect-ratio: 1;
+  height: auto;
   padding: 0;
-  border-radius: 15px;
+  border-radius: 22px;
   background: linear-gradient(145deg, rgba(28, 43, 63, 0.75), var(--surface-1));
   border: 1px solid var(--border-bright);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
@@ -1300,7 +1301,7 @@ figcaption {
 
 .fact-emoji {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
-  font-size: 1.35rem;
+  font-size: 2rem;
   font-variant-emoji: emoji;
   line-height: 1;
   transition: transform 0.25s var(--ease-spring);
@@ -1331,9 +1332,9 @@ figcaption {
   transition: opacity 0.18s ease, transform 0.18s var(--ease-out), visibility 0.18s;
 }
 
-/* The two end labels grow inward, including at narrow phone widths. */
-.fact-chip:first-child .fact-label { --label-x: 0%; left: 0; transform-origin: bottom left; }
-.fact-chip:last-child .fact-label { --label-x: 0%; left: auto; right: 0; transform-origin: bottom right; }
+/* Labels at the ends of each row of four grow inward. */
+.fact-chip:nth-child(4n + 1) .fact-label { --label-x: 0%; left: 0; transform-origin: bottom left; }
+.fact-chip:nth-child(4n) .fact-label { --label-x: 0%; left: auto; right: 0; transform-origin: bottom right; }
 
 .fact-chip[data-open],
 .fact-chips:not([data-enhanced]) .fact-chip:is(:hover, :focus-within) {
@@ -2733,10 +2734,87 @@ a.award-media-card {
   }
 }
 
-/* Phones: the hero's text runs down to the bottom of the screen, so the scroll hint
-   would sit on top of the tags or buttons. Scrolling is obvious on a phone anyway. */
-@media (max-width: 600px) {
+/* The mouse-shaped scroll hint only makes sense with a mouse: hide it on phones,
+   tablets, and any touch-first screen (where it can also sit on top of the buttons). */
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
   .scroll-indicator {
     display: none;
   }
 }
+
+/* Hero eyebrow without the leading dash. */
+.hero-eyebrow::before {
+  content: none;
+}
+
+/* Explore cards: the narrow cards get a little more width, and card text keeps clear
+   of the round arrow in the bottom-right corner. */
+.bento-grid {
+  grid-template-columns: 1.1fr 0.8fr 1.1fr;
+}
+
+.bento-card p {
+  padding-right: 2.25rem;
+}
+
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Research mentors: the school's seal on a small white disc, then "Name, School". */
+.school-seal {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border-bright);
+  object-fit: contain;
+}
+
+.project-mentor {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.project-mentor .mentor-label {
+  color: var(--text-muted);
+}
+
+.project-mentor .school-seal {
+  margin-top: -0.1rem;
+}
+
+.project-mentor a,
+.pd-mentor a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.project-mentor a:hover,
+.pd-mentor a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.pd-mentor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  vertical-align: middle;
+}
+

@@ -5,7 +5,6 @@ import { button, featuredCard, sectionHeader, thumb } from '../components';
 import { esc } from '../html';
 import { page } from '../layout';
 import { mediaUrl } from '../media';
-import { routeSketch } from '../route-sketch';
 
 const personJsonLd = () => ({
   '@context': 'https://schema.org',
@@ -161,19 +160,6 @@ export const renderHome = (): string => {
     ${featured.map(featuredCard).join('\n    ')}
   </div>
   <div class="section-cta">${button('/projects.html', 'View All Projects', { icon: 'fas fa-th-large' })}</div>
-</section>
-
-<section id="roboroute-demo" class="demo-section" aria-labelledby="demo-title">
-  ${sectionHeader({
-    eyebrow: 'Interactive',
-    title: 'Try RoboRoute',
-    id: 'demo-title',
-    intro:
-      'A simplified version of the route planner I built for VEX autonomous routines. Drag the waypoints (or use arrow keys, or type coordinates) and the distances, headings, turns, and LemLib code update. It doesn’t simulate a robot; <a href="https://samuel-asefa.github.io/RoboRoute/src/">the full tool</a> has field layouts, per-point headings, and more.',
-  })}
-  <div class="demo-card">
-    ${routeSketch()}
-  </div>
 </section>
 
 <section class="recognition-strip" aria-labelledby="recognition-title">
