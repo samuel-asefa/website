@@ -4,6 +4,8 @@
  * animated background) with accessibility and performance fixes, and
  * loads each feature module only on pages that use it.
  */
+import { NARROW_MEDIA } from '../config/breakpoints';
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(pointer: fine)').matches;
 
@@ -159,6 +161,20 @@ if (bg) {
 
 const typed = document.querySelector<HTMLElement>('[data-typed]');
 if (typed && !reduceMotion) void import('./typed').then((m) => m.initTyped(typed));
+
+/* ── Phone versions of screenshots ──────────────────────
+   <picture> swaps the image on phones; keep the alt text matching the one on screen. */
+const narrowImgs = document.querySelectorAll<HTMLImageElement>('img[data-narrow-alt]');
+if (narrowImgs.length) {
+  const narrowScreen = window.matchMedia(NARROW_MEDIA);
+  const syncAlts = () =>
+    narrowImgs.forEach((im) => {
+      im.dataset.wideAlt ??= im.alt;
+      im.alt = (narrowScreen.matches ? im.dataset.narrowAlt : im.dataset.wideAlt) ?? im.alt;
+    });
+  syncAlts();
+  narrowScreen.addEventListener('change', syncAlts);
+}
 
 if (document.querySelector('[data-modal-open], [data-lightbox], [data-modal-src], [data-modal-pdf]')) {
   void import('./modal').then((m) => m.initModal());

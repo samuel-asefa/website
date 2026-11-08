@@ -101,7 +101,15 @@ export const projectGallery = (p: Project): Media[] => {
 const galleryAttr = (items: Media[]): string =>
   items.length > 1
     ? ` data-gallery="${esc(
-        JSON.stringify(items.map((m) => ({ src: mediaUrl(m.src, 2400), alt: m.alt, caption: (m.caption ?? '').replace(/<[^>]+>/g, ''), original: originalUrl(m.src) }))),
+        JSON.stringify(
+          items.map((m) => ({
+            src: mediaUrl(m.src, 2400),
+            alt: m.alt,
+            caption: (m.caption ?? '').replace(/<[^>]+>/g, ''),
+            original: originalUrl(m.src),
+            narrow: m.narrow ? { src: mediaUrl(m.narrow.src, 2400), alt: m.narrow.alt, original: originalUrl(m.narrow.src) } : undefined,
+          })),
+        ),
       )}"`
     : '';
 

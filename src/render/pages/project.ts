@@ -46,7 +46,8 @@ const block = (b: Block, group: string): string => {
           figure(m, {
             sizes: '(min-width: 1100px) 500px, 92vw',
             group,
-            crop: m.kind === 'photo',
+            // Photos share 4:3. A screenshot is cropped only when it sets its own `ratio`.
+            crop: m.kind === 'photo' || (m.kind === 'screenshot' && Boolean(m.ratio)),
             ratio: m.kind === 'photo' ? '4 / 3' : undefined,
           }),
         )

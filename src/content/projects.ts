@@ -727,19 +727,152 @@ export const projects: Project[] = [
     start: '2025-01',
     status: 'Live',
     summary:
-      'AmharicQuest teaches Amharic starting with its script, the Fidel. You learn all 33 consonant families in their seven vowel orders (230+ characters, with romanization), then move on to 42 vocabulary words in nine categories and nine lessons that go from beginner to intermediate. There are quizzes along the way, and it tracks your progress.',
+      'AmharicQuest teaches Amharic starting with its script, the Fidel. You learn all 34 letter families in their seven vowel orders (238 characters, with romanization), then work through 12 lessons that teach 67 words. It has quizzes and a speed round for practice, and it tracks your streak, XP, and badges.',
     role: 'Designer and Developer',
     team: 'Solo',
     cover: screenshot(
-      '/images/projects/amharicquest/amharic-quest.png',
-      'The AmharicQuest home screen in dark mode, greeting the learner and showing streak, XP, and level tiles, a highlighted lesson card for Basic Greetings, and quick practice options.',
-      { caption: 'The AmharicQuest home screen.' },
+      '/images/projects/amharicquest/amharicquest-home.webp',
+      'The AmharicQuest home screen in light mode. A green banner reads “Next stop: Harar” with Continue quest and View journey buttons, above tiles for the daily goal, an 8-day streak, level 4, and 30 of 67 words.',
+      {
+        caption: 'The home screen shows your next stop on the journey, your daily goal, and your streak.',
+        narrow: {
+          src: '/images/projects/amharicquest/amharicquest-mobile-home.webp',
+          alt: 'The AmharicQuest home screen on a phone, with a green “Next stop: Harar” card, Continue quest and View journey buttons, daily goal and streak tiles, and a tab bar along the bottom.',
+          focus: '50% 17%',
+        },
+      },
     ),
     technologies: ['TypeScript', 'Firebase'],
     links: [
       { label: 'Open AmharicQuest', href: 'https://amharicquest.vercel.app/', kind: 'demo' },
       { label: 'Source', href: 'https://github.com/samuel-asefa/AmharicQuest', kind: 'code' },
     ],
+    sections: {
+      design: {
+        title: 'A tour of the app',
+        blocks: [
+          {
+            type: 'text',
+            html: 'The course is a trip across Ethiopia. Each of the 12 stops is a city with a short lesson on one topic, like greetings in Addis Ababa or colors in Harar.',
+          },
+          {
+            type: 'figures',
+            media: [
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-journey.webp',
+                'The journey map in light mode. Unit 1, First Steps, is complete with four gold stops (Addis Ababa, Bahir Dar, Gondar, and Lalibela), and in Unit 2 the green Harar stop is marked Up next above a Start lesson card.',
+                {
+                  caption: 'The journey map. Finished stops turn gold, and the next one is marked Up next.',
+                  ratio: '16 / 10',
+                  focus: 'top',
+                  narrow: {
+                    src: '/images/projects/amharicquest/amharicquest-mobile-journey.webp',
+                    alt: 'The journey map on a phone in dark mode, showing Unit 2, Everyday Life. Jimma is done, Harar is marked Up next, and Hawassa and Arba Minch are still locked.',
+                  },
+                },
+              ),
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-lesson-intro.webp',
+                'The start screen for stop 6, Harar, on the topic Colors. It lists 6 words, 10 challenges, and +45 XP, shows the six color words in Amharic, and has a Let’s go button.',
+                { caption: 'Each lesson opens with the words you’re about to learn.' },
+              ),
+            ],
+          },
+          {
+            type: 'text',
+            html: 'A lesson starts with flashcards for the new words and then quizzes you on them. At the end you see the XP you earned, your accuracy, and your best combo.',
+          },
+          {
+            type: 'figures',
+            media: [
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-lesson-flashcard.webp',
+                'A flashcard for new word 1 of 6. The green card shows the meaning, Red, with the Fidel letters ቀ and ይ that spell ቀይ (Qey), above Flip and Next buttons.',
+                { caption: 'Flashcards come first. Each one breaks the word into its Fidel letters.' },
+              ),
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-lesson-quiz.webp',
+                'A quiz question asking what ጥቁር (Tiqur) means. Black is selected and marked correct, and a green bar along the bottom says “Spot on!”',
+                {
+                  caption: 'Quiz questions go both ways, from Amharic to English and back.',
+                  narrow: {
+                    src: '/images/projects/amharicquest/amharicquest-mobile-quiz.webp',
+                    alt: 'A quiz question on a phone asking how to say Father in Amharic. The answer አባት (Abat) is marked correct, and a green bar along the bottom says “Well done!”',
+                  },
+                },
+              ),
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-lesson-complete.webp',
+                'The Lesson complete screen with a gold crown, 55 XP earned, 100% accuracy, a best combo of 10, a notice for reaching level 5, and the six words learned.',
+                { caption: 'The results screen after a lesson with no mistakes.', ratio: '16 / 10', focus: 'top' },
+              ),
+            ],
+          },
+          {
+            type: 'text',
+            html: 'The Fidel section teaches the script itself. Every character is a consonant plus a vowel, so once you know the 34 base shapes and the seven ways each one changes, you can read all 238 characters. You can study one letter family at a time or search the full chart.',
+          },
+          {
+            type: 'figures',
+            media: [
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-fidel.webp',
+                'The Fidel page. A dark panel titled “One consonant, seven vowels” shows the letter ለ in each of its seven forms, above cards for the seven vowel orders.',
+                { caption: 'The Fidel page shows how one consonant changes shape for each vowel.' },
+              ),
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-fidel-family.webp',
+                'The sh family card, showing ሸ in all seven vowel orders (shä, shu, shi, sha, she, shə, and sho) with an example sound for each, and a Drill the Fidel button.',
+                { caption: 'Opening a family shows all seven forms with a sound for each one.' },
+              ),
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-fidel-chart.webp',
+                'The full Fidel chart in dark mode, a grid with a row for each consonant sound and a column for each of the seven vowels, with the romanization under every character.',
+                { caption: 'The full chart. You can search it by sound or paste in a character.' },
+              ),
+            ],
+          },
+          {
+            type: 'text',
+            html: 'Practice has four modes, from matching meanings to a 60-second speed round that mixes everything. Your profile tracks your streak, XP, level, and badges, along with a chart of the last two weeks.',
+          },
+          {
+            type: 'figures',
+            media: [
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-practice.webp',
+                'The Practice page in dark mode. Stats for accuracy, best combo, and best sprint sit above four modes (Meaning match, Say it in Amharic, Fidel drill, and Speed round), with Speed round selected.',
+                { caption: 'The four practice modes.' },
+              ),
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-profile.webp',
+                'The profile page for a guest learner at level 4, with cards for an 8-day streak, 660 XP, 30 words, 5 lessons, 88% accuracy, and a best combo of 17, then a two-week activity chart and a grid of badges.',
+                { caption: 'The profile, with stats, recent activity, and badges.', ratio: '16 / 10', focus: 'top' },
+              ),
+            ],
+          },
+          {
+            type: 'text',
+            html: 'You can use AmharicQuest as a guest, which saves your progress on your device, or sign up for an account. It also has a dark theme.',
+          },
+          {
+            type: 'figures',
+            media: [
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-signup.webp',
+                'The sign-up page. A form for name, email, and password sits beside a green panel that reads “Learn to read Amharic,” with a list of features and counts of 34 letter families, 238 characters, 12 journey stops, and 67 words.',
+                { caption: 'The sign-up page. You can also keep going as a guest.' },
+              ),
+              screenshot(
+                '/images/projects/amharicquest/amharicquest-home-dark.webp',
+                'The home screen in dark mode, with the same green “Next stop: Harar” banner and stat tiles on a near-black background.',
+                { caption: 'The home screen in dark mode.' },
+              ),
+            ],
+          },
+        ],
+      },
+    },
   },
   {
     slug: 'mathify',
@@ -761,19 +894,93 @@ export const projects: Project[] = [
   {
     slug: 'studently',
     title: 'Studently',
-    line: 'A student task manager with color-coded categories and cloud sync.',
+    line: 'A study planner that turns your deadlines into a daily plan, with a focus timer and cloud sync.',
     category: 'software',
-    tags: ['Web app'],
-    depth: 'entry',
-    dates: 'Dec 2024 – Jan 2026',
+    tags: ['Web app', 'Productivity'],
+    depth: 'overview',
+    dates: 'Dec 2024 – 2026',
     start: '2024-12',
+    status: 'Live',
+    summary:
+      'Studently is a study planner for students. You add what’s due and about how many hours it will take, and it splits the work into daily study blocks that fit a study budget you set, with the most urgent work first. A focus timer logs each session back to its deadline, so the plan updates as you go. You can sign in with email or Google to sync through Firebase, or use it as a guest.',
+    role: 'Designer and Developer',
     team: 'Solo',
-    cover: screenshot('/images/projects/studently/studently.png', 'Studently’s two-panel layout: color-coded categories on the left, a task list on the right.'),
-    technologies: ['Svelte', 'JavaScript'],
+    cover: screenshot(
+      '/images/projects/studently/studently-landing.jpg',
+      'The Studently landing page in dark mode. The headline reads “Your semester, beautifully under control.” Beside it, a preview of the app shows “Chem midterm next fri 8h !!!” typed into quick add and read as an 8-hour critical exam due Friday, Nov 13, above today’s plan with three study blocks, a 6-day streak, and a focus timer at 18:42.',
+      { caption: 'The landing page. The preview shows a deadline typed in plain English, the plan it lands in, and a focus session in progress.' },
+    ),
+    facts: [
+      { value: '14', label: 'plan templates', condition: 'with 81 built-in milestones' },
+      { value: '16', label: 'study techniques', condition: 'each paired with a timer preset' },
+      { value: '30', label: 'achievements', condition: 'in bronze, silver, and gold tiers' },
+    ],
+    technologies: ['Svelte', 'SvelteKit', 'JavaScript', 'Firebase'],
     links: [
       { label: 'Open Studently', href: 'https://studentlyy.vercel.app/', kind: 'demo' },
       { label: 'Source', href: 'https://github.com/samuel-asefa/Studently', kind: 'code' },
     ],
+    sections: {
+      design: {
+        title: 'How it works',
+        blocks: [
+          {
+            type: 'text',
+            html: 'The Today view is where you start. It shows how much you’ve focused against what you planned, your open tasks, your streak, and the next deadline, with today’s study blocks underneath. Each block has a Start button that opens the focus timer for that deadline.',
+          },
+          {
+            type: 'figure',
+            media: screenshot(
+              '/images/projects/studently/studently-today.jpg',
+              'The Today view in light mode for Saturday, November 7, headed “Good evening.” Cards show 50 minutes of focus out of 3h 50m planned, 4 of 10 tasks done, a 7-day streak, and the next deadline, Calc II problem set 7, in 1 day 4 hours. Below them, today’s plan lists three study blocks with Start buttons, beside a task list and a chart of focus time this week.',
+              { caption: 'The Today view, with today’s study blocks, open tasks, and focus time this week.' },
+            ),
+          },
+          {
+            type: 'text',
+            html: 'The planner works in 15-minute blocks. It spreads each deadline’s remaining hours over the days left, most urgent first, without going over your daily budget. Work that doesn’t fit moves into free time on earlier days, and if a deadline still won’t fit, Studently warns you and offers a fix. Focus time you’ve already put in today comes out of today’s budget.',
+          },
+          {
+            type: 'text',
+            html: 'You can add a deadline in plain English. Typing <code>Chem midterm next fri 8h !!!</code> creates an exam due next Friday that needs 8 hours, at critical priority. Bigger projects can start from one of 14 templates, like a research paper, a lab report, AP or SAT prep, or college applications. You set the final due date and how heavy the workload is, and every step gets its own date in the plan.',
+          },
+          {
+            type: 'text',
+            html: 'The focus timer has six presets, from a standard Pomodoro to a 52/17 split, and keeps running if you switch views or reload the page. A library of 16 study techniques, such as active recall and spaced repetition, explains how to use each one and pairs it with a timer preset. The Insights view tracks your on-time rate, how close your time estimates were, and the hour you focus best, along with a 26-week activity heatmap. Each of the 30 achievements shows how close you are to earning it.',
+          },
+        ],
+      },
+      process: {
+        title: 'How it grew',
+        blocks: [
+          {
+            type: 'steps',
+            steps: [
+              {
+                label: 'A task list',
+                date: 'Dec 2024',
+                html: 'The first version was a to-do list with color-coded categories, written in plain HTML, CSS, and JavaScript.',
+              },
+              {
+                label: 'Rewritten in Svelte',
+                date: 'Jun 2025',
+                html: 'I rewrote the app in Svelte.',
+              },
+              {
+                label: 'Accounts and sync',
+                date: 'Dec 2025 – Jan 2026',
+                html: 'Firebase accounts let your tasks follow you between devices. I also added a first tool for planning around deadlines.',
+              },
+              {
+                label: 'A full study planner',
+                date: 'Nov 2026',
+                html: 'I redesigned the app around the planner, the focus timer, and a command palette, then added templates, Insights, and achievements.',
+              },
+            ],
+          },
+        ],
+      },
+    },
   },
 
   // ───────────────────────────── Research ─────────────────────────────

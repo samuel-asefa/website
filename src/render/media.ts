@@ -1,3 +1,4 @@
+import { NARROW_MEDIA } from '../config/breakpoints';
 import type { Media } from '../content/types';
 import manifestJson from '../content/media-manifest.json';
 import { attrs, esc, join, rich } from './html';
@@ -46,6 +47,8 @@ export const originalUrl = (src: string): string => {
 /** Absolute-path JPEG suitable for social previews. */
 export const shareImageFor = (src: string): string => mediaInfo(src)?.share ?? src;
 
+const srcset = (info: ManifestEntry): string => info.widths.map((w) => `${info.base}-${w}.webp ${w}w`).join(', ');
+
 interface ImgOptions {
   sizes: string;
   eager?: boolean;
@@ -64,23 +67,45 @@ export const img = (m: Media, o: ImgOptions): string => {
       info ? `--ph:${info.color}` : '',
       cropped && ratio ? `aspect-ratio:${ratio}` : '',
       cropped && m.focus ? `object-position:${m.focus}` : '',
+      m.narrow?.focus ? `--narrow-focus:${m.narrow.focus}` : '',
     ],
     ';',
   );
-  return `<img${attrs({
+  const tag = `<img${attrs({
     src: info ? mediaUrl(m.src, 1200) : m.src,
-    srcset: info ? info.widths.map((w) => `${info.base}-${w}.webp ${w}w`).join(', ') : undefined,
+    srcset: info ? srcset(info) : undefined,
     sizes: info ? o.sizes : undefined,
     width: info?.w,
     height: info?.h,
     alt: m.alt,
+    'data-narrow-alt': m.narrow?.alt,
     loading: o.eager ? 'eager' : 'lazy',
     decoding: o.eager ? undefined : 'async',
     fetchpriority: o.eager ? 'high' : undefined,
-    class: join(['media', `media--${m.kind}`, cropped ? 'media--cropped' : '', o.className], ' '),
+    class: join(['media', `media--${m.kind}`, cropped ? 'media--cropped' : '', m.narrow ? 'media--has-narrow' : '', o.className], ' '),
     style: style || undefined,
   })}>`;
+  if (!m.narrow) return tag;
+  // Phones get the phone version; the browser only downloads the one it shows.
+  const n = mediaInfo(m.narrow.src);
+  return `<picture class="media-picture"><source${attrs({
+    media: NARROW_MEDIA,
+    srcset: n ? srcset(n) : m.narrow.src,
+    sizes: n ? o.sizes : undefined,
+    width: n?.w,
+    height: n?.h,
+  })}>${tag}</picture>`;
 };
+
+/** Phone version for the image viewer, which picks one when it opens. */
+const narrowData = (m: Media) =>
+  m.narrow
+    ? {
+        'data-narrow-full': mediaUrl(m.narrow.src, 2400),
+        'data-narrow-alt': m.narrow.alt,
+        'data-narrow-original': originalUrl(m.narrow.src),
+      }
+    : {};
 
 /** An image that exists only in the lightbox: a hidden entry in `group`, placed after the figure it follows. */
 export const lightboxOnly = (m: Media, group: string): string =>
@@ -89,6 +114,7 @@ export const lightboxOnly = (m: Media, group: string): string =>
     'data-full': mediaUrl(m.src, 2400),
     'data-alt': m.alt,
     'data-caption': m.caption ? m.caption.replace(/<[^>]+>/g, '') : undefined,
+    ...narrowData(m),
   })}></a>`;
 
 let figureCounter = 0;
@@ -122,8 +148,9 @@ export const fig = (m: Media, o: FigureOptions): string => {
         'data-group': o.group,
         'data-full': mediaUrl(m.src, 2400),
         'data-caption': m.caption ? m.caption.replace(/<[^>]+>/g, '') : undefined,
+        ...narrowData(m),
       })}><span class="visually-hidden">Enlarge${m.kind === 'figure' ? ' figure' : ' image'}: </span>${image}</a>`;
-  return `<figure class="${join(['fig', `fig--${m.kind}`, o.className ? `${o.className}-fig` : ''], ' ')}">${target}${
+  return `<figure class="${join(['fig', `fig--${m.kind}`, m.narrow ? 'fig--has-narrow' : '', o.className ? `${o.className}-fig` : ''], ' ')}">${target}${
     caption || label ? `<figcaption>${label}${caption ? ` ${caption}` : ''}</figcaption>` : ''
   }</figure>`;
 };

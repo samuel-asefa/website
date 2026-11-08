@@ -10,12 +10,19 @@
  *  - [data-modal-src] (award photos, grouped by data-group)
  *  - [data-modal-pdf] (PDF documents)
  */
+import { NARROW_MEDIA } from '../config/breakpoints';
+
 interface Item {
   src: string;
   alt: string;
   caption: string;
   original?: string;
+  /** Phone version of the same screen, shown instead on narrow screens. */
+  narrow?: { src: string; alt: string; original?: string };
 }
+
+const narrowScreen = window.matchMedia(NARROW_MEDIA);
+const fit = (it: Item): Item => (it.narrow && narrowScreen.matches ? { ...it, ...it.narrow } : it);
 
 const FOCUSABLE = 'button:not([hidden]), a[href]:not([hidden]), iframe';
 
@@ -86,7 +93,7 @@ export const initModal = (): void => {
   };
 
   const openWith = (list: Item[], start: number, from: HTMLElement) => {
-    items = list;
+    items = list.map(fit);
     opener = from;
     buildDots();
     modal.setAttribute('aria-hidden', 'false');
@@ -190,6 +197,9 @@ export const initModal = (): void => {
           alt: l.dataset.alt ?? l.querySelector('img')?.alt ?? '',
           caption: l.dataset.caption ?? '',
           original: l.getAttribute('href') ?? undefined,
+          narrow: l.dataset.narrowFull
+            ? { src: l.dataset.narrowFull, alt: l.dataset.narrowAlt ?? '', original: l.dataset.narrowOriginal }
+            : undefined,
         })),
         Math.max(0, links.indexOf(fig)),
         fig,

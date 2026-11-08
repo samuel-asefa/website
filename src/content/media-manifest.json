@@ -472,10 +472,10 @@
     "mtime": 1786076077315.8972,
     "bytes": 161992
   },
-  "/images/projects/amharicquest/amharic-quest.png": {
-    "w": 3456,
-    "h": 1824,
-    "color": "#182838",
+  "/images/projects/amharicquest/amharicquest-fidel-chart.webp": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#181818",
     "widths": [
       160,
       480,
@@ -484,10 +484,258 @@
       1800,
       2400
     ],
-    "base": "/media/amharic-quest-png",
-    "share": "/media/share/amharic-quest-png.jpg",
-    "mtime": 1788104323105.8162,
-    "bytes": 479383
+    "base": "/media/amharicquest-fidel-chart-webp",
+    "share": "/media/share/amharicquest-fidel-chart-webp.jpg",
+    "mtime": 1794064546000,
+    "bytes": 112106
+  },
+  "/images/projects/amharicquest/amharicquest-fidel-family.webp": {
+    "w": 1760,
+    "h": 1092,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1760
+    ],
+    "base": "/media/amharicquest-fidel-family-webp",
+    "share": "/media/share/amharicquest-fidel-family-webp.jpg",
+    "mtime": 1794064736000,
+    "bytes": 93784
+  },
+  "/images/projects/amharicquest/amharicquest-fidel.webp": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#f8f8e8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-fidel-webp",
+    "share": "/media/share/amharicquest-fidel-webp.jpg",
+    "mtime": 1794064540000,
+    "bytes": 226018
+  },
+  "/images/projects/amharicquest/amharicquest-home-dark.webp": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#181818",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-home-dark-webp",
+    "share": "/media/share/amharicquest-home-dark-webp.jpg",
+    "mtime": 1794064504000,
+    "bytes": 199778
+  },
+  "/images/projects/amharicquest/amharicquest-home.webp": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-home-webp",
+    "share": "/media/share/amharicquest-home-webp.jpg",
+    "mtime": 1794064500000,
+    "bytes": 256368
+  },
+  "/images/projects/amharicquest/amharicquest-journey.webp": {
+    "w": 2880,
+    "h": 2760,
+    "color": "#f8f8e8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-journey-webp",
+    "share": "/media/share/amharicquest-journey-webp.jpg",
+    "mtime": 1794064636000,
+    "bytes": 237236
+  },
+  "/images/projects/amharicquest/amharicquest-lesson-complete.webp": {
+    "w": 2880,
+    "h": 2160,
+    "color": "#f8f8e8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-lesson-complete-webp",
+    "share": "/media/share/amharicquest-lesson-complete-webp.jpg",
+    "mtime": 1794064782000,
+    "bytes": 156016
+  },
+  "/images/projects/amharicquest/amharicquest-lesson-flashcard.webp": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#f8f8e8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-lesson-flashcard-webp",
+    "share": "/media/share/amharicquest-lesson-flashcard-webp.jpg",
+    "mtime": 1794064756000,
+    "bytes": 81158
+  },
+  "/images/projects/amharicquest/amharicquest-lesson-intro.webp": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#f8f8e8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-lesson-intro-webp",
+    "share": "/media/share/amharicquest-lesson-intro-webp.jpg",
+    "mtime": 1794064752000,
+    "bytes": 71370
+  },
+  "/images/projects/amharicquest/amharicquest-lesson-quiz.webp": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#f8f8e8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-lesson-quiz-webp",
+    "share": "/media/share/amharicquest-lesson-quiz-webp.jpg",
+    "mtime": 1794064762000,
+    "bytes": 103060
+  },
+  "/images/projects/amharicquest/amharicquest-mobile-home.webp": {
+    "w": 1170,
+    "h": 2532,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1170
+    ],
+    "base": "/media/amharicquest-mobile-home-webp",
+    "share": "/media/share/amharicquest-mobile-home-webp.jpg",
+    "mtime": 1794064674000,
+    "bytes": 168022
+  },
+  "/images/projects/amharicquest/amharicquest-mobile-journey.webp": {
+    "w": 1170,
+    "h": 2532,
+    "color": "#180808",
+    "widths": [
+      160,
+      480,
+      800,
+      1170
+    ],
+    "base": "/media/amharicquest-mobile-journey-webp",
+    "share": "/media/share/amharicquest-mobile-journey-webp.jpg",
+    "mtime": 1794064678000,
+    "bytes": 106520
+  },
+  "/images/projects/amharicquest/amharicquest-mobile-quiz.webp": {
+    "w": 1170,
+    "h": 2532,
+    "color": "#f8f8e8",
+    "widths": [
+      160,
+      480,
+      800,
+      1170
+    ],
+    "base": "/media/amharicquest-mobile-quiz-webp",
+    "share": "/media/share/amharicquest-mobile-quiz-webp.jpg",
+    "mtime": 1794064686000,
+    "bytes": 111226
+  },
+  "/images/projects/amharicquest/amharicquest-practice.webp": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#180808",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-practice-webp",
+    "share": "/media/share/amharicquest-practice-webp.jpg",
+    "mtime": 1794064554000,
+    "bytes": 132336
+  },
+  "/images/projects/amharicquest/amharicquest-profile.webp": {
+    "w": 2880,
+    "h": 3178,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-profile-webp",
+    "share": "/media/share/amharicquest-profile-webp.jpg",
+    "mtime": 1794064558000,
+    "bytes": 388764
+  },
+  "/images/projects/amharicquest/amharicquest-signup.webp": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#f8f8e8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/amharicquest-signup-webp",
+    "share": "/media/share/amharicquest-signup-webp.jpg",
+    "mtime": 1794064560000,
+    "bytes": 197290
   },
   "/images/projects/circuitspace/circuit-space.png": {
     "w": 3456,
@@ -1161,10 +1409,10 @@
     "mtime": 1783647519959.8176,
     "bytes": 829310
   },
-  "/images/projects/studently/studently.png": {
-    "w": 3456,
-    "h": 1752,
-    "color": "#081828",
+  "/images/projects/studently/studently-landing.jpg": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#081818",
     "widths": [
       160,
       480,
@@ -1173,10 +1421,27 @@
       1800,
       2400
     ],
-    "base": "/media/studently-png",
-    "share": "/media/share/studently-png.jpg",
-    "mtime": 1766811255315.0828,
-    "bytes": 334069
+    "base": "/media/studently-landing-jpg",
+    "share": "/media/share/studently-landing-jpg.jpg",
+    "mtime": 1794097017341.4875,
+    "bytes": 891865
+  },
+  "/images/projects/studently/studently-today.jpg": {
+    "w": 2880,
+    "h": 1800,
+    "color": "#f8f8f8",
+    "widths": [
+      160,
+      480,
+      800,
+      1200,
+      1800,
+      2400
+    ],
+    "base": "/media/studently-today-jpg",
+    "share": "/media/share/studently-today-jpg.jpg",
+    "mtime": 1794097017342.1594,
+    "bytes": 599036
   },
   "/images/projects/surroundscanner/surroundscanner.png": {
     "w": 2532,

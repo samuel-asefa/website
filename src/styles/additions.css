@@ -2825,3 +2825,38 @@ a.award-media-card {
   vertical-align: middle;
 }
 
+
+/* ── Phone versions of screenshots ─────────────────────────
+   Media.narrow swaps in a tall phone screenshot at 600px and below
+   (NARROW_MEDIA in src/config/breakpoints.ts). */
+.media-picture {
+  display: contents;
+}
+
+@media (max-width: 600px) {
+  /* Show the whole phone screen, centered, no taller than most of the viewport. */
+  .fig--has-narrow {
+    align-items: center;
+  }
+
+  .fig--has-narrow figcaption {
+    align-self: stretch;
+  }
+
+  .fig--has-narrow .media {
+    width: auto;
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+  }
+
+  /* A desktop crop ratio is set inline; the phone version is shown whole. */
+  .fig--has-narrow .media--cropped {
+    aspect-ratio: auto !important;
+  }
+
+  /* Project cards crop the tall phone version to a short strip; narrow.focus picks which part. */
+  .project-img img.media--has-narrow {
+    object-position: var(--narrow-focus, top);
+  }
+}

@@ -24,6 +24,12 @@ export interface Media {
   focus?: string;
   /** Preferred display ratio when cropped (e.g. "4 / 5"). Figures are never cropped. */
   ratio?: string;
+  /**
+   * Phone version of the same screen. Phones see it instead of `src`, on the page and in
+   * the image viewer; wider screens never load it. Write `caption` so it fits both versions.
+   * `focus` is the CSS object-position for the short crop on project cards (default: top).
+   */
+  narrow?: { src: string; alt: string; focus?: string };
 }
 
 /**
